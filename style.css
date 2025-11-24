@@ -1,4 +1,4 @@
-/* AV. FATİH TURAN - FINAL MASTER CSS (V11.0 - YAN YANA DÜZELTME) */
+/* AV. FATİH TURAN - FINAL CSS (V12.0 - GARANTİ YAPI) */
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap');
 
 :root {
@@ -27,11 +27,12 @@ a { text-decoration: none; color: inherit; transition: 0.3s; }
 ul { list-style: none; padding: 0; margin: 0; }
 img { max-width: 100%; display: block; }
 
-/* --- HAREKETLİ ARKA PLAN ANİMASYONU --- */
-@keyframes deepOcean {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
+/* --- CONTAINER (HİZALAMA KUTUSU) --- */
+.container {
+    max-width: 1200px;
+    margin: 0 auto; /* Ortalar */
+    padding: 0 20px;
+    width: 100%;
 }
 
 /* --- HEADER (ÜST MENÜ) --- */
@@ -45,51 +46,34 @@ header {
     box-shadow: 0 2px 10px rgba(0,0,0,0.05);
 }
 
-.container {
-    max-width: 1200px;
-    margin: auto;
-    padding: 0 20px;
-}
-
-/* HEADER İÇ YAPISI - YAN YANA ZORLAMA */
-.header-flex {
+/* Header İçin Güvenli Flex Yapısı */
+.header-row {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: nowrap; /* Asla alt satıra düşme */
+    justify-content: space-between; /* Sağa ve Sola Yasla */
+    align-items: center; /* Dikey Ortala */
+    width: 100%;
 }
 
-/* LOGO SOLDA */
+/* Logo Alanı */
 .brand-area {
     display: flex;
     align-items: center;
     gap: 15px;
-    flex-shrink: 0; /* Logo sıkışmasın */
+    text-decoration: none;
+    flex-shrink: 0; /* Logo asla küçülmesin */
 }
 
-.brand-area img { height: 60px; width: auto; mix-blend-mode: multiply; }
+.brand-area img { height: 55px; width: auto; mix-blend-mode: multiply; }
 
 .brand-text { display: flex; flex-direction: column; line-height: 1.2; }
 .brand-text .name { font-size: 1.2rem; font-weight: 800; color: var(--lacivert); text-transform: uppercase; letter-spacing: -0.5px; white-space: nowrap; }
 .brand-text .title { font-size: 0.75rem; color: var(--altin); font-weight: 600; letter-spacing: 1px; text-transform: uppercase; white-space: nowrap; }
 
-/* MENÜ SAĞDA - YAN YANA */
-.nav-actions {
-    display: flex;
-    align-items: center;
-    gap: 20px;
-}
-
+/* Masaüstü Menü */
 .desktop-nav ul {
     display: flex;
-    gap: 25px;
+    gap: 30px; /* Linkler arası boşluk */
     align-items: center;
-    margin: 0;
-    padding: 0;
-}
-
-.desktop-nav li {
-    display: inline-block; /* Yan yana durması için */
 }
 
 .desktop-nav a {
@@ -97,72 +81,51 @@ header {
     font-weight: 600;
     text-transform: uppercase;
     color: var(--lacivert);
-    padding: 5px 0;
-    position: relative;
-    white-space: nowrap; /* Menü yazıları alt satıra düşmesin */
+    padding: 10px 0;
+    white-space: nowrap; /* Asla alt satıra inme */
 }
-.desktop-nav a:hover { color: var(--altin); }
-.desktop-nav a.active { border-bottom: 2px solid var(--altin); }
+.desktop-nav a:hover { color: var(--altin); border-bottom: 2px solid var(--altin); }
 
-.theme-toggle {
-    background: none;
-    border: 1px solid var(--lacivert);
-    border-radius: 50%;
-    width: 35px; height: 35px;
-    display: flex; align-items: center; justify-content: center;
-    cursor: pointer;
-    color: var(--lacivert);
-    transition: 0.3s;
-}
-.theme-toggle:hover { background: var(--altin); color: #fff; border-color: var(--altin); }
-
+/* Mobil Menü Butonu (Varsayılan Gizli) */
 .menu-toggle { display: none; font-size: 1.5rem; color: var(--lacivert); cursor: pointer; }
 
-/* --- HERO --- */
+/* --- HERO (BANNER) --- */
 .hero {
     min-height: 65vh;
-    background: linear-gradient(-45deg, #002855, #00152a, #003366, #004080);
-    background-size: 400% 400%;
-    animation: deepOcean 15s ease infinite;
+    background: linear-gradient(to right, rgba(0, 40, 85, 0.9), rgba(0, 40, 85, 0.6)), url('banner.jpg');
+    background-size: cover;
+    background-position: center;
     display: flex;
     align-items: center;
     color: var(--beyaz);
-    position: relative;
-    overflow: hidden;
 }
-.hero::before {
-    content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0;
-    background: url('banner.jpg') center/cover;
-    opacity: 0.25; mix-blend-mode: overlay;
-}
-.hero-content { position: relative; z-index: 2; max-width: 1200px; width: 100%; margin: auto; padding: 0 20px; }
-.hero h1 { font-size: 3rem; font-weight: 800; line-height: 1.1; margin-bottom: 20px; text-shadow: 0 2px 10px rgba(0,0,0,0.3); }
-.hero p { font-size: 1.2rem; border-left: 4px solid var(--altin); padding-left: 20px; max-width: 700px; background: rgba(0,0,0,0.3); backdrop-filter: blur(5px); }
+.hero-content { max-width: 1200px; width: 100%; margin: auto; padding: 0 20px; }
+.hero h1 { font-size: 3rem; font-weight: 800; line-height: 1.1; margin-bottom: 20px; }
+.hero p { font-size: 1.2rem; border-left: 4px solid var(--altin); padding-left: 20px; max-width: 700px; background: rgba(0,0,0,0.3); }
 
 .btn { display: inline-block; background-color: var(--altin); color: var(--lacivert); padding: 15px 35px; font-weight: 700; text-transform: uppercase; border-radius: 4px; font-size: 0.9rem; margin-top: 25px; }
 .btn:hover { background-color: var(--beyaz); }
 
-/* SECTIONS */
+/* --- SECTIONS --- */
 section { padding: 80px 0; }
 .bg-light { background-color: #fcfcfc; border-top: 1px solid #eee; border-bottom: 1px solid #eee; }
 h2.section-heading { font-size: 2rem; color: var(--lacivert); font-weight: 700; margin-bottom: 40px; position: relative; display: inline-block; }
 h2.section-heading::after { content: ''; display: block; width: 60px; height: 3px; background: var(--altin); margin: 10px 0 0 0; }
 
-/* GRID SİSTEMİ */
-.grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; } /* 3 Sütun Sabit */
+/* Grid (Kartlar İçin) */
+.grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
 .grid-2 { display: grid; grid-template-columns: 1.2fr 1fr; gap: 60px; align-items: start; }
 
 .card { background: #fff; padding: 30px; border: 1px solid #eee; border-radius: 4px; box-shadow: 0 5px 15px rgba(0,0,0,0.03); }
 .card h3 { color: var(--lacivert); margin-bottom: 15px; font-size: 1.3rem; }
 .card i { font-size: 2rem; color: var(--altin); margin-bottom: 15px; }
 
-/* İLETİŞİM */
+/* İletişim */
 .contact-wrapper { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; }
 .contact-info a { display: flex; align-items: center; gap: 10px; margin-bottom: 15px; font-size: 1.1rem; }
 .contact-info a:hover { color: var(--altin); }
 form input, form textarea { width: 100%; padding: 15px; margin-bottom: 15px; border: 1px solid #ccc; font-family: inherit; background: #f9f9f9; }
 form button { background-color: var(--lacivert); color: #fff; padding: 15px 30px; border: none; cursor: pointer; font-weight: bold; width: 100%; }
-form button:hover { background-color: var(--altin); }
 
 /* --- FOOTER (ALT MENÜ) --- */
 footer {
@@ -172,13 +135,19 @@ footer {
     margin-top: auto;
 }
 
-/* FOOTER GRID - YAN YANA ZORLAMA */
-.footer-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr; /* 3 Eşit Sütun */
+/* Footer'ı Yan Yana Zorlayan Flex Yapı */
+.footer-row {
+    display: flex;
+    justify-content: space-between; /* Eşit dağıt */
+    flex-wrap: wrap; /* Sığmazsa alta geç */
     gap: 40px;
+    padding-bottom: 40px;
     border-bottom: 1px solid rgba(255,255,255,0.1);
-    padding-bottom: 30px;
+}
+
+.footer-col {
+    flex: 1; /* Her kolon eşit genişlik almaya çalışsın */
+    min-width: 250px; /* Çok küçülürse alta geçsin */
 }
 
 .footer-col h4 { color: #fff; margin-bottom: 20px; text-transform: uppercase; font-size: 1rem; letter-spacing: 1px; }
@@ -186,57 +155,29 @@ footer {
 .footer-col a:hover { color: var(--altin); }
 .footer-bottom { text-align: center; margin-top: 20px; font-size: 0.8rem; }
 
-/* WHATSAPP */
-.whatsapp-float {
-    position: fixed; bottom: 25px; right: 25px; background-color: #25d366; color: white;
-    width: 60px; height: 60px; border-radius: 50%; text-align: center; font-size: 30px;
-    box-shadow: 2px 2px 10px rgba(0,0,0,0.2); z-index: 9999; display: flex; align-items: center; justify-content: center; transition: 0.3s;
-}
-.whatsapp-float:hover { transform: scale(1.1); }
-
-/* --- MOBİL UYUMLULUK (SADECE TELEFONDA DEĞİŞİR) --- */
+/* --- MOBİL UYUMLULUK (CEP TELEFONU) --- */
 @media (max-width: 900px) {
     .menu-toggle { display: block; } /* Mobilde butonu göster */
     
-    .header-flex { flex-wrap: wrap; } /* Mobilde sığmazsa alta geçsin */
-    
+    /* Menü Gizleme / Açma */
     .desktop-nav {
-        display: none; /* Normal menüyü gizle */
-        width: 100%; 
-        position: absolute; 
-        top: 100%; left: 0;
-        background: var(--bej-header);
-        flex-direction: column;
+        display: none; /* Başlangıçta gizle */
+        position: absolute;
+        top: 100%; left: 0; width: 100%;
+        background-color: var(--bej-header);
+        border-bottom: 3px solid var(--lacivert);
         padding: 20px;
-        border-bottom: 2px solid var(--lacivert);
-        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        box-shadow: 0 10px 20px rgba(0,0,0,0.1);
     }
+    .desktop-nav.active { display: block; } /* JS ile açılınca görün */
     
-    .desktop-nav.active { display: flex; } /* JS ile açılınca */
-    
-    .desktop-nav ul {
-        flex-direction: column; /* Mobilde alt alta olsun */
-        align-items: flex-start;
-        width: 100%;
-    }
-    
-    .desktop-nav li {
-        margin-bottom: 15px;
-        width: 100%;
-        border-bottom: 1px solid #ddd;
-        display: block; /* Mobilde blok olsun */
-    }
-
-    .nav-actions {
-        margin-left: auto; /* Sağa yasla */
-    }
+    .desktop-nav ul { flex-direction: column; align-items: flex-start; gap: 15px; }
+    .desktop-nav ul li { width: 100%; border-bottom: 1px solid #ddd; padding-bottom: 10px; }
+    .desktop-nav a { display: block; width: 100%; }
 
     .hero h1 { font-size: 2rem; }
-    .grid-2, .grid-3, .contact-wrapper, .footer-grid { 
-        grid-template-columns: 1fr; /* Mobilde tek sütun olsun */
-        gap: 30px;
-    }
+    .grid-2, .grid-3, .contact-wrapper { grid-template-columns: 1fr; }
     
     .brand-text .name { font-size: 1rem; }
-    .brand-text .title { display: none; }
+    .brand-text .title { display: none; } /* Çok darsa alt başlığı gizle */
 }
