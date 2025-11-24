@@ -3,14 +3,44 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Av. Fatih Turan | Ankara Hukuk</title>
-    <link rel="icon" href="favicon.ico">
+    <title>Av. Fatih Turan | Ankara Hukuk ve Danışmanlık</title>
+    <meta name="description" content="Av. Fatih Turan - Ceza, Şirketler, İş ve Kira Hukuku alanlarında Ankara merkezli avukatlık ve hukuki danışmanlık hizmeti.">
+    
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+    <link rel="manifest" href="manifest.webmanifest">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Attorney",
+      "name": "Av. Fatih Turan",
+      "image": "https://fatihturan.av.tr/transparent-logo.png",
+      "@id": "https://fatihturan.av.tr",
+      "url": "https://fatihturan.av.tr",
+      "telephone": "+905326100805",
+      "email": "av.fatihturan@outlook.com",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Ankara",
+        "addressRegion": "TR",
+        "addressCountry": "TR"
+      },
+      "priceRange": "Baro Asgari Ücret Tarifesi",
+      "sameAs": [
+        "https://tr.linkedin.com/in/fatih-turan-400b9724b" 
+      ],
+      "description": "Ankara Barosu'na kayıtlı Avukat Fatih Turan. Ceza Hukuku, Şirketler Hukuku, İş Hukuku ve Uluslararası Hukuk alanlarında stratejik danışmanlık."
+    }
+    </script>
 </head>
 <body>
-
     <header>
         <div class="container header-row">
             <a href="index.html" class="brand-area">
@@ -20,7 +50,7 @@
                     <span class="title">Hukuki Danışmanlık</span>
                 </div>
             </a>
-
+            
             <div class="header-right">
                 <nav class="desktop-nav">
                     <ul>
@@ -31,10 +61,8 @@
                         <li><a href="iletisim.html">İletişim</a></li>
                     </ul>
                 </nav>
-                <button id="theme-toggle" class="theme-toggle"><i class="fa-solid fa-moon"></i></button>
-                <div class="menu-toggle" onclick="document.querySelector('.desktop-nav').classList.toggle('active')">
-                    <i class="fa-solid fa-bars"></i>
-                </div>
+                <button id="theme-toggle" class="theme-toggle" aria-label="Mod Değiştir"><i class="fa-solid fa-moon"></i></button>
+                <div class="menu-toggle" onclick="document.querySelector('.desktop-nav').classList.toggle('active')"><i class="fa-solid fa-bars"></i></div>
             </div>
         </div>
     </header>
@@ -55,13 +83,14 @@
                 <p style="margin-top:15px;"><strong>Ankara Barosu - 46839</strong></p>
                 <a href="hakkimda.html" style="display:inline-block; margin-top:20px; color:var(--altin); font-weight:bold;">Detaylı Profil &rarr;</a>
             </div>
-            <div class="card" style="border-left:5px solid var(--altin);">
+            
+            <div class="card" style="border-left:5px solid var(--lacivert);">
                 <h3>Uzmanlık Alanları</h3>
                 <ul style="line-height:2;">
-                    <li>✔ Ceza Hukuku</li>
-                    <li>✔ Şirketler Hukuku</li>
-                    <li>✔ İş Hukuku</li>
-                    <li>✔ Uluslararası Hukuk</li>
+                    <li><i class="fa-solid fa-check" style="color:var(--altin);"></i> Ceza Hukuku</li>
+                    <li><i class="fa-solid fa-check" style="color:var(--altin);"></i> Şirketler & Sözleşme Hukuku</li>
+                    <li><i class="fa-solid fa-check" style="color:var(--altin);"></i> Kira Hukuku</li>
+                    <li><i class="fa-solid fa-check" style="color:var(--altin);"></i> İş Hukuku</li>
                 </ul>
             </div>
         </div>
@@ -72,9 +101,8 @@
             <div class="footer-row">
                 <div class="footer-col">
                     <h4>Av. Fatih Turan</h4>
-                    <p>Hukuki Danışmanlık ve Çözüm Ortaklığı.</p>
-                    <br>
-                    <p>Ankara / Türkiye</p>
+                    <p>Ankara Barosu - 46839</p>
+                    <p>Hukuki Danışmanlık ve Çözüm Ortaklığı</p>
                 </div>
                 <div class="footer-col">
                     <h4>Hızlı Erişim</h4>
@@ -89,6 +117,7 @@
                     <ul>
                         <li><a href="kvkk-aydinlatma-metni.html">KVKK Aydınlatma Metni</a></li>
                         <li><a href="yasal-uyari.html">Yasal Uyarı</a></li>
+                        <li><a href="gizlilik-bildirimi.html">Gizlilik Bildirimi</a></li>
                     </ul>
                 </div>
             </div>
@@ -97,6 +126,7 @@
             </div>
         </div>
     </footer>
+
     <script src="script.js"></script>
 </body>
 </html>
