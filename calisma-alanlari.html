@@ -4,8 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Çalışma Alanları | Av. Fatih Turan</title>
+    
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+    <link rel="manifest" href="manifest.webmanifest">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+
     <link rel="stylesheet" href="style.css">
-    <link rel="icon" href="favicon.ico">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
@@ -18,16 +25,19 @@
                     <span class="title">Hukuki Danışmanlık</span>
                 </div>
             </a>
-            <div class="menu-toggle" onclick="document.querySelector('.desktop-nav').classList.toggle('active')"><i class="fa-solid fa-bars"></i></div>
-            <nav class="desktop-nav">
-                <ul>
-                    <li><a href="index.html">Anasayfa</a></li>
-                    <li><a href="hakkimda.html">Hakkımda</a></li>
-                    <li><a href="calisma-alanlari.html" class="active">Çalışma Alanları</a></li>
-                    <li><a href="yayinlar.html">Yayınlar</a></li>
-                    <li><a href="iletisim.html">İletişim</a></li>
-                </ul>
-            </nav>
+            <div class="nav-actions">
+                <button id="theme-toggle" class="theme-toggle"><i class="fa-solid fa-moon"></i></button>
+                <button class="menu-toggle" onclick="document.querySelector('nav').classList.toggle('active')"><i class="fa-solid fa-bars"></i></button>
+                <nav>
+                    <ul>
+                        <li><a href="index.html">Anasayfa</a></li>
+                        <li><a href="hakkimda.html">Hakkımda</a></li>
+                        <li><a href="calisma-alanlari.html" class="active">Çalışma Alanları</a></li>
+                        <li><a href="yayinlar.html">Yayınlar</a></li>
+                        <li><a href="iletisim.html">İletişim</a></li>
+                    </ul>
+                </nav>
+            </div>
         </div>
     </header>
 
@@ -63,7 +73,36 @@
     </section>
 
     <footer>
-        <div class="container footer-bottom"><p>© 2025 Av. Fatih Turan</p></div>
+        <div class="container">
+            <div class="footer-top">
+                <div class="footer-col">
+                    <h4>Av. Fatih Turan</h4>
+                    <p>Hukuki Danışmanlık ve Çözüm Ortaklığı.</p>
+                    <br>
+                    <p>Ankara / Türkiye</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Hızlı Menü</h4>
+                    <ul>
+                        <li><a href="hakkimda.html">Hakkımda</a></li>
+                        <li><a href="calisma-alanlari.html">Faaliyet Alanları</a></li>
+                        <li><a href="iletisim.html">İletişim</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Yasal</h4>
+                    <ul>
+                        <li><a href="kvkk-aydinlatma-metni.html">KVKK Aydınlatma Metni</a></li>
+                        <li><a href="yasal-uyari.html">Yasal Uyarı</a></li>
+                        <li><a href="gizlilik-bildirimi.html">Gizlilik Bildirimi</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2025 Av. Fatih Turan | Her Hakkı Saklıdır</p>
+            </div>
+        </div>
     </footer>
+    <script src="script.js"></script>
 </body>
 </html>
