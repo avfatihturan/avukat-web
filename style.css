@@ -1,0 +1,148 @@
+/* AV. FATİH TURAN - FINAL MASTER CSS (V10.0) */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap');
+
+:root {
+    --lacivert: #002855;
+    --bej-header: #f9f9f7;
+    --altin: #c5a059;
+    --beyaz: #ffffff;
+    --gri-metin: #333;
+    --footer-bg: #00152a;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    color: var(--gri-metin);
+    background-color: var(--beyaz);
+    line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+a { text-decoration: none; color: inherit; transition: 0.3s; }
+ul { list-style: none; }
+img { max-width: 100%; display: block; }
+
+/* --- HAREKETLİ ARKA PLAN ANİMASYONU --- */
+@keyframes deepOcean {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* --- HEADER --- */
+header {
+    background-color: var(--bej-header);
+    padding: 15px 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    border-bottom: 2px solid var(--lacivert);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+.container {
+    max-width: 1200px;
+    margin: auto;
+    padding: 0 20px;
+}
+
+.header-flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.brand-area {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.brand-area img { height: 60px; width: auto; mix-blend-mode: multiply; }
+
+.brand-text { display: flex; flex-direction: column; line-height: 1.2; }
+.brand-text .name { font-size: 1.2rem; font-weight: 800; color: var(--lacivert); text-transform: uppercase; letter-spacing: -0.5px; }
+.brand-text .title { font-size: 0.75rem; color: var(--altin); font-weight: 600; letter-spacing: 1px; text-transform: uppercase; }
+
+/* MENÜ */
+.desktop-nav ul { display: flex; gap: 25px; }
+.desktop-nav a { font-size: 0.85rem; font-weight: 600; text-transform: uppercase; color: var(--lacivert); padding: 5px 0; position: relative; }
+.desktop-nav a:hover { color: var(--altin); }
+.desktop-nav a.active { border-bottom: 2px solid var(--altin); }
+
+.menu-toggle { display: none; font-size: 1.5rem; color: var(--lacivert); cursor: pointer; }
+
+/* --- HERO (Hareketli) --- */
+.hero {
+    min-height: 65vh;
+    /* Hareketli Lacivert Gradyan */
+    background: linear-gradient(-45deg, #002855, #00152a, #003366, #004080);
+    background-size: 400% 400%;
+    animation: deepOcean 15s ease infinite;
+    
+    display: flex;
+    align-items: center;
+    color: var(--beyaz);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Banner resmini doku olarak kullan */
+.hero::before {
+    content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+    background: url('banner.jpg') center/cover;
+    opacity: 0.25; 
+    mix-blend-mode: overlay;
+}
+
+.hero-content { position: relative; z-index: 2; max-width: 1200px; width: 100%; margin: auto; padding: 0 20px; }
+.hero h1 { font-size: 3rem; font-weight: 800; line-height: 1.1; margin-bottom: 20px; text-shadow: 0 2px 10px rgba(0,0,0,0.3); }
+.hero p { font-size: 1.2rem; border-left: 4px solid var(--altin); padding-left: 20px; max-width: 700px; background: rgba(0,0,0,0.3); backdrop-filter: blur(5px); }
+
+.btn { display: inline-block; background-color: var(--altin); color: var(--lacivert); padding: 15px 35px; font-weight: 700; text-transform: uppercase; border-radius: 4px; font-size: 0.9rem; margin-top: 25px; }
+.btn:hover { background-color: var(--beyaz); }
+
+/* SECTIONS */
+section { padding: 80px 0; }
+.bg-light { background-color: #fcfcfc; border-top: 1px solid #eee; border-bottom: 1px solid #eee; }
+h2.section-heading { font-size: 2rem; color: var(--lacivert); font-weight: 700; margin-bottom: 40px; position: relative; display: inline-block; }
+h2.section-heading::after { content: ''; display: block; width: 60px; height: 3px; background: var(--altin); margin-top: 10px; }
+
+/* KARTLAR */
+.grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+.grid-2 { display: grid; grid-template-columns: 1.2fr 1fr; gap: 60px; align-items: start; }
+
+.card { background: #fff; padding: 30px; border: 1px solid #eee; border-radius: 4px; box-shadow: 0 5px 15px rgba(0,0,0,0.03); }
+.card h3 { color: var(--lacivert); margin-bottom: 15px; font-size: 1.3rem; }
+.card i { font-size: 2rem; color: var(--altin); margin-bottom: 15px; }
+
+/* İLETİŞİM */
+.contact-wrapper { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; }
+.contact-info a { display: block; margin-bottom: 15px; font-size: 1.1rem; display: flex; align-items: center; gap: 10px; }
+.contact-info a:hover { color: var(--altin); }
+
+form input, form textarea { width: 100%; padding: 15px; margin-bottom: 15px; border: 1px solid #ccc; font-family: inherit; background: #f9f9f9; }
+form button { background-color: var(--lacivert); color: #fff; padding: 15px 30px; border: none; cursor: pointer; font-weight: bold; width: 100%; }
+form button:hover { background-color: var(--altin); }
+
+/* FOOTER */
+footer { background-color: var(--footer-bg); color: rgba(255,255,255,0.6); padding: 50px 0 20px; margin-top: auto; }
+.footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 30px; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 30px; }
+.footer-col h4 { color: #fff; margin-bottom: 20px; text-transform: uppercase; }
+.footer-bottom { text-align: center; margin-top: 20px; font-size: 0.8rem; }
+
+/* MOBİL */
+@media (max-width: 900px) {
+    .menu-toggle { display: block; }
+    .desktop-nav { display: none; position: absolute; top: 100%; left: 0; width: 100%; background: var(--bej-header); flex-direction: column; padding: 20px; border-bottom: 2px solid var(--lacivert); }
+    .desktop-nav.active { display: flex; }
+    .desktop-nav ul { flex-direction: column; width: 100%; }
+    .desktop-nav li { margin-bottom: 15px; border-bottom: 1px solid #ddd; width: 100%; padding-bottom: 5px; }
+    .hero h1 { font-size: 2rem; }
+    .grid-2, .contact-wrapper { grid-template-columns: 1fr; }
+}
