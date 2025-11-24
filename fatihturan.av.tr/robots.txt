@@ -1,0 +1,4 @@
+User-agent: *
+Disallow:
+
+Sitemap: https://fatihturan.av.tr/sitemap.xml
