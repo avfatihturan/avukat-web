@@ -4,13 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>İletişim | Av. Fatih Turan</title>
-    
-    <link rel="icon" href="favicon.ico" type="image/x-icon">
-    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-    <link rel="apple-touch-icon" href="apple-touch-icon.png">
-
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="icon" href="favicon.ico">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
@@ -23,7 +18,7 @@
                     <span class="title">Hukuki Danışmanlık</span>
                 </div>
             </a>
-            <div class="menu-toggle" onclick="document.querySelector('.desktop-nav').classList.toggle('active')">☰</div>
+            <div class="menu-toggle" onclick="document.querySelector('.desktop-nav').classList.toggle('active')"><i class="fa-solid fa-bars"></i></div>
             <nav class="desktop-nav">
                 <ul>
                     <li><a href="index.html">Anasayfa</a></li>
@@ -46,7 +41,7 @@
         <div class="container contact-wrapper">
             <div class="contact-info">
                 <h2 class="section-heading" style="text-align:left;">Bize Ulaşın</h2>
-                <p>Hukuki danışmanlık ve randevu talepleriniz için doğrudan arayabilir veya ofisimizi ziyaret edebilirsiniz.</p>
+                <p>Hukuki danışmanlık ve randevu talepleriniz için aşağıdaki iletişim kanallarını kullanabilirsiniz.</p>
                 <br>
                 <a href="tel:905326100805" style="font-size:1.2rem; font-weight:bold; margin-bottom:15px; display:flex; align-items:center;">
                     <i class="fa-solid fa-phone" style="color:var(--altin); margin-right:10px;"></i> 0 532 610 08 05
@@ -55,11 +50,10 @@
                     <i class="fa-solid fa-envelope" style="color:var(--altin); margin-right:10px;"></i> av.fatihturan@outlook.com
                 </a>
                 <a href="https://wa.me/905326100805" target="_blank" style="font-size:1.1rem; display:flex; align-items:center;">
-                    <i class="fa-brands fa-whatsapp" style="color:var(--altin); margin-right:10px;"></i> WhatsApp
+                    <i class="fa-brands fa-whatsapp" style="color:var(--altin); margin-right:10px;"></i> WhatsApp ile Yazın
                 </a>
                 
                 <hr style="margin:30px 0; border:0; border-top:1px solid #ddd;">
-                
                 <p><strong><i class="fa-solid fa-location-dot" style="color:var(--altin);"></i> Adres:</strong><br>Ankara, Türkiye</p>
             </div>
 
@@ -70,14 +64,14 @@
                     <input type="tel" name="telefon" placeholder="Telefon Numaranız">
                     <textarea name="mesaj" placeholder="Konuyu kısaca özetleyiniz..." rows="5" required></textarea>
                     
-                    <div style="font-size:0.85rem; margin-bottom:20px; color:#555;">
+                    <div style="font-size:0.85rem; margin-bottom:20px;">
                         <input type="checkbox" required style="width:auto; margin-right:5px;"> 
                         <a href="kvkk-aydinlatma-metni.html" target="_blank" style="text-decoration:underline; color:var(--lacivert); font-weight:600;">
                             KVKK Aydınlatma Metni
                         </a>'ni okudum ve kabul ediyorum.
                     </div>
 
-                    <button type="submit">GÖNDER</button>
+                    <button type="submit" class="btn">GÖNDER</button>
                 </form>
             </div>
         </div>
