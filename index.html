@@ -3,13 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Av. Fatih Turan | Ankara Hukuk ve Danışmanlık</title>
-    <meta name="description" content="Av. Fatih Turan - Ceza, Şirketler, İş ve Kira Hukuku alanlarında Ankara merkezli avukatlık ve hukuki danışmanlık hizmeti.">
-    
+    <title>Av. Fatih Turan | Ankara Hukuk</title>
     <link rel="icon" href="favicon.ico">
-    <link rel="apple-touch-icon" href="apple-touch-icon.png">
-    <link rel="manifest" href="manifest.webmanifest">
-
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -17,19 +12,16 @@
 <body>
 
     <header>
-        <div class="container">
-            <div class="header-row"> <a href="index.html" class="brand-area">
-                    <img src="transparent-logo.png" alt="Logo">
-                    <div class="brand-text">
-                        <span class="name">Av. Fatih Turan</span>
-                        <span class="title">Hukuki Danışmanlık</span>
-                    </div>
-                </a>
-
-                <div class="menu-toggle" onclick="document.querySelector('.desktop-nav').classList.toggle('active')">
-                    <i class="fa-solid fa-bars"></i>
+        <div class="container header-row">
+            <a href="index.html" class="brand-area">
+                <img src="transparent-logo.png" alt="Logo">
+                <div class="brand-text">
+                    <span class="name">Av. Fatih Turan</span>
+                    <span class="title">Hukuki Danışmanlık</span>
                 </div>
+            </a>
 
+            <div class="header-right">
                 <nav class="desktop-nav">
                     <ul>
                         <li><a href="index.html" class="active">Anasayfa</a></li>
@@ -39,7 +31,10 @@
                         <li><a href="iletisim.html">İletişim</a></li>
                     </ul>
                 </nav>
-
+                <button id="theme-toggle" class="theme-toggle"><i class="fa-solid fa-moon"></i></button>
+                <div class="menu-toggle" onclick="document.querySelector('.desktop-nav').classList.toggle('active')">
+                    <i class="fa-solid fa-bars"></i>
+                </div>
             </div>
         </div>
     </header>
@@ -55,12 +50,12 @@
     <section class="bg-light">
         <div class="container grid-2">
             <div>
-                <h2 class="section-heading">Hukuk ve Strateji</h2>
+                <h2 class="section-heading">Hakkımda</h2>
                 <p>Deniz Subaylığı geçmişimden gelen kriz yönetimi ve disiplin yeteneklerini; hukuk nosyonu ile birleştirerek müvekkillerime sunuyorum.</p>
                 <p style="margin-top:15px;"><strong>Ankara Barosu - 46839</strong></p>
                 <a href="hakkimda.html" style="display:inline-block; margin-top:20px; color:var(--altin); font-weight:bold;">Detaylı Profil &rarr;</a>
             </div>
-            <div class="card" style="border-left:5px solid var(--lacivert);">
+            <div class="card" style="border-left:5px solid var(--altin);">
                 <h3>Uzmanlık Alanları</h3>
                 <ul style="line-height:2;">
                     <li>✔ Ceza Hukuku</li>
@@ -74,10 +69,12 @@
 
     <footer>
         <div class="container">
-            <div class="footer-row"> <div class="footer-col">
+            <div class="footer-row">
+                <div class="footer-col">
                     <h4>Av. Fatih Turan</h4>
-                    <p>Ankara Barosu - 46839</p>
-                    <p>Hukuki Danışmanlık ve Çözüm Ortaklığı</p>
+                    <p>Hukuki Danışmanlık ve Çözüm Ortaklığı.</p>
+                    <br>
+                    <p>Ankara / Türkiye</p>
                 </div>
                 <div class="footer-col">
                     <h4>Hızlı Erişim</h4>
@@ -92,7 +89,6 @@
                     <ul>
                         <li><a href="kvkk-aydinlatma-metni.html">KVKK Aydınlatma Metni</a></li>
                         <li><a href="yasal-uyari.html">Yasal Uyarı</a></li>
-                        <li><a href="gizlilik-bildirimi.html">Gizlilik Bildirimi</a></li>
                     </ul>
                 </div>
             </div>
@@ -101,5 +97,6 @@
             </div>
         </div>
     </footer>
+    <script src="script.js"></script>
 </body>
 </html>
