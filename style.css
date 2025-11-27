@@ -1,4 +1,4 @@
-/* AV. FATİH TURAN - FINAL MASTER CSS (V17.0 - HAREKETLİ & ORTALI) */
+/* AV. FATİH TURAN - FINAL MASTER CSS (V18.0 - ANIMASYONLU) */
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap');
 
 :root {
@@ -26,6 +26,12 @@
 * { box-sizing: border-box; margin: 0; padding: 0; }
 html { scroll-behavior: smooth; }
 
+/* SAYFA GİRİŞ ANİMASYONU (MICRO-ANIMATION) */
+@keyframes pageEntry {
+    from { opacity: 0; transform: translateY(5px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
 body {
     font-family: 'Montserrat', sans-serif;
     color: var(--gri-metin);
@@ -35,13 +41,15 @@ body {
     flex-direction: column;
     min-height: 100vh;
     overflow-x: hidden;
+    /* Sayfa her açıldığında yumuşakça belirir */
+    animation: pageEntry 0.6s ease-out;
 }
 
 a { text-decoration: none; color: inherit; transition: 0.3s; }
 ul { list-style: none; }
 img { max-width: 100%; display: block; }
 
-/* ANİMASYON */
+/* HAREKETLİ ARKA PLAN ANİMASYONU */
 @keyframes deepOcean {
     0% { background-position: 0% 50%; }
     50% { background-position: 100% 50%; }
@@ -60,15 +68,13 @@ header {
 }
 [data-theme="dark"] header { border-bottom-color: var(--altin); }
 
-/* CONTAINER (HİZALAMA MERKEZİ) */
 .container {
     max-width: 1200px;
-    width: 100%; /* Mobilde taşmayı önler */
-    margin: 0 auto; /* Ortala */
-    padding: 0 20px; /* Kenarlardan pay bırak */
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 20px;
 }
 
-/* HEADER İÇ YAPISI */
 .header-row {
     display: flex;
     justify-content: space-between;
@@ -109,18 +115,15 @@ header {
 /* --- HERO (HAREKETLİ) --- */
 .hero {
     min-height: 65vh;
-    /* Hareketli Lacivert Gradyan */
     background: linear-gradient(-45deg, #002855, #00152a, #003366, #004080);
     background-size: 400% 400%;
     animation: deepOcean 15s ease infinite;
-    
     display: flex;
     align-items: center;
     color: #ffffff;
     position: relative;
     overflow: hidden;
 }
-/* Doku Katmanı */
 .hero::before {
     content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0;
     background: url('banner.jpg') center/cover;
@@ -138,11 +141,22 @@ header {
     padding: 0 20px;
 }
 
-.hero h1 { font-size: 3rem; font-weight: 800; line-height: 1.1; margin-bottom: 20px; color: #fff; text-shadow: 0 2px 10px rgba(0,0,0,0.3); }
+/* H1 FADE-IN ANİMASYONU */
+@keyframes titleSlideUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.hero h1 { 
+    font-size: 3rem; font-weight: 800; line-height: 1.1; margin-bottom: 20px; color: #fff; text-shadow: 0 2px 10px rgba(0,0,0,0.3); 
+    /* Başlık Animasyonu */
+    animation: titleSlideUp 0.8s ease-out forwards;
+}
+
 .hero p { font-size: 1.2rem; border-left: 4px solid var(--altin); padding-left: 20px; max-width: 700px; color: #eee; background: rgba(0,0,0,0.2); backdrop-filter: blur(5px); }
 
-.btn { display: inline-block; background-color: var(--altin); color: #002855; padding: 15px 35px; font-weight: 700; text-transform: uppercase; border-radius: 4px; font-size: 0.9rem; margin-top: 25px; border: none; cursor: pointer; }
-.btn:hover { background-color: #fff; }
+.btn { display: inline-block; background-color: var(--altin); color: #002855; padding: 15px 35px; font-weight: 700; text-transform: uppercase; border-radius: 4px; font-size: 0.9rem; margin-top: 25px; border: none; cursor: pointer; transition: transform 0.2s; }
+.btn:hover { background-color: #fff; transform: translateY(-3px); }
 
 /* SECTIONS */
 section { padding: 80px 0; }
@@ -155,7 +169,7 @@ h2.section-heading::after { content: ''; display: block; width: 60px; height: 3p
 .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
 
 /* KARTLAR */
-.card { background: var(--beyaz); padding: 30px; border: 1px solid var(--border-color); border-radius: 4px; box-shadow: 0 5px 15px rgba(0,0,0,0.03); transition: 0.3s; }
+.card { background: var(--beyaz); padding: 30px; border: 1px solid rgba(0,0,0,0.1); border-radius: 4px; box-shadow: 0 5px 15px rgba(0,0,0,0.03); transition: 0.3s; }
 .card:hover { border-top: 4px solid var(--altin); transform: translateY(-5px); box-shadow: 0 10px 30px rgba(0,0,0,0.08); }
 .card h3 { color: var(--lacivert); margin-bottom: 15px; font-size: 1.3rem; }
 .card i { font-size: 2rem; color: var(--altin); margin-bottom: 15px; }
@@ -163,16 +177,17 @@ h2.section-heading::after { content: ''; display: block; width: 60px; height: 3p
 
 /* BLOG & İLETİŞİM */
 .article-preview { background: var(--beyaz); padding: 30px; border: 1px solid var(--border-color); transition: 0.3s; position: relative; overflow: hidden; }
-.article-preview:hover { border-color: var(--lacivert); }
+.article-preview:hover { border-color: var(--lacivert); transform: translateY(-5px); }
 .article-tag { font-size: 0.75rem; color: var(--altin); font-weight: 700; text-transform: uppercase; display: block; margin-bottom: 10px; }
 .article-link { color: var(--lacivert); font-weight: 600; font-size: 0.9rem; text-decoration: underline; }
 
 .contact-wrapper { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; }
-.contact-info a { display: flex; align-items: center; gap: 10px; margin-bottom: 15px; font-size: 1.1rem; color: var(--lacivert); }
-form input, form textarea { width: 100%; padding: 15px; margin-bottom: 15px; border: 1px solid var(--border-color); background: var(--bg-light); color: var(--gri-metin); font-family: inherit; }
+.contact-info a { display: flex; align-items: center; gap: 10px; margin-bottom: 15px; font-size: 1.1rem; color: var(--lacivert); transition: 0.3s; }
+.contact-info a:hover { color: var(--altin); transform: translateX(5px); }
+form input, form textarea { width: 100%; padding: 15px; margin-bottom: 15px; border: 1px solid #border-color; background: var(--bg-light); color: var(--gri-metin); font-family: inherit; }
 form button { width: 100%; }
 
-/* --- FOOTER (YAN YANA GARANTİSİ) --- */
+/* --- FOOTER --- */
 footer {
     background-color: var(--footer-bg);
     color: rgba(255,255,255,0.7);
@@ -212,10 +227,12 @@ body.grayscale-mode #special-banner { filter: none; }
 @media (max-width: 900px) {
     .menu-toggle { display: block; }
     .desktop-nav { display: none; position: absolute; top: 100%; left: 0; width: 100%; background-color: var(--bej-header); padding: 20px; border-bottom: 2px solid var(--altin); box-shadow: 0 10px 20px rgba(0,0,0,0.2); }
-    .desktop-nav.active { display: block; }
+    .desktop-nav.active { display: block; animation: slideDown 0.3s ease; }
     .desktop-nav ul { flex-direction: column; gap: 15px; }
     .hero h1 { font-size: 2rem; }
-    .grid-2, .contact-wrapper, .footer-row { flex-direction: column; display: flex; } /* Mobilde alt alta */
+    .grid-2, .contact-wrapper, .footer-row { flex-direction: column; display: flex; } 
     .header-right { gap: 10px; }
-    .brand-text .title { display: none; } /* Mobilde alt başlığı gizle ki sığsın */
+    .brand-text .title { display: none; }
+    
+    @keyframes slideDown { from { opacity: 0; transform: translateY(-10px); } to { opacity: 1; transform: translateY(0); } }
 }
