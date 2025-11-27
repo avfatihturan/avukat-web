@@ -1,40 +1,107 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-  <meta charset="UTF-8">
-  <title>Çerez Politikası | Av. Fatih Turan</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="robots" content="noindex">
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Çerez Politikası | Av. Fatih Turan</title>
+    <meta name="robots" content="noindex">
+    
+    <link rel="icon" href="favicon.ico">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <link rel="manifest" href="manifest.webmanifest">
+
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-  <header>
-    <div class="container header-flex">
-      <a href="/" class="brand-area">
-        <img src="transparent-logo.png" alt="Logo" style="height:55px;margin-right:15px;">
-        <div class="brand-text">
-          <span class="main-title">Av. Fatih Turan</span>
-          <span class="sub-title">Hukuki Danışmanlık</span>
+
+    <header>
+        <div class="container header-row">
+            <a href="index.html" class="brand-area">
+                <img src="transparent-logo.png" alt="Logo">
+                <div class="brand-text">
+                    <span class="name">Av. Fatih Turan</span>
+                    <span class="title">Hukuki Danışmanlık</span>
+                </div>
+            </a>
+            
+            <div class="header-right">
+                <nav class="desktop-nav">
+                    <ul>
+                        <li><a href="index.html">Anasayfa</a></li>
+                        <li><a href="hakkimda.html">Hakkımda</a></li>
+                        <li><a href="calisma-alanlari.html">Çalışma Alanları</a></li>
+                        <li><a href="yayinlar.html">Yayınlar</a></li>
+                        <li><a href="iletisim.html">İletişim</a></li>
+                    </ul>
+                </nav>
+                <button id="theme-toggle" class="theme-toggle"><i class="fa-solid fa-moon"></i></button>
+                <div class="menu-toggle" onclick="document.querySelector('.desktop-nav').classList.toggle('active')"><i class="fa-solid fa-bars"></i></div>
+            </div>
         </div>
-      </a>
-    </div>
-  </header>
+    </header>
 
-  <section class="bg-light">
-    <div class="container">
-      <h1 class="section-heading" style="text-align:left;">Çerez Politikası</h1>
-      <p>Bu internet sitesinde, temel fonksiyonların sağlanabilmesi ve ziyaretçi istatistiklerinin anonim olarak ölçülebilmesi amacıyla çerezler (cookies) kullanılabilir.</p>
-      <p>Çerezler; siteyi tekrar ziyaret ettiğinizde tarayıcınızın tanınmasını sağlayan küçük metin dosyalarıdır. Bu çerezler, kimliğinizi belirlemek veya cihazınızda yer alan kişisel verilerinize erişmek için kullanılmamaktadır.</p>
-      <p>Tarayıcı ayarlarınız üzerinden çerez kullanımını reddedebilir veya mevcut çerezleri silebilirsiniz. Ancak bu durumda sitenin bazı fonksiyonlarının sınırlı çalışabileceğini göz önünde bulundurunuz.</p>
-    </div>
-  </section>
+    <section class="hero" style="min-height:40vh;">
+        <div class="hero-content">
+            <h1>ÇEREZ POLİTİKASI</h1>
+        </div>
+    </section>
 
-  <footer>
-    <div class="footer-bottom">
-      <div class="container">
-        <p>© 2025 Av. Fatih Turan — Tüm Hakları Saklıdır</p>
-      </div>
-    </div>
-  </footer>
+    <section class="bg-light">
+        <div class="container" style="max-width: 800px;">
+            <h2 class="section-heading" style="text-align:left;">Çerez (Cookie) Kullanımı</h2>
+            
+            <div style="font-size:1.1rem; text-align:justify; line-height:1.8;">
+                <p>Bu internet sitesinde, sitenin düzgün çalışmasını sağlamak, kullanıcı deneyimini iyileştirmek ve temel fonksiyonları yerine getirmek amacıyla çerezler (cookies) kullanılmaktadır.</p>
+                <br>
+                <h3>Çerez Nedir?</h3>
+                <p>Çerezler; bir internet sitesini ziyaret ettiğinizde tarayıcınız aracılığıyla cihazınıza veya ağ sunucusuna depolanan küçük metin dosyalarıdır. Bu dosyalar, sitenin sizi hatırlamasını ve tercihlerinizi saklamasını sağlar.</p>
+                <br>
+                <h3>Kullanım Amacı</h3>
+                <p>Sitemizde kullanılan çerezler, kimliğinizi belirlemek veya cihazınızda yer alan kişisel verilerinize (dosyalar, fotoğraflar vb.) erişmek amacıyla <strong>kullanılmamaktadır.</strong> Çerezler, yalnızca anonim ziyaretçi istatistikleri ve site performansı için kullanılabilir.</p>
+                <br>
+                <h3>Çerez Yönetimi</h3>
+                <p>Tarayıcı ayarlarınız üzerinden çerez kullanımını dilediğiniz zaman engelleyebilir veya mevcut çerezleri silebilirsiniz. Ancak bu durumda sitenin bazı fonksiyonlarının (örneğin form gönderme veya gece modu tercihi) sınırlı çalışabileceğini göz önünde bulundurunuz.</p>
+            </div>
+
+            <div style="margin-top: 40px;">
+                <a href="index.html" style="display:inline-block; padding:10px 20px; border:1px solid var(--lacivert); border-radius:4px; font-weight:bold; color:var(--lacivert);">&larr; Ana Sayfaya Dön</a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-row">
+                <div class="footer-col">
+                    <h4>Av. Fatih Turan</h4>
+                    <p>Ankara Barosu - 46839</p>
+                    <p>Hukuki Danışmanlık ve Çözüm Ortaklığı</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Hızlı Erişim</h4>
+                    <ul>
+                        <li><a href="hakkimda.html">Hakkımda</a></li>
+                        <li><a href="calisma-alanlari.html">Faaliyet Alanları</a></li>
+                        <li><a href="iletisim.html">İletişim</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Yasal</h4>
+                    <ul>
+                        <li><a href="kvkk-aydinlatma-metni.html">KVKK Aydınlatma Metni</a></li>
+                        <li><a href="yasal-uyari.html">Yasal Uyarı</a></li>
+                        <li><a href="gizlilik-bildirimi.html">Gizlilik Bildirimi</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2025 Av. Fatih Turan | Her Hakkı Saklıdır</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>

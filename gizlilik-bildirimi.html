@@ -1,42 +1,111 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-  <meta charset="UTF-8">
-  <title>Gizlilik Bildirimi | Av. Fatih Turan</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="robots" content="noindex">
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gizlilik Bildirimi | Av. Fatih Turan</title>
+    <meta name="robots" content="noindex">
+    
+    <link rel="icon" href="favicon.ico">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <link rel="manifest" href="manifest.webmanifest">
+
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-  <header>
-    <div class="container header-flex">
-      <a href="/" class="brand-area">
-        <img src="transparent-logo.png" alt="Logo" style="height:55px;margin-right:15px;">
-        <div class="brand-text">
-          <span class="main-title">Av. Fatih Turan</span>
-          <span class="sub-title">Hukuki Danışmanlık</span>
+
+    <header>
+        <div class="container header-row">
+            <a href="index.html" class="brand-area">
+                <img src="transparent-logo.png" alt="Logo">
+                <div class="brand-text">
+                    <span class="name">Av. Fatih Turan</span>
+                    <span class="title">Hukuki Danışmanlık</span>
+                </div>
+            </a>
+            
+            <div class="header-right">
+                <nav class="desktop-nav">
+                    <ul>
+                        <li><a href="index.html">Anasayfa</a></li>
+                        <li><a href="hakkimda.html">Hakkımda</a></li>
+                        <li><a href="calisma-alanlari.html">Çalışma Alanları</a></li>
+                        <li><a href="yayinlar.html">Yayınlar</a></li>
+                        <li><a href="iletisim.html">İletişim</a></li>
+                    </ul>
+                </nav>
+                <button id="theme-toggle" class="theme-toggle"><i class="fa-solid fa-moon"></i></button>
+                <div class="menu-toggle" onclick="document.querySelector('.desktop-nav').classList.toggle('active')"><i class="fa-solid fa-bars"></i></div>
+            </div>
         </div>
-      </a>
-    </div>
-  </header>
+    </header>
 
-  <section class="bg-light">
-    <div class="container">
-      <h1 class="section-heading" style="text-align:left;">Gizlilik Bildirimi</h1>
-      <p>Bu internet sitesinde, ziyaretçilere ait kişisel veriler, 6698 sayılı Kişisel Verilerin Korunması Kanunu’na uygun olarak işlenmekte ve korunmaktadır.</p>
-      <p>İletişim formu aracılığıyla paylaştığınız ad, soyad, telefon, e-posta ve mesaj içeriği; yalnızca talebinizi değerlendirmek ve size geri dönüş sağlayabilmek amacıyla kullanılmaktadır.</p>
-      <p>Bu veriler, yasal yükümlülükler ve yetkili mercilerin talepleri saklı kalmak kaydıyla, üçüncü kişilerle paylaşılmamaktadır.</p>
-      <p>Site üzerinden yönlendirilen üçüncü taraf bağlantılar ve farklı internet siteleri, kendi gizlilik politikalarına tabidir. Bu sitelerin içerik ve uygulamalarından sorumluluk kabul edilmemektedir.</p>
-      <p>Kişisel verilerinize ilişkin haklarınızı kullanmak için, iletişim bölümünde yer alan kanallar üzerinden başvuruda bulunabilirsiniz.</p>
-    </div>
-  </section>
+    <section class="hero" style="min-height:40vh;">
+        <div class="hero-content">
+            <h1>GİZLİLİK BİLDİRİMİ</h1>
+        </div>
+    </section>
 
-  <footer>
-    <div class="footer-bottom">
-      <div class="container">
-        <p>© 2025 Av. Fatih Turan — Tüm Hakları Saklıdır</p>
-      </div>
-    </div>
-  </footer>
+    <section class="bg-light">
+        <div class="container" style="max-width: 800px;">
+            <h2 class="section-heading" style="text-align:left;">Gizlilik ve Veri Güvenliği</h2>
+            
+            <div style="font-size:1.1rem; text-align:justify; line-height:1.8;">
+                <p>Bu internet sitesinde (fatihturan.av.tr), ziyaretçilere ait kişisel veriler, 6698 sayılı Kişisel Verilerin Korunması Kanunu’na (KVKK) uygun olarak işlenmekte ve korunmaktadır.</p>
+                <br>
+                <p><strong>1. İletişim Formu Verileri:</strong><br>
+                Web sitemizdeki iletişim formu aracılığıyla paylaştığınız ad, soyad, telefon numarası, e-posta adresi ve mesaj içeriği; yalnızca talebinizi değerlendirmek, size geri dönüş sağlamak ve hukuki danışmanlık sürecini başlatmak amacıyla kullanılmaktadır.</p>
+                <br>
+                <p><strong>2. Veri Paylaşımı:</strong><br>
+                Tarafımıza ilettiğiniz veriler, yasal yükümlülükler ve yetkili mercilerin (Mahkemeler, Savcılıklar vb.) talepleri saklı kalmak kaydıyla, avukatlık meslek sırrı çerçevesinde gizli tutulmakta ve üçüncü kişilerle paylaşılmamaktadır.</p>
+                <br>
+                <p><strong>3. Dış Bağlantılar:</strong><br>
+                Site üzerinden yönlendirilen üçüncü taraf bağlantılar (örneğin sosyal medya linkleri) ve farklı internet siteleri, kendi gizlilik politikalarına tabidir. Bu sitelerin içerik ve uygulamalarından sorumluluk kabul edilmemektedir.</p>
+                <br>
+                <p><strong>4. Haklarınız:</strong><br>
+                Kişisel verilerinize ilişkin bilgi alma, düzeltme veya silme taleplerinizi, iletişim bölümünde yer alan kanallar üzerinden veya <a href="mailto:av.fatihturan@outlook.com" style="color:var(--altin); font-weight:bold;">av.fatihturan@outlook.com</a> adresine e-posta göndererek iletebilirsiniz.</p>
+            </div>
+
+            <div style="margin-top: 40px;">
+                <a href="index.html" style="display:inline-block; padding:10px 20px; border:1px solid var(--lacivert); border-radius:4px; font-weight:bold; color:var(--lacivert);">&larr; Ana Sayfaya Dön</a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-row">
+                <div class="footer-col">
+                    <h4>Av. Fatih Turan</h4>
+                    <p>Hukuki Danışmanlık ve Çözüm Ortaklığı.</p>
+                    <br>
+                    <p>Ankara / Türkiye</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Hızlı Erişim</h4>
+                    <ul>
+                        <li><a href="hakkimda.html">Hakkımda</a></li>
+                        <li><a href="calisma-alanlari.html">Faaliyet Alanları</a></li>
+                        <li><a href="iletisim.html">İletişim</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Yasal</h4>
+                    <ul>
+                        <li><a href="kvkk-aydinlatma-metni.html">KVKK Aydınlatma Metni</a></li>
+                        <li><a href="yasal-uyari.html">Yasal Uyarı</a></li>
+                        <li><a href="gizlilik-bildirimi.html">Gizlilik Bildirimi</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2025 Av. Fatih Turan | Her Hakkı Saklıdır</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>
