@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Av. Fatih Turan | Ankara Hukuk ve Danışmanlık</title>
+    <meta name="description" content="Av. Fatih Turan - Ceza, Şirketler, İş ve Kira Hukuku alanlarında Ankara merkezli avukatlık ve hukuki danışmanlık hizmeti.">
+    
+    <link rel="icon" href="favicon.ico" sizes="any">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+    <link rel="manifest" href="manifest.webmanifest">
+
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Attorney",
+      "name": "Av. Fatih Turan",
+      "image": "https://fatihturan.av.tr/transparent-logo.png",
+      "@id": "https://fatihturan.av.tr",
+      "url": "https://fatihturan.av.tr",
+      "telephone": "+905326100805",
+      "email": "av.fatihturan@outlook.com",
+      "address": { "@type": "PostalAddress", "addressLocality": "Ankara", "addressCountry": "TR" },
+      "sameAs": [ "https://tr.linkedin.com/in/fatih-turan-400b9724b" ]
+    }
+    </script>
+</head>
+<body>
+    <header>
+        <div class="container header-row">
+            <a href="index.html" class="brand-area">
+                <img src="transparent-logo.png" alt="Logo">
+                <div class="brand-text">
+                    <span class="name">Av. Fatih Turan</span>
+                    <span class="title">Hukuki Danışmanlık</span>
+                </div>
+            </a>
+            
+            <div class="header-right">
+                <nav class="desktop-nav">
+                    <ul>
+                        <li><a href="index.html" class="active">Anasayfa</a></li>
+                        <li><a href="hakkimda.html">Hakkımda</a></li>
+                        <li><a href="calisma-alanlari.html">Çalışma Alanları</a></li>
+                        <li><a href="yayinlar.html">Yayınlar</a></li>
+                        <li><a href="iletisim.html">İletişim</a></li>
+                    </ul>
+                </nav>
+                <button id="theme-toggle" class="theme-toggle"><i class="fa-solid fa-moon"></i></button>
+                <div class="menu-toggle" onclick="document.querySelector('.desktop-nav').classList.toggle('active')"><i class="fa-solid fa-bars"></i></div>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>STRATEJİK HUKUK.<br>GÜVENİLİR TEMSİL.</h1>
+            <p>"Hangi limana gideceğini bilmeyen gemiye, hiçbir rüzgar yardım edemez." — Seneca</p>
+            <a href="iletisim.html" class="btn">Randevu Alın</a>
+        </div>
+    </section>
+
+    <section class="bg-light">
+        <div class="container grid-2">
+            <div>
+                <h2 class="section-heading">Hakkımda</h2>
+                <p>Deniz Subaylığı geçmişimden gelen kriz yönetimi ve disiplin yeteneklerini; hukuk nosyonu ile birleştirerek müvekkillerime sunuyorum.</p>
+                <p style="margin-top:15px;"><strong>Ankara Barosu - 46839</strong></p>
+                <a href="hakkimda.html" style="display:inline-block; margin-top:20px; color:var(--altin); font-weight:bold;">Detaylı Profil &rarr;</a>
+            </div>
+            <div class="card" style="border-left:5px solid var(--lacivert);">
+                <h3>Uzmanlık Alanları</h3>
+                <ul style="line-height:2;">
+                    <li>✔ Ceza Hukuku</li>
+                    <li>✔ Şirketler Hukuku</li>
+                    <li>✔ İş Hukuku</li>
+                    <li>✔ Uluslararası Hukuk</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-row">
+                <div class="footer-col">
+                    <h4>Av. Fatih Turan</h4>
+                    <p>Hukuki Danışmanlık ve Çözüm Ortaklığı.</p>
+                    <br>
+                    <p>Ankara / Türkiye</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Hızlı Erişim</h4>
+                    <ul>
+                        <li><a href="hakkimda.html">Hakkımda</a></li>
+                        <li><a href="calisma-alanlari.html">Faaliyet Alanları</a></li>
+                        <li><a href="iletisim.html">İletişim</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Yasal</h4>
+                    <ul>
+                        <li><a href="kvkk-aydinlatma-metni.html">KVKK Aydınlatma Metni</a></li>
+                        <li><a href="yasal-uyari.html">Yasal Uyarı</a></li>
+                        <li><a href="gizlilik-bildirimi.html">Gizlilik Bildirimi</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2025 Av. Fatih Turan. Tüm Hakları Saklıdır.</p>
+            </div>
+        </div>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>
