@@ -8,7 +8,7 @@
     <link rel="icon" href="favicon.ico" sizes="any">
     <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
     <link rel="manifest" href="manifest.webmanifest">
 
     <link rel="stylesheet" href="style.css">
@@ -16,6 +16,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
+
     <header>
         <div class="container header-row">
             <a href="index.html" class="brand-area">
@@ -42,17 +43,67 @@
     </header>
 
     <section class="hero" style="min-height:40vh;">
-        <div class="hero-content"><h1>YAYINLAR</h1></div>
+        <div class="hero-content">
+            <h1>YAYINLAR</h1>
+        </div>
     </section>
 
     <section class="bg-light">
-        <div class="container grid-3">
-            <div class="article-preview">
-                <span class="article-tag">KİRA HUKUKU</span>
-                <h3>Kira Tespit Davası: 7 Kritik Nokta</h3>
-                <p style="margin-bottom:20px;">5 yıl kuralı, emsal kira bedeli ve hakkaniyet indirimi hakkında bilmeniz gerekenler.</p>
-                <a href="kira-tespit-davasi-oncesi-7-kritik-nokta.html" class="article-link">Okumaya Başla &rarr;</a>
+        <div class="container">
+            
+            <div class="tab-nav" style="display:flex; justify-content:center; gap:20px; margin-bottom:40px; border-bottom:1px solid #ddd;">
+                <button class="tab-btn active" data-tab="pratik" style="padding:15px 25px; border:none; background:none; font-family:'Montserrat'; font-weight:600; font-size:1rem; cursor:pointer; color:var(--lacivert); border-bottom:3px solid var(--altin);">Pratik Bilgiler</button>
+                <button class="tab-btn" data-tab="akademik" style="padding:15px 25px; border:none; background:none; font-family:'Montserrat'; font-weight:600; font-size:1rem; cursor:pointer; color:#888;">Akademik Çalışmalar</button>
             </div>
+
+            <div id="pratik" class="tab-content active">
+                <div class="grid-3">
+                    <div class="article-preview">
+                        <div style="padding:30px;">
+                            <span class="article-tag">KİRA HUKUKU</span>
+                            <h3>Kira Tespit Davası: 7 Kritik Nokta</h3>
+                            <p style="margin-bottom:20px;">5 yıl kuralı, emsal kira bedeli ve hakkaniyet indirimi hakkında bilmeniz gerekenler.</p>
+                            <a href="kira-tespit-davasi-oncesi-7-kritik-nokta.html" class="article-link">Okumaya Başla &rarr;</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="akademik" class="tab-content" style="display:none;">
+                <div class="grid-2"> <div class="card" style="border-left:5px solid var(--altin);">
+                        <span style="font-size:0.8rem; font-weight:bold; color:var(--lacivert); display:block; margin-bottom:10px;">ARAŞTIRMA MAKALESİ (2022)</span>
+                        <h3 style="font-size:1.3rem;">Doğu Akdeniz'de Deniz Yetki Alanları Mücadelesi</h3>
+                        <p style="font-size:0.9rem; margin-bottom:15px;">
+                            <strong>Yazar:</strong> Fatih Turan<br>
+                            <strong>Yayın:</strong> Alınteri Sosyal Bilimler Dergisi, 6(1): 47-66.
+                        </p>
+                        <p style="font-size:0.9rem; color:#555; margin-bottom:20px;">
+                            Bu çalışma, Doğu Akdeniz'deki enerji güvenliği ve deniz yetki alanlarının paylaşımı konusundaki politikaları uluslararası hukuk bağlamında değerlendirmektedir.
+                        </p>
+                        <a href="https://dergipark.org.tr/tr/pub/alinterisosbil/issue/68082/1083190" target="_blank" class="btn" style="margin-top:0; padding:12px 25px; font-size:0.8rem;">
+                            <i class="fa-solid fa-file-pdf"></i> DergiPark'ta Oku
+                        </a>
+                    </div>
+
+                    <div class="card" style="border-left:5px solid var(--altin);">
+                        <span style="font-size:0.8rem; font-weight:bold; color:var(--lacivert); display:block; margin-bottom:10px;">YÜKSEK LİSANS TEZİ (2023)</span>
+                        <h3 style="font-size:1.3rem;">Doğu Akdeniz'de Deniz Yetki Alanları Mücadelesi</h3>
+                        <p style="font-size:0.9rem; margin-bottom:15px;">
+                            <strong>Yazar:</strong> Fatih Turan<br>
+                            <strong>Kurum:</strong> Kırıkkale Üniversitesi Sosyal Bilimler Enstitüsü<br>
+                            <strong>Danışman:</strong> Dr. Öğr. Üyesi Mustafa Albayrak
+                        </p>
+                        <p style="font-size:0.9rem; color:#555; margin-bottom:20px;">
+                            Uluslararası İlişkiler Anabilim Dalı kapsamında hazırlanan, bölgedeki hukuki ve siyasi tezlerin karşılaştırmalı analizini içeren kapsamlı tez çalışması.
+                        </p>
+                        <a href="https://tez.yok.gov.tr/UlusalTezMerkezi/" target="_blank" class="btn" style="margin-top:0; padding:12px 25px; font-size:0.8rem;">
+                            <i class="fa-solid fa-graduation-cap"></i> YÖK Tez Merkezi
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+
         </div>
     </section>
 
@@ -62,6 +113,8 @@
                 <div class="footer-col">
                     <h4>Av. Fatih Turan</h4>
                     <p>Hukuki Danışmanlık ve Çözüm Ortaklığı.</p>
+                    <br>
+                    <p>Ankara / Türkiye</p>
                 </div>
                 <div class="footer-col">
                     <h4>Hızlı Erişim</h4>
@@ -74,15 +127,42 @@
                 <div class="footer-col">
                     <h4>Yasal</h4>
                     <ul>
-                        <li><a href="kvkk-aydinlatma-metni.html">KVKK</a></li>
+                        <li><a href="kvkk-aydinlatma-metni.html">KVKK Aydınlatma Metni</a></li>
                         <li><a href="yasal-uyari.html">Yasal Uyarı</a></li>
-                        <li><a href="gizlilik-bildirimi.html">Gizlilik</a></li>
+                        <li><a href="gizlilik-bildirimi.html">Gizlilik Bildirimi</a></li>
                     </ul>
                 </div>
             </div>
-            <div class="footer-bottom"><p>© 2025 Av. Fatih Turan</p></div>
+            <div class="footer-bottom"><p>© 2025 Av. Fatih Turan. Tüm Hakları Saklıdır.</p></div>
         </div>
     </footer>
+
     <script src="script.js"></script>
+    <script>
+        // Sekme Geçişi İçin Basit Kod (script.js'i bozmadan çalışır)
+        const btns = document.querySelectorAll('.tab-btn');
+        const contents = document.querySelectorAll('.tab-content');
+
+        btns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Aktif sınıfını butonlardan kaldır
+                btns.forEach(b => {
+                    b.classList.remove('active');
+                    b.style.color = '#888';
+                    b.style.borderBottom = 'none';
+                });
+                // Tıklanana ekle
+                btn.classList.add('active');
+                btn.style.color = 'var(--lacivert)';
+                btn.style.borderBottom = '3px solid var(--altin)';
+
+                // İçerikleri gizle/göster
+                const target = btn.getAttribute('data-tab');
+                contents.forEach(c => c.style.display = 'none');
+                document.getElementById(target).style.display = 'block';
+            });
+        });
+    </script>
+
 </body>
 </html>
