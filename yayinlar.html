@@ -48,9 +48,9 @@
     <section class="bg-light">
         <div class="container">
             
-            <div class="tab-nav" style="display:flex; justify-content:center; gap:20px; margin-bottom:40px; border-bottom:1px solid #ddd;">
-                <button class="tab-btn active" data-tab="pratik" style="padding:15px 25px; border:none; background:none; font-family:'Montserrat'; font-weight:600; font-size:1rem; cursor:pointer; color:var(--lacivert); border-bottom:3px solid var(--altin);">Pratik Bilgiler</button>
-                <button class="tab-btn" data-tab="akademik" style="padding:15px 25px; border:none; background:none; font-family:'Montserrat'; font-weight:600; font-size:1rem; cursor:pointer; color:#888;">Akademik Çalışmalar</button>
+            <div class="tab-nav">
+                <button class="tab-btn active" data-tab="pratik">Pratik Bilgiler</button>
+                <button class="tab-btn" data-tab="akademik">Akademik Çalışmalar</button>
             </div>
 
             <div id="pratik" class="tab-content active">
@@ -70,11 +70,11 @@
 
                     <div class="article-preview">
                         <a href="is-hukuku-ise-iade-davasi.html" style="display:block; text-decoration:none;">
-                            <img src="is-hukuku-hero.jpg" alt="İş Hukuku Fesih" loading="lazy" style="width:100%; height:220px; object-fit:cover;">
+                            <img src="is-hukuku-hero.jpg" alt="İş Hukuku" loading="lazy" style="width:100%; height:220px; object-fit:cover;">
                             <div style="padding:25px;">
                                 <span class="article-tag">İŞ HUKUKU</span>
                                 <h3>İşten Çıkarıldınız: İlk 10 Günde Yapmanız Gerekenler</h3>
-                                <p style="margin-bottom:20px; color:#555;">Fesih bildirimine karşı tutum, tutanak süreçleri ve işe iade davası açma şartları hakkında kritik bilgiler.</p>
+                                <p style="margin-bottom:20px; color:#555;">Fesih bildirimine karşı tutum, tutanak süreçleri ve işe iade davası açma şartları.</p>
                                 <span class="article-link">İncele &rarr;</span>
                             </div>
                         </a>
@@ -83,13 +83,66 @@
                 </div>
             </div>
 
-            <div id="akademik" class="tab-content" style="display:none;">
-                <div class="grid-2" style="grid-template-columns: 1fr 1fr; align-items: stretch;"> 
-                    <div class="card" style="border-left:5px solid var(--altin); display:flex; flex-direction:column; justify-content:space-between;">
-                        <div>
-                            <span style="font-size:0.8rem; font-weight:bold; color:var(--lacivert); display:block; margin-bottom:10px;">ARAŞTIRMA MAKALESİ (2022)</span>
-                            <h3 style="font-size:1.3rem;">Doğu Akdeniz'de Deniz Yetki Alanları Mücadelesi</h3>
-                            <p style="font-size:0.9rem; margin-bottom:15px; line-height:1.6;">
-                                <strong>Yazar:</strong> Fatih Turan<br>
-                                <strong>Yayın:</strong> Alınteri Sosyal Bilimler Dergisi, 6(1): 47-66.
-                            </p
+            <div id="akademik" class="tab-content">
+                <div class="grid-2">
+                    
+                    <div class="card" style="border-left:5px solid var(--altin);">
+                        <span style="font-size:0.8rem; font-weight:bold; color:var(--lacivert); display:block; margin-bottom:10px;">ARAŞTIRMA MAKALESİ (2022)</span>
+                        <h3 style="font-size:1.3rem;">Doğu Akdeniz'de Deniz Yetki Alanları Mücadelesi</h3>
+                        <p style="font-size:0.9rem; margin-bottom:15px;">
+                            <strong>Yazar:</strong> Fatih Turan<br>
+                            <strong>Yayın:</strong> Alınteri Sosyal Bilimler Dergisi, 6(1): 47-66.
+                        </p>
+                        <a href="10.30913-alinterisosbil.1083190-2291386.pdf" target="_blank" class="btn" style="margin-top:0; padding:12px 25px; font-size:0.8rem; width:auto;">
+                            <i class="fa-solid fa-file-pdf"></i> PDF Olarak Oku
+                        </a>
+                    </div>
+
+                    <div class="card" style="border-left:5px solid var(--altin);">
+                        <span style="font-size:0.8rem; font-weight:bold; color:var(--lacivert); display:block; margin-bottom:10px;">YÜKSEK LİSANS TEZİ (2023)</span>
+                        <h3 style="font-size:1.3rem;">Doğu Akdeniz'de Deniz Yetki Alanları Mücadelesi</h3>
+                        <p style="font-size:0.9rem; margin-bottom:15px;">
+                            <strong>Kurum:</strong> Kırıkkale Üniversitesi Sosyal Bilimler Enstitüsü<br>
+                            <strong>Danışman:</strong> Dr. Öğr. Üyesi Mustafa Albayrak
+                        </p>
+                        <a href="961598.pdf" target="_blank" class="btn" style="margin-top:0; padding:12px 25px; font-size:0.8rem; width:auto;">
+                            <i class="fa-solid fa-file-pdf"></i> Tezi İncele
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-row">
+                <div class="footer-col">
+                    <h4>Av. Fatih Turan</h4>
+                    <p>Hukuki Danışmanlık ve Çözüm Ortaklığı.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Hızlı Erişim</h4>
+                    <ul>
+                        <li><a href="hakkimda.html">Hakkımda</a></li>
+                        <li><a href="calisma-alanlari.html">Faaliyet Alanları</a></li>
+                        <li><a href="iletisim.html">İletişim</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Yasal</h4>
+                    <ul>
+                        <li><a href="kvkk-aydinlatma-metni.html">KVKK</a></li>
+                        <li><a href="yasal-uyari.html">Yasal Uyarı</a></li>
+                        <li><a href="gizlilik-bildirimi.html">Gizlilik</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom"><p>© 2025 Av. Fatih Turan</p></div>
+        </div>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>
