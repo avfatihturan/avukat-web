@@ -4,13 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>İletişim | Av. Fatih Turan</title>
-    
-    <link rel="icon" href="favicon.ico" sizes="any">
-    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
-    <link rel="manifest" href="manifest.webmanifest">
-
+    <link rel="icon" href="favicon.ico">
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -42,7 +36,7 @@
     </header>
 
     <section class="hero" style="min-height:40vh;">
-        <div class="hero-content"><h1>İLETİŞİM</h1></div>
+        <div class="hero-content"><h1>RANDEVU & İLETİŞİM</h1></div>
     </section>
 
     <section class="bg-light">
@@ -59,16 +53,31 @@
 
             <div>
                 <form action="https://formspree.io/f/xankgjed" method="POST">
+                    <h3 style="color:var(--lacivert); margin-bottom:15px;">Randevu Talep Formu</h3>
+                    
                     <input type="text" name="adsoyad" placeholder="Adınız Soyadınız" required>
                     <input type="email" name="email" placeholder="E-posta Adresiniz" required>
                     <input type="tel" name="telefon" placeholder="Telefon Numaranız">
-                    <textarea name="mesaj" placeholder="Konuyu kısaca özetleyiniz..." rows="5" required></textarea>
                     
-                    <div style="font-size:0.85rem; margin-bottom:20px;">
+                    <label style="font-size:0.9rem; color:#555;">Talep Edilen Tarih:</label>
+                    <input type="date" name="tarih" style="margin-top:5px;">
+                    
+                    <textarea name="mesaj" placeholder="Konuyu kısaca özetleyiniz..." rows="4" required></textarea>
+                    
+                    <div style="background:#f9f9f9; padding:10px; border-left:3px solid var(--altin); margin-bottom:15px; font-size:0.85rem;">
                         <input type="checkbox" required style="width:auto; margin-right:5px;"> 
-                        <a href="kvkk-aydinlatma-metni.html" target="_blank" style="text-decoration:underline; color:var(--lacivert); font-weight:600;">KVKK Aydınlatma Metni</a>'ni okudum.
+                        <strong>Danışmanlık Ücreti Onayı:</strong> 
+                        Ofisimizde veya online yapılacak görüşmelerin (30/60 dk) Avukatlık Asgari Ücret Tarifesi gereğince ücrete tabi olduğunu, randevunun tarafıma dönüş yapıldıktan sonra kesinleşeceğini kabul ediyorum.
+                        <br>
+                        <em style="color:#888; display:block; margin-top:5px;">(Fee Agreement: I accept that the consultation is subject to a fee.)</em>
                     </div>
-                    <button type="submit" class="btn" style="width:100%; margin-top:0;">GÖNDER</button>
+
+                    <div style="font-size:0.8rem; margin-bottom:20px;">
+                        <input type="checkbox" required style="width:auto; margin-right:5px;"> 
+                        <a href="kvkk-aydinlatma-metni.html" target="_blank" style="text-decoration:underline; color:var(--lacivert);">KVKK Aydınlatma Metni</a>'ni okudum.
+                    </div>
+
+                    <button type="submit" class="btn" style="width:100%; margin-top:0;">TALEP GÖNDER</button>
                 </form>
             </div>
         </div>
@@ -98,7 +107,7 @@
                     </ul>
                 </div>
             </div>
-            <div class="footer-bottom"><p>© 2025 Av. Fatih Turan</p></div>
+            <div class="footer-bottom"><p>© 2025 Av. Fatih Turan. Tüm Hakları Saklıdır.</p></div>
         </div>
     </footer>
     <script src="script.js"></script>
