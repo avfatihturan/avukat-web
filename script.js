@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
     
-    // 1. GECE MODU (AYNI)
+    // 1. GECE MODU
     const themeToggleBtn = document.getElementById('theme-toggle');
     const body = document.body;
     const icon = themeToggleBtn ? themeToggleBtn.querySelector('i') : null;
@@ -34,25 +34,34 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // 2. SEKME (TAB) SİSTEMİ (YENİ EKLENEN)
+    // 2. YAYINLAR SEKME (TAB) SİSTEMİ - DÜZELTİLDİ
     const tabBtns = document.querySelectorAll('.tab-btn');
     const tabContents = document.querySelectorAll('.tab-content');
 
-    tabBtns.forEach(btn => {
-        btn.addEventListener('click', () => {
-            // Aktif sınıfı kaldır
-            tabBtns.forEach(b => b.classList.remove('active'));
-            tabContents.forEach(c => c.classList.remove('active'));
-            
-            // Tıklananı aktif yap
-            btn.classList.add('active');
-            const target = btn.getAttribute('data-tab');
-            const content = document.getElementById(target);
-            if(content) content.classList.add('active');
+    if (tabBtns.length > 0) {
+        tabBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Aktif sınıfı kaldır
+                tabBtns.forEach(b => b.classList.remove('active'));
+                tabContents.forEach(c => {
+                    c.classList.remove('active');
+                    c.style.display = 'none'; // Kesin gizle
+                });
+                
+                // Tıklananı aktif yap
+                btn.classList.add('active');
+                const targetId = btn.getAttribute('data-tab');
+                const targetContent = document.getElementById(targetId);
+                
+                if (targetContent) {
+                    targetContent.classList.add('active');
+                    targetContent.style.display = 'block'; // Kesin göster
+                }
+            });
         });
-    });
+    }
 
-    // 3. ÖZEL GÜNLER (AYNI)
+    // 3. ÖZEL GÜNLER
     checkSpecialDays();
 
     function checkSpecialDays() {
