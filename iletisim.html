@@ -47,8 +47,8 @@
                     <label style="font-size:0.9rem; color:#555;">Talep Edilen Tarih:</label>
                     <input type="date" name="tarih" style="margin-top:5px;">
                     <textarea name="mesaj" placeholder="Konuyu kısaca özetleyiniz..." rows="4" required></textarea>
-                    <div style="background:#f9f9f9; padding:10px; border-left:3px solid var(--altin); margin-bottom:15px; font-size:0.85rem;"><input type="checkbox" required style="width:auto; margin-right:5px;"> <strong>Danışmanlık Ücreti Onayı:</strong> Görüşmelerin ücrete tabi olduğunu kabul ediyorum.</div>
-                    <div style="font-size:0.8rem; margin-bottom:20px;"><input type="checkbox" required style="width:auto; margin-right:5px;"> <a href="/kvkk-aydinlatma-metni.html" target="_blank" rel="noopener noreferrer" style="text-decoration:underline; color:var(--lacivert);">KVKK Aydınlatma Metni</a>'ni okudum.</div>
+                    <div style="background:#f9f9f9; padding:10px; border-left:3px solid var(--altin); margin-bottom:15px; font-size:0.85rem;"><input type="checkbox" name="ucret_onayi" value="Kabul Edildi" required style="width:auto; margin-right:5px;"> <strong>Danışmanlık Ücreti Onayı:</strong> Görüşmelerin ücrete tabi olduğunu kabul ediyorum.</div>
+                    <div style="font-size:0.8rem; margin-bottom:20px;"><input type="checkbox" name="kvkk_onayi" value="Okudum, Onaylıyorum" required style="width:auto; margin-right:5px;"> <a href="/kvkk-aydinlatma-metni.html" target="_blank" rel="noopener noreferrer" style="text-decoration:underline; color:var(--lacivert);">KVKK Aydınlatma Metni</a>'ni okudum.</div>
                     <button type="submit" class="btn" style="width:100%; margin-top:0;">TALEP GÖNDER</button>
                 </form>
             </div>
@@ -66,7 +66,34 @@
         </div>
     </div>
 
-    <footer><div class="container"><div class="footer-row"><div class="footer-col"><h4>Av. Fatih Turan</h4><p>Hukuki Danışmanlık.</p></div><div class="footer-col"><h4>Hızlı Erişim</h4><ul><li><a href="/hakkimda.html">Hakkımda</a></li><li><a href="/calisma-alanlari.html">Faaliyet Alanları</a></li><li><a href="/iletisim.html">İletişim</a></li></ul></div><div class="footer-col"><h4>Yasal</h4><ul><li><a href="/kvkk-aydinlatma-metni.html">KVKK</a></li><li><a href="/yasal-uyari.html">Yasal Uyarı</a></li></ul></div></div><div class="footer-bottom"><p>© 2025 Av. Fatih Turan.</p></div></div></footer>
+    <footer>
+        <div class="container">
+            <div class="footer-row">
+                <div class="footer-col">
+                    <h4>Av. Fatih Turan</h4>
+                    <p>Hukuki Danışmanlık ve Çözüm Ortaklığı. Her Hakkı Saklıdır.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Hızlı Erişim</h4>
+                    <ul>
+                        <li><a href="/hakkimda.html">Hakkımda</a></li>
+                        <li><a href="/calisma-alanlari.html">Faaliyet Alanları</a></li>
+                        <li><a href="/iletisim.html">İletişim</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Yasal</h4>
+                    <ul>
+                        <li><a href="/kvkk-aydinlatma-metni.html">KVKK Aydınlatma Metni</a></li>
+                        <li><a href="/yasal-uyari.html">Yasal Uyarı</a></li>
+                        <li><a href="/gizlilik-bildirimi.html">Gizlilik Bildirimi</a></li>
+                        <li><a href="/cerez-politikasi.html">Çerez Politikası</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom"><p>© 2025 Av. Fatih Turan.</p></div>
+        </div>
+    </footer>
     <script src="/script.js" defer></script>
 </body>
 </html>
