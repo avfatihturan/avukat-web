@@ -3,32 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
     <title>Gizlilik Bildirimi | Av. Fatih Turan</title>
+    <meta name="description" content="Av. Fatih Turan web sitesi gizlilik politikası. Ziyaretçi verilerinin korunması, veri güvenliği önlemleri ve üçüncü taraf paylaşımları hakkında bilgilendirme.">
+    
     <meta name="robots" content="noindex">
+    <link rel="canonical" href="https://fatihturan.av.tr/gizlilik-bildirimi.html">
     
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZBVH7DGDCZ"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-ZBVH7DGDCZ');
-    </script>
+    <script>window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'G-ZBVH7DGDCZ');</script>
 
-    <link rel="icon" href="favicon.ico" sizes="any">
-    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png">
-    <link rel="apple-touch-icon" href="apple-touch-icon.png">
-    <link rel="manifest" href="manifest.webmanifest">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png">
+    <link rel="icon" href="/favicon.ico" sizes="any">
+    <link rel="manifest" href="/manifest.webmanifest">
 
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
-<body>
+<body data-theme="light">
     <header>
         <div class="container header-row">
-            <a href="index.html" class="brand-area">
-                <img src="transparent-logo.png" alt="Logo">
+            <a href="/" class="brand-area">
+                <img src="/transparent-logo.png" alt="Av. Fatih Turan Hukuk Bürosu Logosu">
                 <div class="brand-text">
                     <span class="name">Av. Fatih Turan</span>
                     <span class="title">Hukuki Danışmanlık</span>
@@ -37,65 +36,93 @@
             <div class="header-right">
                 <nav class="desktop-nav">
                     <ul>
-                        <li><a href="index.html">Anasayfa</a></li>
-                        <li><a href="hakkimda.html">Hakkımda</a></li>
-                        <li><a href="calisma-alanlari.html">Çalışma Alanları</a></li>
-                        <li><a href="yayinlar.html">Yayınlar</a></li>
-                        <li><a href="iletisim.html">İletişim</a></li>
+                        <li><a href="/">Anasayfa</a></li>
+                        <li><a href="/hakkimda.html">Hakkımda</a></li>
+                        <li><a href="/calisma-alanlari.html">Çalışma Alanları</a></li>
+                        <li><a href="/yayinlar.html">Yayınlar</a></li>
+                        <li><a href="/iletisim.html">İletişim</a></li>
                     </ul>
                 </nav>
-                <button id="theme-toggle" class="theme-toggle"><i class="fa-solid fa-moon"></i></button>
-                <div class="menu-toggle" onclick="document.querySelector('.desktop-nav').classList.toggle('active')"><i class="fa-solid fa-bars"></i></div>
+                <button id="theme-toggle" class="theme-toggle" aria-label="Temayı Değiştir"><i class="fa-solid fa-moon" aria-hidden="true"></i></button>
+                <div class="menu-toggle" role="button" tabindex="0" aria-label="Menüyü Aç"><i class="fa-solid fa-bars" aria-hidden="true"></i></div>
             </div>
         </div>
     </header>
 
-    <section class="hero" style="min-height:40vh;">
-        <div class="hero-content"><h1>GİZLİLİK BİLDİRİMİ</h1></div>
+    <section class="hero legal-hero">
+        <div class="hero-content">
+            <h1>Gizlilik Bildirimi</h1>
+        </div>
     </section>
 
     <section class="bg-light">
-        <div class="container" style="max-width: 800px;">
-            <h2 class="section-heading" style="text-align:left;">Veri Güvenliği</h2>
-            <div style="font-size:1.1rem; text-align:justify; line-height:1.8;">
-                <p>Bu internet sitesinde (fatihturan.av.tr), ziyaretçilere ait kişisel veriler korunmaktadır.</p>
-                <p><strong>1. İletişim Formu:</strong> Paylaştığınız veriler yalnızca size dönüş yapmak için kullanılır.</p>
-                <p><strong>2. Paylaşım:</strong> Verileriniz izniniz olmadan 3. kişilerle paylaşılmaz.</p>
-                <p><strong>3. Haklar:</strong> Verilerinizi sildirme hakkınız saklıdır.</p>
+        <div class="container legal-container">
+            
+            <div class="toc-box" style="background:var(--bg-light); padding:20px; border:1px solid var(--border-color); border-left:4px solid var(--altin); margin-bottom:30px; border-radius:4px;">
+                <p style="font-weight:700; margin-bottom:10px; color:var(--lacivert);">İçindekiler:</p>
+                <ul style="list-style:none; margin:0; padding:0; line-height:1.8;">
+                    <li><a href="#genel" style="text-decoration:underline;">Genel Bakış</a></li>
+                    <li><a href="#iletisim-formu" style="text-decoration:underline;">1. İletişim Formu Verileri</a></li>
+                    <li><a href="#paylasim" style="text-decoration:underline;">2. Veri Paylaşımı ve Gizlilik</a></li>
+                    <li><a href="#dis-baglantilar" style="text-decoration:underline;">3. Dış Bağlantılar</a></li>
+                    <li><a href="#haklar" style="text-decoration:underline;">4. Haklarınız ve İletişim</a></li>
+                </ul>
             </div>
-            <div style="margin-top: 40px;">
-                <a href="index.html" class="btn" style="padding:10px 20px; font-size:0.9rem;">&larr; Ana Sayfaya Dön</a>
+
+            <div class="legal-text">
+                <h2 id="genel" style="margin-top:0;">Genel Bakış</h2>
+                <p>Bu internet sitesinde (fatihturan.av.tr), ziyaretçilere ait kişisel veriler, 6698 sayılı Kişisel Verilerin Korunması Kanunu’na (KVKK) uygun olarak işlenmekte ve uluslararası standartlarda korunmaktadır. Gizliliğiniz bizim için önceliklidir.</p>
+                
+                <h2 id="iletisim-formu">1. İletişim Formu Verileri</h2>
+                <p>Web sitemizdeki iletişim formu aracılığıyla paylaştığınız ad, soyad, telefon numarası, e-posta adresi ve mesaj içeriği; yalnızca talebinizi değerlendirmek, size geri dönüş sağlamak ve olası bir hukuki danışmanlık sürecini başlatmak amacıyla kullanılmaktadır. Bu veriler pazarlama amacıyla kullanılmaz.</p>
+                
+                <h2 id="paylasim">2. Veri Paylaşımı ve Gizlilik</h2>
+                <p>Tarafımıza ilettiğiniz veriler, yasal yükümlülükler ve yetkili mercilerin (Mahkemeler, Savcılıklar vb.) resmi talepleri saklı kalmak kaydıyla, avukatlık meslek sırrı çerçevesinde kesinlikle gizli tutulmakta ve açık rızanız olmaksızın üçüncü kişilerle paylaşılmamaktadır.</p>
+                
+                <h2 id="dis-baglantilar">3. Dış Bağlantılar</h2>
+                <p>Site üzerinden yönlendirilen üçüncü taraf bağlantılar (örneğin LinkedIn, Google Haritalar, sosyal medya linkleri) ve farklı internet siteleri, kendi gizlilik politikalarına tabidir. Bu sitelerin içerik ve gizlilik uygulamalarından Av. Fatih Turan sorumlu tutulamaz.</p>
+                
+                <h2 id="haklar">4. Haklarınız ve İletişim</h2>
+                <p>Kişisel verilerinize ilişkin bilgi alma, düzeltme veya silme taleplerinizi, iletişim sayfamızda yer alan telefon veya e-posta kanalları üzerinden tarafımıza iletebilirsiniz.</p>
             </div>
+            
+            <a href="/" class="btn-outline-main">&larr; Ana Sayfaya Dön</a>
         </div>
     </section>
+
+    <a href="https://wa.me/905326100805" class="whatsapp-float" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp ile iletişime geç">
+        <i class="fa-brands fa-whatsapp" aria-hidden="true"></i>
+    </a>
 
     <footer>
         <div class="container">
             <div class="footer-row">
                 <div class="footer-col">
                     <h4>Av. Fatih Turan</h4>
-                    <p>Hukuki Danışmanlık ve Çözüm Ortaklığı.</p>
+                    <p>Hukuki Danışmanlık ve Çözüm Ortaklığı. Her Hakkı Saklıdır.</p>
                 </div>
                 <div class="footer-col">
                     <h4>Hızlı Erişim</h4>
                     <ul>
-                        <li><a href="hakkimda.html">Hakkımda</a></li>
-                        <li><a href="calisma-alanlari.html">Faaliyet Alanları</a></li>
-                        <li><a href="iletisim.html">İletişim</a></li>
+                        <li><a href="/hakkimda.html">Hakkımda</a></li>
+                        <li><a href="/calisma-alanlari.html">Faaliyet Alanları</a></li>
+                        <li><a href="/iletisim.html">İletişim</a></li>
                     </ul>
                 </div>
                 <div class="footer-col">
                     <h4>Yasal</h4>
                     <ul>
-                        <li><a href="kvkk-aydinlatma-metni.html">KVKK Aydınlatma Metni</a></li>
-                        <li><a href="yasal-uyari.html">Yasal Uyarı</a></li>
-                        <li><a href="gizlilik-bildirimi.html">Gizlilik Bildirimi</a></li>
+                        <li><a href="/kvkk-aydinlatma-metni.html">KVKK Aydınlatma Metni</a></li>
+                        <li><a href="/yasal-uyari.html">Yasal Uyarı</a></li>
+                        <li><a href="/gizlilik-bildirimi.html">Gizlilik Bildirimi</a></li>
+                        <li><a href="/cerez-politikasi.html">Çerez Politikası</a></li>
                     </ul>
                 </div>
             </div>
-            <div class="footer-bottom"><p>© 2025 Av. Fatih Turan</p></div>
+            <div class="footer-bottom"><p>© 2025 Av. Fatih Turan.</p></div>
         </div>
     </footer>
-    <script src="script.js"></script>
+
+    <script src="/script.js" defer></script>
 </body>
 </html>

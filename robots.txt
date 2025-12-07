@@ -1,4 +1,13 @@
 User-agent: *
 Disallow:
 
+# -----------------------------------------------------------
+# Gelecekte eklenebilecek hassas klasörler:
+# (Yönetim paneli vs. gelirse başındaki # kaldırılır)
+# -----------------------------------------------------------
+# Disallow: /admin/
+# Disallow: /test/
+# Disallow: /tmp/
+
+# Site Haritası Konumu
 Sitemap: https://fatihturan.av.tr/sitemap.xml
