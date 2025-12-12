@@ -20,13 +20,6 @@
         "icon": "fa-briefcase"
       },
       {
-        "key": "konum",
-        "label": "Ofis Nerede?",
-        "userText": "Ofis nerede?",
-        "botResponse": "Ofisimiz {{officeAddress}}'dadır. {{officeNote}}",
-        "icon": "fa-location-dot"
-      },
-      {
         "key": "ucret",
         "label": "Danışmanlık Ücreti",
         "userText": "Danışmanlık ücretli mi?",

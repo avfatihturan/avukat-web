@@ -8,7 +8,6 @@ export const SITE = {
   barName: 'Ankara Barosu',
   location: 'Ankara, Sincan',
   whatsapp: 'https://wa.me/905326100805',
-  linkedin: 'https://tr.linkedin.com/in/fatih-turan-400b9724b',
   analytics: 'G-ZBVH7DGDCZ',
 };
 

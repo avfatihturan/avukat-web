@@ -28,11 +28,6 @@ const site = defineCollection({
       phoneLink: z.string(),
       email: z.string(),
       whatsapp: z.string(),
-      linkedin: z.string(),
-    }),
-    office: z.object({
-      address: z.string(),
-      note: z.string(),
     }),
   }),
 });

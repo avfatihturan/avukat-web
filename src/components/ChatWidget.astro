@@ -5,14 +5,12 @@ import { getEntry } from 'astro:content';
 const siteEntry = await getEntry('site', 'main');
 const chatbotEntry = await getEntry('chatbot', 'main');
 
-const { contact, office } = siteEntry.data;
+const { contact } = siteEntry.data;
 const { greeting, welcomeMessage, assistantName, options } = chatbotEntry.data;
 
 // Template değişkenlerini değiştir
 const processTemplate = (text: string) => {
   return text
-    .replace(/\{\{officeAddress\}\}/g, office.address)
-    .replace(/\{\{officeNote\}\}/g, office.note)
     .replace(/\{\{phone\}\}/g, contact.phone)
     .replace(/\{\{phoneLink\}\}/g, contact.phoneLink)
     .replace(/\{\{email\}\}/g, contact.email)
