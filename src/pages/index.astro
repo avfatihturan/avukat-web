@@ -1,8 +1,8 @@
 ---
-import { Image } from 'astro:assets';
 import { getCollection } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Hero from '../components/Hero.astro';
+import ArticleCard from '../components/ArticleCard.astro';
 
 // Get latest 3 articles from Content Collections
 const allArticles = await getCollection('articles', ({ data }) => !data.draft);
@@ -61,24 +61,13 @@ const articles = allArticles
       <h2 class="section-heading section-heading--center">Son Yayınlar</h2>
       <div class="grid-3">
         {articles.map((article) => (
-          <div class="article-preview">
-            <a href={`/yayinlar/${article.id}`} class="article-preview__link">
-              <Image
-                src={article.data.heroImage}
-                alt={article.data.heroAlt}
-                width={400}
-                height={220}
-                class="article-preview__img"
-                loading="lazy"
-              />
-              <div class="article-preview__content">
-                <span class="article-tag">{article.data.tag}</span>
-                <h3>{article.data.title}</h3>
-                <p class="article-preview__desc">{article.data.description}</p>
-                <span class="article-link">İncele &rarr;</span>
-              </div>
-            </a>
-          </div>
+          <ArticleCard
+            title={article.data.title}
+            description={article.data.description}
+            href={`/yayinlar/${article.id}`}
+            image={article.data.heroImage}
+            tag={article.data.tag}
+          />
         ))}
       </div>
     </div>
@@ -123,23 +112,5 @@ const articles = allArticles
   }
   .section-heading--center::after {
     margin: 10px auto 0;
-  }
-
-  /* Article Preview */
-  .article-preview__link {
-    display: block;
-    text-decoration: none;
-  }
-  .article-preview__img {
-    width: 100%;
-    height: 220px;
-    object-fit: cover;
-  }
-  .article-preview__content {
-    padding: 25px;
-  }
-  .article-preview__desc {
-    margin-bottom: 20px;
-    color: var(--color-text-secondary);
   }
 </style>

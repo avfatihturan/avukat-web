@@ -16,11 +16,21 @@ const {
   ctaHref = '/iletisim',
   size = 'default'
 } = Astro.props;
+
+// Split title by <br> for safe rendering
+const titleParts = title.split(/<br\s*\/?>/i);
 ---
 
 <section class:list={['hero', { 'hero-sm': size === 'sm' }]}>
   <div class="hero-content">
-    <h1 set:html={title} />
+    <h1>
+      {titleParts.map((part, i) => (
+        <>
+          {i > 0 && <br />}
+          <Fragment set:text={part} />
+        </>
+      ))}
+    </h1>
     {subtitle && <p>{subtitle}</p>}
     {showCTA && <a href={ctaHref} class="btn">{ctaText}</a>}
   </div>
