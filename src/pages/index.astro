@@ -1,8 +1,16 @@
 ---
-import { getCollection } from 'astro:content';
+import { getCollection, getEntry } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Hero from '../components/Hero.astro';
 import ArticleCard from '../components/ArticleCard.astro';
+import AreaCard from '../components/AreaCard.astro';
+
+// Get site data for CTA
+const siteEntry = await getEntry('site', 'main');
+const { contact } = siteEntry.data;
+
+// Get work areas
+const workAreas = await getCollection('workAreas');
 
 // Get latest 3 articles from Content Collections
 const allArticles = await getCollection('articles', ({ data }) => !data.draft);
@@ -24,34 +32,16 @@ const articles = allArticles
   />
 
   <section class="bg-light">
-    <div class="container grid-2">
-      <div>
-        <h2 class="section-heading">Hakkımda</h2>
-        <p>Deniz Subaylığı geçmişimden gelen kriz yönetimi ve disiplin yeteneklerini; hukuk nosyonu ile birleştirerek müvekkillerime sunuyorum.</p>
-        <a href="/hakkimda" class="btn-outline-main">Detaylı Profil &rarr;</a>
-      </div>
-      <div class="expertise-card">
-        <h3>Uzmanlık Alanları</h3>
-        <ul class="expertise-list">
-          <li>
-            <a href="/yayinlar/whatsapp-hakaret-delil">
-              <i class="fa-solid fa-check"></i> Ceza Hukuku (Bilişim)
-            </a>
-          </li>
-          <li>
-            <a href="/yayinlar/ise-iade-davasi">
-              <i class="fa-solid fa-check"></i> İş Hukuku (İşe İade)
-            </a>
-          </li>
-          <li>
-            <a href="/yayinlar/kira-tespit-davasi">
-              <i class="fa-solid fa-check"></i> Kira Hukuku
-            </a>
-          </li>
-          <li>
-            <span><i class="fa-solid fa-check"></i> Şirketler Hukuku</span>
-          </li>
-        </ul>
+    <div class="container">
+      <h2 class="section-heading section-heading--center">Çalışma Alanları</h2>
+      <div class="grid-3">
+        {workAreas.map((area) => (
+          <AreaCard
+            icon={area.data.icon}
+            title={area.data.title}
+            description={area.data.description}
+          />
+        ))}
       </div>
     </div>
   </section>
@@ -72,39 +62,24 @@ const articles = allArticles
       </div>
     </div>
   </section>
+
+  <section class="cta-section">
+    <div class="container">
+      <h2>Hukuki Destek Almak İster misiniz?</h2>
+      <p>Sorularınız için iletişime geçebilir veya randevu talep edebilirsiniz.</p>
+      <div class="cta-buttons">
+        <a href="/iletisim" class="btn">
+          <i class="fa-solid fa-calendar"></i> Randevu Al
+        </a>
+        <a href={contact.phoneLink} class="btn-outline-main">
+          <i class="fa-solid fa-phone"></i> Hemen Ara
+        </a>
+      </div>
+    </div>
+  </section>
 </BaseLayout>
 
 <style>
-  /* Expertise Card */
-  .expertise-card {
-    background: var(--card-bg);
-    padding: 30px;
-    border: 1px solid var(--color-border);
-    border-left: 5px solid var(--brand-primary);
-    border-radius: 4px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
-  }
-  .expertise-card h3 {
-    color: var(--brand-primary);
-    margin-bottom: 15px;
-  }
-  :global(html.dark) .expertise-card h3 {
-    color: var(--color-text);
-  }
-  .expertise-list {
-    line-height: 2;
-  }
-  .expertise-list a {
-    display: block;
-    color: inherit;
-  }
-  .expertise-list a:hover {
-    color: var(--brand-accent);
-  }
-  .expertise-list i {
-    color: var(--brand-accent);
-  }
-
   /* Section Heading Center */
   .section-heading--center {
     text-align: center;
@@ -112,5 +87,54 @@ const articles = allArticles
   }
   .section-heading--center::after {
     margin: 10px auto 0;
+  }
+
+  /* CTA Section */
+  .cta-section {
+    background: var(--color-bg-secondary);
+    text-align: center;
+    padding: 60px 0;
+    border-top: 1px solid var(--color-border);
+  }
+  .cta-section h2 {
+    color: var(--brand-primary);
+    margin-bottom: 15px;
+  }
+  :global(html.dark) .cta-section h2 {
+    color: var(--color-text);
+  }
+  .cta-section h2::after {
+    display: none;
+  }
+  .cta-section p {
+    color: var(--color-text-secondary);
+    margin-bottom: 25px;
+    font-size: 1.1rem;
+  }
+  .cta-buttons {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  .cta-buttons .btn,
+  .cta-buttons .btn-outline-main {
+    width: 180px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 14px 24px;
+    font-size: 0.85rem;
+    margin-top: 0;
+  }
+  .cta-buttons .btn:hover {
+    background: var(--brand-primary);
+    color: #fff;
+    transform: none;
+  }
+  :global(html.dark) .cta-buttons .btn:hover {
+    background: var(--brand-accent);
+    color: var(--brand-primary);
   }
 </style>

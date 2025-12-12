@@ -368,7 +368,7 @@ html.dark .cookie-table th { background-color: #262626; }
 .whatsapp-float { position: fixed; bottom: 25px; right: 25px; background-color: #25d366; color: white; width: 60px; height: 60px; border-radius: 50%; text-align: center; font-size: 30px; box-shadow: 0 4px 12px rgba(0,0,0,0.15); z-index: 9998; display: flex; align-items: center; justify-content: center; transition: 0.2s; }
 .whatsapp-float:hover { transform: scale(1.1); }
 
-.chat-widget { display: flex; position: fixed; bottom: 100px; right: 25px; z-index: 9999; font-family: 'Montserrat', sans-serif; flex-direction: column; align-items: flex-end; }
+.chat-widget { display: flex; position: fixed; bottom: 25px; right: 25px; z-index: 9999; font-family: 'Montserrat', sans-serif; flex-direction: column; align-items: flex-end; }
 .chat-toggle-btn { width: 60px; height: 60px; background-color: var(--brand-primary); border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; box-shadow: 0 4px 16px rgba(0,0,0,0.2); transition: transform 0.2s; color: var(--brand-accent); font-size: 28px; border: 2px solid var(--brand-accent); }
 
 .chat-greeting {
