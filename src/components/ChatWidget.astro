@@ -3,7 +3,27 @@
 import { getEntry } from 'astro:content';
 
 const siteEntry = await getEntry('site', 'main');
+const chatbotEntry = await getEntry('chatbot', 'main');
+
 const { contact, office } = siteEntry.data;
+const { greeting, welcomeMessage, assistantName, options } = chatbotEntry.data;
+
+// Template değişkenlerini değiştir
+const processTemplate = (text: string) => {
+  return text
+    .replace(/\{\{officeAddress\}\}/g, office.address)
+    .replace(/\{\{officeNote\}\}/g, office.note)
+    .replace(/\{\{phone\}\}/g, contact.phone)
+    .replace(/\{\{phoneLink\}\}/g, contact.phoneLink)
+    .replace(/\{\{email\}\}/g, contact.email)
+    .replace(/\{\{whatsapp\}\}/g, contact.whatsapp);
+};
+
+// Options'ları işle
+const processedOptions = options.map(opt => ({
+  ...opt,
+  botResponse: processTemplate(opt.botResponse)
+}));
 ---
 
 <a href={`https://wa.me/${contact.whatsapp}`} class="whatsapp-float" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp ile iletişime geç">
@@ -11,28 +31,35 @@ const { contact, office } = siteEntry.data;
 </a>
 
 <div class="chat-widget">
-  <div id="chatGreeting" class="chat-greeting">Merhaba! Size nasıl yardımcı olabilirim? 👋</div>
+  <div id="chatGreeting" class="chat-greeting">{greeting}</div>
   <button id="chatToggle" class="chat-toggle-btn" aria-label="Sohbeti aç">
     <i class="fa-solid fa-comments"></i>
   </button>
   <div id="chatBox" class="chat-box" role="dialog" aria-label="Sohbet penceresi">
     <div class="chat-header">
-      <span>Turan Asistan</span>
+      <span>{assistantName}</span>
+      <div class="chat-quick-actions">
+        <a href={contact.phoneLink} title="Ara"><i class="fa-solid fa-phone"></i></a>
+        <a href={`mailto:${contact.email}`} title="E-posta"><i class="fa-solid fa-envelope"></i></a>
+        <a href={`https://wa.me/${contact.whatsapp}`} target="_blank" rel="noopener noreferrer" title="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+      </div>
       <button id="closeChat" aria-label="Sohbeti kapat">&times;</button>
     </div>
     <div id="chatBody" class="chat-body">
-      <div class="chat-msg bot">Merhaba, ben Av. Fatih Turan'ın sanal asistanıyım. Size nasıl yardımcı olabilirim?</div>
+      <div class="chat-msg bot">{welcomeMessage}</div>
       <div class="chat-options">
-        <button data-reply="randevu">Randevu Almak İstiyorum</button>
-        <button data-reply="alanlar">Çalışma Alanları</button>
-        <button data-reply="konum">Ofis Nerede?</button>
-        <button data-reply="ucret">Danışmanlık Ücreti</button>
+        {processedOptions.map((opt) => (
+          <button data-reply={opt.key} data-user={opt.userText} data-bot={opt.botResponse}>
+            {opt.icon && <i class={`fa-solid ${opt.icon}`}></i>}
+            {opt.label}
+          </button>
+        ))}
       </div>
     </div>
   </div>
 </div>
 
-<script define:vars={{ officeAddress: office.address, officeNote: office.note }}>
+<script>
   function initChatBot() {
     if (window.innerWidth <= 768) return;
 
@@ -66,47 +93,38 @@ const { contact, office } = siteEntry.data;
 
     closeChat.addEventListener('click', function() { chatBox.style.display = 'none'; });
 
-    // Chat reply buttons
-    var replies = {
-      randevu: {
-        user: "Randevu almak istiyorum.",
-        bot: "Randevu talebinizi <a href='/iletisim' style='color:#c5a059;font-weight:bold;'>buraya tıklayarak</a> iletebilirsiniz."
-      },
-      alanlar: {
-        user: "Çalışma alanları nelerdir?",
-        bot: "Detaylar için <a href='/calisma-alanlari' style='color:#c5a059;font-weight:bold;'>tıklayınız.</a>"
-      },
-      konum: {
-        user: "Ofis nerede?",
-        bot: "Ofisimiz " + officeAddress + "'dadır. " + officeNote
-      },
-      ucret: {
-        user: "Danışmanlık ücretli mi?",
-        bot: "Evet, Avukatlık Kanunu gereği danışmanlık hizmetleri ücrete tabidir."
-      }
-    };
-
+    // Chat reply buttons - data-driven
     var buttons = chatBody.querySelectorAll('.chat-options button');
     for (var i = 0; i < buttons.length; i++) {
       buttons[i].addEventListener('click', function() {
-        var option = this.getAttribute('data-reply');
-        if (!option || !replies[option]) return;
+        var userText = this.getAttribute('data-user');
+        var botText = this.getAttribute('data-bot');
+        if (!userText || !botText) return;
 
-        var reply = replies[option];
         var options = chatBody.querySelector('.chat-options');
 
+        // User message
         var userDiv = document.createElement('div');
         userDiv.className = 'chat-msg user';
-        userDiv.innerHTML = reply.user;
+        userDiv.innerHTML = userText;
         if (options) chatBody.insertBefore(userDiv, options);
 
+        // Typing indicator
+        var typingDiv = document.createElement('div');
+        typingDiv.className = 'typing-indicator';
+        typingDiv.innerHTML = '<span></span><span></span><span></span>';
+        if (options) chatBody.insertBefore(typingDiv, options);
+        chatBody.scrollTop = chatBody.scrollHeight;
+
+        // Bot response after delay
         setTimeout(function() {
+          typingDiv.remove();
           var botDiv = document.createElement('div');
           botDiv.className = 'chat-msg bot';
-          botDiv.innerHTML = reply.bot;
+          botDiv.innerHTML = botText;
           if (options) chatBody.insertBefore(botDiv, options);
           chatBody.scrollTop = chatBody.scrollHeight;
-        }, 600);
+        }, 800);
       });
     }
   }

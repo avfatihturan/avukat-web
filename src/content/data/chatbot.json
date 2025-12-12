@@ -1,0 +1,45 @@
+[
+  {
+    "id": "main",
+    "greeting": "Merhaba! Size nasıl yardımcı olabilirim? 👋",
+    "welcomeMessage": "Merhaba, ben Av. Fatih Turan'ın sanal asistanıyım. Size nasıl yardımcı olabilirim?",
+    "assistantName": "Turan Asistan",
+    "options": [
+      {
+        "key": "randevu",
+        "label": "Randevu Almak İstiyorum",
+        "userText": "Randevu almak istiyorum.",
+        "botResponse": "Randevu talebinizi <a href='/iletisim'>buraya tıklayarak</a> iletebilirsiniz.",
+        "icon": "fa-calendar"
+      },
+      {
+        "key": "alanlar",
+        "label": "Çalışma Alanları",
+        "userText": "Çalışma alanları nelerdir?",
+        "botResponse": "Detaylar için <a href='/calisma-alanlari'>tıklayınız.</a>",
+        "icon": "fa-briefcase"
+      },
+      {
+        "key": "konum",
+        "label": "Ofis Nerede?",
+        "userText": "Ofis nerede?",
+        "botResponse": "Ofisimiz {{officeAddress}}'dadır. {{officeNote}}",
+        "icon": "fa-location-dot"
+      },
+      {
+        "key": "ucret",
+        "label": "Danışmanlık Ücreti",
+        "userText": "Danışmanlık ücretli mi?",
+        "botResponse": "Evet, Avukatlık Kanunu gereği danışmanlık hizmetleri ücrete tabidir.",
+        "icon": "fa-coins"
+      },
+      {
+        "key": "telefon",
+        "label": "Hemen Ara",
+        "userText": "Telefon numarası nedir?",
+        "botResponse": "Bizi hemen arayabilirsiniz: <a href='{{phoneLink}}'>{{phone}}</a>",
+        "icon": "fa-phone"
+      }
+    ]
+  }
+]

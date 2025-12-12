@@ -69,4 +69,21 @@ const legal = defineCollection({
   }),
 });
 
-export const collections = { articles, site, about, workAreas, legal };
+// Chatbot yanıtları ve ayarları
+const chatbot = defineCollection({
+  loader: file('src/content/data/chatbot.json'),
+  schema: z.object({
+    greeting: z.string(),
+    welcomeMessage: z.string(),
+    assistantName: z.string(),
+    options: z.array(z.object({
+      key: z.string(),
+      label: z.string(),
+      userText: z.string(),
+      botResponse: z.string(),
+      icon: z.string().optional(),
+    })),
+  }),
+});
+
+export const collections = { articles, site, about, workAreas, legal, chatbot };
