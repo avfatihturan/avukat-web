@@ -72,4 +72,9 @@ Sakin Olun ve Silmeyin: Mesajları, gönderiyi veya sohbet geçmişini asla silm
 
 Delillendirin: Ekran görüntüsü alın ancak bununla yetinmeyin. Mümkünse "Noter E-Tespit" hizmetini kullanın veya URL adresini kaydedin.
 
-Hukuki Destek Alın: Özellikle "matufiyet" (kime söylendiği) tartışmalıysa veya karşı taraf mesajı inkar ediyorsa, sürecin bir avukat gözetiminde, usulüne uygun teknik incelemelerle yürütülmesi şarttır. Aksi takdirde "delil yetersizliğinden" beraat kararları çıkabilmektedir.
+Hak kaybına uğramamak ve sürecin sağlıklı yönetilmesi için bir avukattan hukuki destek almanız yararınıza olacaktır.
+
+Av. Fatih Turan 
+Ankara Barosu - 46839
+
+Uyarı: Bu yazı, 1136 sayılı Avukatlık Kanunu ve Türkiye Barolar Birliği Reklam Yasağı Yönetmeliği çerçevesinde, yalnızca bilgilendirme amacıyla hazırlanmıştır. Hukuki tavsiye niteliği taşımamaktadır. Her somut olay kendine özgü özellikler taşıdığından, hak kaybına uğramamak için profesyonel hukuki destek almanız önerilir.
