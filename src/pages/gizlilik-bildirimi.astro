@@ -1,44 +1,19 @@
 ---
 import LegalLayout from '../layouts/LegalLayout.astro';
+import { getEntry, render } from 'astro:content';
+
+const entry = await getEntry('legal', 'gizlilik-bildirimi');
+const { Content } = await render(entry);
+const { title, description, slug } = entry.data;
 ---
 
 <LegalLayout
-  title="Gizlilik Bildirimi | Av. Fatih Turan"
-  description="Av. Fatih Turan web sitesi gizlilik politikası ve kişisel verilerin korunması."
-  canonicalUrl="/gizlilik-bildirimi"
-  heroTitle="Gizlilik Bildirimi"
+  title={`${title} | Av. Fatih Turan`}
+  description={description}
+  canonicalUrl={`/${slug}`}
+  heroTitle={title}
 >
-  <h2>1. Giriş</h2>
-  <p>Bu gizlilik bildirimi, <strong>fatihturan.av.tr</strong> web sitesini ziyaret eden kullanıcıların gizliliğinin korunmasına ilişkin uygulamalarımızı açıklamaktadır.</p>
-
-  <h2>2. Toplanan Bilgiler</h2>
-  <p>Web sitemizi ziyaret ettiğinizde aşağıdaki bilgiler toplanabilir:</p>
-  <ul>
-    <li>İletişim formu aracılığıyla gönderilen ad, e-posta ve mesaj içerikleri</li>
-    <li>Google Analytics aracılığıyla toplanan anonim ziyaretçi istatistikleri</li>
-    <li>Çerezler aracılığıyla toplanan tercih bilgileri</li>
-  </ul>
-
-  <h2>3. Bilgilerin Kullanımı</h2>
-  <p>Toplanan bilgiler şu amaçlarla kullanılır:</p>
-  <ul>
-    <li>İletişim taleplerine yanıt vermek</li>
-    <li>Web sitesi performansını analiz etmek ve iyileştirmek</li>
-    <li>Yasal yükümlülükleri yerine getirmek</li>
-  </ul>
-
-  <h2>4. Bilgilerin Paylaşılması</h2>
-  <p>Kişisel bilgileriniz, yasal zorunluluklar dışında üçüncü taraflarla paylaşılmaz.</p>
-
-  <h2>5. Veri Güvenliği</h2>
-  <p>Kişisel verilerinizin güvenliği için uygun teknik ve idari önlemler alınmaktadır.</p>
-
-  <h2>6. Haklarınız</h2>
-  <p>KVKK kapsamındaki haklarınız için <a href="/kvkk-aydinlatma-metni" style="color:var(--altin);">KVKK Aydınlatma Metni</a> sayfamızı inceleyebilirsiniz.</p>
-
-  <h2>7. İletişim</h2>
-  <p>Gizlilik politikamız hakkında sorularınız için <a href="/iletisim" style="color:var(--altin);">iletişim sayfamızı</a> kullanabilirsiniz.</p>
-
+  <Content />
   <hr style="margin:40px 0; border:0; border-top:1px solid #ddd;">
   <p><strong>Av. Fatih Turan</strong><br>Ankara Barosu - 46839</p>
 </LegalLayout>

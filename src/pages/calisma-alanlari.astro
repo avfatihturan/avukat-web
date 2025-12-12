@@ -2,44 +2,16 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Hero from '../components/Hero.astro';
 import AreaCard from '../components/AreaCard.astro';
+import { getEntry, getCollection } from 'astro:content';
 
-const areas = [
-  {
-    icon: 'fa-solid fa-gavel',
-    title: 'Ceza Hukuku',
-    description: 'Bilişim suçları, hakaret, tehdit ve diğer ceza davalarında savunma ve müdahillik hizmetleri.'
-  },
-  {
-    icon: 'fa-solid fa-briefcase',
-    title: 'İş Hukuku',
-    description: 'İşe iade davaları, kıdem ve ihbar tazminatı, iş kazaları ve işveren danışmanlığı.'
-  },
-  {
-    icon: 'fa-solid fa-home',
-    title: 'Kira Hukuku',
-    description: 'Kira tespit ve tahliye davaları, kira sözleşmeleri, kiracı-kiraya veren uyuşmazlıkları.'
-  },
-  {
-    icon: 'fa-solid fa-building',
-    title: 'Şirketler Hukuku',
-    description: 'Şirket kuruluşu, birleşme ve devir, ortaklık sözleşmeleri, ticari uyuşmazlıklar.'
-  },
-  {
-    icon: 'fa-solid fa-globe',
-    title: 'Uluslararası Hukuk',
-    description: 'Yabancı uyruklu müvekkil danışmanlığı, uluslararası sözleşmeler.'
-  },
-  {
-    icon: 'fa-solid fa-scale-balanced',
-    title: 'Genel Hukuki Danışmanlık',
-    description: 'Bireysel ve kurumsal müvekkillere kapsamlı hukuki danışmanlık hizmetleri.'
-  }
-];
+const siteEntry = await getEntry('site', 'main');
+const workAreas = await getCollection('workAreas');
+const { name } = siteEntry.data;
 ---
 
 <BaseLayout
-  title="Çalışma Alanları | Av. Fatih Turan"
-  description="Av. Fatih Turan'ın uzmanlık alanları: Ceza, İş, Kira ve Şirketler Hukuku."
+  title={`Çalışma Alanları | ${name}`}
+  description={`${name}'ın uzmanlık alanları: Ceza, İş, Kira ve Şirketler Hukuku.`}
   currentPage="calisma-alanlari"
   canonicalUrl="/calisma-alanlari"
 >
@@ -48,11 +20,11 @@ const areas = [
   <section class="bg-light">
     <div class="container">
       <div class="grid-3">
-        {areas.map((area) => (
+        {workAreas.map((area) => (
           <AreaCard
-            icon={area.icon}
-            title={area.title}
-            description={area.description}
+            icon={area.data.icon}
+            title={area.data.title}
+            description={area.data.description}
           />
         ))}
       </div>

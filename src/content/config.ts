@@ -1,6 +1,7 @@
 import { defineCollection, z } from 'astro:content';
-import { glob } from 'astro/loaders';
+import { glob, file } from 'astro/loaders';
 
+// Makaleler koleksiyonu
 const articles = defineCollection({
   loader: glob({ pattern: '**/*.md', base: './src/content/articles' }),
   schema: ({ image }) => z.object({
@@ -16,4 +17,56 @@ const articles = defineCollection({
   }),
 });
 
-export const collections = { articles };
+// Site genel bilgileri
+const site = defineCollection({
+  loader: file('src/content/data/site.json'),
+  schema: z.object({
+    name: z.string(),
+    title: z.string(),
+    contact: z.object({
+      phone: z.string(),
+      phoneLink: z.string(),
+      email: z.string(),
+      whatsapp: z.string(),
+      linkedin: z.string(),
+    }),
+    office: z.object({
+      address: z.string(),
+      note: z.string(),
+    }),
+  }),
+});
+
+// Hakkımda sayfası içeriği
+const about = defineCollection({
+  loader: file('src/content/data/about.json'),
+  schema: z.object({
+    paragraphs: z.array(z.string()),
+    signature: z.object({
+      name: z.string(),
+      bar: z.string(),
+    }),
+  }),
+});
+
+// Çalışma alanları
+const workAreas = defineCollection({
+  loader: file('src/content/data/work-areas.json'),
+  schema: z.object({
+    icon: z.string(),
+    title: z.string(),
+    description: z.string(),
+  }),
+});
+
+// Yasal sayfalar (KVKK, Gizlilik, Çerez, Yasal Uyarı)
+const legal = defineCollection({
+  loader: glob({ pattern: '**/*.md', base: './src/content/legal' }),
+  schema: z.object({
+    title: z.string(),
+    description: z.string(),
+    slug: z.string(),
+  }),
+});
+
+export const collections = { articles, site, about, workAreas, legal };

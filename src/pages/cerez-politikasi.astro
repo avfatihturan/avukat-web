@@ -1,77 +1,19 @@
 ---
 import LegalLayout from '../layouts/LegalLayout.astro';
+import { getEntry, render } from 'astro:content';
+
+const entry = await getEntry('legal', 'cerez-politikasi');
+const { Content } = await render(entry);
+const { title, description, slug } = entry.data;
 ---
 
 <LegalLayout
-  title="Çerez Politikası | Av. Fatih Turan"
-  description="Av. Fatih Turan web sitesi çerez politikası ve kullanımı."
-  canonicalUrl="/cerez-politikasi"
-  heroTitle="Çerez Politikası"
+  title={`${title} | Av. Fatih Turan`}
+  description={description}
+  canonicalUrl={`/${slug}`}
+  heroTitle={title}
 >
-  <h2>1. Çerez Nedir?</h2>
-  <p>Çerezler, web sitelerinin tarayıcınıza kaydettiği küçük metin dosyalarıdır. Bu dosyalar, site tercihlerinizi hatırlamak ve ziyaret deneyiminizi iyileştirmek için kullanılır.</p>
-
-  <h2>2. Kullandığımız Çerez Türleri</h2>
-
-  <div class="table-wrapper">
-    <table class="cookie-table">
-      <caption>Zorunlu Çerezler</caption>
-      <thead>
-        <tr>
-          <th>Çerez Adı</th>
-          <th>Amaç</th>
-          <th>Süre</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>theme</td>
-          <td>Tema tercihini (açık/koyu mod) saklar</td>
-          <td>1 yıl</td>
-        </tr>
-        <tr>
-          <td>chatGreetingShown</td>
-          <td>Sohbet selamlama mesajının gösterilip gösterilmediğini takip eder</td>
-          <td>Oturum</td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-
-  <div class="table-wrapper">
-    <table class="cookie-table">
-      <caption>Analitik Çerezler</caption>
-      <thead>
-        <tr>
-          <th>Çerez Adı</th>
-          <th>Amaç</th>
-          <th>Süre</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>_ga</td>
-          <td>Google Analytics - Benzersiz ziyaretçi kimliği</td>
-          <td>2 yıl</td>
-        </tr>
-        <tr>
-          <td>_ga_*</td>
-          <td>Google Analytics - Oturum durumu</td>
-          <td>2 yıl</td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-
-  <h2>3. Çerezleri Yönetme</h2>
-  <p>Tarayıcınızın ayarlarından çerezleri devre dışı bırakabilir veya silebilirsiniz. Ancak bu durumda site bazı özelliklerini kaybedebilir.</p>
-
-  <h2>4. Üçüncü Taraf Çerezleri</h2>
-  <p>Sitemizde Google Analytics kullanılmaktadır. Google'ın gizlilik politikası hakkında bilgi almak için <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer" style="color:var(--altin);">Google Gizlilik Politikası</a> sayfasını ziyaret edebilirsiniz.</p>
-
-  <h2>5. İletişim</h2>
-  <p>Çerez politikamız hakkında sorularınız için <a href="/iletisim" style="color:var(--altin);">iletişim sayfamızı</a> kullanabilirsiniz.</p>
-
+  <Content />
   <hr style="margin:40px 0; border:0; border-top:1px solid #ddd;">
   <p><strong>Av. Fatih Turan</strong><br>Ankara Barosu - 46839</p>
 </LegalLayout>

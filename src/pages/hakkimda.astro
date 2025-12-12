@@ -1,11 +1,17 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Hero from '../components/Hero.astro';
+import { getEntry } from 'astro:content';
+
+const siteEntry = await getEntry('site', 'main');
+const aboutEntry = await getEntry('about', 'main');
+const { name } = siteEntry.data;
+const { paragraphs, signature } = aboutEntry.data;
 ---
 
 <BaseLayout
-  title="Hakkımda | Av. Fatih Turan"
-  description="Av. Fatih Turan hakkında bilgi. Deniz Subaylığı geçmişi, hukuk vizyonu ve uzmanlık alanları."
+  title={`Hakkımda | ${name}`}
+  description={`${name} hakkında bilgi. Deniz Subaylığı geçmişi, hukuk vizyonu ve uzmanlık alanları.`}
   currentPage="hakkimda"
   canonicalUrl="/hakkimda"
 >
@@ -15,11 +21,11 @@ import Hero from '../components/Hero.astro';
     <div class="container about-container">
       <h2 class="section-heading">Özgeçmiş ve Vizyon</h2>
       <div class="about-content">
-        <p>2015 yılında Deniz Harp Okulu'ndan mezun olduktan sonra, Sahil Güvenlik Komutanlığı bünyesinde subay olarak görev yaptım. Bu süreçte edindiğim <strong>kriz yönetimi, stratejik planlama ve hiyerarşik disiplin</strong> yeteneklerini; Kırıkkale Üniversitesi Hukuk Fakültesi eğitimi ve ardından avukatlık mesleği ile bütünleştirdim.</p>
-        <p>Mesleki pratiğimde, hukuki süreçleri sadece birer "dava dosyası" olarak değil, yönetilmesi gereken stratejik bir proje olarak ele alıyorum. Özellikle <strong>Şirketler Hukuku</strong> ve <strong>Ceza Hukuku</strong> alanlarında; riskleri önceden gören, analitik ve sonuç odaklı bir çalışma prensibi benimsiyorum.</p>
-        <p>Uluslararası İlişkiler alanında Yüksek Lisans derecesine sahibim. Halen Kamu Hukuku alanında akademik çalışmalarıma devam etmekte olup, hukukun teorik ve pratik gelişimini yakından takip etmekteyim.</p>
+        {paragraphs.map((paragraph) => (
+          <p set:html={paragraph} />
+        ))}
         <div class="about-signature">
-          <p><strong>Av. Fatih Turan</strong><br>Ankara Barosu - 46839</p>
+          <p><strong>{signature.name}</strong><br>{signature.bar}</p>
         </div>
       </div>
     </div>

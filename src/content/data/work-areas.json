@@ -1,0 +1,38 @@
+[
+  {
+    "id": "ceza",
+    "icon": "fa-solid fa-gavel",
+    "title": "Ceza Hukuku",
+    "description": "Bilişim suçları, hakaret, tehdit ve diğer ceza davalarında savunma ve müdahillik hizmetleri."
+  },
+  {
+    "id": "is",
+    "icon": "fa-solid fa-briefcase",
+    "title": "İş Hukuku",
+    "description": "İşe iade davaları, kıdem ve ihbar tazminatı, iş kazaları ve işveren danışmanlığı."
+  },
+  {
+    "id": "kira",
+    "icon": "fa-solid fa-home",
+    "title": "Kira Hukuku",
+    "description": "Kira tespit ve tahliye davaları, kira sözleşmeleri, kiracı-kiraya veren uyuşmazlıkları."
+  },
+  {
+    "id": "sirketler",
+    "icon": "fa-solid fa-building",
+    "title": "Şirketler Hukuku",
+    "description": "Şirket kuruluşu, birleşme ve devir, ortaklık sözleşmeleri, ticari uyuşmazlıklar."
+  },
+  {
+    "id": "uluslararasi",
+    "icon": "fa-solid fa-globe",
+    "title": "Uluslararası Hukuk",
+    "description": "Yabancı uyruklu müvekkil danışmanlığı, uluslararası sözleşmeler."
+  },
+  {
+    "id": "genel",
+    "icon": "fa-solid fa-scale-balanced",
+    "title": "Genel Hukuki Danışmanlık",
+    "description": "Bireysel ve kurumsal müvekkillere kapsamlı hukuki danışmanlık hizmetleri."
+  }
+]

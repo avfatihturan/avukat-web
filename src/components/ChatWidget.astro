@@ -1,8 +1,12 @@
 ---
 // Chat Widget - Masaüstünde gösterilir
+import { getEntry } from 'astro:content';
+
+const siteEntry = await getEntry('site', 'main');
+const { contact, office } = siteEntry.data;
 ---
 
-<a href="https://wa.me/905326100805" class="whatsapp-float" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp ile iletişime geç">
+<a href={`https://wa.me/${contact.whatsapp}`} class="whatsapp-float" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp ile iletişime geç">
   <i class="fa-brands fa-whatsapp"></i>
 </a>
 
@@ -28,7 +32,7 @@
   </div>
 </div>
 
-<script is:inline>
+<script define:vars={{ officeAddress: office.address, officeNote: office.note }}>
   function initChatBot() {
     if (window.innerWidth <= 768) return;
 
@@ -74,7 +78,7 @@
       },
       konum: {
         user: "Ofis nerede?",
-        bot: "Ofisimiz Ankara Sincan'dadır. Randevu ile çalışmaktayız."
+        bot: "Ofisimiz " + officeAddress + "'dadır. " + officeNote
       },
       ucret: {
         user: "Danışmanlık ücretli mi?",
