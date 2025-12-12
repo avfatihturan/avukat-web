@@ -8,6 +8,9 @@ const articles = await getCollection('articles', ({ data }) => !data.draft);
 
 // Sort by date, newest first
 articles.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+
+// Get unique tags
+const allTags = [...new Set(articles.map(article => article.data.tag))];
 ---
 
 <BaseLayout
@@ -20,17 +23,171 @@ articles.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
 
   <section class="bg-light">
     <div class="container">
-      <div class="grid-3">
-        {articles.map((article) => (
-          <ArticleCard
-            title={article.data.title}
-            description={article.data.description}
-            href={`/yayinlar/${article.id}`}
-            image={article.data.heroImage}
-            tag={article.data.tag}
-          />
+      <!-- Tag Filter -->
+      <div class="filter-bar">
+        <button class="filter-btn active" data-filter="all">
+          Tümü
+          <span class="filter-count">{articles.length}</span>
+        </button>
+        {allTags.map((tag) => (
+          <button class="filter-btn" data-filter={tag}>
+            {tag}
+            <span class="filter-count">
+              {articles.filter(a => a.data.tag === tag).length}
+            </span>
+          </button>
         ))}
+      </div>
+
+      <!-- Articles Grid -->
+      <div class="articles-grid grid-3">
+        {articles.map((article) => (
+          <div class="article-item" data-tag={article.data.tag}>
+            <ArticleCard
+              title={article.data.title}
+              description={article.data.description}
+              href={`/yayinlar/${article.id}`}
+              image={article.data.heroImage}
+              tag={article.data.tag}
+            />
+          </div>
+        ))}
+      </div>
+
+      <!-- Empty State -->
+      <div class="empty-state" style="display: none;">
+        <p>Bu kategoride henüz yayın bulunmuyor.</p>
       </div>
     </div>
   </section>
 </BaseLayout>
+
+<style>
+  .filter-bar {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-bottom: 40px;
+    justify-content: center;
+  }
+
+  .filter-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 20px;
+    background: var(--card-bg);
+    border: 1px solid var(--color-border);
+    border-radius: 50px;
+    font-family: inherit;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--color-text);
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+
+  .filter-btn:hover {
+    border-color: var(--brand-accent);
+    color: var(--brand-accent);
+  }
+
+  .filter-btn.active {
+    background: var(--brand-primary);
+    border-color: var(--brand-primary);
+    color: #fff;
+  }
+  :global(html.dark) .filter-btn.active {
+    background: var(--brand-accent);
+    border-color: var(--brand-accent);
+    color: #000;
+  }
+
+  .filter-count {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 22px;
+    height: 22px;
+    padding: 0 6px;
+    background: rgba(0, 0, 0, 0.1);
+    border-radius: 50px;
+    font-size: 0.75rem;
+    font-weight: 700;
+  }
+
+  .filter-btn.active .filter-count {
+    background: rgba(255, 255, 255, 0.2);
+  }
+  :global(html.dark) .filter-btn.active .filter-count {
+    background: rgba(0, 0, 0, 0.2);
+  }
+
+  /* Article Items */
+  .article-item {
+    opacity: 1;
+    transform: scale(1);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+  }
+
+  .article-item.hidden {
+    display: none;
+  }
+
+  /* Empty State */
+  .empty-state {
+    text-align: center;
+    padding: 60px 20px;
+    color: var(--color-text-secondary);
+  }
+
+  @media (max-width: 768px) {
+    .filter-bar {
+      gap: 8px;
+    }
+    .filter-btn {
+      padding: 8px 16px;
+      font-size: 0.8rem;
+    }
+  }
+</style>
+
+<script is:inline>
+  function initFilter() {
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    const articleItems = document.querySelectorAll('.article-item');
+    const emptyState = document.querySelector('.empty-state');
+
+    if (!filterBtns.length || !articleItems.length) return;
+
+    filterBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const filter = btn.dataset.filter;
+
+        // Update active button
+        filterBtns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+
+        // Filter articles
+        let visibleCount = 0;
+        articleItems.forEach(item => {
+          const tag = item.dataset.tag;
+          if (filter === 'all' || tag === filter) {
+            item.classList.remove('hidden');
+            visibleCount++;
+          } else {
+            item.classList.add('hidden');
+          }
+        });
+
+        // Show/hide empty state
+        if (emptyState) {
+          emptyState.style.display = visibleCount === 0 ? 'block' : 'none';
+        }
+      });
+    });
+  }
+
+  document.addEventListener('DOMContentLoaded', initFilter);
+  document.addEventListener('astro:after-swap', initFilter);
+</script>
