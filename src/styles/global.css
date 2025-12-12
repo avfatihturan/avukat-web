@@ -388,6 +388,8 @@ html.dark .cookie-table th { background-color: #262626; }
 
 .chat-box { width: 320px; background: var(--chat-bg); border-radius: 12px; box-shadow: 0 8px 32px rgba(0,0,0,0.15); display: none; flex-direction: column; overflow: hidden; border: 1px solid var(--color-border); margin-bottom: 15px; }
 .chat-header { background: var(--brand-primary); color: #fff; padding: 15px; font-weight: 700; display: flex; justify-content: space-between; align-items: center; border-bottom: 3px solid var(--brand-accent); }
+#closeChat { background: rgba(255,255,255,0.15); border: none; color: #fff; width: 28px; height: 28px; border-radius: 50%; cursor: pointer; font-size: 1.2rem; line-height: 1; display: flex; align-items: center; justify-content: center; transition: 0.2s; }
+#closeChat:hover { background: var(--brand-accent); color: var(--brand-primary); }
 .chat-body { padding: 15px; max-height: 350px; overflow-y: auto; font-size: 0.9rem; background: var(--color-bg-secondary); color: var(--color-text); }
 .chat-msg { margin-bottom: 10px; padding: 10px 12px; border-radius: 8px; line-height: 1.5; }
 .chat-msg.bot { background: var(--chat-bg); color: var(--chat-text); border: 1px solid var(--color-border); border-left: 3px solid var(--brand-accent); }
