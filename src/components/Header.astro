@@ -1,6 +1,8 @@
 ---
+import { Image } from 'astro:assets';
 import { SITE, NAV_ITEMS } from '../data/site';
 import ThemeToggle from './ThemeToggle.astro';
+import logoImage from '../assets/images/transparent-logo.png';
 
 interface Props {
   currentPage?: string;
@@ -12,7 +14,7 @@ const { currentPage = '' } = Astro.props;
 <header>
   <div class="container header-row">
     <a href="/" class="brand-area">
-      <img src="/images/transparent-logo.png" alt={`${SITE.name} Hukuk Bürosu Logosu`} width="55" height="55">
+      <Image src={logoImage} alt={`${SITE.name} Hukuk Bürosu Logosu`} width={55} height={55} loading="eager" />
       <div class="brand-text">
         <span class="name">{SITE.name}</span>
         <span class="title">{SITE.title}</span>

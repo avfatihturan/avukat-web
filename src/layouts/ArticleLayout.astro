@@ -1,11 +1,13 @@
 ---
+import { Image } from 'astro:assets';
+import type { ImageMetadata } from 'astro';
 import BaseLayout from './BaseLayout.astro';
 import TableOfContents from '../components/TableOfContents.astro';
 
 interface Props {
   title: string;
   description: string;
-  heroImage: string;
+  heroImage: ImageMetadata;
   heroAlt: string;
   tag: string;
   pubDate: Date;
@@ -23,18 +25,20 @@ const slug = Astro.url.pathname.split('/').pop();
   description={description}
   currentPage="yayinlar"
   canonicalUrl={`/yayinlar/${slug}`}
-  ogImage={heroImage}
+  ogImage={heroImage.src}
 >
   <section class="bg-light">
     <div class="container article-container">
       <span class="article-tag">{tag}</span>
       <h1 class="article-title">{title}</h1>
 
-      <img
+      <Image
         src={heroImage}
         alt={heroAlt}
         class="article-hero-img"
         loading="eager"
+        width={800}
+        quality={80}
       />
 
       <TableOfContents headings={headings} />

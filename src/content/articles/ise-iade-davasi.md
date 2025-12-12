@@ -2,7 +2,7 @@
 title: "İşten Çıkarıldınız: İlk 10 Günde Atılması Gereken Adımlar"
 description: "İşten çıkarıldıysanız, ilk 10 günde hangi adımları atmanız ve işe iade davasını nasıl açmanız gerektiğini adım adım öğrenin."
 pubDate: 2024-01-10
-heroImage: "/images/is-hukuku-hero.jpg"
+heroImage: "../../assets/images/is-hukuku-hero.jpg"
 heroAlt: "İşe iade süreci"
 tag: "İŞ HUKUKU"
 ---

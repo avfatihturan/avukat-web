@@ -1,9 +1,12 @@
 ---
+import { Image } from 'astro:assets';
+import type { ImageMetadata } from 'astro';
+
 interface Props {
   title: string;
   description: string;
   href: string;
-  image: string;
+  image: ImageMetadata;
   tag: string;
 }
 
@@ -12,7 +15,7 @@ const { title, description, href, image, tag } = Astro.props;
 
 <article class="article-card">
   <a href={href}>
-    <img src={image} alt={title} loading="lazy" />
+    <Image src={image} alt={title} width={400} height={220} loading="lazy" />
     <div class="article-card__content">
       <span class="article-tag">{tag}</span>
       <h3>{title}</h3>
@@ -24,7 +27,7 @@ const { title, description, href, image, tag } = Astro.props;
 
 <style>
   .article-card {
-    background: var(--bg-card);
+    background: var(--card-bg);
     border-radius: 8px;
     overflow: hidden;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
@@ -55,24 +58,23 @@ const { title, description, href, image, tag } = Astro.props;
   .article-card h3 {
     margin: 10px 0;
     font-size: 1.2rem;
-    color: var(--lacivert);
+    color: var(--brand-primary);
+  }
+  :global(html.dark) .article-card h3 {
+    color: var(--color-text);
   }
 
   .article-card p {
     margin-bottom: 20px;
-    color: #555;
+    color: var(--color-text-secondary);
     font-size: 0.95rem;
     line-height: 1.6;
   }
 
-  [data-theme="dark"] .article-card p {
-    color: #aaa;
-  }
-
   .article-tag {
     display: inline-block;
-    background: var(--altin);
-    color: #fff;
+    background: var(--brand-accent);
+    color: #000;
     padding: 4px 12px;
     border-radius: 3px;
     font-size: 0.75rem;
@@ -82,12 +84,15 @@ const { title, description, href, image, tag } = Astro.props;
 
   .article-link {
     display: inline-block;
-    color: var(--lacivert);
+    color: var(--brand-primary);
     font-weight: 600;
     transition: color 0.2s ease;
   }
+  :global(html.dark) .article-link {
+    color: var(--color-text);
+  }
 
   .article-card:hover .article-link {
-    color: var(--altin);
+    color: var(--brand-accent);
   }
 </style>

@@ -1,30 +1,14 @@
 ---
+import { Image } from 'astro:assets';
+import { getCollection } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Hero from '../components/Hero.astro';
 
-const articles = [
-  {
-    href: '/yayinlar/kira-tespit-davasi',
-    image: '/images/kira-tespit-hero-desktop.jpg',
-    tag: 'KİRA HUKUKU',
-    title: 'Kira Tespit Davası: 7 Kritik Nokta',
-    description: '5 yıl kuralı, emsal kira bedeli ve hakkaniyet indirimi.'
-  },
-  {
-    href: '/yayinlar/ise-iade-davasi',
-    image: '/images/is-hukuku-hero.jpg',
-    tag: 'İŞ HUKUKU',
-    title: 'İşten Çıkarıldınız: İlk 10 Günde Ne Yapmalı?',
-    description: 'Fesih bildirimi, tutanak süreçleri ve dava şartları.'
-  },
-  {
-    href: '/yayinlar/whatsapp-hakaret-delil',
-    image: '/images/dijital-delil-guvenilirlik-piramidi.jpg',
-    tag: 'CEZA HUKUKU',
-    title: 'WhatsApp ve Sosyal Medyada Hakaret',
-    description: 'Ekran görüntüsü delil olur mu? Yargıtay kararları.'
-  }
-];
+// Get latest 3 articles from Content Collections
+const allArticles = await getCollection('articles', ({ data }) => !data.draft);
+const articles = allArticles
+  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
+  .slice(0, 3);
 ---
 
 <BaseLayout
@@ -46,26 +30,26 @@ const articles = [
         <p>Deniz Subaylığı geçmişimden gelen kriz yönetimi ve disiplin yeteneklerini; hukuk nosyonu ile birleştirerek müvekkillerime sunuyorum.</p>
         <a href="/hakkimda" class="btn-outline-main">Detaylı Profil &rarr;</a>
       </div>
-      <div class="card" style="border-left:5px solid var(--lacivert);">
+      <div class="expertise-card">
         <h3>Uzmanlık Alanları</h3>
-        <ul style="line-height:2;">
+        <ul class="expertise-list">
           <li>
-            <a href="/yayinlar/whatsapp-hakaret-delil" style="display:block; color:inherit;">
-              <i class="fa-solid fa-check" style="color:var(--altin);"></i> Ceza Hukuku (Bilişim)
+            <a href="/yayinlar/whatsapp-hakaret-delil">
+              <i class="fa-solid fa-check"></i> Ceza Hukuku (Bilişim)
             </a>
           </li>
           <li>
-            <a href="/yayinlar/ise-iade-davasi" style="display:block; color:inherit;">
-              <i class="fa-solid fa-check" style="color:var(--altin);"></i> İş Hukuku (İşe İade)
+            <a href="/yayinlar/ise-iade-davasi">
+              <i class="fa-solid fa-check"></i> İş Hukuku (İşe İade)
             </a>
           </li>
           <li>
-            <a href="/yayinlar/kira-tespit-davasi" style="display:block; color:inherit;">
-              <i class="fa-solid fa-check" style="color:var(--altin);"></i> Kira Hukuku
+            <a href="/yayinlar/kira-tespit-davasi">
+              <i class="fa-solid fa-check"></i> Kira Hukuku
             </a>
           </li>
           <li>
-            <span><i class="fa-solid fa-check" style="color:var(--altin);"></i> Şirketler Hukuku</span>
+            <span><i class="fa-solid fa-check"></i> Şirketler Hukuku</span>
           </li>
         </ul>
       </div>
@@ -74,21 +58,23 @@ const articles = [
 
   <section>
     <div class="container">
-      <h2 class="section-heading" style="text-align:center;">Son Yayınlar</h2>
+      <h2 class="section-heading section-heading--center">Son Yayınlar</h2>
       <div class="grid-3">
         {articles.map((article) => (
           <div class="article-preview">
-            <a href={article.href} style="display:block; text-decoration:none;">
-              <img
-                src={article.image}
-                alt={article.title}
+            <a href={`/yayinlar/${article.id}`} class="article-preview__link">
+              <Image
+                src={article.data.heroImage}
+                alt={article.data.heroAlt}
+                width={400}
+                height={220}
+                class="article-preview__img"
                 loading="lazy"
-                style="width:100%; height:220px; object-fit:cover;"
               />
-              <div style="padding:25px;">
-                <span class="article-tag">{article.tag}</span>
-                <h3>{article.title}</h3>
-                <p style="margin-bottom:20px; color:#555;">{article.description}</p>
+              <div class="article-preview__content">
+                <span class="article-tag">{article.data.tag}</span>
+                <h3>{article.data.title}</h3>
+                <p class="article-preview__desc">{article.data.description}</p>
                 <span class="article-link">İncele &rarr;</span>
               </div>
             </a>
@@ -98,3 +84,62 @@ const articles = [
     </div>
   </section>
 </BaseLayout>
+
+<style>
+  /* Expertise Card */
+  .expertise-card {
+    background: var(--card-bg);
+    padding: 30px;
+    border: 1px solid var(--color-border);
+    border-left: 5px solid var(--brand-primary);
+    border-radius: 4px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+  }
+  .expertise-card h3 {
+    color: var(--brand-primary);
+    margin-bottom: 15px;
+  }
+  :global(html.dark) .expertise-card h3 {
+    color: var(--color-text);
+  }
+  .expertise-list {
+    line-height: 2;
+  }
+  .expertise-list a {
+    display: block;
+    color: inherit;
+  }
+  .expertise-list a:hover {
+    color: var(--brand-accent);
+  }
+  .expertise-list i {
+    color: var(--brand-accent);
+  }
+
+  /* Section Heading Center */
+  .section-heading--center {
+    text-align: center;
+    display: block;
+  }
+  .section-heading--center::after {
+    margin: 10px auto 0;
+  }
+
+  /* Article Preview */
+  .article-preview__link {
+    display: block;
+    text-decoration: none;
+  }
+  .article-preview__img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+  }
+  .article-preview__content {
+    padding: 25px;
+  }
+  .article-preview__desc {
+    margin-bottom: 20px;
+    color: var(--color-text-secondary);
+  }
+</style>
