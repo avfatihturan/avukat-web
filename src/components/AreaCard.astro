@@ -61,4 +61,34 @@ const { icon, title, description } = Astro.props;
     line-height: 1.6;
     color: var(--color-text-secondary);
   }
+
+  /* Mobile Optimizations */
+  @media (max-width: 768px) {
+    .area-card {
+      padding: 20px;
+      border-radius: 10px;
+    }
+    .area-card__header {
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+    .area-card__header i {
+      font-size: 1.15rem;
+    }
+    .area-card__title {
+      font-size: 1rem;
+    }
+    .area-card__description {
+      font-size: 0.85rem;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .area-card {
+      padding: 18px;
+    }
+    .area-card__title {
+      font-size: 0.95rem;
+    }
+  }
 </style>

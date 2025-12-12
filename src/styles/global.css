@@ -171,8 +171,10 @@ html.dark .brand-text .name { color: var(--color-text); }
     background: none;
     border: 1px solid var(--color-border-soft);
     border-radius: 50%;
-    width: 35px;
-    height: 35px;
+    width: 44px;
+    height: 44px;
+    min-width: 44px;
+    min-height: 44px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -181,7 +183,39 @@ html.dark .brand-text .name { color: var(--color-text); }
     transition: 0.2s;
 }
 .theme-toggle:hover { background: var(--brand-accent); color: #fff; border-color: var(--brand-accent); }
-.menu-toggle { display: none; font-size: 1.5rem; color: var(--color-text); cursor: pointer; margin-left: 15px; }
+
+/* Menu Toggle - Mobile Hamburger Button */
+.menu-toggle {
+    display: none;
+    width: 44px;
+    height: 44px;
+    min-width: 44px;
+    min-height: 44px;
+    font-size: 1.5rem;
+    color: var(--color-text);
+    background: none;
+    border: 1px solid var(--color-border-soft);
+    border-radius: 8px;
+    cursor: pointer;
+    margin-left: 10px;
+    align-items: center;
+    justify-content: center;
+    transition: 0.2s;
+}
+.menu-toggle:hover {
+    background: var(--brand-accent);
+    color: #fff;
+    border-color: var(--brand-accent);
+}
+html.dark .menu-toggle {
+    border-color: var(--color-border-soft);
+    color: var(--color-text);
+}
+html.dark .menu-toggle:hover {
+    background: var(--brand-accent);
+    color: #000;
+    border-color: var(--brand-accent);
+}
 
 /* ========================================
    HERO
@@ -441,10 +475,19 @@ html.dark input[aria-invalid="true"] { background-color: #450a0a; }
 /* ========================================
    RESPONSIVE
    ======================================== */
+
+/* Large Tablet (1024px and below) */
+@media (max-width: 1024px) {
+    .grid-3 { grid-template-columns: repeat(2, 1fr); gap: 24px; }
+    .footer-row { grid-template-columns: repeat(2, 1fr); gap: 30px; }
+    .footer-row .footer-col:first-child { grid-column: 1 / -1; }
+}
+
+/* Tablet & Mobile Navigation (900px and below) */
 @media (max-width: 900px) {
     .chat-widget { display: none !important; }
     .whatsapp-float { display: flex !important; bottom: 20px; right: 20px; }
-    .menu-toggle { display: block; }
+    .menu-toggle { display: flex; }
     .desktop-nav {
         display: none;
         position: absolute;
@@ -461,11 +504,38 @@ html.dark input[aria-invalid="true"] { background-color: #450a0a; }
     .hero h1 { font-size: 2rem; }
     .hero.hero-sm { padding: 80px 0 32px; }
     .hero.hero-sm h1 { font-size: 1.5rem; }
-    .grid-2, .grid-3, .contact-wrapper, .footer-row { display: flex; flex-direction: column; gap: 40px; }
-    .header-right { gap: 10px; }
+    .hero p { font-size: 1rem; padding: 15px; padding-left: 15px; border-left-width: 3px; }
+    .grid-2 { display: flex; flex-direction: column; gap: 40px; }
+    .contact-wrapper { display: flex; flex-direction: column; gap: 40px; }
+    .header-right { gap: 8px; }
     .brand-text .title { display: none; }
 }
 
+/* Small Tablet (768px and below) */
+@media (max-width: 768px) {
+    .grid-3 { grid-template-columns: 1fr; gap: 20px; }
+    .footer-row { display: flex; flex-direction: column; gap: 30px; }
+    section { padding: 40px 0; }
+    h2.section-heading { font-size: 1.6rem; margin-bottom: 30px; }
+    .container { padding: 0 16px; }
+}
+
+/* Mobile (640px and below) */
+@media (max-width: 640px) {
+    .hero { min-height: 55vh; padding: 50px 0 30px; }
+    .hero h1 { font-size: 1.6rem; letter-spacing: 0.04em; }
+    .hero p { font-size: 0.95rem; max-width: 100%; }
+    .hero.hero-sm { padding: 70px 0 28px; }
+    .hero.hero-sm h1 { font-size: 1.3rem; }
+    .btn { padding: 14px 28px; font-size: 0.85rem; width: 100%; text-align: center; }
+    .btn-outline-main { width: 100%; text-align: center; display: block; }
+    section { padding: 32px 0; }
+    h2.section-heading { font-size: 1.4rem; margin-bottom: 24px; }
+    .brand-area img { height: 45px; }
+    .brand-text .name { font-size: 1rem; }
+}
+
+/* WhatsApp Float Desktop Only */
 @media (min-width: 901px) {
     .whatsapp-float { display: none; }
 }

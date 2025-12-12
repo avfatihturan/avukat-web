@@ -160,4 +160,43 @@ const { title, description, href, image, tag } = Astro.props;
     width: 16px;
     height: 16px;
   }
+
+  /* Mobile Optimizations */
+  @media (max-width: 768px) {
+    .blog-card {
+      border-radius: 12px;
+    }
+    .blog-card__content {
+      padding: 20px;
+    }
+    .blog-card__title {
+      font-size: 1.05rem;
+      margin-bottom: 10px;
+    }
+    .blog-card__description {
+      font-size: 0.85rem;
+    }
+    .blog-card__tag {
+      top: 12px;
+      left: 12px;
+      padding: 5px 12px;
+      font-size: 0.65rem;
+    }
+    .blog-card__footer {
+      margin-top: 16px;
+      padding-top: 14px;
+    }
+    .blog-card__read-more {
+      font-size: 0.8rem;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .blog-card__content {
+      padding: 16px;
+    }
+    .blog-card__title {
+      font-size: 1rem;
+    }
+  }
 </style>
