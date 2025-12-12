@@ -1,0 +1,41 @@
+---
+import { SITE, FOOTER_LINKS } from '../data/site';
+
+const currentYear = new Date().getFullYear();
+
+const quickLinks = [
+  { href: '/hakkimda', label: 'Hakkımda' },
+  { href: '/calisma-alanlari', label: 'Faaliyet Alanları' },
+  { href: '/iletisim', label: 'İletişim' },
+];
+---
+
+<footer>
+  <div class="container">
+    <div class="footer-row">
+      <div class="footer-col">
+        <h4>{SITE.name}</h4>
+        <p>{SITE.title} ve Çözüm Ortaklığı. Her Hakkı Saklıdır.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Hızlı Erişim</h4>
+        <ul>
+          {quickLinks.map((link) => (
+            <li><a href={link.href}>{link.label}</a></li>
+          ))}
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Yasal</h4>
+        <ul>
+          {FOOTER_LINKS.legal.map((link) => (
+            <li><a href={link.href}>{link.label}</a></li>
+          ))}
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; {currentYear} {SITE.name}.</p>
+    </div>
+  </div>
+</footer>

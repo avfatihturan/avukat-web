@@ -1,0 +1,100 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Hero from '../components/Hero.astro';
+
+const articles = [
+  {
+    href: '/yayinlar/kira-tespit-davasi',
+    image: '/images/kira-tespit-hero-desktop.jpg',
+    tag: 'KİRA HUKUKU',
+    title: 'Kira Tespit Davası: 7 Kritik Nokta',
+    description: '5 yıl kuralı, emsal kira bedeli ve hakkaniyet indirimi.'
+  },
+  {
+    href: '/yayinlar/ise-iade-davasi',
+    image: '/images/is-hukuku-hero.jpg',
+    tag: 'İŞ HUKUKU',
+    title: 'İşten Çıkarıldınız: İlk 10 Günde Ne Yapmalı?',
+    description: 'Fesih bildirimi, tutanak süreçleri ve dava şartları.'
+  },
+  {
+    href: '/yayinlar/whatsapp-hakaret-delil',
+    image: '/images/dijital-delil-guvenilirlik-piramidi.jpg',
+    tag: 'CEZA HUKUKU',
+    title: 'WhatsApp ve Sosyal Medyada Hakaret',
+    description: 'Ekran görüntüsü delil olur mu? Yargıtay kararları.'
+  }
+];
+---
+
+<BaseLayout
+  title="Av. Fatih Turan | Ankara Hukuk ve Danışmanlık"
+  description="Ankara merkezli Av. Fatih Turan ile Ceza, Şirketler, İş ve Kira Hukuku alanlarında stratejik ve güvenilir hukuki danışmanlık hizmeti alın."
+  currentPage="home"
+  canonicalUrl="/"
+>
+  <Hero
+    title="Stratejik Hukuk.<br>Güvenilir Temsil."
+    subtitle="&quot;Hangi limana gideceğini bilmeyen gemiye, hiçbir rüzgar yardım edemez.&quot; — Seneca"
+    showCTA
+  />
+
+  <section class="bg-light">
+    <div class="container grid-2">
+      <div>
+        <h2 class="section-heading">Hakkımda</h2>
+        <p>Deniz Subaylığı geçmişimden gelen kriz yönetimi ve disiplin yeteneklerini; hukuk nosyonu ile birleştirerek müvekkillerime sunuyorum.</p>
+        <a href="/hakkimda" class="btn-outline-main">Detaylı Profil &rarr;</a>
+      </div>
+      <div class="card" style="border-left:5px solid var(--lacivert);">
+        <h3>Uzmanlık Alanları</h3>
+        <ul style="line-height:2;">
+          <li>
+            <a href="/yayinlar/whatsapp-hakaret-delil" style="display:block; color:inherit;">
+              <i class="fa-solid fa-check" style="color:var(--altin);"></i> Ceza Hukuku (Bilişim)
+            </a>
+          </li>
+          <li>
+            <a href="/yayinlar/ise-iade-davasi" style="display:block; color:inherit;">
+              <i class="fa-solid fa-check" style="color:var(--altin);"></i> İş Hukuku (İşe İade)
+            </a>
+          </li>
+          <li>
+            <a href="/yayinlar/kira-tespit-davasi" style="display:block; color:inherit;">
+              <i class="fa-solid fa-check" style="color:var(--altin);"></i> Kira Hukuku
+            </a>
+          </li>
+          <li>
+            <span><i class="fa-solid fa-check" style="color:var(--altin);"></i> Şirketler Hukuku</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <h2 class="section-heading" style="text-align:center;">Son Yayınlar</h2>
+      <div class="grid-3">
+        {articles.map((article) => (
+          <div class="article-preview">
+            <a href={article.href} style="display:block; text-decoration:none;">
+              <img
+                src={article.image}
+                alt={article.title}
+                loading="lazy"
+                style="width:100%; height:220px; object-fit:cover;"
+              />
+              <div style="padding:25px;">
+                <span class="article-tag">{article.tag}</span>
+                <h3>{article.title}</h3>
+                <p style="margin-bottom:20px; color:#555;">{article.description}</p>
+                <span class="article-link">İncele &rarr;</span>
+              </div>
+            </a>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+</BaseLayout>

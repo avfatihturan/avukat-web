@@ -1,0 +1,166 @@
+---
+import { ViewTransitions } from 'astro:transitions';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import ChatWidget from '../components/ChatWidget.astro';
+import '../styles/global.css';
+
+interface Props {
+  title: string;
+  description: string;
+  currentPage?: string;
+  canonicalUrl?: string;
+  ogImage?: string;
+}
+
+const {
+  title,
+  description,
+  currentPage = '',
+  canonicalUrl,
+  ogImage = '/images/og-image.jpg'
+} = Astro.props;
+
+const siteUrl = 'https://fatihturan.av.tr';
+const fullCanonical = canonicalUrl ? `${siteUrl}${canonicalUrl}` : siteUrl;
+---
+
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{title}</title>
+  <meta name="description" content={description}>
+  <link rel="canonical" href={fullCanonical}>
+
+  <!-- Open Graph -->
+  <meta property="og:title" content={title}>
+  <meta property="og:description" content={description}>
+  <meta property="og:type" content="website">
+  <meta property="og:url" content={fullCanonical}>
+  <meta property="og:image" content={`${siteUrl}${ogImage}`}>
+  <meta name="twitter:card" content="summary_large_image">
+
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZBVH7DGDCZ"></script>
+  <script is:inline>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-ZBVH7DGDCZ');
+  </script>
+
+  <!-- Favicons -->
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png">
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="manifest" href="/manifest.webmanifest">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <!-- View Transitions -->
+  <ViewTransitions />
+
+  <!-- Structured Data -->
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "Attorney",
+    "name": "Av. Fatih Turan",
+    "image": `${siteUrl}/images/transparent-logo.png`,
+    "url": siteUrl,
+    "telephone": "+905326100805",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Ankara",
+      "addressCountry": "TR"
+    },
+    "sameAs": ["https://tr.linkedin.com/in/fatih-turan-400b9724b"]
+  })} />
+</head>
+<body>
+  <Header currentPage={currentPage} />
+
+  <main>
+    <slot />
+  </main>
+
+  <ChatWidget />
+  <Footer />
+
+  <!-- Theme Initialization (runs before page renders to prevent flash) -->
+  <script is:inline>
+    (function() {
+      var stored = localStorage.getItem('theme');
+      var theme = (stored === 'dark' || stored === 'light')
+        ? stored
+        : (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+      document.documentElement.classList.toggle('dark', theme === 'dark');
+      localStorage.setItem('theme', theme);
+    })();
+  </script>
+
+  <script is:inline>
+    // Theme Toggle
+    function initTheme() {
+      var themeToggleBtn = document.getElementById('themeToggle');
+      if (themeToggleBtn) {
+        themeToggleBtn.addEventListener('click', function() {
+          var isDark = document.documentElement.classList.toggle('dark');
+          localStorage.setItem('theme', isDark ? 'dark' : 'light');
+        });
+      }
+    }
+
+    // Mobile Menu
+    function initNav() {
+      var menuToggle = document.querySelector('.menu-toggle');
+      var nav = document.querySelector('.desktop-nav');
+
+      if (menuToggle) {
+        menuToggle.addEventListener('click', function() {
+          nav.classList.toggle('active');
+          menuToggle.setAttribute('aria-expanded', nav.classList.contains('active') ? 'true' : 'false');
+        });
+      }
+    }
+
+    // Special Days Banner
+    function initSpecialDays() {
+      var today = new Date();
+      var dateKey = (today.getMonth() + 1) + '-' + today.getDate();
+      var message = "", type = "", iconClass = "";
+
+      if (dateKey === "10-29") { message = "29 Ekim Cumhuriyet Bayramımız Kutlu Olsun!"; type = "national"; iconClass = "fa-solid fa-flag"; }
+      else if (dateKey === "8-30") { message = "30 Ağustos Zafer Bayramımız Kutlu Olsun!"; type = "national"; iconClass = "fa-solid fa-star"; }
+
+      if (message) {
+        var banner = document.createElement('div');
+        banner.id = 'special-banner';
+        banner.className = type;
+        banner.innerHTML = '<div class="container"><i class="' + iconClass + '" aria-hidden="true"></i> ' + message + '</div>';
+        document.body.insertBefore(banner, document.body.firstChild);
+        banner.style.display = 'block';
+      }
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+      initTheme();
+      initNav();
+      initSpecialDays();
+    });
+
+    document.addEventListener('astro:after-swap', function() {
+      var theme = localStorage.getItem('theme');
+      document.documentElement.classList.toggle('dark', theme === 'dark');
+      initTheme();
+      initNav();
+    });
+  </script>
+</body>
+</html>

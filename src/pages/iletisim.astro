@@ -1,0 +1,151 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Hero from '../components/Hero.astro';
+---
+
+<BaseLayout
+  title="İletişim | Av. Fatih Turan"
+  description="Av. Fatih Turan ile iletişime geçin. Ankara Sincan'da hukuki danışmanlık ve randevu."
+  currentPage="iletisim"
+  canonicalUrl="/iletisim"
+>
+  <Hero title="İletişim" size="sm" />
+
+  <section class="bg-light">
+    <div class="container">
+      <div class="contact-wrapper">
+        <div>
+          <h2 class="section-heading">İletişim Bilgileri</h2>
+          <div class="contact-info">
+            <a href="tel:+905326100805">
+              <i class="fa-solid fa-phone"></i>
+              <span>+90 532 610 08 05</span>
+            </a>
+            <a href="mailto:av.fatihturan@gmail.com">
+              <i class="fa-solid fa-envelope"></i>
+              <span>av.fatihturan@gmail.com</span>
+            </a>
+            <a href="https://wa.me/905326100805" target="_blank" rel="noopener noreferrer">
+              <i class="fa-brands fa-whatsapp"></i>
+              <span>WhatsApp</span>
+            </a>
+            <a href="https://tr.linkedin.com/in/fatih-turan-400b9724b" target="_blank" rel="noopener noreferrer">
+              <i class="fa-brands fa-linkedin"></i>
+              <span>LinkedIn</span>
+            </a>
+          </div>
+          <div style="margin-top:30px;">
+            <h3 style="margin-bottom:15px;">Ofis Adresi</h3>
+            <p><i class="fa-solid fa-location-dot" style="color:var(--altin); margin-right:10px;"></i>Ankara, Sincan</p>
+            <p style="margin-top:10px; color:#666; font-size:0.9rem;"><em>Randevu ile çalışmaktayız.</em></p>
+          </div>
+        </div>
+        <div>
+          <h2 class="section-heading">Randevu Formu</h2>
+          <form id="contactForm" action="https://formspree.io/f/xeoqjkpl" method="POST">
+            <input type="text" name="name" placeholder="Adınız Soyadınız" required>
+            <input type="email" name="email" placeholder="E-posta Adresiniz" required>
+            <div id="emailError" class="error-message"></div>
+            <input type="tel" name="phone" placeholder="Telefon Numaranız">
+            <select name="subject" required>
+              <option value="" disabled selected>Konu Seçiniz</option>
+              <option value="ceza">Ceza Hukuku</option>
+              <option value="is">İş Hukuku</option>
+              <option value="kira">Kira Hukuku</option>
+              <option value="sirketler">Şirketler Hukuku</option>
+              <option value="diger">Diğer</option>
+            </select>
+            <textarea name="message" rows="5" placeholder="Mesajınız..." required></textarea>
+            <button type="submit" class="btn">Gönder</button>
+          </form>
+          <div id="form-success" style="display:none; padding:20px; background:#d4edda; color:#155724; border-radius:4px; margin-top:15px;">
+            <i class="fa-solid fa-check-circle"></i> Mesajınız başarıyla gönderildi. En kısa sürede size dönüş yapacağız.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<script is:inline>
+  function initContactForm() {
+    var contactForm = document.getElementById('contactForm');
+    if (!contactForm) return;
+
+    var emailInput = contactForm.querySelector('input[name="email"]');
+    var emailError = document.getElementById('emailError');
+    var successBox = document.getElementById('form-success');
+    var submitBtn = contactForm.querySelector('button[type="submit"]');
+
+    function validateEmailField() {
+      if (!emailInput || !emailError) return true;
+
+      var value = emailInput.value.trim();
+      var emailRegex = /^[^@\s]+@[^@\s]+\.[^@\s]+$/;
+      var message = "";
+
+      if (!value) message = "Lütfen e-posta adresinizi giriniz.";
+      else if (!emailRegex.test(value)) message = "Geçerli bir e-posta adresi giriniz.";
+
+      if (message) {
+        emailError.textContent = message;
+        emailError.classList.add('active');
+        emailInput.setAttribute('aria-invalid', 'true');
+        return false;
+      } else {
+        emailError.textContent = "";
+        emailError.classList.remove('active');
+        emailInput.removeAttribute('aria-invalid');
+        return true;
+      }
+    }
+
+    if (emailInput) {
+      emailInput.addEventListener('blur', validateEmailField);
+      emailInput.addEventListener('input', function() {
+        if (emailError && emailError.classList.contains('active')) validateEmailField();
+      });
+    }
+
+    contactForm.addEventListener('submit', function(e) {
+      e.preventDefault();
+      if (!validateEmailField()) {
+        if (emailInput) emailInput.focus();
+        return;
+      }
+
+      var originalBtnText = submitBtn ? submitBtn.textContent : 'Gönder';
+      if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.textContent = "Gönderiliyor...";
+      }
+
+      fetch(contactForm.action, {
+        method: 'POST',
+        body: new FormData(contactForm),
+        headers: { 'Accept': 'application/json' }
+      }).then(function(response) {
+        if (response.ok) {
+          contactForm.reset();
+          if (successBox) {
+            successBox.style.display = 'block';
+            successBox.setAttribute('tabindex', '-1');
+            successBox.focus();
+          }
+        } else {
+          alert("Bir hata oluştu. Lütfen daha sonra tekrar deneyiniz.");
+        }
+      }).catch(function(error) {
+        alert("Sunucuya bağlanılamadı. İnternet bağlantınızı kontrol ediniz.");
+      }).finally(function() {
+        if (submitBtn) {
+          submitBtn.disabled = false;
+          submitBtn.textContent = originalBtnText;
+        }
+      });
+    });
+  }
+
+  document.addEventListener('DOMContentLoaded', initContactForm);
+  document.addEventListener('astro:after-swap', initContactForm);
+</script>

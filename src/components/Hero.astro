@@ -1,0 +1,27 @@
+---
+interface Props {
+  title: string;
+  subtitle?: string;
+  showCTA?: boolean;
+  ctaText?: string;
+  ctaHref?: string;
+  size?: 'default' | 'sm';
+}
+
+const {
+  title,
+  subtitle,
+  showCTA = false,
+  ctaText = 'Randevu Alın',
+  ctaHref = '/iletisim',
+  size = 'default'
+} = Astro.props;
+---
+
+<section class:list={['hero', { 'hero-sm': size === 'sm' }]}>
+  <div class="hero-content">
+    <h1 set:html={title} />
+    {subtitle && <p>{subtitle}</p>}
+    {showCTA && <a href={ctaHref} class="btn">{ctaText}</a>}
+  </div>
+</section>

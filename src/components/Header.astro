@@ -1,0 +1,43 @@
+---
+import { SITE, NAV_ITEMS } from '../data/site';
+import ThemeToggle from './ThemeToggle.astro';
+
+interface Props {
+  currentPage?: string;
+}
+
+const { currentPage = '' } = Astro.props;
+---
+
+<header>
+  <div class="container header-row">
+    <a href="/" class="brand-area">
+      <img src="/images/transparent-logo.png" alt={`${SITE.name} Hukuk Bürosu Logosu`} width="55" height="55">
+      <div class="brand-text">
+        <span class="name">{SITE.name}</span>
+        <span class="title">{SITE.title}</span>
+      </div>
+    </a>
+    <div class="header-right">
+      <nav class="desktop-nav">
+        <ul>
+          {NAV_ITEMS.map((item) => (
+            <li>
+              <a
+                href={item.href}
+                class:list={[{ active: currentPage === item.id }]}
+                aria-current={currentPage === item.id ? 'page' : undefined}
+              >
+                {item.label}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </nav>
+      <ThemeToggle />
+      <button class="menu-toggle" aria-label="Menüyü aç" aria-expanded="false">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+    </div>
+  </div>
+</header>

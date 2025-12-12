@@ -1,0 +1,71 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Hero from '../components/Hero.astro';
+
+const areas = [
+  {
+    icon: 'fa-solid fa-gavel',
+    title: 'Ceza Hukuku',
+    description: 'Bilişim suçları, hakaret, tehdit ve diğer ceza davalarında savunma ve müdahillik hizmetleri.',
+    link: '/yayinlar/whatsapp-hakaret-delil'
+  },
+  {
+    icon: 'fa-solid fa-briefcase',
+    title: 'İş Hukuku',
+    description: 'İşe iade davaları, kıdem ve ihbar tazminatı, iş kazaları ve işveren danışmanlığı.',
+    link: '/yayinlar/ise-iade-davasi'
+  },
+  {
+    icon: 'fa-solid fa-home',
+    title: 'Kira Hukuku',
+    description: 'Kira tespit ve tahliye davaları, kira sözleşmeleri, kiracı-kiraya veren uyuşmazlıkları.',
+    link: '/yayinlar/kira-tespit-davasi'
+  },
+  {
+    icon: 'fa-solid fa-building',
+    title: 'Şirketler Hukuku',
+    description: 'Şirket kuruluşu, birleşme ve devir, ortaklık sözleşmeleri, ticari uyuşmazlıklar.',
+    link: null
+  },
+  {
+    icon: 'fa-solid fa-globe',
+    title: 'Uluslararası Hukuk',
+    description: 'Yabancı uyruklu müvekkil danışmanlığı, uluslararası sözleşmeler.',
+    link: null
+  },
+  {
+    icon: 'fa-solid fa-scale-balanced',
+    title: 'Genel Hukuki Danışmanlık',
+    description: 'Bireysel ve kurumsal müvekkillere kapsamlı hukuki danışmanlık hizmetleri.',
+    link: '/iletisim'
+  }
+];
+---
+
+<BaseLayout
+  title="Çalışma Alanları | Av. Fatih Turan"
+  description="Av. Fatih Turan'ın uzmanlık alanları: Ceza, İş, Kira ve Şirketler Hukuku."
+  currentPage="calisma-alanlari"
+  canonicalUrl="/calisma-alanlari"
+>
+  <Hero title="Çalışma Alanları" size="sm" />
+
+  <section class="bg-light">
+    <div class="container">
+      <div class="grid-3">
+        {areas.map((area) => (
+          <div class="card">
+            <i class={area.icon}></i>
+            <h3>{area.title}</h3>
+            <p>{area.description}</p>
+            {area.link && (
+              <a href={area.link} class="btn-outline-main" style="margin-top:20px;">
+                Detaylar &rarr;
+              </a>
+            )}
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+</BaseLayout>

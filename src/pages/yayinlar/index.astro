@@ -1,0 +1,36 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Hero from '../../components/Hero.astro';
+import ArticleCard from '../../components/ArticleCard.astro';
+
+const articles = await getCollection('articles', ({ data }) => !data.draft);
+
+// Sort by date, newest first
+articles.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+---
+
+<BaseLayout
+  title="Yayınlar | Av. Fatih Turan"
+  description="Av. Fatih Turan'ın hukuki makaleleri ve yayınları. Ceza, İş ve Kira Hukuku konularında güncel bilgiler."
+  currentPage="yayinlar"
+  canonicalUrl="/yayinlar"
+>
+  <Hero title="Yayınlar" size="sm" />
+
+  <section class="bg-light">
+    <div class="container">
+      <div class="grid-3">
+        {articles.map((article) => (
+          <ArticleCard
+            title={article.data.title}
+            description={article.data.description}
+            href={`/yayinlar/${article.id}`}
+            image={article.data.heroImage}
+            tag={article.data.tag}
+          />
+        ))}
+      </div>
+    </div>
+  </section>
+</BaseLayout>

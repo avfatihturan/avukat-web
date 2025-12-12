@@ -1,0 +1,112 @@
+---
+// Chat Widget - Masaüstünde gösterilir
+---
+
+<a href="https://wa.me/905326100805" class="whatsapp-float" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp ile iletişime geç">
+  <i class="fa-brands fa-whatsapp"></i>
+</a>
+
+<div class="chat-widget">
+  <div id="chatGreeting" class="chat-greeting">Merhaba! Size nasıl yardımcı olabilirim? 👋</div>
+  <button id="chatToggle" class="chat-toggle-btn" aria-label="Sohbeti aç">
+    <i class="fa-solid fa-comments"></i>
+  </button>
+  <div id="chatBox" class="chat-box" role="dialog" aria-label="Sohbet penceresi">
+    <div class="chat-header">
+      <span>Turan Asistan</span>
+      <button id="closeChat" aria-label="Sohbeti kapat">&times;</button>
+    </div>
+    <div id="chatBody" class="chat-body">
+      <div class="chat-msg bot">Merhaba, ben Av. Fatih Turan'ın sanal asistanıyım. Size nasıl yardımcı olabilirim?</div>
+      <div class="chat-options">
+        <button data-reply="randevu">Randevu Almak İstiyorum</button>
+        <button data-reply="alanlar">Çalışma Alanları</button>
+        <button data-reply="konum">Ofis Nerede?</button>
+        <button data-reply="ucret">Danışmanlık Ücreti</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script is:inline>
+  function initChatBot() {
+    if (window.innerWidth <= 768) return;
+
+    var chatToggle = document.getElementById('chatToggle');
+    var chatBox = document.getElementById('chatBox');
+    var closeChat = document.getElementById('closeChat');
+    var greeting = document.getElementById('chatGreeting');
+    var chatBody = document.getElementById('chatBody');
+
+    if (!chatToggle || !chatBox || !closeChat || !greeting || !chatBody) return;
+
+    var hasSeenGreeting = null;
+    try { hasSeenGreeting = localStorage.getItem('chatGreetingShown'); } catch(e) {}
+
+    if (!hasSeenGreeting) {
+      setTimeout(function() {
+        try { localStorage.setItem('chatGreetingShown', 'true'); } catch(e) {}
+        if(chatBox.style.display !== 'flex') greeting.style.display = 'block';
+      }, 2500);
+      setTimeout(function() { greeting.style.display = 'none'; }, 12000);
+    }
+
+    chatToggle.addEventListener('click', function() {
+      if (chatBox.style.display === 'flex') {
+        chatBox.style.display = 'none';
+      } else {
+        chatBox.style.display = 'flex';
+        greeting.style.display = 'none';
+      }
+    });
+
+    closeChat.addEventListener('click', function() { chatBox.style.display = 'none'; });
+
+    // Chat reply buttons
+    var replies = {
+      randevu: {
+        user: "Randevu almak istiyorum.",
+        bot: "Randevu talebinizi <a href='/iletisim' style='color:#c5a059;font-weight:bold;'>buraya tıklayarak</a> iletebilirsiniz."
+      },
+      alanlar: {
+        user: "Çalışma alanları nelerdir?",
+        bot: "Detaylar için <a href='/calisma-alanlari' style='color:#c5a059;font-weight:bold;'>tıklayınız.</a>"
+      },
+      konum: {
+        user: "Ofis nerede?",
+        bot: "Ofisimiz Ankara Sincan'dadır. Randevu ile çalışmaktayız."
+      },
+      ucret: {
+        user: "Danışmanlık ücretli mi?",
+        bot: "Evet, Avukatlık Kanunu gereği danışmanlık hizmetleri ücrete tabidir."
+      }
+    };
+
+    var buttons = chatBody.querySelectorAll('.chat-options button');
+    for (var i = 0; i < buttons.length; i++) {
+      buttons[i].addEventListener('click', function() {
+        var option = this.getAttribute('data-reply');
+        if (!option || !replies[option]) return;
+
+        var reply = replies[option];
+        var options = chatBody.querySelector('.chat-options');
+
+        var userDiv = document.createElement('div');
+        userDiv.className = 'chat-msg user';
+        userDiv.innerHTML = reply.user;
+        if (options) chatBody.insertBefore(userDiv, options);
+
+        setTimeout(function() {
+          var botDiv = document.createElement('div');
+          botDiv.className = 'chat-msg bot';
+          botDiv.innerHTML = reply.bot;
+          if (options) chatBody.insertBefore(botDiv, options);
+          chatBody.scrollTop = chatBody.scrollHeight;
+        }, 600);
+      });
+    }
+  }
+
+  document.addEventListener('DOMContentLoaded', initChatBot);
+  document.addEventListener('astro:after-swap', initChatBot);
+</script>

@@ -1,0 +1,93 @@
+---
+interface Props {
+  title: string;
+  description: string;
+  href: string;
+  image: string;
+  tag: string;
+}
+
+const { title, description, href, image, tag } = Astro.props;
+---
+
+<article class="article-card">
+  <a href={href}>
+    <img src={image} alt={title} loading="lazy" />
+    <div class="article-card__content">
+      <span class="article-tag">{tag}</span>
+      <h3>{title}</h3>
+      <p>{description}</p>
+      <span class="article-link">İncele &rarr;</span>
+    </div>
+  </a>
+</article>
+
+<style>
+  .article-card {
+    background: var(--bg-card);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .article-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+  }
+
+  .article-card a {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+  }
+
+  .article-card img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+  }
+
+  .article-card__content {
+    padding: 25px;
+  }
+
+  .article-card h3 {
+    margin: 10px 0;
+    font-size: 1.2rem;
+    color: var(--lacivert);
+  }
+
+  .article-card p {
+    margin-bottom: 20px;
+    color: #555;
+    font-size: 0.95rem;
+    line-height: 1.6;
+  }
+
+  [data-theme="dark"] .article-card p {
+    color: #aaa;
+  }
+
+  .article-tag {
+    display: inline-block;
+    background: var(--altin);
+    color: #fff;
+    padding: 4px 12px;
+    border-radius: 3px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+  }
+
+  .article-link {
+    display: inline-block;
+    color: var(--lacivert);
+    font-weight: 600;
+    transition: color 0.2s ease;
+  }
+
+  .article-card:hover .article-link {
+    color: var(--altin);
+  }
+</style>
