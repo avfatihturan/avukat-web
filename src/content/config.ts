@@ -10,29 +10,29 @@ const articles = defineCollection({
     pubDate: z.coerce.date(),
     updatedDate: z.coerce.date().optional(),
     heroImage: image(),
-    heroAlt: z.string(),
-    tag: z.string(),
+    heroAlt: z.string().optional(),
+    tag: z.string().optional(),
     author: z.string().default('Av. Fatih Turan'),
     draft: z.boolean().default(false),
   }),
 });
 
-// Site genel bilgileri
+// Site genel bilgileri (DÜZELTİLEN KISIM)
 const site = defineCollection({
   loader: file('src/content/data/site.json'),
   schema: z.object({
-    name: z.string(),
-    title: z.string(),
-    description: z.string().optional(), // Açıklama alanı eklendi
+    name: z.string().optional(),
+    title: z.string().optional(),
+    description: z.string().optional(),
     contact: z.object({
-      phone: z.string(),
-      phoneLink: z.string(),
-      email: z.string(),
-      whatsapp: z.string(),
-      address: z.string(), // <-- KRİTİK EKLEME: Adres hatasını çözer
-      mapUrl: z.string().optional(), // Harita linki opsiyonel
-    }),
-    social: z.record(z.string()).optional(), // Sosyal medya alanı eklendi
+      phone: z.string().optional(),
+      phoneLink: z.string().optional(),
+      email: z.string().optional(),
+      whatsapp: z.string().optional(),
+      address: z.string().optional(),
+      mapUrl: z.string().optional(),
+    }), 
+    social: z.record(z.string()).optional(),
   }),
 });
 
@@ -40,51 +40,51 @@ const site = defineCollection({
 const about = defineCollection({
   loader: file('src/content/data/about.json'),
   schema: z.object({
-    paragraphs: z.array(z.string()),
+    paragraphs: z.array(z.string()).optional(),
     signature: z.object({
-      name: z.string(),
-      bar: z.string(),
-    }),
+      name: z.string().optional(),
+      bar: z.string().optional(),
+    }).optional(),
   }),
 });
 
-// Çalışma alanları (Burayı da güncelledik ki linkler çalışsın)
+// Çalışma alanları
 const workAreas = defineCollection({
   loader: file('src/content/data/work-areas.json'),
   schema: z.object({
     id: z.string().optional(),
-    icon: z.string(),
-    title: z.string(),
-    description: z.string(),
-    linkText: z.string().optional(), // <-- Yeni eklediğimiz buton metinleri için
-    linkUrl: z.string().optional(),  // <-- Yeni eklediğimiz linkler için
+    icon: z.string().optional(),
+    title: z.string().optional(),
+    description: z.string().optional(),
+    linkText: z.string().optional(),
+    linkUrl: z.string().optional(),
   }),
 });
 
-// Yasal sayfalar (KVKK, Gizlilik, Çerez, Yasal Uyarı)
+// Yasal sayfalar
 const legal = defineCollection({
   loader: glob({ pattern: '**/*.md', base: './src/content/legal' }),
   schema: z.object({
     title: z.string(),
     description: z.string(),
-    slug: z.string(),
+    slug: z.string().optional(),
   }),
 });
 
-// Chatbot yanıtları ve ayarları
+// Chatbot
 const chatbot = defineCollection({
   loader: file('src/content/data/chatbot.json'),
   schema: z.object({
-    greeting: z.string(),
-    welcomeMessage: z.string(),
-    assistantName: z.string(),
+    greeting: z.string().optional(),
+    welcomeMessage: z.string().optional(),
+    assistantName: z.string().optional(),
     options: z.array(z.object({
       key: z.string(),
       label: z.string(),
       userText: z.string(),
       botResponse: z.string(),
       icon: z.string().optional(),
-    })),
+    })).optional(),
   }),
 });
 
