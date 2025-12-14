@@ -4,6 +4,13 @@ import Hero from '../components/Hero.astro';
 import { getEntry } from 'astro:content';
 
 const siteEntry = await getEntry('site', 'main');
+
+// --- HATA DÜZELTME KODU BAŞLANGICI ---
+if (!siteEntry) {
+  throw new Error('Site verisi (site.json) bulunamadı!');
+}
+// --- HATA DÜZELTME KODU BİTİŞİ ---
+
 const { name, contact } = siteEntry.data;
 ---
 
