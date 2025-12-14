@@ -3,7 +3,7 @@ export const SITE = {
   title: 'Hukuki Danışmanlık',
   url: 'https://fatihturan.av.tr',
   phone: '+905326100805',
-  email: 'av.fatihturan@gmail.com',
+  email: 'av.fatihturan@outlook.com',
   barNumber: '46839',
   barName: 'Ankara Barosu',
   location: 'Ankara, Sincan',
