@@ -2,9 +2,10 @@
 title: "Araç Değer Kaybı: Sigorta Tahkim Komisyonu Başvuru Süreci"
 description: "Mahkemelerde yıllarca beklemeyin. Sigorta Tahkim Komisyonu ile araç değer kaybı tazminatınızı mahkemelere göre 4-5 kat daha hızlı nasıl alacağınızı ve başvuru şartlarını öğrenin."
 pubDate: 2025-12-14
-heroImage: "../../assets/images/arac-deger-kaybi-tahkim.jpg"
+heroImage: "../../assets/images/arac-deger-kaybi.jpg"
 heroAlt: "Sigorta Tahkim Komisyonu başvuru dosyası ve hukuk bürosu masası"
 tag: "SİGORTA HUKUKU"
+draft: false
 ---
 
 Trafik kazası sonrası aracınızda oluşan değer kaybını almak için mahkeme kapılarını aşındırmak zorunda değilsiniz. Yargılamaların uzun sürdüğü ülkemizde, sigorta uyuşmazlıkları için kurulmuş çok daha hızlı ve etkili bir mekanizma var: **Sigorta Tahkim Komisyonu.**
