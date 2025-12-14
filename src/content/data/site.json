@@ -1,13 +1,15 @@
-[
-  {
-    "id": "main",
-    "name": "Av. Fatih Turan",
-    "title": "Hukuki Danışmanlık",
-    "contact": {
-      "phone": "+90 532 610 08 05",
-      "phoneLink": "tel:+905326100805",
-      "email": "av.fatihturan@gmail.com",
-      "whatsapp": "905326100805"
-    }
-  }
-]
+{
+  "id": "main",
+  "name": "Av. Fatih Turan",
+  "title": "Ankara Hukuk ve Danışmanlık",
+  "description": "Ankara merkezli Av. Fatih Turan ile Ceza, Şirketler, İş ve Kira Hukuku alanlarında stratejik ve güvenilir hukuki danışmanlık hizmeti alın.",
+  "contact": {
+    "phone": "0 532 610 08 05",
+    "phoneLink": "tel:+905326100805",
+    "email": "av.fatihturan@outlook.com",
+    "whatsapp": "905326100805",
+    "address": "Ankara",
+    "mapUrl": ""
+  },
+  "social": {}
+}
