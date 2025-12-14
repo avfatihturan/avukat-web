@@ -9,7 +9,7 @@ const { name, contact } = siteEntry.data;
 
 <BaseLayout
   title={`İletişim | ${name}`}
-  description={`${name} ile iletişime geçin. Hukuki danışmanlık için bize ulaşın.`}
+  description={`${name} ile iletişime geçin. Hukuki danışmanlık ve randevu talebi oluşturun.`}
   currentPage="iletisim"
   canonicalUrl="/iletisim"
 >
@@ -17,11 +17,19 @@ const { name, contact } = siteEntry.data;
 
   <section class="bg-light">
     <div class="container">
+      
       <div class="contact-grid">
+        
         <a href={contact.phoneLink} class="contact-card">
           <i class="fa-solid fa-phone"></i>
           <span class="contact-card__label">Telefon</span>
           <span class="contact-card__value">{contact.phone}</span>
+        </a>
+
+        <a href={`https://wa.me/${contact.whatsapp}`} target="_blank" rel="noopener noreferrer" class="contact-card">
+          <i class="fa-brands fa-whatsapp"></i>
+          <span class="contact-card__label">WhatsApp</span>
+          <span class="contact-card__value">Mesaj Gönderin</span>
         </a>
 
         <a href={`mailto:${contact.email}`} class="contact-card">
@@ -30,69 +38,233 @@ const { name, contact } = siteEntry.data;
           <span class="contact-card__value">{contact.email}</span>
         </a>
 
-        <a href={`https://wa.me/${contact.whatsapp}`} target="_blank" rel="noopener noreferrer" class="contact-card">
-          <i class="fa-brands fa-whatsapp"></i>
-          <span class="contact-card__label">WhatsApp</span>
-          <span class="contact-card__value">Mesaj Gönderin</span>
-        </a>
       </div>
+
+      <div class="form-wrapper">
+        <h2 class="section-heading" style="font-size: 1.8rem; margin-bottom: 30px;">Randevu Talep Formu</h2>
+        <p style="margin-bottom: 30px; color: var(--color-text-secondary);">
+          Hukuki danışmanlık talepleriniz için aşağıdaki formu doldurabilirsiniz. 
+          Müsaitlik durumuna göre size en kısa sürede geri dönüş yapılacaktır.
+        </p>
+
+        <form action="https://formspree.io/f/xankgjed" method="POST" class="contact-form">
+          
+          <div class="form-row">
+            <div class="form-group">
+              <label>Adınız Soyadınız</label>
+              <input type="text" name="adsoyad" placeholder="Ad Soyad" required>
+            </div>
+            <div class="form-group">
+              <label>Telefon Numaranız</label>
+              <input type="tel" name="telefon" placeholder="05XX XXX XX XX" required>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label>E-posta Adresiniz</label>
+            <input type="email" name="email" placeholder="ornek@email.com" required>
+          </div>
+
+          <div class="form-group">
+            <label style="margin-bottom: 10px; display:block;">Görüşme İçin Uygun Olduğunuz Tarihler (3 Alternatif)</label>
+            <div class="date-grid">
+              <input type="date" name="tarih_tercih_1" aria-label="1. Tercih">
+              <input type="date" name="tarih_tercih_2" aria-label="2. Tercih">
+              <input type="date" name="tarih_tercih_3" aria-label="3. Tercih">
+            </div>
+            <small style="color: #666; font-size: 0.8rem;">* Size uygun 3 farklı gün seçebilirsiniz.</small>
+          </div>
+
+          <div class="form-group">
+            <label>Konu / Hukuki Sorun Özeti</label>
+            <textarea name="mesaj" rows="5" placeholder="Danışmak istediğiniz konuyu kısaca özetleyiniz..." required></textarea>
+          </div>
+
+          <div class="checkbox-group fee-warning">
+            <input type="checkbox" name="ucret_onayi" id="ucret_onayi" value="Kabul Edildi" required>
+            <label for="ucret_onayi">
+              <strong>Danışmanlık Ücreti Onayı:</strong> Ofisimizde veya online yapılacak görüşmelerin, Avukatlık Asgari Ücret Tarifesi gereğince <strong>ücrete tabi olduğunu</strong> biliyor ve kabul ediyorum.
+            </label>
+          </div>
+
+          <div class="checkbox-group">
+            <input type="checkbox" name="kvkk_onayi" id="kvkk_onayi" value="Okudum" required>
+            <label for="kvkk_onayi">
+              <a href="/kvkk-aydinlatma-metni" target="_blank" style="text-decoration: underline;">KVKK Aydınlatma Metni</a>'ni okudum.
+            </label>
+          </div>
+
+          <button type="submit" class="btn">Talep Gönder</button>
+        </form>
+      </div>
+
     </div>
   </section>
 </BaseLayout>
 
 <style>
+  /* --- GRID SİSTEMİ (KARTLAR) --- */
   .contact-grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
-    max-width: 700px;
-    margin: 0 auto;
+    grid-template-columns: repeat(3, 1fr); /* Masaüstünde 3 eşit kolon */
+    gap: 30px;
+    margin-bottom: 60px;
   }
 
-  @media (max-width: 600px) {
+  /* Mobil Düzen */
+  @media (max-width: 768px) {
     .contact-grid {
-      grid-template-columns: 1fr;
+      grid-template-columns: 1fr; /* Mobilde tek kolon (alt alta) */
+      gap: 20px;
     }
   }
 
+  /* --- KART TASARIMI --- */
   .contact-card {
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
-    padding: 28px 20px;
+    padding: 35px 20px;
     background: var(--card-bg);
     border: 1px solid var(--color-border);
-    border-radius: 12px;
+    border-radius: 12px; /* Daha yumuşak köşe */
     text-decoration: none;
-    transition: border-color 0.2s, box-shadow 0.2s;
+    transition: all 0.3s ease;
   }
 
   .contact-card:hover {
     border-color: var(--brand-accent);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
   }
 
   .contact-card i {
-    font-size: 1.5rem;
+    font-size: 2rem;
     color: var(--brand-accent);
-    margin-bottom: 12px;
+    margin-bottom: 15px;
   }
 
   .contact-card__label {
-    font-size: 0.8rem;
+    font-size: 0.85rem;
     text-transform: uppercase;
-    letter-spacing: 0.5px;
+    font-weight: 700;
+    letter-spacing: 1px;
     color: var(--color-text-secondary);
-    margin-bottom: 4px;
+    margin-bottom: 8px;
   }
 
   .contact-card__value {
-    font-size: 1rem;
+    font-size: 1.1rem;
     font-weight: 600;
     color: var(--brand-primary);
   }
   :global(html.dark) .contact-card__value {
     color: var(--color-text);
+  }
+
+  /* --- FORM ALANI --- */
+  .form-wrapper {
+    max-width: 800px;
+    margin: 0 auto;
+    background: var(--card-bg);
+    padding: 40px;
+    border-radius: 16px;
+    border: 1px solid var(--color-border);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+  }
+
+  @media (max-width: 600px) {
+    .form-wrapper {
+      padding: 25px;
+    }
+  }
+
+  .form-group {
+    margin-bottom: 20px;
+  }
+
+  .form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    color: var(--brand-primary);
+  }
+  :global(html.dark) .form-group label {
+    color: var(--color-text);
+  }
+
+  .form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+  @media (max-width: 600px) {
+    .form-row { grid-template-columns: 1fr; }
+  }
+
+  .date-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 15px;
+  }
+  @media (max-width: 600px) {
+    .date-grid { grid-template-columns: 1fr; }
+  }
+
+  /* İnput Stilleri */
+  input[type="text"],
+  input[type="email"],
+  input[type="tel"],
+  input[type="date"],
+  textarea {
+    width: 100%;
+    padding: 14px;
+    border: 1px solid var(--input-border);
+    background-color: var(--input-bg);
+    border-radius: 8px; /* Daha modern radius */
+    font-family: inherit;
+    font-size: 1rem;
+    color: var(--color-text);
+    transition: 0.2s;
+  }
+
+  input:focus, textarea:focus {
+    outline: none;
+    border-color: var(--brand-accent);
+    box-shadow: 0 0 0 3px rgba(197, 160, 89, 0.1);
+  }
+
+  /* Checkbox Grubu */
+  .checkbox-group {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 15px;
+    font-size: 0.9rem;
+    line-height: 1.5;
+  }
+  .checkbox-group input {
+    margin-top: 4px;
+    accent-color: var(--brand-accent);
+    width: 18px;
+    height: 18px;
+  }
+
+  /* Ücret Uyarısı Kutusu */
+  .fee-warning {
+    background-color: rgba(197, 160, 89, 0.1); /* Brand accent %10 opacity */
+    padding: 15px;
+    border-left: 4px solid var(--brand-accent);
+    border-radius: 4px;
+  }
+  :global(html.dark) .fee-warning {
+    background-color: rgba(197, 160, 89, 0.05);
+  }
+
+  .btn {
+    width: 100%;
+    margin-top: 10px;
   }
 </style>
