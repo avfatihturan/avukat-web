@@ -23,12 +23,16 @@ const site = defineCollection({
   schema: z.object({
     name: z.string(),
     title: z.string(),
+    description: z.string().optional(), // Açıklama alanı eklendi
     contact: z.object({
       phone: z.string(),
       phoneLink: z.string(),
       email: z.string(),
       whatsapp: z.string(),
+      address: z.string(), // <-- KRİTİK EKLEME: Adres hatasını çözer
+      mapUrl: z.string().optional(), // Harita linki opsiyonel
     }),
+    social: z.record(z.string()).optional(), // Sosyal medya alanı eklendi
   }),
 });
 
@@ -44,13 +48,16 @@ const about = defineCollection({
   }),
 });
 
-// Çalışma alanları
+// Çalışma alanları (Burayı da güncelledik ki linkler çalışsın)
 const workAreas = defineCollection({
   loader: file('src/content/data/work-areas.json'),
   schema: z.object({
+    id: z.string().optional(),
     icon: z.string(),
     title: z.string(),
     description: z.string(),
+    linkText: z.string().optional(), // <-- Yeni eklediğimiz buton metinleri için
+    linkUrl: z.string().optional(),  // <-- Yeni eklediğimiz linkler için
   }),
 });
 
