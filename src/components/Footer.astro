@@ -3,10 +3,11 @@ import { getEntry } from 'astro:content';
 
 const siteEntry = await getEntry('site', 'main');
 
-// TypeScript hatasını önlemek için kontrol
+// --- HATA DÜZELTME KODU ---
 if (!siteEntry) {
-  throw new Error('Site verisi bulunamadı!');
+  throw new Error('Site verisi (site.json) bulunamadı!');
 }
+// --------------------------
 
 const { contact, name } = siteEntry.data;
 const year = new Date().getFullYear();
@@ -21,11 +22,11 @@ const year = new Date().getFullYear();
         <p>Hukuki Danışmanlık ve Çözüm Ortaklığı.</p>
         
         <div style="margin-top: 15px; font-size: 0.9rem; color: var(--color-text-secondary);">
-          <p style="margin-bottom: 5px;">
+          <p style="margin-bottom: 8px;">
             <i class="fa-solid fa-location-dot" style="margin-right: 8px; color: var(--brand-accent);"></i>
             {contact.address}
           </p>
-          <p style="margin-bottom: 5px;">
+          <p style="margin-bottom: 8px;">
             <i class="fa-solid fa-envelope" style="margin-right: 8px; color: var(--brand-accent);"></i>
             <a href={`mailto:${contact.email}`} style="text-decoration: none; color: inherit;">{contact.email}</a>
           </p>

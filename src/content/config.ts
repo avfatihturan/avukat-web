@@ -19,18 +19,18 @@ const articles = defineCollection({
 const site = defineCollection({
   loader: file('src/content/data/site.json'),
   schema: z.object({
-    name: z.string().optional(),
-    title: z.string().optional(),
-    description: z.string().optional(),
-    // Contact nesnesi ZORUNLU, içindeki alanlar OPSİYONEL
+    name: z.string(),
+    title: z.string(),
+    description: z.string(),
+    // BURASI KRİTİK: Hepsi zorunlu (string) yapıldı.
     contact: z.object({
-      phone: z.string().optional(),
-      phoneLink: z.string().optional(),
-      email: z.string().optional(),
-      whatsapp: z.string().optional(),
-      address: z.string().optional(),
-      mapUrl: z.string().optional(),
-    }), 
+      phone: z.string(),
+      phoneLink: z.string(),
+      email: z.string(),
+      whatsapp: z.string(),
+      address: z.string(),
+      mapUrl: z.string().optional(), // Sadece bu opsiyonel kalsın
+    }),
     social: z.record(z.string()).optional(),
   }),
 });
@@ -38,11 +38,11 @@ const site = defineCollection({
 const about = defineCollection({
   loader: file('src/content/data/about.json'),
   schema: z.object({
-    paragraphs: z.array(z.string()).optional(),
+    paragraphs: z.array(z.string()),
     signature: z.object({
-      name: z.string().optional(),
-      bar: z.string().optional(),
-    }).optional(),
+      name: z.string(),
+      bar: z.string(),
+    }),
   }),
 });
 
@@ -50,9 +50,9 @@ const workAreas = defineCollection({
   loader: file('src/content/data/work-areas.json'),
   schema: z.object({
     id: z.string().optional(),
-    icon: z.string().optional(),
-    title: z.string().optional(),
-    description: z.string().optional(),
+    icon: z.string(),
+    title: z.string(),
+    description: z.string(),
     linkText: z.string().optional(),
     linkUrl: z.string().optional(),
   }),
@@ -70,16 +70,16 @@ const legal = defineCollection({
 const chatbot = defineCollection({
   loader: file('src/content/data/chatbot.json'),
   schema: z.object({
-    greeting: z.string().optional(),
-    welcomeMessage: z.string().optional(),
-    assistantName: z.string().optional(),
+    greeting: z.string(),
+    welcomeMessage: z.string(),
+    assistantName: z.string(),
     options: z.array(z.object({
       key: z.string(),
       label: z.string(),
       userText: z.string(),
       botResponse: z.string(),
       icon: z.string().optional(),
-    })).optional(),
+    })),
   }),
 });
 
