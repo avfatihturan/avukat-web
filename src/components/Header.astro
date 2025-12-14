@@ -1,6 +1,6 @@
 ---
 import { Image } from 'astro:assets';
-import { SITE, NAV_ITEMS } from '../data/site';
+import { getEntry } from 'astro:content'; // Veriyi JSON'dan çekmek için
 import ThemeToggle from './ThemeToggle.astro';
 import logoImage from '../assets/images/transparent-logo.png';
 
@@ -9,15 +9,30 @@ interface Props {
 }
 
 const { currentPage = '' } = Astro.props;
+
+// 1. Veriyi site.json'dan çekiyoruz
+const siteEntry = await getEntry('site', 'main');
+
+// Güvenlik: Veri yoksa varsayılan değer kullan (Site çökmesin)
+const siteData = siteEntry ? siteEntry.data : { name: 'Av. Fatih Turan', title: 'Hukuk Bürosu' };
+
+// 2. Menüyü buraya sabitliyoruz (Bağımlılığı bitirmek için)
+const NAV_ITEMS = [
+  { label: 'Ana Sayfa', href: '/', id: 'home' },
+  { label: 'Hakkımda', href: '/hakkimda', id: 'about' },
+  { label: 'Çalışma Alanları', href: '/calisma-alanlari', id: 'work-areas' },
+  { label: 'Yayınlar', href: '/yayinlar', id: 'blog' },
+  { label: 'İletişim', href: '/iletisim', id: 'contact' },
+];
 ---
 
 <header>
   <div class="container header-row">
     <a href="/" class="brand-area">
-      <Image src={logoImage} alt={`${SITE.name} Hukuk Bürosu Logosu`} width={55} height={55} loading="eager" />
+      <Image src={logoImage} alt={`${siteData.name} Logosu`} width={55} height={55} loading="eager" />
       <div class="brand-text">
-        <span class="name">{SITE.name}</span>
-        <span class="title">{SITE.title}</span>
+        <span class="name">{siteData.name}</span>
+        <span class="title">{siteData.title}</span>
       </div>
     </a>
     <div class="header-right">

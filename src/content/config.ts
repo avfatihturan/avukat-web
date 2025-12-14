@@ -1,7 +1,6 @@
 import { defineCollection, z } from 'astro:content';
 import { glob, file } from 'astro/loaders';
 
-// Makaleler koleksiyonu
 const articles = defineCollection({
   loader: glob({ pattern: '**/*.md', base: './src/content/articles' }),
   schema: ({ image }) => z.object({
@@ -17,13 +16,13 @@ const articles = defineCollection({
   }),
 });
 
-// Site genel bilgileri (DÜZELTİLEN KISIM)
 const site = defineCollection({
   loader: file('src/content/data/site.json'),
   schema: z.object({
     name: z.string().optional(),
     title: z.string().optional(),
     description: z.string().optional(),
+    // Contact nesnesi ZORUNLU, içindeki alanlar OPSİYONEL
     contact: z.object({
       phone: z.string().optional(),
       phoneLink: z.string().optional(),
@@ -36,7 +35,6 @@ const site = defineCollection({
   }),
 });
 
-// Hakkımda sayfası içeriği
 const about = defineCollection({
   loader: file('src/content/data/about.json'),
   schema: z.object({
@@ -48,7 +46,6 @@ const about = defineCollection({
   }),
 });
 
-// Çalışma alanları
 const workAreas = defineCollection({
   loader: file('src/content/data/work-areas.json'),
   schema: z.object({
@@ -61,7 +58,6 @@ const workAreas = defineCollection({
   }),
 });
 
-// Yasal sayfalar
 const legal = defineCollection({
   loader: glob({ pattern: '**/*.md', base: './src/content/legal' }),
   schema: z.object({
@@ -71,7 +67,6 @@ const legal = defineCollection({
   }),
 });
 
-// Chatbot
 const chatbot = defineCollection({
   loader: file('src/content/data/chatbot.json'),
   schema: z.object({
