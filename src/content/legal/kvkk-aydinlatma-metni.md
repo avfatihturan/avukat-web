@@ -45,4 +45,4 @@ KVKK'nın 11. maddesi kapsamında aşağıdaki haklara sahipsiniz:
 
 ## 6. İletişim
 
-Haklarınızı kullanmak için [iletişim sayfamız](/iletisim) üzerinden veya [av.fatihturan@gmail.com](mailto:av.fatihturan@gmail.com) adresinden bizimle iletişime geçebilirsiniz.
+Haklarınızı kullanmak için [iletişim sayfamız](/iletisim) üzerinden veya [av.fatihturan@outlook.com](mailto:av.fatihturan@outlook.com) adresinden bizimle iletişime geçebilirsiniz.
