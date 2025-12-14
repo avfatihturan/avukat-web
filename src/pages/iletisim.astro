@@ -4,12 +4,6 @@ import Hero from '../components/Hero.astro';
 import { getEntry } from 'astro:content';
 
 const siteEntry = await getEntry('site', 'main');
-
-// TypeScript Hatasını Düzelten Satır:
-if (!siteEntry) {
-  throw new Error('Site verisi (site.json) bulunamadı!');
-}
-
 const { name, contact } = siteEntry.data;
 ---
 
