@@ -5,7 +5,6 @@ import { getEntry } from 'astro:content';
 const siteEntry = await getEntry('site', 'main');
 const chatbotEntry = await getEntry('chatbot', 'main');
 
-// KESİN VERİ KONTROLÜ
 if (!siteEntry || !chatbotEntry) {
   throw new Error("Site veya Chatbot verisi (json) bulunamadı.");
 }
@@ -13,10 +12,8 @@ if (!siteEntry || !chatbotEntry) {
 const { contact } = siteEntry.data;
 const { greeting, welcomeMessage, assistantName, options } = chatbotEntry.data;
 
-// Options boşsa hata vermesin diye boş dizi ata
 const safeOptions = options || [];
 
-// Template değişkenlerini değiştir
 const processTemplate = (text: string) => {
   return text
     .replace(/\{\{phone\}\}/g, contact.phone || '')
@@ -25,7 +22,6 @@ const processTemplate = (text: string) => {
     .replace(/\{\{whatsapp\}\}/g, contact.whatsapp || '');
 };
 
-// Options'ları işle
 const processedOptions = safeOptions.map(opt => ({
   ...opt,
   botResponse: processTemplate(opt.botResponse)
@@ -69,16 +65,16 @@ const processedOptions = safeOptions.map(opt => ({
   function initChatBot() {
     if (window.innerWidth <= 768) return;
 
-    const chatToggle = document.getElementById('chatToggle');
-    const chatBox = document.getElementById('chatBox');
-    const closeChat = document.getElementById('closeChat');
-    const greeting = document.getElementById('chatGreeting');
-    const chatBody = document.getElementById('chatBody');
+    // TypeScript "as HTMLElement" ile zorlanıyor (Hatalar burada çözüldü)
+    const chatToggle = document.getElementById('chatToggle') as HTMLElement;
+    const chatBox = document.getElementById('chatBox') as HTMLElement;
+    const closeChat = document.getElementById('closeChat') as HTMLElement;
+    const greeting = document.getElementById('chatGreeting') as HTMLElement;
+    const chatBody = document.getElementById('chatBody') as HTMLElement;
 
-    // Elementler yoksa dur (Hata verme)
     if (!chatToggle || !chatBox || !closeChat || !greeting || !chatBody) return;
 
-    let hasSeenGreeting = null;
+    let hasSeenGreeting: string | null = null;
     try { hasSeenGreeting = localStorage.getItem('chatGreetingShown'); } catch(e) {}
 
     if (!hasSeenGreeting) {
@@ -100,11 +96,9 @@ const processedOptions = safeOptions.map(opt => ({
 
     closeChat.addEventListener('click', function() { chatBox.style.display = 'none'; });
 
-    // Chat reply buttons
     const buttons = chatBody.querySelectorAll('.chat-options button');
     buttons.forEach((btn) => {
       btn.addEventListener('click', function(e) {
-        // TypeScript için tip dönüşümü
         const target = e.currentTarget as HTMLButtonElement;
         const userText = target.getAttribute('data-user');
         const botText = target.getAttribute('data-bot');
@@ -113,20 +107,17 @@ const processedOptions = safeOptions.map(opt => ({
 
         const options = chatBody.querySelector('.chat-options');
 
-        // User message
         const userDiv = document.createElement('div');
         userDiv.className = 'chat-msg user';
         userDiv.innerHTML = userText;
         if (options) chatBody.insertBefore(userDiv, options);
 
-        // Typing indicator
         const typingDiv = document.createElement('div');
         typingDiv.className = 'typing-indicator';
         typingDiv.innerHTML = '<span></span><span></span><span></span>';
         if (options) chatBody.insertBefore(typingDiv, options);
         chatBody.scrollTop = chatBody.scrollHeight;
 
-        // Bot response
         setTimeout(function() {
           typingDiv.remove();
           const botDiv = document.createElement('div');
