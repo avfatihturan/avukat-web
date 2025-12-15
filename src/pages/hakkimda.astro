@@ -6,7 +6,7 @@ import { getEntry } from 'astro:content';
 const siteEntry = await getEntry('site', 'main');
 const aboutEntry = await getEntry('about', 'main');
 
-// KESİN KONTROL (Bu satırlar hatayı çözer)
+// KESİN KONTROL
 if (!siteEntry || !aboutEntry) {
   throw new Error('Hakkımda sayfası için gerekli veriler (json) bulunamadı.');
 }
@@ -17,7 +17,7 @@ const { paragraphs, signature } = aboutEntry.data;
 
 <BaseLayout
   title={`Hakkımda | ${name}`}
-  description={`${name} hakkında bilgi. Deniz Subaylığı geçmişi, hukuk vizyonu ve uzmanlık alanları.`}
+  description={`${name} hakkında bilgi. Disiplin, Strateji ve Hukuk vizyonu.`}
   currentPage="hakkimda"
   canonicalUrl="/hakkimda"
 >
@@ -25,7 +25,8 @@ const { paragraphs, signature } = aboutEntry.data;
 
   <section class="bg-light">
     <div class="container about-container">
-      <h2 class="section-heading">Özgeçmiş ve Vizyon</h2>
+      <h2 class="section-heading">Disiplin. Strateji. Hukuk.</h2>
+      
       <div class="about-content">
         {paragraphs && paragraphs.map((paragraph) => (
           <p set:html={paragraph} />
@@ -41,18 +42,33 @@ const { paragraphs, signature } = aboutEntry.data;
 <style>
   .about-container {
     max-width: 800px;
+    margin: 0 auto; /* Ortalamak için */
   }
   .about-content {
-    font-size: 1.1rem;
+    font-size: 1.15rem; /* Yazı bir tık büyüdü, daha okunabilir */
     text-align: justify;
     line-height: 1.8;
+    color: var(--color-text);
   }
   .about-content p {
     margin-bottom: 1.5em;
   }
+  
+  /* İmza Bölümü */
   .about-signature {
-    margin-top: 30px;
+    margin-top: 40px;
     padding-top: 20px;
-    border-top: 1px solid var(--color-border);
+    border-top: 2px solid var(--brand-accent); /* İnce çizgi marka renginde */
+    width: fit-content; /* Sadece yazı kadar çizgi */
+  }
+
+  /* Başlık Düzenlemesi */
+  .section-heading {
+    margin-bottom: 40px;
+    font-weight: 700;
+    color: var(--brand-primary);
+  }
+  :global(html.dark) .section-heading {
+    color: var(--color-text);
   }
 </style>
