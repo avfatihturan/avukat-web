@@ -7,6 +7,12 @@ import AreaCard from '../components/AreaCard.astro';
 
 // Get site data for CTA
 const siteEntry = await getEntry('site', 'main');
+
+// KESİN KONTROL
+if (!siteEntry) {
+  throw new Error('Site verisi bulunamadı.');
+}
+
 const { contact } = siteEntry.data;
 
 // Get work areas
@@ -56,7 +62,7 @@ const articles = allArticles
             description={article.data.description}
             href={`/yayinlar/${article.id}`}
             image={article.data.heroImage}
-            tag={article.data.tag}
+            tag={article.data.tag || ''} 
           />
         ))}
       </div>

@@ -1,41 +1,25 @@
 ---
-title: "Gizlilik Bildirimi"
-description: "Av. Fatih Turan web sitesi gizlilik politikası ve kişisel verilerin korunması."
-slug: "gizlilik-bildirimi"
+import LegalLayout from '../layouts/LegalLayout.astro';
+import { getEntry, render } from 'astro:content';
+
+const entry = await getEntry('legal', 'gizlilik-bildirimi');
+
+// KESİN KONTROL
+if (!entry) {
+  throw new Error('Gizlilik Bildirimi verisi bulunamadı.');
+}
+
+const { Content } = await render(entry);
+const { title, description, slug } = entry.data;
 ---
 
-## 1. Giriş
-
-Bu gizlilik bildirimi, **fatihturan.av.tr** web sitesini ziyaret eden kullanıcıların gizliliğinin korunmasına ilişkin uygulamalarımızı açıklamaktadır.
-
-## 2. Toplanan Bilgiler
-
-Web sitemizi ziyaret ettiğinizde aşağıdaki bilgiler toplanabilir:
-
-- İletişim formu aracılığıyla gönderilen ad, e-posta ve mesaj içerikleri
-- Google Analytics aracılığıyla toplanan anonim ziyaretçi istatistikleri
-- Çerezler aracılığıyla toplanan tercih bilgileri
-
-## 3. Bilgilerin Kullanımı
-
-Toplanan bilgiler şu amaçlarla kullanılır:
-
-- İletişim taleplerine yanıt vermek
-- Web sitesi performansını analiz etmek ve iyileştirmek
-- Yasal yükümlülükleri yerine getirmek
-
-## 4. Bilgilerin Paylaşılması
-
-Kişisel bilgileriniz, yasal zorunluluklar dışında üçüncü taraflarla paylaşılmaz.
-
-## 5. Veri Güvenliği
-
-Kişisel verilerinizin güvenliği için uygun teknik ve idari önlemler alınmaktadır.
-
-## 6. Haklarınız
-
-KVKK kapsamındaki haklarınız için [KVKK Aydınlatma Metni](/kvkk-aydinlatma-metni) sayfamızı inceleyebilirsiniz.
-
-## 7. İletişim
-
-Gizlilik politikamız hakkında sorularınız için [iletişim sayfamızı](/iletisim) kullanabilirsiniz.
+<LegalLayout
+  title={`${title} | Av. Fatih Turan`}
+  description={description}
+  canonicalUrl={`/${slug || 'gizlilik-bildirimi'}`}
+  heroTitle={title}
+>
+  <Content />
+  <hr style="margin:40px 0; border:0; border-top:1px solid var(--color-border);">
+  <p><strong>Av. Fatih Turan</strong><br>Ankara Barosu - 46839</p>
+</LegalLayout>

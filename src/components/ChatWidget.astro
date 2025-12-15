@@ -5,20 +5,28 @@ import { getEntry } from 'astro:content';
 const siteEntry = await getEntry('site', 'main');
 const chatbotEntry = await getEntry('chatbot', 'main');
 
+// KESİN VERİ KONTROLÜ
+if (!siteEntry || !chatbotEntry) {
+  throw new Error("Site veya Chatbot verisi (json) bulunamadı.");
+}
+
 const { contact } = siteEntry.data;
 const { greeting, welcomeMessage, assistantName, options } = chatbotEntry.data;
+
+// Options boşsa hata vermesin diye boş dizi ata
+const safeOptions = options || [];
 
 // Template değişkenlerini değiştir
 const processTemplate = (text: string) => {
   return text
-    .replace(/\{\{phone\}\}/g, contact.phone)
-    .replace(/\{\{phoneLink\}\}/g, contact.phoneLink)
-    .replace(/\{\{email\}\}/g, contact.email)
-    .replace(/\{\{whatsapp\}\}/g, contact.whatsapp);
+    .replace(/\{\{phone\}\}/g, contact.phone || '')
+    .replace(/\{\{phoneLink\}\}/g, contact.phoneLink || '')
+    .replace(/\{\{email\}\}/g, contact.email || '')
+    .replace(/\{\{whatsapp\}\}/g, contact.whatsapp || '');
 };
 
 // Options'ları işle
-const processedOptions = options.map(opt => ({
+const processedOptions = safeOptions.map(opt => ({
   ...opt,
   botResponse: processTemplate(opt.botResponse)
 }));
@@ -61,15 +69,16 @@ const processedOptions = options.map(opt => ({
   function initChatBot() {
     if (window.innerWidth <= 768) return;
 
-    var chatToggle = document.getElementById('chatToggle');
-    var chatBox = document.getElementById('chatBox');
-    var closeChat = document.getElementById('closeChat');
-    var greeting = document.getElementById('chatGreeting');
-    var chatBody = document.getElementById('chatBody');
+    const chatToggle = document.getElementById('chatToggle');
+    const chatBox = document.getElementById('chatBox');
+    const closeChat = document.getElementById('closeChat');
+    const greeting = document.getElementById('chatGreeting');
+    const chatBody = document.getElementById('chatBody');
 
+    // Elementler yoksa dur (Hata verme)
     if (!chatToggle || !chatBox || !closeChat || !greeting || !chatBody) return;
 
-    var hasSeenGreeting = null;
+    let hasSeenGreeting = null;
     try { hasSeenGreeting = localStorage.getItem('chatGreetingShown'); } catch(e) {}
 
     if (!hasSeenGreeting) {
@@ -91,40 +100,43 @@ const processedOptions = options.map(opt => ({
 
     closeChat.addEventListener('click', function() { chatBox.style.display = 'none'; });
 
-    // Chat reply buttons - data-driven
-    var buttons = chatBody.querySelectorAll('.chat-options button');
-    for (var i = 0; i < buttons.length; i++) {
-      buttons[i].addEventListener('click', function() {
-        var userText = this.getAttribute('data-user');
-        var botText = this.getAttribute('data-bot');
+    // Chat reply buttons
+    const buttons = chatBody.querySelectorAll('.chat-options button');
+    buttons.forEach((btn) => {
+      btn.addEventListener('click', function(e) {
+        // TypeScript için tip dönüşümü
+        const target = e.currentTarget as HTMLButtonElement;
+        const userText = target.getAttribute('data-user');
+        const botText = target.getAttribute('data-bot');
+        
         if (!userText || !botText) return;
 
-        var options = chatBody.querySelector('.chat-options');
+        const options = chatBody.querySelector('.chat-options');
 
         // User message
-        var userDiv = document.createElement('div');
+        const userDiv = document.createElement('div');
         userDiv.className = 'chat-msg user';
         userDiv.innerHTML = userText;
         if (options) chatBody.insertBefore(userDiv, options);
 
         // Typing indicator
-        var typingDiv = document.createElement('div');
+        const typingDiv = document.createElement('div');
         typingDiv.className = 'typing-indicator';
         typingDiv.innerHTML = '<span></span><span></span><span></span>';
         if (options) chatBody.insertBefore(typingDiv, options);
         chatBody.scrollTop = chatBody.scrollHeight;
 
-        // Bot response after delay
+        // Bot response
         setTimeout(function() {
           typingDiv.remove();
-          var botDiv = document.createElement('div');
+          const botDiv = document.createElement('div');
           botDiv.className = 'chat-msg bot';
           botDiv.innerHTML = botText;
           if (options) chatBody.insertBefore(botDiv, options);
           chatBody.scrollTop = chatBody.scrollHeight;
         }, 800);
       });
-    }
+    });
   }
 
   document.addEventListener('DOMContentLoaded', initChatBot);

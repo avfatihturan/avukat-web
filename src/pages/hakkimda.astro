@@ -5,6 +5,12 @@ import { getEntry } from 'astro:content';
 
 const siteEntry = await getEntry('site', 'main');
 const aboutEntry = await getEntry('about', 'main');
+
+// KESİN KONTROL (Bu satırlar hatayı çözer)
+if (!siteEntry || !aboutEntry) {
+  throw new Error('Hakkımda sayfası için gerekli veriler (json) bulunamadı.');
+}
+
 const { name } = siteEntry.data;
 const { paragraphs, signature } = aboutEntry.data;
 ---
@@ -21,11 +27,11 @@ const { paragraphs, signature } = aboutEntry.data;
     <div class="container about-container">
       <h2 class="section-heading">Özgeçmiş ve Vizyon</h2>
       <div class="about-content">
-        {paragraphs.map((paragraph) => (
+        {paragraphs && paragraphs.map((paragraph) => (
           <p set:html={paragraph} />
         ))}
         <div class="about-signature">
-          <p><strong>{signature.name}</strong><br>{signature.bar}</p>
+          <p><strong>{signature?.name}</strong><br>{signature?.bar}</p>
         </div>
       </div>
     </div>

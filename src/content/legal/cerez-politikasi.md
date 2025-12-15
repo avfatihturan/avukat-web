@@ -1,37 +1,25 @@
 ---
-title: "Çerez Politikası"
-description: "Av. Fatih Turan web sitesi çerez politikası ve kullanımı."
-slug: "cerez-politikasi"
+import LegalLayout from '../layouts/LegalLayout.astro';
+import { getEntry, render } from 'astro:content';
+
+const entry = await getEntry('legal', 'cerez-politikasi');
+
+// KESİN KONTROL
+if (!entry) {
+  throw new Error('Çerez Politikası verisi bulunamadı.');
+}
+
+const { Content } = await render(entry);
+const { title, description, slug } = entry.data;
 ---
 
-## 1. Çerez Nedir?
-
-Çerezler, web sitelerinin tarayıcınıza kaydettiği küçük metin dosyalarıdır. Bu dosyalar, site tercihlerinizi hatırlamak ve ziyaret deneyiminizi iyileştirmek için kullanılır.
-
-## 2. Kullandığımız Çerez Türleri
-
-### Zorunlu Çerezler
-
-| Çerez Adı | Amaç | Süre |
-|-----------|------|------|
-| theme | Tema tercihini (açık/koyu mod) saklar | 1 yıl |
-| chatGreetingShown | Sohbet selamlama mesajının gösterilip gösterilmediğini takip eder | Oturum |
-
-### Analitik Çerezler
-
-| Çerez Adı | Amaç | Süre |
-|-----------|------|------|
-| _ga | Google Analytics - Benzersiz ziyaretçi kimliği | 2 yıl |
-| _ga_* | Google Analytics - Oturum durumu | 2 yıl |
-
-## 3. Çerezleri Yönetme
-
-Tarayıcınızın ayarlarından çerezleri devre dışı bırakabilir veya silebilirsiniz. Ancak bu durumda site bazı özelliklerini kaybedebilir.
-
-## 4. Üçüncü Taraf Çerezleri
-
-Sitemizde Google Analytics kullanılmaktadır. Google'ın gizlilik politikası hakkında bilgi almak için [Google Gizlilik Politikası](https://policies.google.com/privacy) sayfasını ziyaret edebilirsiniz.
-
-## 5. İletişim
-
-Çerez politikamız hakkında sorularınız için [iletişim sayfamızı](/iletisim) kullanabilirsiniz.
+<LegalLayout
+  title={`${title} | Av. Fatih Turan`}
+  description={description}
+  canonicalUrl={`/${slug || 'cerez-politikasi'}`}
+  heroTitle={title}
+>
+  <Content />
+  <hr style="margin:40px 0; border:0; border-top:1px solid var(--color-border);">
+  <p><strong>Av. Fatih Turan</strong><br>Ankara Barosu - 46839</p>
+</LegalLayout>

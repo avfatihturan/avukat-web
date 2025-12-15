@@ -66,12 +66,11 @@ public/
     "contact": {
       "phone": "+90 532 610 08 05",
       "phoneLink": "tel:+905326100805",
-      "email": "av.fatihturan@gmail.com",
+      "email": "av.fatihturan@outlook.com",
       "whatsapp": "905326100805",
-      "linkedin": "https://tr.linkedin.com/in/fatih-turan-400b9724b"
     },
     "office": {
-      "address": "Ankara, Sincan",
+      "address": "Ankara",
       "note": "Randevu ile çalışmaktayız."
     }
   }
