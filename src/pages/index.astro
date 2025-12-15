@@ -8,9 +8,9 @@ import AreaCard from '../components/AreaCard.astro';
 // Get site data for CTA
 const siteEntry = await getEntry('site', 'main');
 
-// KESİN KONTROL
+// HATA ÇÖZÜMÜ: Kesin kontrol
 if (!siteEntry) {
-  throw new Error('Site verisi bulunamadı.');
+  throw new Error("Site verisi (site.json) bulunamadı.");
 }
 
 const { contact } = siteEntry.data;
@@ -18,7 +18,7 @@ const { contact } = siteEntry.data;
 // Get work areas
 const workAreas = await getCollection('workAreas');
 
-// Get latest 3 articles from Content Collections
+// Get latest 3 articles
 const allArticles = await getCollection('articles', ({ data }) => !data.draft);
 const articles = allArticles
   .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
@@ -43,9 +43,9 @@ const articles = allArticles
       <div class="grid-3">
         {workAreas.map((area) => (
           <AreaCard
-            icon={area.data.icon}
-            title={area.data.title}
-            description={area.data.description}
+            icon={area.data.icon || 'fa-solid fa-gavel'}
+            title={area.data.title || ''}
+            description={area.data.description || ''}
           />
         ))}
       </div>
@@ -65,6 +65,7 @@ const articles = allArticles
             tag={article.data.tag || ''} 
           />
         ))}
+        {/* Not: tag={article.data.tag || ''} diyerek undefined hatasını çözdük */}
       </div>
     </div>
   </section>
@@ -77,7 +78,7 @@ const articles = allArticles
         <a href="/iletisim" class="btn">
           <i class="fa-solid fa-calendar"></i> Randevu Al
         </a>
-        <a href={contact.phoneLink} class="btn-outline-main">
+        <a href={contact.phoneLink || '#'} class="btn-outline-main">
           <i class="fa-solid fa-phone"></i> Hemen Ara
         </a>
       </div>
@@ -86,61 +87,16 @@ const articles = allArticles
 </BaseLayout>
 
 <style>
-  /* Section Heading Center */
-  .section-heading--center {
-    text-align: center;
-    display: block;
-  }
-  .section-heading--center::after {
-    margin: 10px auto 0;
-  }
-
-  /* CTA Section */
-  .cta-section {
-    background: var(--color-bg-secondary);
-    text-align: center;
-    padding: 60px 0;
-    border-top: 1px solid var(--color-border);
-  }
-  .cta-section h2 {
-    color: var(--brand-primary);
-    margin-bottom: 15px;
-  }
-  :global(html.dark) .cta-section h2 {
-    color: var(--color-text);
-  }
-  .cta-section h2::after {
-    display: none;
-  }
-  .cta-section p {
-    color: var(--color-text-secondary);
-    margin-bottom: 25px;
-    font-size: 1.1rem;
-  }
-  .cta-buttons {
-    display: flex;
-    gap: 15px;
-    justify-content: center;
-    flex-wrap: wrap;
-  }
-  .cta-buttons .btn,
-  .cta-buttons .btn-outline-main {
-    width: 180px;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-    padding: 14px 24px;
-    font-size: 0.85rem;
-    margin-top: 0;
-  }
-  .cta-buttons .btn:hover {
-    background: var(--brand-primary);
-    color: #fff;
-    transform: none;
-  }
-  :global(html.dark) .cta-buttons .btn:hover {
-    background: var(--brand-accent);
-    color: var(--brand-primary);
-  }
+  /* CSS aynı kalacak */
+  .section-heading--center { text-align: center; display: block; }
+  .section-heading--center::after { margin: 10px auto 0; }
+  .cta-section { background: var(--color-bg-secondary); text-align: center; padding: 60px 0; border-top: 1px solid var(--color-border); }
+  .cta-section h2 { color: var(--brand-primary); margin-bottom: 15px; }
+  :global(html.dark) .cta-section h2 { color: var(--color-text); }
+  .cta-section h2::after { display: none; }
+  .cta-section p { color: var(--color-text-secondary); margin-bottom: 25px; font-size: 1.1rem; }
+  .cta-buttons { display: flex; gap: 15px; justify-content: center; flex-wrap: wrap; }
+  .cta-buttons .btn, .cta-buttons .btn-outline-main { width: 180px; display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 14px 24px; font-size: 0.85rem; margin-top: 0; }
+  .cta-buttons .btn:hover { background: var(--brand-primary); color: #fff; transform: none; }
+  :global(html.dark) .cta-buttons .btn:hover { background: var(--brand-accent); color: var(--brand-primary); }
 </style>

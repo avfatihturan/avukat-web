@@ -3,6 +3,12 @@ import LegalLayout from '../layouts/LegalLayout.astro';
 import { getEntry, render } from 'astro:content';
 
 const entry = await getEntry('legal', 'cerez-politikasi');
+
+// HATA KİLİDİ
+if (!entry) {
+  throw new Error('Çerez Politikası verisi bulunamadı.');
+}
+
 const { Content } = await render(entry);
 const { title, description, slug } = entry.data;
 ---
@@ -10,7 +16,7 @@ const { title, description, slug } = entry.data;
 <LegalLayout
   title={`${title} | Av. Fatih Turan`}
   description={description}
-  canonicalUrl={`/${slug}`}
+  canonicalUrl={`/${slug || 'cerez-politikasi'}`}
   heroTitle={title}
 >
   <Content />

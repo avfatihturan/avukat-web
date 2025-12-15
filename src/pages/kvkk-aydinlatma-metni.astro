@@ -3,6 +3,12 @@ import LegalLayout from '../layouts/LegalLayout.astro';
 import { getEntry, render } from 'astro:content';
 
 const entry = await getEntry('legal', 'kvkk-aydinlatma-metni');
+
+// HATA KİLİDİ: Veri yoksa işlemi durdur (TS hatasını çözer)
+if (!entry) {
+  throw new Error('KVKK Aydınlatma Metni verisi bulunamadı.');
+}
+
 const { Content } = await render(entry);
 const { title, description, slug } = entry.data;
 ---
@@ -10,7 +16,7 @@ const { title, description, slug } = entry.data;
 <LegalLayout
   title={`${title} | Av. Fatih Turan`}
   description={description}
-  canonicalUrl={`/${slug}`}
+  canonicalUrl={`/${slug || 'kvkk-aydinlatma-metni'}`}
   heroTitle={title}
 >
   <Content />

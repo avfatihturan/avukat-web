@@ -6,7 +6,7 @@ import { getEntry } from 'astro:content';
 const siteEntry = await getEntry('site', 'main');
 const aboutEntry = await getEntry('about', 'main');
 
-// KESİN KONTROL
+// HATA ÇÖZÜMÜ: Bu kontrol TypeScript'i susturur
 if (!siteEntry || !aboutEntry) {
   throw new Error('Hakkımda sayfası için gerekli veriler (json) bulunamadı.');
 }
@@ -40,35 +40,10 @@ const { paragraphs, signature } = aboutEntry.data;
 </BaseLayout>
 
 <style>
-  .about-container {
-    max-width: 800px;
-    margin: 0 auto; /* Ortalamak için */
-  }
-  .about-content {
-    font-size: 1.15rem; /* Yazı bir tık büyüdü, daha okunabilir */
-    text-align: justify;
-    line-height: 1.8;
-    color: var(--color-text);
-  }
-  .about-content p {
-    margin-bottom: 1.5em;
-  }
-  
-  /* İmza Bölümü */
-  .about-signature {
-    margin-top: 40px;
-    padding-top: 20px;
-    border-top: 2px solid var(--brand-accent); /* İnce çizgi marka renginde */
-    width: fit-content; /* Sadece yazı kadar çizgi */
-  }
-
-  /* Başlık Düzenlemesi */
-  .section-heading {
-    margin-bottom: 40px;
-    font-weight: 700;
-    color: var(--brand-primary);
-  }
-  :global(html.dark) .section-heading {
-    color: var(--color-text);
-  }
+  .about-container { max-width: 800px; margin: 0 auto; }
+  .about-content { font-size: 1.15rem; text-align: justify; line-height: 1.8; color: var(--color-text); }
+  .about-content p { margin-bottom: 1.5em; }
+  .about-signature { margin-top: 40px; padding-top: 20px; border-top: 2px solid var(--brand-accent); width: fit-content; }
+  .section-heading { margin-bottom: 40px; font-weight: 700; color: var(--brand-primary); }
+  :global(html.dark) .section-heading { color: var(--color-text); }
 </style>
