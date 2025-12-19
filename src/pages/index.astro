@@ -37,18 +37,43 @@ const articles = allArticles
     showCTA
   />
 
-  <section class="bg-light">
-    <div class="container">
-      <h2 class="section-heading section-heading--center">Çalışma Alanları</h2>
-      <div class="grid-3">
+  <section class="bg-light py-16 md:py-24">
+    <div class="container mx-auto px-4">
+      <h2 class="section-heading section-heading--center mb-12">Çalışma Alanları</h2>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 gap-y-10">
         {workAreas.map((area) => (
           <AreaCard
             icon={area.data.icon || 'fa-solid fa-gavel'}
             title={area.data.title || ''}
             description={area.data.description || ''}
+            ctaText={area.data.ctaText}
+            ctaLink={area.data.ctaLink}
           />
         ))}
       </div>
+
+      <div class="mt-12 md:mt-16">
+        <a href="/iletisim" class="block group">
+          <div class="bg-white border border-gray-200 rounded-lg p-6 md:p-10 shadow-sm hover:shadow-md transition-all hover:-translate-y-1 text-center md:text-left md:flex md:items-center md:justify-between gap-6">
+            
+            <div class="mb-4 md:mb-0">
+              <h3 class="text-xl font-semibold text-[#1C1C1C] mb-2">Genel Hukuki Danışmanlık</h3>
+              <p class="text-[#333333] max-w-2xl">
+                Bireysel ve kurumsal müvekkillere, tekil dosyalarla sınırlı olmayan sürdürülebilir bir hukuki iş ortaklığı sunulmaktadır. Amaç, yalnızca mevcut sorunları çözmek değil; hukuki riskleri henüz doğmadan tespit ederek kapsamlı ve sürekli bir hukuki güvenlik sağlamaktır.
+              </p>
+            </div>
+
+            <div class="flex-shrink-0">
+              <span class="inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-primary hover:bg-opacity-90 transition-colors">
+                Hukuki Destek İçin Bize Ulaşın →
+              </span>
+            </div>
+
+          </div>
+        </a>
+      </div>
+
     </div>
   </section>
 
@@ -65,7 +90,6 @@ const articles = allArticles
             tag={article.data.tag || ''} 
           />
         ))}
-        {/* Not: tag={article.data.tag || ''} diyerek undefined hatasını çözdük */}
       </div>
     </div>
   </section>
@@ -87,9 +111,11 @@ const articles = allArticles
 </BaseLayout>
 
 <style>
-  /* CSS aynı kalacak */
+  /* CSS */
   .section-heading--center { text-align: center; display: block; }
   .section-heading--center::after { margin: 10px auto 0; }
+  
+  /* CTA Bölümü Stilleri */
   .cta-section { background: var(--color-bg-secondary); text-align: center; padding: 60px 0; border-top: 1px solid var(--color-border); }
   .cta-section h2 { color: var(--brand-primary); margin-bottom: 15px; }
   :global(html.dark) .cta-section h2 { color: var(--color-text); }

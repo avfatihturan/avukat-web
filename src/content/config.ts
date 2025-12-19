@@ -22,14 +22,13 @@ const site = defineCollection({
     name: z.string(),
     title: z.string(),
     description: z.string(),
-    // BURASI KRİTİK: Hepsi zorunlu (string) yapıldı.
     contact: z.object({
       phone: z.string(),
       phoneLink: z.string(),
       email: z.string(),
       whatsapp: z.string(),
       address: z.string(),
-      mapUrl: z.string().optional(), // Sadece bu opsiyonel kalsın
+      mapUrl: z.string().optional(),
     }),
     social: z.record(z.string()).optional(),
   }),
@@ -46,6 +45,7 @@ const about = defineCollection({
   }),
 });
 
+// GÜNCELLENEN KISIM: ctaText ve ctaLink eklendi
 const workAreas = defineCollection({
   loader: file('src/content/data/work-areas.json'),
   schema: z.object({
@@ -53,8 +53,8 @@ const workAreas = defineCollection({
     icon: z.string(),
     title: z.string(),
     description: z.string(),
-    linkText: z.string().optional(),
-    linkUrl: z.string().optional(),
+    ctaText: z.string().optional(),
+    ctaLink: z.string().optional(),
   }),
 });
 

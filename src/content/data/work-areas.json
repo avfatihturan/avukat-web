@@ -3,36 +3,48 @@
     "id": "ceza",
     "icon": "fa-solid fa-gavel",
     "title": "Ceza Hukuku",
-    "description": "Bilişim suçları, hakaret, tehdit ve diğer ceza davalarında savunma ve müdahillik hizmetleri."
+    "description": "Soruşturma ve kovuşturma aşamalarında; hakaret, tehdit, bilişim suçları ve Türk Ceza Kanunu kapsamındaki tüm süreçlerde savunma ve müdahillik hizmeti sunulmaktadır. Karakoldaki ilk ifadeden kararın kesinleşmesine kadar olan süreç, yalnızca bir dosya takibi olarak değil; bütüncül ve stratejik bir savunma kurgusu çerçevesinde yönetilir.",
+    "ctaText": "Ceza Hukuku Yayınlarını İncele →",
+    "ctaLink": "/makaleler"
   },
   {
     "id": "is",
     "icon": "fa-solid fa-briefcase",
     "title": "İş Hukuku",
-    "description": "İşe iade davaları, kıdem ve ihbar tazminatı, iş kazaları ve işveren danışmanlığı."
+    "description": "İşçi ve işveren tarafında; işe iade, tazminat ve iş kazası süreçleri, henüz kriz masaya gelmeden ele alınır. İşten çıkış süreci başlamadan önce hukuki zemin oluşturulur; olası uyuşmazlıklarda davanın seyrini etkileyebilecek önleyici tedbirler titizlikle planlanır.",
+    "ctaText": "İş Hukuku Yayınlarını İncele →",
+    "ctaLink": "/makaleler"
   },
   {
     "id": "kira",
-    "icon": "fa-solid fa-home",
-    "title": "Kira Hukuku",
-    "description": "Kira tespit ve tahliye davaları, kira sözleşmeleri, kiracı-kiraya veren uyuşmazlıkları."
+    "icon": "fa-solid fa-house-chimney",
+    "title": "Konut ve Kira Hukuku",
+    "description": "Kira tespit ve tahliye davaları ile sözleşme süreçlerinde; mülkiyet hakkı ve kiracı güvenliği birlikte değerlendirilir. Ev sahibi veya kiracı olunmasına bakılmaksızın, sözleşmenin kurulmasından tahliye aşamasına kadar tüm süreç; tarafların hukuki riskleri önceden öngörülerek stratejik şekilde yürütülür.",
+    "ctaText": "Kira Hukuku Yayınlarını İncele →",
+    "ctaLink": "/makaleler"
   },
   {
     "id": "sirketler",
     "icon": "fa-solid fa-building",
     "title": "Şirketler Hukuku",
-    "description": "Şirket kuruluşu, birleşme ve devir, ortaklık sözleşmeleri, ticari uyuşmazlıklar."
+    "description": "Şirket kuruluşundan birleşme ve devir süreçlerine kadar, işletmelerin hukuki altyapısı bir bütün olarak ele alınır. Ticari sözleşmeler ve çalışan ilişkileri, ileride doğabilecek uyuşmazlıkları en aza indirecek biçimde yapılandırılarak kurumsal ve önleyici bir koruma yaklaşımı benimsenir.",
+    "ctaText": "Kurumsal Danışmanlık Talep Et →",
+    "ctaLink": "/iletisim"
   },
   {
     "id": "uluslararasi",
     "icon": "fa-solid fa-globe",
     "title": "Uluslararası Hukuk",
-    "description": "Yabancı uyruklu müvekkil danışmanlığı, uluslararası sözleşmeler."
+    "description": "Yabancı müvekkillerin Türkiye’deki hakları, dil ve mevzuat engellerine takılmadan korunur. Uluslararası unsuru bulunan uyuşmazlıklar; Türk hukuku ve evrensel hukuk normları birlikte değerlendirilerek şeffaf ve güven temelli bir temsil süreci yürütülür.",
+    "ctaText": "Hukuki Destek İçin Bize Ulaşın →",
+    "ctaLink": "/iletisim"
   },
   {
-    "id": "genel",
-    "icon": "fa-solid fa-scale-balanced",
-    "title": "Genel Hukuki Danışmanlık",
-    "description": "Bireysel ve kurumsal müvekkillere kapsamlı hukuki danışmanlık hizmetleri."
+    "id": "siddet-onleme",
+    "icon": "fa-solid fa-shield-heart",
+    "title": "6284 Sayılı Kanun ve Şiddetin Önlenmesi",
+    "description": "6284 sayılı Kanun kapsamında koruyucu ve önleyici tedbir kararları, akademik çalışmaların sağladığı teorik derinlik ve uygulama tecrübesiyle ele alınır. Aile içi şiddet vakalarında mağdur hakları gözetilerek, hukuki sürecin hızlı, etkin ve hak odaklı ilerlemesi sağlanır.",
+    "ctaText": "Detaylı Bilgi Al →",
+    "ctaLink": "/iletisim"
   }
 ]
