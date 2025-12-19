@@ -5,7 +5,7 @@ pubDate: 2025-12-14
 heroImage: "../../assets/images/tahkim-yeni.jpg"
 heroAlt: "Sigorta Tahkim Komisyonu başvuru dosyası ve hukuk bürosu masası"
 tag: "SİGORTA HUKUKU"
-draft: true
+draft: false
 ---
 
 Trafik kazası sonrası aracınızda oluşan değer kaybını almak için mahkeme kapılarını aşındırmak zorunda değilsiniz. Yargılamaların uzun sürdüğü ülkemizde, sigorta uyuşmazlıkları için kurulmuş çok daha hızlı ve etkili bir mekanizma var: **Sigorta Tahkim Komisyonu.**
@@ -72,4 +72,3 @@ Reklam Yasağı Yönetmeliği çerçevesinde, yalnızca bilgilendirme amacıyla
 hazırlanmıştır. Hukuki tavsiye niteliği taşımamaktadır. Her somut olay kendine
 özgü özellikler taşıdığından, hak kaybına uğramamak için profesyonel hukuki
 destek almanız önerilir.
-
