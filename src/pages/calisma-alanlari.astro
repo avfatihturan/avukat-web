@@ -17,17 +17,42 @@ const { name } = siteEntry.data;
 >
   <Hero title="Çalışma Alanları" size="sm" />
 
-  <section class="bg-light">
-    <div class="container">
-      <div class="grid-3">
+  <section class="bg-gray-50 py-16 md:py-24">
+    <div class="container mx-auto px-4">
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 gap-y-10">
         {workAreas.map((area) => (
           <AreaCard
             icon={area.data.icon}
             title={area.data.title}
             description={area.data.description}
+            ctaText={area.data.ctaText}
+            ctaLink={area.data.ctaLink}
           />
         ))}
       </div>
+
+      <div class="mt-12 md:mt-16">
+        <a href="/iletisim" class="block group">
+          <div class="bg-white border border-gray-200 rounded-lg p-6 md:p-10 shadow-sm hover:shadow-md transition-all hover:-translate-y-1 text-center md:text-left md:flex md:items-center md:justify-between gap-6">
+            
+            <div class="mb-4 md:mb-0">
+              <h3 class="text-xl font-semibold text-[#1C1C1C] mb-2">Genel Hukuki Danışmanlık</h3>
+              <p class="text-[#333333] max-w-2xl text-justify md:text-left">
+                Bireysel ve kurumsal müvekkillere, tekil dosyalarla sınırlı olmayan sürdürülebilir bir hukuki iş ortaklığı sunulmaktadır. Amaç, yalnızca mevcut sorunları çözmek değil; hukuki riskleri henüz doğmadan tespit ederek kapsamlı ve sürekli bir hukuki güvenlik sağlamaktır.
+              </p>
+            </div>
+
+            <div class="flex-shrink-0">
+              <span class="inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-[#002B5B] hover:bg-opacity-90 transition-colors">
+                Hukuki Destek İçin Bize Ulaşın →
+              </span>
+            </div>
+
+          </div>
+        </a>
+      </div>
+
     </div>
   </section>
 </BaseLayout>
