@@ -6,9 +6,8 @@ import { getEntry, getCollection } from 'astro:content';
 
 const siteEntry = await getEntry('site', 'main');
 
-// Hata önleyici kontrol
 if (!siteEntry) {
-  throw new Error("Site verisi (site.json) bulunamadı.");
+  throw new Error("Site verisi bulunamadı.");
 }
 
 const workAreas = await getCollection('workAreas');
@@ -17,16 +16,16 @@ const { name } = siteEntry.data;
 
 <BaseLayout
   title={`Çalışma Alanları | ${name}`}
-  description={`${name}'ın uzmanlık alanları: Ceza, İş, Kira ve Şirketler Hukuku.`}
+  description={`${name}'ın uzmanlık alanları.`}
   currentPage="calisma-alanlari"
   canonicalUrl="/calisma-alanlari"
 >
   <Hero title="Çalışma Alanları" size="sm" />
 
-  <section class="bg-gray-100 py-16 md:py-24">
+  <section class="py-16 md:py-24">
     <div class="container mx-auto px-4">
       
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 gap-y-10">
         {workAreas.map((area) => (
           <AreaCard
             icon={area.data.icon}
@@ -40,17 +39,17 @@ const { name } = siteEntry.data;
 
       <div class="mt-16">
         <a href="/iletisim" class="block group">
-          <div class="bg-white border border-gray-200 rounded-xl p-8 md:p-10 shadow-lg hover:shadow-2xl transition-all hover:-translate-y-1 flex flex-col md:flex-row items-center justify-between gap-8">
+          <div class="bg-white border border-gray-200 rounded-lg p-8 shadow-sm hover:shadow-md transition-all hover:-translate-y-1 flex flex-col md:flex-row items-center justify-between gap-8">
             
             <div class="text-center md:text-left">
-              <h3 class="text-2xl font-bold text-[#1C1C1C] mb-3">Genel Hukuki Danışmanlık</h3>
+              <h3 class="text-xl font-bold text-[#1C1C1C] mb-3">Genel Hukuki Danışmanlık</h3>
               <p class="text-[#333333] max-w-2xl text-justify md:text-left leading-relaxed">
-                Bireysel ve kurumsal müvekkillere, tekil dosyalarla sınırlı olmayan sürdürülebilir bir hukuki iş ortaklığı sunulmaktadır. Amaç, yalnızca mevcut sorunları çözmek değil; hukuki riskleri henüz doğmadan tespit ederek kapsamlı ve sürekli bir hukuki güvenlik sağlamaktır.
+                Bireysel ve kurumsal müvekkillere, tekil dosyalarla sınırlı olmayan sürdürülebilir bir hukuki iş ortaklığı sunulmaktadır.
               </p>
             </div>
 
             <div class="flex-shrink-0">
-              <span class="inline-flex items-center justify-center px-8 py-4 text-base font-bold rounded-lg text-white bg-[#002B5B] hover:bg-opacity-90 transition-all shadow-md hover:shadow-lg transform group-hover:scale-105">
+              <span class="inline-flex items-center justify-center px-6 py-3 text-base font-medium rounded-md text-white bg-[#002B5B] hover:bg-opacity-90 transition-colors">
                 Hukuki Destek İçin Bize Ulaşın →
               </span>
             </div>
