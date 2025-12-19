@@ -4,12 +4,11 @@ import Hero from '../components/Hero.astro';
 import AreaCard from '../components/AreaCard.astro';
 import { getEntry, getCollection } from 'astro:content';
 
-// Site verisini çekiyoruz
 const siteEntry = await getEntry('site', 'main');
 
-// HATA ÇÖZÜMÜ: TypeScript'e "Merak etme, kontrol ettim" diyoruz.
+// Hata önleyici kontrol
 if (!siteEntry) {
-  throw new Error("Site verisi (site.json) okunamadı veya bulunamadı.");
+  throw new Error("Site verisi (site.json) bulunamadı.");
 }
 
 const workAreas = await getCollection('workAreas');
@@ -24,10 +23,10 @@ const { name } = siteEntry.data;
 >
   <Hero title="Çalışma Alanları" size="sm" />
 
-  <section class="bg-gray-50 py-16 md:py-24">
+  <section class="bg-gray-100 py-16 md:py-24">
     <div class="container mx-auto px-4">
       
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 gap-y-10">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {workAreas.map((area) => (
           <AreaCard
             icon={area.data.icon}
@@ -39,19 +38,19 @@ const { name } = siteEntry.data;
         ))}
       </div>
 
-      <div class="mt-12 md:mt-16">
+      <div class="mt-16">
         <a href="/iletisim" class="block group">
-          <div class="bg-white border border-gray-200 rounded-lg p-6 md:p-10 shadow-sm hover:shadow-md transition-all hover:-translate-y-1 text-center md:text-left md:flex md:items-center md:justify-between gap-6">
+          <div class="bg-white border border-gray-200 rounded-xl p-8 md:p-10 shadow-lg hover:shadow-2xl transition-all hover:-translate-y-1 flex flex-col md:flex-row items-center justify-between gap-8">
             
-            <div class="mb-4 md:mb-0">
-              <h3 class="text-xl font-semibold text-[#1C1C1C] mb-2">Genel Hukuki Danışmanlık</h3>
-              <p class="text-[#333333] max-w-2xl text-justify md:text-left">
+            <div class="text-center md:text-left">
+              <h3 class="text-2xl font-bold text-[#1C1C1C] mb-3">Genel Hukuki Danışmanlık</h3>
+              <p class="text-[#333333] max-w-2xl text-justify md:text-left leading-relaxed">
                 Bireysel ve kurumsal müvekkillere, tekil dosyalarla sınırlı olmayan sürdürülebilir bir hukuki iş ortaklığı sunulmaktadır. Amaç, yalnızca mevcut sorunları çözmek değil; hukuki riskleri henüz doğmadan tespit ederek kapsamlı ve sürekli bir hukuki güvenlik sağlamaktır.
               </p>
             </div>
 
             <div class="flex-shrink-0">
-              <span class="inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-[#002B5B] hover:bg-opacity-90 transition-colors">
+              <span class="inline-flex items-center justify-center px-8 py-4 text-base font-bold rounded-lg text-white bg-[#002B5B] hover:bg-opacity-90 transition-all shadow-md hover:shadow-lg transform group-hover:scale-105">
                 Hukuki Destek İçin Bize Ulaşın →
               </span>
             </div>
