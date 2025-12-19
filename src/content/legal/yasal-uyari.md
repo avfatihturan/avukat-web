@@ -1,25 +1,12 @@
 ---
-import LegalLayout from '../layouts/LegalLayout.astro';
-import { getEntry, render } from 'astro:content';
-
-const entry = await getEntry('legal', 'yasal-uyari');
-
-// KESİN KONTROL
-if (!entry) {
-  throw new Error('Yasal Uyarı verisi bulunamadı.');
-}
-
-const { Content } = await render(entry);
-const { title, description, slug } = entry.data;
+title: "Yasal Uyarı"
+description: "Web sitesi kullanım koşulları ve yasal sorumluluk sınırları."
+slug: "yasal-uyari"
 ---
 
-<LegalLayout
-  title={`${title} | Av. Fatih Turan`}
-  description={description}
-  canonicalUrl={`/${slug || 'yasal-uyari'}`}
-  heroTitle={title}
->
-  <Content />
-  <hr style="margin:40px 0; border:0; border-top:1px solid var(--color-border);">
-  <p><strong>Av. Fatih Turan</strong><br>Ankara Barosu - 46839</p>
-</LegalLayout>
+# Yasal Uyarı
+
+Bu web sitesinde yer alan bilgiler yalnızca genel bilgilendirme amaçlıdır ve hukuki tavsiye niteliği taşımaz.
+
+## Sorumluluk Reddi
+Sitedeki bilgilerin güncelliği veya doğruluğu konusunda garanti verilmemektedir. Bu bilgiler üzerinden hareket etmeden önce profesyonel hukuki destek almanız önerilir.

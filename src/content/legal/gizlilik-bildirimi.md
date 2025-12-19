@@ -1,25 +1,15 @@
 ---
-import LegalLayout from '../layouts/LegalLayout.astro';
-import { getEntry, render } from 'astro:content';
-
-const entry = await getEntry('legal', 'gizlilik-bildirimi');
-
-// KESİN KONTROL
-if (!entry) {
-  throw new Error('Gizlilik Bildirimi verisi bulunamadı.');
-}
-
-const { Content } = await render(entry);
-const { title, description, slug } = entry.data;
+title: "Gizlilik Bildirimi"
+description: "Av. Fatih Turan hukuk bürosu gizlilik politikası ve kişisel verilerin işlenmesi hakkında bilgilendirme."
+slug: "gizlilik-bildirimi"
 ---
 
-<LegalLayout
-  title={`${title} | Av. Fatih Turan`}
-  description={description}
-  canonicalUrl={`/${slug || 'gizlilik-bildirimi'}`}
-  heroTitle={title}
->
-  <Content />
-  <hr style="margin:40px 0; border:0; border-top:1px solid var(--color-border);">
-  <p><strong>Av. Fatih Turan</strong><br>Ankara Barosu - 46839</p>
-</LegalLayout>
+# Gizlilik Bildirimi
+
+Bu gizlilik bildirimi, Av. Fatih Turan web sitesini ziyaret eden kullanıcıların kişisel verilerinin nasıl işlendiğini ve korunduğunu açıklar.
+
+## Toplanan Veriler
+Web sitemiz üzerinden yapılan iletişim başvurularında ad, e-posta ve telefon numarası gibi bilgiler talep edilebilir.
+
+## Verilerin Kullanımı
+Toplanan bilgiler, yalnızca hukuki danışmanlık hizmeti sunmak ve iletişim kurmak amacıyla kullanılır. Üçüncü taraflarla paylaşılmaz.

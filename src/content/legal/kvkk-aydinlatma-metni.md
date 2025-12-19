@@ -1,25 +1,15 @@
 ---
-import LegalLayout from '../layouts/LegalLayout.astro';
-import { getEntry, render } from 'astro:content';
-
-const entry = await getEntry('legal', 'kvkk-aydinlatma-metni');
-
-// KESİN KONTROL
-if (!entry) {
-  throw new Error('KVKK verisi bulunamadı.');
-}
-
-const { Content } = await render(entry);
-const { title, description, slug } = entry.data;
+title: "KVKK Aydınlatma Metni"
+description: "6698 sayılı Kişisel Verilerin Korunması Kanunu kapsamında aydınlatma metni."
+slug: "kvkk-aydinlatma-metni"
 ---
 
-<LegalLayout
-  title={`${title} | Av. Fatih Turan`}
-  description={description}
-  canonicalUrl={`/${slug || 'kvkk-aydinlatma-metni'}`}
-  heroTitle={title}
->
-  <Content />
-  <hr style="margin:40px 0; border:0; border-top:1px solid var(--color-border);">
-  <p><strong>Av. Fatih Turan</strong><br>Ankara Barosu - 46839</p>
-</LegalLayout>
+# KVKK Aydınlatma Metni
+
+Av. Fatih Turan olarak, kişisel verilerinizin güvenliği hususuna azami hassasiyet göstermekteyiz.
+
+## Veri Sorumlusu
+6698 sayılı Kişisel Verilerin Korunması Kanunu (“KVKK”) uyarınca, kişisel verileriniz veri sorumlusu sıfatıyla Av. Fatih Turan tarafından işlenebilecektir.
+
+## İşlenen Kişisel Veriler
+Kimlik bilgileri, iletişim bilgileri ve hukuki işlem güvenliği verileri işlenmektedir.
