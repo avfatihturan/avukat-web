@@ -4,7 +4,14 @@ import Hero from '../components/Hero.astro';
 import AreaCard from '../components/AreaCard.astro';
 import { getEntry, getCollection } from 'astro:content';
 
+// Site verisini çekiyoruz
 const siteEntry = await getEntry('site', 'main');
+
+// HATA ÇÖZÜMÜ: TypeScript'e "Merak etme, kontrol ettim" diyoruz.
+if (!siteEntry) {
+  throw new Error("Site verisi (site.json) okunamadı veya bulunamadı.");
+}
+
 const workAreas = await getCollection('workAreas');
 const { name } = siteEntry.data;
 ---
