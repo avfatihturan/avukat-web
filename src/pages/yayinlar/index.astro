@@ -4,13 +4,14 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import Hero from '../../components/Hero.astro';
 import ArticleCard from '../../components/ArticleCard.astro';
 
+// Taslak olmayan makaleleri çek
 const articles = await getCollection('articles', ({ data }) => !data.draft);
 
-// Sort by date, newest first
+// Tarihe göre sırala (Yeniden eskiye)
 articles.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
 
-// Get unique tags
-const allTags = [...new Set(articles.map(article => article.data.tag))];
+// Benzersiz etiketleri al (Boş olanlara 'Genel' ata)
+const allTags = [...new Set(articles.map(article => article.data.tag ?? 'Genel'))];
 ---
 
 <BaseLayout
@@ -23,7 +24,7 @@ const allTags = [...new Set(articles.map(article => article.data.tag))];
 
   <section class="bg-light">
     <div class="container">
-      <!-- Tag Filter -->
+      
       <div class="filter-bar">
         <button class="filter-btn active" data-filter="all">
           Tümü
@@ -33,36 +34,36 @@ const allTags = [...new Set(articles.map(article => article.data.tag))];
           <button class="filter-btn" data-filter={tag}>
             {tag}
             <span class="filter-count">
-              {articles.filter(a => a.data.tag === tag).length}
+              {articles.filter(a => (a.data.tag ?? 'Genel') === tag).length}
             </span>
           </button>
         ))}
       </div>
 
-      <!-- Articles Grid -->
       <div class="articles-grid grid-3">
         {articles.map((article) => (
-          <div class="article-item" data-tag={article.data.tag}>
+          <div class="article-item" data-tag={article.data.tag ?? 'Genel'}>
             <ArticleCard
               title={article.data.title}
               description={article.data.description}
               href={`/yayinlar/${article.id}`}
               image={article.data.heroImage}
-              tag={article.data.tag}
+              tag={article.data.tag ?? 'Genel'} 
             />
           </div>
         ))}
       </div>
 
-      <!-- Empty State -->
       <div class="empty-state" style="display: none;">
         <p>Bu kategoride henüz yayın bulunmuyor.</p>
       </div>
+
     </div>
   </section>
 </BaseLayout>
 
 <style>
+  /* --- FILTER BAR --- */
   .filter-bar {
     display: flex;
     flex-wrap: wrap;
@@ -116,25 +117,18 @@ const allTags = [...new Set(articles.map(article => article.data.tag))];
     font-weight: 700;
   }
 
-  .filter-btn.active .filter-count {
-    background: rgba(255, 255, 255, 0.2);
-  }
-  :global(html.dark) .filter-btn.active .filter-count {
-    background: rgba(0, 0, 0, 0.2);
-  }
+  .filter-btn.active .filter-count { background: rgba(255, 255, 255, 0.2); }
+  :global(html.dark) .filter-btn.active .filter-count { background: rgba(0, 0, 0, 0.2); }
 
-  /* Article Items */
+  /* --- ARTICLE ITEMS --- */
   .article-item {
     opacity: 1;
     transform: scale(1);
     transition: opacity 0.3s ease, transform 0.3s ease;
   }
 
-  .article-item.hidden {
-    display: none;
-  }
+  .article-item.hidden { display: none; }
 
-  /* Empty State */
   .empty-state {
     text-align: center;
     padding: 60px 20px;
@@ -142,13 +136,8 @@ const allTags = [...new Set(articles.map(article => article.data.tag))];
   }
 
   @media (max-width: 768px) {
-    .filter-bar {
-      gap: 8px;
-    }
-    .filter-btn {
-      padding: 8px 16px;
-      font-size: 0.8rem;
-    }
+    .filter-bar { gap: 8px; }
+    .filter-btn { padding: 8px 16px; font-size: 0.8rem; }
   }
 </style>
 
@@ -164,11 +153,11 @@ const allTags = [...new Set(articles.map(article => article.data.tag))];
       btn.addEventListener('click', () => {
         const filter = btn.dataset.filter;
 
-        // Update active button
+        // Buton durumunu güncelle
         filterBtns.forEach(b => b.classList.remove('active'));
         btn.classList.add('active');
 
-        // Filter articles
+        // Makaleleri filtrele
         let visibleCount = 0;
         articleItems.forEach(item => {
           const tag = item.dataset.tag;
@@ -180,7 +169,7 @@ const allTags = [...new Set(articles.map(article => article.data.tag))];
           }
         });
 
-        // Show/hide empty state
+        // Boş durum kontrolü
         if (emptyState) {
           emptyState.style.display = visibleCount === 0 ? 'block' : 'none';
         }
