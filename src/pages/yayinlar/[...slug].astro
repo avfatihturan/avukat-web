@@ -18,11 +18,17 @@ const { Content, headings } = await render(article);
   title={article.data.title}
   description={article.data.description}
   heroImage={article.data.heroImage}
-  heroAlt={article.data.heroAlt}
-  tag={article.data.tag}
+  
+  {/* HATA ÇÖZÜMÜ: Eğer alt metin yoksa başlığı kullan */}
+  heroAlt={article.data.heroAlt ?? article.data.title}
+  
+  {/* HATA ÇÖZÜMÜ: Etiket yoksa varsayılan ata */}
+  tag={article.data.tag ?? 'Hukuk'}
+  
   pubDate={article.data.pubDate}
   author={article.data.author}
   headings={headings}
+  slug={article.id} 
 >
   <Content />
 </ArticleLayout>
