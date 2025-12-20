@@ -5,20 +5,14 @@ import Hero from '../components/Hero.astro';
 import ArticleCard from '../components/ArticleCard.astro';
 import AreaCard from '../components/AreaCard.astro';
 
-// Site verisini çekiyoruz
 const siteEntry = await getEntry('site', 'main');
 
-// HATA ÇÖZÜMÜ: Kesin kontrol
 if (!siteEntry) {
   throw new Error("Site verisi (site.json) bulunamadı.");
 }
 
 const { contact } = siteEntry.data;
-
-// Çalışma alanlarını çekiyoruz
 const workAreas = await getCollection('workAreas');
-
-// Son 3 yazıyı çekiyoruz
 const allArticles = await getCollection('articles', ({ data }) => !data.draft);
 const articles = allArticles
   .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
@@ -109,31 +103,20 @@ const articles = allArticles
 </BaseLayout>
 
 <style>
-  /* GENEL STİLLER */
   .section-heading--center { text-align: center; display: block; }
   .section-heading--center::after { margin: 10px auto 0; }
   
-  /* --- ÇALIŞMA ALANLARI İÇİN ÖZEL STİLLER (Manuel CSS) --- */
-  .home-work-section {
-    padding: 5rem 0;
-    background-color: #f9fafb; /* Hafif gri zemin ile ayrışsın */
-  }
+  .home-work-section { padding: 5rem 0; background-color: #f9fafb; }
 
-  /* Grid Yapısı */
   .grid-layout {
     display: grid;
     grid-template-columns: 1fr;
     gap: 2rem;
     margin-top: 3rem;
   }
-  @media (min-width: 768px) {
-    .grid-layout { grid-template-columns: repeat(2, 1fr); }
-  }
-  @media (min-width: 1024px) {
-    .grid-layout { grid-template-columns: repeat(3, 1fr); }
-  }
+  @media (min-width: 768px) { .grid-layout { grid-template-columns: repeat(2, 1fr); } }
+  @media (min-width: 1024px) { .grid-layout { grid-template-columns: repeat(3, 1fr); } }
 
-  /* Alt Geniş Kutu Stilleri */
   .bottom-box-wrapper { margin-top: 3rem; }
   .bottom-box-link { text-decoration: none; display: block; }
   
@@ -150,17 +133,14 @@ const articles = allArticles
     box-shadow: 0 4px 6px rgba(0,0,0,0.05);
   }
 
+  /* PREMIUM HOVER */
   .bottom-box:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 15px rgba(0,0,0,0.1);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.06);
   }
 
   @media (min-width: 768px) {
-    .bottom-box {
-      flex-direction: row;
-      text-align: left;
-      justify-content: space-between;
-    }
+    .bottom-box { flex-direction: row; text-align: left; justify-content: space-between; }
   }
 
   .box-title {
@@ -190,10 +170,8 @@ const articles = allArticles
     white-space: nowrap;
   }
 
-  /* --- DİĞER BÖLÜMLER --- */
   .latest-articles-section { padding: 5rem 0; }
 
-  /* CTA Bölümü Stilleri */
   .cta-section { background: var(--color-bg-secondary); text-align: center; padding: 60px 0; border-top: 1px solid var(--color-border); }
   .cta-section h2 { color: var(--brand-primary); margin-bottom: 15px; }
   :global(html.dark) .cta-section h2 { color: var(--color-text); }

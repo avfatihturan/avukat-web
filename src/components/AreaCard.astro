@@ -42,7 +42,7 @@ const { title, description, icon, ctaText = "Detaylı Bilgi →", ctaLink = "/il
   .custom-card {
     background-color: #ffffff;
     border: 2px solid #e5e7eb;
-    border-radius: 12px; /* Kart: 12px */
+    border-radius: 12px;
     padding: 2rem;
     height: 100%;
     display: flex;
@@ -51,9 +51,10 @@ const { title, description, icon, ctaText = "Detaylı Bilgi →", ctaLink = "/il
     box-shadow: 0 4px 6px rgba(0,0,0,0.05);
   }
 
+  /* PREMIUM HOVER: -2px ve Yumuşak Gölge */
   .custom-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 15px rgba(0,0,0,0.1);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.06);
     border-color: #d1d5db;
   }
 
