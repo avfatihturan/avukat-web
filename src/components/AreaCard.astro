@@ -10,26 +10,85 @@ interface Props {
 const { title, description, icon, ctaText = "Detaylı Bilgi →", ctaLink = "/iletisim" } = Astro.props;
 ---
 
-<a href={ctaLink} class="group block h-full">
-  <div class="h-full bg-white rounded-xl p-8 shadow-md transition-all duration-300 hover:shadow-xl hover:-translate-y-1 flex flex-col" style="border: 1px solid #E5E7EB;">
+<a href={ctaLink} class="card-link">
+  <div class="custom-card">
     
-    <div class="mb-5 text-primary text-4xl group-hover:scale-110 transition-transform duration-300 flex justify-center">
+    <div class="card-icon">
       <i class={icon}></i>
     </div>
 
-    <h3 class="text-xl font-bold text-[#1C1C1C] mb-4 text-center group-hover:text-primary transition-colors">
+    <h3 class="card-title">
       {title}
     </h3>
 
-    <p class="text-[#333333] font-normal leading-relaxed flex-grow" style="text-align: justify; display: block;">
+    <p class="card-desc">
       {description}
     </p>
 
-    <div class="mt-6 pt-4 flex justify-center w-full" style="border-top: 1px solid #F3F4F6;">
-      <span class="text-sm font-semibold text-primary flex items-center gap-2 group-hover:gap-3 transition-all">
-        {ctaText} <i class="fa-solid fa-arrow-right text-xs"></i>
-      </span>
+    <div class="card-footer">
+      <span>{ctaText} <i class="fa-solid fa-arrow-right"></i></span>
     </div>
     
   </div>
 </a>
+
+<style>
+  /* BU STİLLER DOSYAYA GÖMÜLÜDÜR, ÇALIŞMAMA İHTİMALİ YOKTUR */
+  
+  .card-link {
+    display: block;
+    text-decoration: none;
+    height: 100%;
+  }
+
+  .custom-card {
+    background-color: #ffffff;
+    border: 2px solid #e5e7eb; /* Belirgin Gri Çerçeve */
+    border-radius: 12px;
+    padding: 2rem;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+  }
+
+  .custom-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 15px rgba(0,0,0,0.1);
+    border-color: #d1d5db;
+  }
+
+  .card-icon {
+    font-size: 2.5rem;
+    color: #002B5B; /* Sizin koyu mavi tonunuz */
+    text-align: center;
+    margin-bottom: 1.5rem;
+  }
+
+  .card-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #111111;
+    text-align: center; /* BAŞLIK KESİN ORTALI */
+    margin-bottom: 1rem;
+  }
+
+  .card-desc {
+    font-size: 1rem;
+    color: #444444;
+    line-height: 1.6;
+    text-align: justify; /* METİN KESİN YASLI */
+    flex-grow: 1; /* Metni alanı doldurmaya zorlar */
+    margin-bottom: 1.5rem;
+  }
+
+  .card-footer {
+    border-top: 1px solid #f3f4f6;
+    padding-top: 1rem;
+    text-align: center;
+    color: #002B5B;
+    font-weight: 600;
+    font-size: 0.9rem;
+  }
+</style>

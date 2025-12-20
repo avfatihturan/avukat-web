@@ -6,9 +6,8 @@ import { getEntry, getCollection } from 'astro:content';
 
 const siteEntry = await getEntry('site', 'main');
 
-// Hata önleyici kontrol (TypeScript hatasını çözer)
 if (!siteEntry) {
-  throw new Error("Site verisi (site.json) bulunamadı.");
+  throw new Error("Site verisi bulunamadı.");
 }
 
 const workAreas = await getCollection('workAreas');
@@ -23,10 +22,10 @@ const { name } = siteEntry.data;
 >
   <Hero title="Çalışma Alanları" size="sm" />
 
-  <section class="py-16 md:py-24">
-    <div class="container mx-auto px-4">
+  <section class="page-section">
+    <div class="container-custom">
       
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <div class="grid-layout">
         {workAreas.map((area) => (
           <AreaCard
             icon={area.data.icon}
@@ -38,22 +37,19 @@ const { name } = siteEntry.data;
         ))}
       </div>
 
-      <div class="mt-12">
-        <a href="/iletisim" class="block group">
-          <div class="bg-white rounded-xl p-8 shadow-md transition-all hover:shadow-xl hover:-translate-y-1 flex flex-col md:flex-row items-center justify-between gap-8" style="border: 1px solid #E5E7EB;">
+      <div class="bottom-box-wrapper">
+        <a href="/iletisim" class="bottom-box-link">
+          <div class="bottom-box">
             
-            <div class="w-full">
-              <h3 class="text-xl font-bold text-[#1C1C1C] mb-3 text-center md:text-left">Genel Hukuki Danışmanlık</h3>
-              
-              <p class="text-[#333333] leading-relaxed" style="text-align: justify; display: block;">
+            <div class="box-content">
+              <h3 class="box-title">Genel Hukuki Danışmanlık</h3>
+              <p class="box-desc">
                 Bireysel ve kurumsal müvekkillere, tekil dosyalarla sınırlı olmayan sürdürülebilir bir hukuki iş ortaklığı sunulmaktadır. Amaç, yalnızca mevcut sorunları çözmek değil; hukuki riskleri henüz doğmadan tespit ederek kapsamlı ve sürekli bir hukuki güvenlik sağlamaktır.
               </p>
             </div>
 
-            <div class="flex-shrink-0">
-              <span class="inline-flex items-center justify-center px-6 py-3 text-base font-medium rounded-md text-white bg-[#002B5B] hover:bg-opacity-90 transition-colors">
-                Hukuki Destek İçin Bize Ulaşın →
-              </span>
+            <div class="box-action">
+              <span class="btn-custom">Hukuki Destek İçin Bize Ulaşın →</span>
             </div>
 
           </div>
@@ -63,3 +59,103 @@ const { name } = siteEntry.data;
     </div>
   </section>
 </BaseLayout>
+
+<style>
+  /* SAYFAYA ÖZEL IZGARA STİLLERİ */
+  
+  .page-section {
+    padding: 4rem 0;
+    background-color: #ffffff;
+  }
+
+  .container-custom {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+  }
+
+  .grid-layout {
+    display: grid;
+    grid-template-columns: 1fr; /* Mobilde tek sıra */
+    gap: 2rem;
+  }
+
+  /* Tablette 2 sıra */
+  @media (min-width: 768px) {
+    .grid-layout {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  /* Masaüstünde 3 sıra (İstediğiniz yapı) */
+  @media (min-width: 1024px) {
+    .grid-layout {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  /* Alt Kutu Stilleri */
+  .bottom-box-wrapper {
+    margin-top: 3rem;
+  }
+
+  .bottom-box-link {
+    text-decoration: none;
+    display: block;
+  }
+
+  .bottom-box {
+    background-color: #ffffff;
+    border: 2px solid #e5e7eb;
+    border-radius: 12px;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+  }
+
+  .bottom-box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 15px rgba(0,0,0,0.1);
+  }
+
+  @media (min-width: 768px) {
+    .bottom-box {
+      flex-direction: row;
+      text-align: left;
+      justify-content: space-between;
+    }
+  }
+
+  .box-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #111;
+    margin-bottom: 1rem;
+    text-align: center;
+  }
+
+  @media (min-width: 768px) {
+    .box-title { text-align: left; }
+  }
+
+  .box-desc {
+    color: #444;
+    line-height: 1.6;
+    text-align: justify;
+    max-width: 800px;
+  }
+
+  .btn-custom {
+    display: inline-block;
+    background-color: #002B5B;
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border-radius: 8px;
+    font-weight: 600;
+    white-space: nowrap;
+  }
+</style>
