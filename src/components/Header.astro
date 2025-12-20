@@ -5,8 +5,10 @@ const { currentPage } = Astro.props;
 <header>
   <div class="container">
     <div class="header-row">
+      
       <a href="/" class="brand-area">
-        <img src="/images/logo.png" alt="Av. Fatih Turan" width="60" height="60" />
+        <img src="/images/logo.png" alt="Av. Fatih Turan Logo" width="60" height="60" class="header-logo" />
+        
         <div class="brand-text">
           <span class="name">Av. Fatih Turan</span>
           <span class="title">Hukuki Danışmanlık</span>
@@ -41,17 +43,33 @@ const { currentPage } = Astro.props;
   header { background-color: var(--header-bg); padding: 15px 0; position: sticky; top: 0; z-index: 1000; border-bottom: 1px solid var(--color-border); }
   .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
   .header-row { display: flex; justify-content: space-between; align-items: center; }
+  
+  /* LOGO STİLLERİ */
   .brand-area { display: flex; align-items: center; gap: 15px; text-decoration: none; color: var(--brand-primary); }
   html.dark .brand-area { color: var(--color-text); }
+  
+  /* Logo Resim Ayarları */
+  .header-logo {
+    width: auto; /* Orijinal en/boy oranını koru */
+    height: 55px; /* Yüksekliği sabitle */
+    object-fit: contain;
+  }
+  /* Dark modda logoyu beyaza çevir (Global CSS'de de var ama garanti olsun) */
+  :global(html.dark) .header-logo {
+    filter: brightness(0) invert(1);
+  }
+
   .brand-text { display: flex; flex-direction: column; }
-  .brand-text .name { font-weight: 800; text-transform: uppercase; font-size: 1.2rem; }
-  .brand-text .title { font-size: 0.7rem; letter-spacing: 1px; color: var(--brand-accent); }
+  .brand-text .name { font-weight: 800; text-transform: uppercase; font-size: 1.2rem; line-height: 1.2; }
+  .brand-text .title { font-size: 0.75rem; letter-spacing: 1px; color: var(--brand-accent); font-weight: 600; }
+
+  /* NAV & BUTONLAR */
   .header-right { display: flex; align-items: center; gap: 20px; }
   .desktop-nav ul { display: flex; gap: 25px; list-style: none; margin: 0; padding: 0; }
-  .desktop-nav a { font-weight: 600; font-size: 0.85rem; text-transform: uppercase; color: var(--color-text); }
+  .desktop-nav a { font-weight: 600; font-size: 0.85rem; text-transform: uppercase; color: var(--color-text); transition: 0.2s; }
   .desktop-nav a:hover, .desktop-nav a.active { color: var(--brand-accent); }
   
-  .theme-toggle { background: none; border: 1px solid var(--color-border-soft); border-radius: 50%; width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; cursor: pointer; color: var(--color-text); }
+  .theme-toggle { background: none; border: 1px solid var(--color-border-soft); border-radius: 50%; width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; cursor: pointer; color: var(--color-text); transition: 0.2s; }
   .theme-toggle:hover { background: var(--brand-accent); color: white; border-color: var(--brand-accent); }
   
   .sun-icon { display: none; }
@@ -60,10 +78,13 @@ const { currentPage } = Astro.props;
   :global(html.dark) .moon-icon { display: none; }
 
   .menu-toggle { display: none; background: none; border: 1px solid var(--color-border-soft); border-radius: 8px; width: 40px; height: 40px; align-items: center; justify-content: center; color: var(--color-text); cursor: pointer; }
+  
   @media (max-width: 900px) {
     .desktop-nav { display: none; } 
     .desktop-nav.active { display: block; position: absolute; top: 100%; left: 0; width: 100%; background: var(--header-bg); padding: 20px; border-bottom: 1px solid var(--color-border); box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
     .desktop-nav ul { flex-direction: column; gap: 15px; }
     .menu-toggle { display: flex; }
+    .brand-text .title { display: none; } /* Mobilde sadece isim kalsın */
+    .header-logo { height: 45px; } /* Mobilde logo biraz küçülsün */
   }
 </style>
