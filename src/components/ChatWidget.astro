@@ -22,8 +22,8 @@ const processTemplate = (text: string) => {
 const processedOptions = safeOptions.map(opt => ({
   ...opt,
   botResponse: processTemplate(opt.botResponse),
-  // JSON'dan "fa-calendar" geliyorsa -> "fa-solid fa-calendar" yap
-  iconClass: opt.icon ? (opt.icon.startsWith('fa-') ? `fa-solid ${opt.icon}` : `fa-solid fa-${opt.icon}`) : 'fa-solid fa-comment'
+  // İkon sınıfı kontrolü: Font Awesome için uygun hale getiriliyor
+  iconClass: opt.icon ? (opt.icon.startsWith('fa-') ? opt.icon : `fa-solid fa-${opt.icon}`) : 'fa-solid fa-comment'
 }));
 ---
 
@@ -31,7 +31,7 @@ const processedOptions = safeOptions.map(opt => ({
   
   <div id="fabGreeting" class="fab-greeting">
     {greeting}
-    <button class="greeting-close" aria-label="Kapat">&times;</button>
+    <button class="greeting-close" onclick="closeGreeting()">&times;</button>
   </div>
 
   <div id="chatWindow" class="chat-window" role="dialog" aria-hidden="true">
@@ -43,7 +43,7 @@ const processedOptions = safeOptions.map(opt => ({
           <span class="status-text">Çevrimiçi</span>
         </div>
       </div>
-      <button id="closeChatBtn" class="close-chat-btn" aria-label="Sohbeti kapat">
+      <button id="closeChatBtn" class="close-chat-btn" onclick="toggleChatWindow(false)">
         <i class="fa-solid fa-chevron-down"></i>
       </button>
     </div>
@@ -52,7 +52,8 @@ const processedOptions = safeOptions.map(opt => ({
       <div class="chat-msg bot" set:html={welcomeMessage}></div>
       <div class="chat-options">
         {processedOptions.map((opt) => (
-          <button data-reply={opt.key} data-user={opt.userText} data-bot={opt.botResponse}>
+          /* DÜZELTME: onclick eklendi */
+          <button class="option-btn" data-reply={opt.key} data-user={opt.userText} data-bot={opt.botResponse} onclick="handleOptionClick(this)">
             <i class={opt.iconClass}></i> {opt.label}
           </button>
         ))}
@@ -61,25 +62,28 @@ const processedOptions = safeOptions.map(opt => ({
   </div>
 
   <div id="fabMenu" class="fab-menu" aria-hidden="true">
-    <a href={`https://wa.me/${contact.whatsapp}`} target="_blank" rel="noopener noreferrer" class="fab-item whatsapp" aria-label="WhatsApp">
+    <a href={`https://wa.me/${contact.whatsapp}`} target="_blank" rel="noopener noreferrer" class="fab-item whatsapp">
       <span class="fab-label">WhatsApp</span>
       <div class="fab-icon"><i class="fa-brands fa-whatsapp"></i></div>
     </a>
-    <button id="openAssistantBtn" class="fab-item assistant" aria-label="Asistan">
+    
+    <button id="openAssistantBtn" class="fab-item assistant" onclick="openAssistant()">
       <span class="fab-label">Asistan</span>
       <div class="fab-icon"><i class="fa-solid fa-comments"></i></div>
     </button>
-    <a href={contact.phoneLink} class="fab-item call" aria-label="Hemen Ara">
+
+    <a href={contact.phoneLink} class="fab-item call">
       <span class="fab-label">Hemen Ara</span>
       <div class="fab-icon"><i class="fa-solid fa-phone"></i></div>
     </a>
-    <a href="/iletisim" class="fab-item appointment" aria-label="Randevu Al">
+
+    <a href="/iletisim" class="fab-item appointment">
       <span class="fab-label">Randevu Al</span>
       <div class="fab-icon"><i class="fa-solid fa-calendar-check"></i></div>
     </a>
   </div>
 
-  <button id="mainFabBtn" class="main-fab-btn" aria-label="İletişim Seçenekleri">
+  <button id="mainFabBtn" class="main-fab-btn" onclick="toggleFabMenu()">
     <i class="fa-solid fa-message icon-default"></i>
     <i class="fa-solid fa-xmark icon-close"></i>
   </button>
@@ -87,50 +91,65 @@ const processedOptions = safeOptions.map(opt => ({
 </div>
 
 <style>
+  /* KESİN ÇALIŞAN CSS */
   .super-fab-wrapper { position: fixed; bottom: 25px; right: 25px; z-index: 9999; font-family: 'Montserrat', sans-serif; display: flex; flex-direction: column; align-items: flex-end; }
+  
   .main-fab-btn { width: 60px; height: 60px; background-color: #002B5B; color: white; border-radius: 50%; border: none; box-shadow: 0 4px 15px rgba(0,0,0,0.3); cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 24px; transition: 0.3s; position: relative; z-index: 10002; }
   .main-fab-btn:hover { transform: scale(1.05); background-color: #003d82; }
   .main-fab-btn .icon-close { display: none; }
+  
   .super-fab-wrapper.active .main-fab-btn { transform: rotate(90deg); background-color: #333; }
   .super-fab-wrapper.active .main-fab-btn .icon-default { display: none; }
   .super-fab-wrapper.active .main-fab-btn .icon-close { display: block; }
+
   .fab-greeting { position: absolute; bottom: 80px; right: 0; background: white; padding: 12px 20px; border-radius: 14px 14px 0 14px; box-shadow: 0 5px 20px rgba(0,0,0,0.15); color: #333; font-size: 14px; font-weight: 500; white-space: nowrap; opacity: 0; visibility: hidden; transform: translateY(10px); transition: 0.3s; z-index: 10000; border: 1px solid #eee; }
   .fab-greeting.show { opacity: 1; visibility: visible; transform: translateY(0); }
   .greeting-close { position: absolute; top: -8px; right: -8px; background: #eee; color: #666; border: none; border-radius: 50%; width: 20px; height: 20px; font-size: 14px; cursor: pointer; display: flex; align-items: center; justify-content: center; }
+
   .fab-menu { display: flex; flex-direction: column; gap: 12px; position: absolute; bottom: 80px; right: 0; pointer-events: none; }
   .super-fab-wrapper.active .fab-menu { pointer-events: auto; }
+
   .fab-item { display: flex; align-items: center; justify-content: flex-end; gap: 12px; text-decoration: none; border: none; background: none; cursor: pointer; opacity: 0; transform: translateY(20px) scale(0.8); transition: 0.3s; }
   .super-fab-wrapper.active .fab-item { opacity: 1; transform: translateY(0) scale(1); }
   .super-fab-wrapper.active .fab-item:nth-child(4) { transition-delay: 0.05s; }
   .super-fab-wrapper.active .fab-item:nth-child(3) { transition-delay: 0.1s; }
   .super-fab-wrapper.active .fab-item:nth-child(2) { transition-delay: 0.15s; }
   .super-fab-wrapper.active .fab-item:nth-child(1) { transition-delay: 0.2s; }
+
   .fab-label { background: white; padding: 6px 12px; border-radius: 4px; font-size: 13px; font-weight: 600; color: #333; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
   .fab-icon { width: 45px; height: 45px; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 18px; box-shadow: 0 4px 10px rgba(0,0,0,0.2); transition: 0.2s; }
   .fab-item:hover .fab-icon { transform: scale(1.1); }
+
   .whatsapp .fab-icon { background-color: #25D366; }
   .assistant .fab-icon { background-color: #002B5B; }
   .call .fab-icon { background-color: #007bff; }
   .appointment .fab-icon { background-color: #e67e22; }
+
   .chat-window { position: fixed; bottom: 90px; right: 25px; width: 350px; height: 500px; max-height: 70vh; background: white; border-radius: 16px; box-shadow: 0 10px 40px rgba(0,0,0,0.2); display: flex; flex-direction: column; overflow: hidden; z-index: 10001; opacity: 0; visibility: hidden; transform: translateY(20px) scale(0.95); transition: 0.3s; border: 1px solid #eee; }
   .chat-window.open { opacity: 1; visibility: visible; transform: translateY(0) scale(1); }
+
   .chat-header { background: #002B5B; color: white; padding: 15px; display: flex; justify-content: space-between; align-items: center; }
   .header-info { display: flex; align-items: center; gap: 10px; }
   .assistant-avatar { background: rgba(255,255,255,0.2); width: 35px; height: 35px; border-radius: 50%; display: flex; align-items: center; justify-content: center; }
   .assistant-name { font-weight: 700; display: block; font-size: 14px; }
   .status-text { font-size: 11px; opacity: 0.8; }
   .close-chat-btn { background: none; border: none; color: white; cursor: pointer; font-size: 16px; }
+
   .chat-body { flex: 1; padding: 15px; overflow-y: auto; background: #f9f9f9; display: flex; flex-direction: column; gap: 10px; }
   .chat-msg { max-width: 80%; padding: 10px 14px; border-radius: 12px; font-size: 14px; line-height: 1.5; position: relative; word-wrap: break-word; }
   .chat-msg.bot { background: white; color: #333; border-bottom-left-radius: 2px; border: 1px solid #e5e5e5; align-self: flex-start; }
   .chat-msg.user { background: #002B5B; color: white; border-bottom-right-radius: 2px; align-self: flex-end; }
+
   .chat-options { display: flex; flex-direction: column; gap: 8px; margin-top: 5px; }
   .chat-options button { background: white; border: 1px solid #002B5B; color: #002B5B; padding: 10px; border-radius: 10px; font-size: 13px; cursor: pointer; text-align: left; transition: 0.2s; display: flex; align-items: center; gap: 8px; }
   .chat-options button:hover { background: #002B5B; color: white; }
+  .chat-options button i { width: 20px; text-align: center; }
+
   .typing-indicator span { display: inline-block; width: 6px; height: 6px; background: #ccc; border-radius: 50%; margin: 0 2px; animation: typing 1s infinite; }
   .typing-indicator span:nth-child(2) { animation-delay: 0.2s; }
   .typing-indicator span:nth-child(3) { animation-delay: 0.4s; }
   @keyframes typing { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-5px); } }
+
   @media (max-width: 768px) {
     .super-fab-wrapper { bottom: 20px; right: 20px; }
     .chat-window { bottom: 0; right: 0; left: 0; width: 100%; height: 100%; max-height: 100%; border-radius: 0; z-index: 20000; }
@@ -138,3 +157,88 @@ const processedOptions = safeOptions.map(opt => ({
     .close-chat-btn { font-size: 20px; padding: 10px; }
   }
 </style>
+
+<script is:inline>
+  // Fonksiyonları global window nesnesine ata ki HTML'den (onclick) erişilebilsin
+  window.toggleFabMenu = function() {
+    const wrapper = document.getElementById('super-fab-wrapper');
+    const chatWindow = document.getElementById('chatWindow');
+    const greeting = document.getElementById('fabGreeting');
+
+    if (chatWindow && chatWindow.classList.contains('open')) {
+      // Chat açıksa kapat
+      chatWindow.classList.remove('open');
+      wrapper.classList.remove('active');
+    } else {
+      // Değilse menüyü aç/kapat
+      wrapper.classList.toggle('active');
+      if (greeting) greeting.classList.remove('show');
+    }
+  };
+
+  window.openAssistant = function() {
+    const wrapper = document.getElementById('super-fab-wrapper');
+    const chatWindow = document.getElementById('chatWindow');
+    
+    if (wrapper) wrapper.classList.remove('active'); // Menüyü kapat
+    if (chatWindow) chatWindow.classList.add('open'); // Chat'i aç
+  };
+
+  window.toggleChatWindow = function(shouldOpen) {
+    const chatWindow = document.getElementById('chatWindow');
+    if (!chatWindow) return;
+    
+    if (shouldOpen) {
+      chatWindow.classList.add('open');
+    } else {
+      chatWindow.classList.remove('open');
+    }
+  };
+
+  window.closeGreeting = function() {
+    const greeting = document.getElementById('fabGreeting');
+    if (greeting) greeting.classList.remove('show');
+  };
+
+  window.handleOptionClick = function(btn) {
+    const userText = btn.getAttribute('data-user');
+    const botText = btn.getAttribute('data-bot');
+    const chatBody = document.getElementById('chatBody');
+    const optionsDiv = chatBody.querySelector('.chat-options');
+
+    // Kullanıcı mesajı
+    const userDiv = document.createElement('div');
+    userDiv.className = 'chat-msg user';
+    userDiv.innerHTML = userText;
+    chatBody.insertBefore(userDiv, optionsDiv);
+
+    // Yazıyor animasyonu
+    const typingDiv = document.createElement('div');
+    typingDiv.className = 'typing-indicator';
+    typingDiv.innerHTML = '<span></span><span></span><span></span>';
+    chatBody.insertBefore(typingDiv, optionsDiv);
+    chatBody.scrollTop = chatBody.scrollHeight;
+
+    setTimeout(function() {
+      typingDiv.remove();
+      // Bot cevabı
+      const botDiv = document.createElement('div');
+      botDiv.className = 'chat-msg bot';
+      botDiv.innerHTML = botText;
+      chatBody.insertBefore(botDiv, optionsDiv);
+      chatBody.scrollTop = chatBody.scrollHeight;
+    }, 800);
+  };
+
+  // Sayfa yüklendiğinde selamlama balonu
+  document.addEventListener('DOMContentLoaded', () => {
+    const greeting = document.getElementById('fabGreeting');
+    if (greeting && !localStorage.getItem('fabGreetingShown')) {
+      setTimeout(() => {
+        greeting.classList.add('show');
+        localStorage.setItem('fabGreetingShown', 'true');
+      }, 3000);
+      setTimeout(() => greeting.classList.remove('show'), 13000);
+    }
+  });
+</script>
