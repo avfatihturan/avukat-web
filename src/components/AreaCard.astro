@@ -9,21 +9,26 @@ interface Props {
 
 const { title, description, icon, ctaText = "Detaylı Bilgi →", ctaLink = "/iletisim" } = Astro.props;
 
-// SVG PATH KÜTÜPHANESİ
+// Ikon veritabanı
 const icons: Record<string, string> = {
-  gavel: "M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z M12 2.5c5.05 0 9.27 5.76 10.25 9.5-.98 3.74-5.2 9.5-10.25 9.5S2.73 15.74 1.75 12C2.73 8.26 6.95 2.5 12 2.5zm0 15c3.04 0 5.5-2.46 5.5-5.5S15.04 6.5 12 6.5 6.5 9.04 6.5 12 9.04 17.5 12 17.5z M432 32H312l-9.4-18.7A24 24 0 0 0 281.1 0H166.8a23.72 23.72 0 0 0-21.4 13.3L136 32H16A16 16 0 0 0 0 48v32a16 16 0 0 0 16 16h416a16 16 0 0 0 16-16V48a16 16 0 0 0-16-16zM53.2 467a48 48 0 0 0 47.9 45h245.8a48 48 0 0 0 47.9-45L416 128H32z", // Gavel (temsili - FontAwesome path'i aşağıda düzeltilmiştir)
-  gavel_real: "M536.4 207.2c22.6-22.6 22.6-59.3 0-81.9l-67.9-67.9c-22.6-22.6-59.3-22.6-81.9 0L241 203c-28.1 28.1-28.1 73.7 0 101.8l67.9 67.9c28.1 28.1 73.7 28.1 101.8 0l125.7-165.5zm-332.6 262c-39.6-39.6-103.8-39.6-143.4 0-15.1 15.1-23.4 35.1-23.4 56.4 0 44.1 35.9 80 80 80 21.3 0 41.3-8.3 56.4-23.4 12.3-12.3 20.3-28 22.8-44.8l167.9-204.9-85.5-85.5L75.6 422.3c-2.3-13.6-2.5-27.7 5.6-40.7 7.5-12 19.3-20.7 32.7-24 13.3-3.3 27.5-1.2 39.5 5.9l12.7 7.6 37.7-37.7z", // Düzeltilmiş Gavel
+  gavel: "M536.4 207.2c22.6-22.6 22.6-59.3 0-81.9l-67.9-67.9c-22.6-22.6-59.3-22.6-81.9 0L241 203c-28.1 28.1-28.1 73.7 0 101.8l67.9 67.9c28.1 28.1 73.7 28.1 101.8 0l125.7-165.5zm-332.6 262c-39.6-39.6-103.8-39.6-143.4 0-15.1 15.1-23.4 35.1-23.4 56.4 0 44.1 35.9 80 80 80 21.3 0 41.3-8.3 56.4-23.4 12.3-12.3 20.3-28 22.8-44.8l167.9-204.9-85.5-85.5L75.6 422.3c-2.3-13.6-2.5-27.7 5.6-40.7 7.5-12 19.3-20.7 32.7-24 13.3-3.3 27.5-1.2 39.5 5.9l12.7 7.6 37.7-37.7z",
   briefcase: "M128 480h256V80c0-26.5-21.5-48-48-48H176c-26.5 0-48 21.5-48 48v400zm64-400h128v32H192V80zM0 128C0 92.7 28.7 64 64 64h32v48H64c-8.8 0-16 7.2-16 16v32h416v-32c0-8.8-7.2-16-16-16h-32V64h32c35.3 0 64 28.7 64 64v320c0 35.3-28.7 64-64 64H64c-35.3 0-64-28.7-64-64V128z",
   house: "M575.8 255.5c0 18-15 32.1-32 32.1h-32l.7 160.2c0 2.7-.2 5.4-.5 8.1V472c0 22.1-17.9 40-40 40H456c-1.1 0-2.2 0-3.3-.1c-1.4 .1-2.8 .1-4.2 .1H416 392c-22.1 0-40-17.9-40-40V448 384c0-17.7-14.3-32-32-32H256c-17.7 0-32 14.3-32 32v64 24c0 22.1-17.9 40-40 40H160 128.1c-1.5 0-3-.1-4.5-.2c-1.2 .1-2.4 .2-3.6 .2H104c-22.1 0-40-17.9-40-40V360c0-.9 0-1.9 .1-2.8V287.6H32c-18 0-32-14-32-32.1c0-9 3-17 10-24L266.4 8c7-7 15-8 22-8s15 2 21 7L564.8 231.5c8 7 12 15 11 24z",
   building: "M384 48V512H128V48c0-26.5-21.5-48-48-48H48C21.5 0 0 21.5 0 48V512c0 26.5 21.5 48 48 48H464c26.5 0 48-21.5 48-48V48c0-26.5-21.5-48-48-48H336c-26.5 0-48 21.5-48 48zM192 480v-32h64v32H192zm64-96H192v-32h64v32zm0-96H192v-32h64v32zm0-96H192v-32h64v32zM80 448H64v-32h16v32zm0-96H64v-32h16v32zm0-96H64v-32h16v32zm0-96H64v-32h16v32zm384 288h-16v-32h16v32zm0-96h-16v-32h16v32zm0-96h-16v-32h16v32zm0-96h-16v-32h16v32z",
   globe: "M256 0c141.4 0 256 114.6 256 256S397.4 512 256 512 0 397.4 0 256 114.6 0 256 0zM216 42.4V216h-96c3.7-27.4 12.6-53.4 25.8-76.8 19.3-34.1 44.8-62.4 70.2-96.8zm-123.6 57c-17.5 22.9-31.2 48.6-39.7 76.6H144c-12.3-25.2-21.6-51.8-27.6-79.6-8 1-15.9 2-24 3zm267.2-57V216h96c-3.7-27.4-12.6-53.4-25.8-76.8-19.3-34.1-44.8-62.4-70.2-96.8zm123.6 57c17.5 22.9 31.2 48.6 39.7 76.6H368c12.3-25.2 21.6-51.8 27.6-79.6 8 1 15.9 2 24 3zM216 296v173.6c-25.4-34.4-50.9-62.7-70.2-96.8-13.2-23.4-22.1-49.4-25.8-76.8h96zm144 0v173.6c25.4-34.4 50.9-62.7 70.2-96.8 13.2-23.4 22.1-49.4 25.8-76.8H360zm-72 176c12.3-3.8 24.2-8.6 35.6-14.2 2.1-1 4.1-2.1 6.2-3.2-2.1-1.1-4.1-2.2-6.2-3.2-11.4-5.6-23.3-10.4-35.6-14.2v34.8zm-88-296h80V60.6c-9.1 2.2-18 5.2-26.6 8.8-2.6 1.1-5.1 2.2-7.7 3.4-15.6 7.3-30.2 16.2-43.6 26.5 10.4 25 18 51.5 22.4 79.1zm-80 0h-88c3.5-27.4 12.4-53.4 25.8-76.8 19.3-34.1 44.8-62.4 70.2-96.8V176z",
-  shield: "M0 96C0 43 43 0 96 0h288c53 0 96 43 96 96v48H0V96zm0 256c0 137 111 248 248 248s248-111 248-248V192H0v160zM336 248v56c0 39.8-32.2 72-72 72s-72-32.2-72-72v-56c0-39.8 32.2-72 72-72s72 32.2 72 72z"
+  shield: "M0 96C0 43 43 0 96 0h288c53 0 96 43 96 96v48H0V96zm0 256c0 137 111 248 248 248s248-111 248-248V192H0v160zM336 248v56c0 39.8-32.2 72-72 72s-72-32.2-72-72v-56c0-39.8 32.2-72 72-72s72 32.2 72 72z",
+  default: "M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512z" // Basit bir daire
 };
 
-// Basit bir eşleşme düzeltmesi (gavel -> gavel_real)
 const getPath = (name: string) => {
-  if (name === 'gavel') return icons.gavel_real;
-  return icons[name] || icons.gavel_real; // Fallback
+  if (!name) return icons.default;
+  if (name.includes('gavel')) return icons.gavel;
+  if (name.includes('briefcase')) return icons.briefcase;
+  if (name.includes('house') || name.includes('chimney')) return icons.house;
+  if (name.includes('building')) return icons.building;
+  if (name.includes('globe')) return icons.globe;
+  if (name.includes('shield')) return icons.shield;
+  return icons.default;
 };
 ---
 
@@ -31,22 +36,17 @@ const getPath = (name: string) => {
   <div class="custom-card">
     
     <div class="card-icon">
-      <svg viewBox="0 0 512 512" width="1em" height="1em" fill="currentColor">
+      <svg viewBox="0 0 512 512" width="48" height="48" fill="currentColor">
         <path d={getPath(icon)} />
       </svg>
     </div>
 
-    <h3 class="card-title">
-      {title}
-    </h3>
-
-    <p class="card-desc">
-      {description}
-    </p>
+    <h3 class="card-title">{title}</h3>
+    <p class="card-desc">{description}</p>
 
     <div class="card-footer">
       <span>{ctaText} 
-        <svg viewBox="0 0 448 512" width="1em" height="1em" fill="currentColor" style="display:inline; vertical-align:middle; margin-left:4px; width:0.8em;">
+        <svg viewBox="0 0 448 512" width="14" height="14" fill="currentColor" style="display:inline; margin-left:5px;">
           <path d="M438.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L338.8 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l306.7 0L233.4 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z"/>
         </svg>
       </span>
@@ -56,71 +56,11 @@ const getPath = (name: string) => {
 </a>
 
 <style>
-  .card-link {
-    display: block;
-    text-decoration: none;
-    height: 100%;
-  }
-
-  .custom-card {
-    background-color: #ffffff;
-    border: 2px solid #e5e7eb;
-    border-radius: 12px;
-    padding: 2rem;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-  }
-
-  /* PREMIUM HOVER: -2px ve Yumuşak Gölge */
-  .custom-card:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(0,0,0,0.06);
-    border-color: #d1d5db;
-  }
-
-  .card-icon {
-    font-size: 2.5rem;
-    color: #002B5B;
-    text-align: center;
-    margin-bottom: 1.5rem;
-    display: flex;
-    justify-content: center;
-  }
-  
-  /* SVG Ayarları */
-  .card-icon svg {
-    display: block;
-  }
-
-  .card-title {
-    font-size: 1.25rem;
-    font-weight: 700;
-    color: #111111;
-    text-align: center;
-    margin-bottom: 1rem;
-  }
-
-  .card-desc {
-    font-size: 1rem;
-    color: #444444;
-    line-height: 1.6;
-    text-align: justify;
-    flex-grow: 1;
-    margin-bottom: 1.5rem;
-  }
-
-  .card-footer {
-    border-top: 1px solid #f3f4f6;
-    padding-top: 1rem;
-    text-align: center;
-    color: #002B5B;
-    font-weight: 600;
-    font-size: 0.9rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
+  .card-link { display: block; text-decoration: none; height: 100%; }
+  .custom-card { background: #fff; border: 2px solid #e5e7eb; border-radius: 12px; padding: 2rem; height: 100%; display: flex; flex-direction: column; transition: 0.2s; box-shadow: 0 4px 6px rgba(0,0,0,0.05); }
+  .custom-card:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(0,0,0,0.06); border-color: #d1d5db; }
+  .card-icon { text-align: center; margin-bottom: 1.5rem; color: #002B5B; display: flex; justify-content: center; }
+  .card-title { font-size: 1.25rem; font-weight: 700; color: #111; text-align: center; margin-bottom: 1rem; }
+  .card-desc { color: #444; line-height: 1.6; text-align: justify; flex-grow: 1; margin-bottom: 1.5rem; }
+  .card-footer { border-top: 1px solid #f3f4f6; padding-top: 1rem; text-align: center; color: #002B5B; font-weight: 600; font-size: 0.9rem; }
 </style>
