@@ -11,7 +11,7 @@ if (!siteEntry) {
 
 const { name, contact } = siteEntry.data;
 
-// İletişim İkonları (Inline SVG)
+// İKONLAR (ViewBox 0 0 512 512)
 const icons = {
   phone: "M164.9 24.6c-7.7-18.6-28-28.5-47.4-23.2l-88 24C12.1 30.2 0 46 0 64C0 311.4 200.6 512 448 512c18 0 33.8-12.1 38.6-29.5l24-88c5.3-19.4-4.6-39.7-23.2-47.4l-96-40c-16.3-6.8-35.2-2.1-46.3 11.6L304.7 368C234.3 334.7 177.3 277.7 144 207.3L193.3 167c13.7-11.2 18.4-30 11.6-46.3l-40-96z",
   whatsapp: "M414.7 71.6C374.3 31.2 320.5 9 264.4 9 146.5 9 50.6 105 50.6 222.9 50.6 260.6 60.5 296.2 78.4 327.9L49 435l110.1-28.9c31 16.9 66 25.8 105.3 25.8h.1c117.9 0 213.9-96 213.9-213.9 0-57.1-22.3-110.9-63.7-156.4zM264.4 402.6c-35.8 0-70.9-9.6-101.9-28l-7.3-4.3-75.7 19.9 20.2-73.8-4.7-7.6c-20-31.9-30.6-69.2-30.6-108.3 0-111.9 91.1-203 203.1-203 54.3 0 105.3 21.1 143.7 59.5s59.5 89.4 59.5 143.7c-.1 112-91.2 202.9-203.3 202.9zm111.5-151.7c-6.1-3.1-36.2-17.9-41.8-19.9-5.6-2.1-9.7-3.1-13.8 3.1-4.1 6.2-16 19.9-19.6 24-3.6 4.1-7.2 4.6-13.3 1.5-6.1-3.1-25.7-9.5-49-30.2-18.1-16.1-30.3-36.1-33.8-42.2-3.6-6.1-.4-9.4 2.7-12.4 2.7-2.7 6.1-7.2 9.1-10.7 3.1-3.6 4.1-6.1 6.1-10.1 2.1-4.1 1-7.6-.5-10.7-1.5-3.1-13.8-33.3-18.9-45.6-5.1-12.1-10.3-10.5-13.8-10.7-3.3-.2-7.1-.2-10.9-.2-3.8 0-10 1.4-15.2 7.1-5.2 5.7-20 19.5-20 47.6 0 28.1 20.4 55.3 23.3 59.3 2.9 4.1 40.2 61.3 97.4 86 33.9 14.6 40.6 11.7 55.4 10.9 14.8-.8 36.2-14.8 41.3-29.1 5.1-14.3 5.1-26.6 3.6-29.1-1.5-2.5-5.6-4.1-11.7-7.2z",
@@ -31,10 +31,9 @@ const icons = {
     <div class="container">
       
       <div class="contact-grid">
-        
         <a href={contact.phoneLink} class="contact-card">
           <div class="icon-box">
-            <svg viewBox="0 0 512 512" width="32" height="32" fill="currentColor"><path d={icons.phone}/></svg>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="32" height="32" fill="currentColor"><path d={icons.phone}/></svg>
           </div>
           <span class="contact-card__label">Telefon</span>
           <span class="contact-card__value">{contact.phone}</span>
@@ -42,7 +41,7 @@ const icons = {
 
         <a href={`https://wa.me/${contact.whatsapp}`} target="_blank" rel="noopener noreferrer" class="contact-card">
           <div class="icon-box">
-            <svg viewBox="0 0 448 512" width="32" height="32" fill="currentColor"><path d={icons.whatsapp}/></svg>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" width="32" height="32" fill="currentColor"><path d={icons.whatsapp}/></svg>
           </div>
           <span class="contact-card__label">WhatsApp</span>
           <span class="contact-card__value">Mesaj Gönderin</span>
@@ -50,12 +49,11 @@ const icons = {
 
         <a href={`mailto:${contact.email}`} class="contact-card">
           <div class="icon-box">
-            <svg viewBox="0 0 512 512" width="32" height="32" fill="currentColor"><path d={icons.envelope}/></svg>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="32" height="32" fill="currentColor"><path d={icons.envelope}/></svg>
           </div>
           <span class="contact-card__label">E-posta</span>
           <span class="contact-card__value">{contact.email}</span>
         </a>
-
       </div>
 
       <div class="form-wrapper">
@@ -66,7 +64,6 @@ const icons = {
         </p>
 
         <form action="https://formspree.io/f/xankgjed" method="POST" class="contact-form">
-          
           <div class="form-row">
             <div class="form-group">
               <label>Adınız Soyadınız</label>
@@ -121,121 +118,28 @@ const icons = {
 </BaseLayout>
 
 <style>
-  /* --- GRID SİSTEMİ (KARTLAR) --- */
-  .contact-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 30px;
-    margin-bottom: 60px;
-  }
-
-  @media (max-width: 768px) {
-    .contact-grid { grid-template-columns: 1fr; gap: 20px; }
-  }
-
-  /* --- KART TASARIMI --- */
-  .contact-card {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    padding: 35px 20px;
-    background: var(--card-bg);
-    border: 1px solid var(--color-border);
-    border-radius: 12px;
-    text-decoration: none;
-    transition: all 0.3s ease;
-  }
-
-  .contact-card:hover {
-    border-color: var(--brand-accent);
-    transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
-  }
-
-  .icon-box {
-    margin-bottom: 15px;
-    color: var(--brand-accent);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-
-  .contact-card__label {
-    font-size: 0.85rem;
-    text-transform: uppercase;
-    font-weight: 700;
-    letter-spacing: 1px;
-    color: var(--color-text-secondary);
-    margin-bottom: 8px;
-  }
-
-  .contact-card__value {
-    font-size: 1.1rem;
-    font-weight: 600;
-    color: var(--brand-primary);
-  }
+  .contact-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; margin-bottom: 60px; }
+  @media (max-width: 768px) { .contact-grid { grid-template-columns: 1fr; gap: 20px; } }
+  .contact-card { display: flex; flex-direction: column; align-items: center; text-align: center; padding: 35px 20px; background: var(--card-bg); border: 1px solid var(--color-border); border-radius: 12px; text-decoration: none; transition: all 0.3s ease; }
+  .contact-card:hover { border-color: var(--brand-accent); transform: translateY(-2px); box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06); }
+  .icon-box { margin-bottom: 15px; color: var(--brand-accent); display: flex; justify-content: center; align-items: center; }
+  .contact-card__label { font-size: 0.85rem; text-transform: uppercase; font-weight: 700; letter-spacing: 1px; color: var(--color-text-secondary); margin-bottom: 8px; }
+  .contact-card__value { font-size: 1.1rem; font-weight: 600; color: var(--brand-primary); }
   :global(html.dark) .contact-card__value { color: var(--color-text); }
-
-  /* --- FORM ALANI --- */
-  .form-wrapper {
-    max-width: 800px;
-    margin: 0 auto;
-    background: var(--card-bg);
-    padding: 40px;
-    border-radius: 16px;
-    border: 1px solid var(--color-border);
-    box-shadow: 0 4px 20px rgba(0,0,0,0.05);
-  }
-
+  .form-wrapper { max-width: 800px; margin: 0 auto; background: var(--card-bg); padding: 40px; border-radius: 16px; border: 1px solid var(--color-border); box-shadow: 0 4px 20px rgba(0,0,0,0.05); }
   @media (max-width: 600px) { .form-wrapper { padding: 25px; } }
-
   .form-group { margin-bottom: 20px; }
-
-  .form-group label {
-    display: block;
-    margin-bottom: 8px;
-    font-weight: 600;
-    font-size: 0.95rem;
-    color: var(--brand-primary);
-  }
+  .form-group label { display: block; margin-bottom: 8px; font-weight: 600; font-size: 0.95rem; color: var(--brand-primary); }
   :global(html.dark) .form-group label { color: var(--color-text); }
-
   .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
   @media (max-width: 600px) { .form-row { grid-template-columns: 1fr; } }
-
   .date-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 15px; }
   @media (max-width: 600px) { .date-grid { grid-template-columns: 1fr; } }
-
-  /* İnput Stilleri */
-  input[type="text"], input[type="email"], input[type="tel"], input[type="date"], textarea {
-    width: 100%;
-    padding: 14px;
-    border: 1px solid var(--input-border);
-    background-color: var(--input-bg);
-    border-radius: 10px;
-    font-family: inherit;
-    font-size: 1rem;
-    color: var(--color-text);
-    transition: 0.2s;
-  }
-
-  input:focus, textarea:focus {
-    outline: none;
-    border-color: var(--brand-accent);
-    box-shadow: 0 0 0 3px rgba(197, 160, 89, 0.1);
-  }
-
+  input[type="text"], input[type="email"], input[type="tel"], input[type="date"], textarea { width: 100%; padding: 14px; border: 1px solid var(--input-border); background-color: var(--input-bg); border-radius: 10px; font-family: inherit; font-size: 1rem; color: var(--color-text); transition: 0.2s; }
+  input:focus, textarea:focus { outline: none; border-color: var(--brand-accent); box-shadow: 0 0 0 3px rgba(197, 160, 89, 0.1); }
   .checkbox-group { display: flex; align-items: flex-start; gap: 12px; margin-bottom: 15px; font-size: 0.9rem; line-height: 1.5; }
   .checkbox-group input { margin-top: 4px; accent-color: var(--brand-accent); width: 18px; height: 18px; }
-
-  .fee-warning {
-    background-color: rgba(197, 160, 89, 0.1);
-    padding: 15px;
-    border-left: 4px solid var(--brand-accent);
-    border-radius: 4px;
-  }
+  .fee-warning { background-color: rgba(197, 160, 89, 0.1); padding: 15px; border-left: 4px solid var(--brand-accent); border-radius: 4px; }
   :global(html.dark) .fee-warning { background-color: rgba(197, 160, 89, 0.05); }
-
   .btn { width: 100%; margin-top: 10px; }
 </style>
