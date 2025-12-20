@@ -11,6 +11,8 @@ interface Props {
   currentPage?: string;
   canonicalUrl?: string;
   ogImage?: string;
+  // YENİ PROP: Varsayılan 'website', makalelerde 'article' olacak
+  ogType?: 'website' | 'article';
 }
 
 const {
@@ -18,7 +20,8 @@ const {
   description,
   currentPage = '',
   canonicalUrl,
-  ogImage = '/images/og-image.jpg'
+  ogImage = '/images/og-image.jpg',
+  ogType = 'website' // Varsayılan değer
 } = Astro.props;
 
 const siteUrl = 'https://fatihturan.av.tr';
@@ -35,11 +38,8 @@ const fullCanonical = canonicalUrl ? `${siteUrl}${canonicalUrl}` : siteUrl;
 
   <script is:inline>
     (function() {
-      // Önce localStorage'a bak, yoksa sistem tercihine bak
       const theme = localStorage.getItem('theme') || 
                     (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
-      
-      // Sınıfı anında ekle
       if (theme === 'dark') {
         document.documentElement.classList.add('dark');
       } else {
@@ -54,7 +54,9 @@ const fullCanonical = canonicalUrl ? `${siteUrl}${canonicalUrl}` : siteUrl;
 
   <meta property="og:title" content={title}>
   <meta property="og:description" content={description}>
-  <meta property="og:type" content="website">
+  
+  <meta property="og:type" content={ogType}>
+  
   <meta property="og:url" content={fullCanonical}>
   <meta property="og:image" content={`${siteUrl}${ogImage}`}>
   <meta name="twitter:card" content="summary_large_image">
@@ -89,7 +91,6 @@ const fullCanonical = canonicalUrl ? `${siteUrl}${canonicalUrl}` : siteUrl;
 
   <script is:inline>
     function initApp() {
-      // 1. Tema Değiştirme Butonu Mantığı
       const themeToggleBtn = document.getElementById('themeToggle');
       if (themeToggleBtn) {
         const newBtn = themeToggleBtn.cloneNode(true);
@@ -103,7 +104,6 @@ const fullCanonical = canonicalUrl ? `${siteUrl}${canonicalUrl}` : siteUrl;
         });
       }
 
-      // 2. Mobil Menü Mantığı
       const menuToggle = document.querySelector('.menu-toggle');
       const nav = document.querySelector('.desktop-nav');
       if (menuToggle && nav) {
