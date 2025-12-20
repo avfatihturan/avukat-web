@@ -3,7 +3,7 @@
     "id": "ceza",
     "icon": "fa-solid fa-gavel",
     "title": "Ceza Hukuku",
-    "description": "Soruşturma ve kovuşturma aşamalarında; hakaret, tehdit, bilişim suçları ve Türk Ceza Kanunu kapsamındaki tüm süreçlerde savunma ve müdahillik hizmeti sunulmaktadır. Karakoldaki ilk ifadeden kararın kesinleşmesine kadar olan süreç, yalnızca bir dosya takibi olarak değil; bütüncül ve stratejik bir savunma kurgusu çerçevesinde yönetilir.",
+    "description": "Ceza mevzuatı kapsamındaki tüm suçlara ilişkin soruşturma ve kovuşturma aşamalarında; karakoldaki ilk ifade sürecinden kararın kesinleşmesine kadar savunma ve müdahillik hizmeti sunulmaktadır.",
     "ctaText": "Ceza Hukuku Yayınlarını İncele →",
     "ctaLink": "/yayinlar"
   },
@@ -11,7 +11,7 @@
     "id": "is",
     "icon": "fa-solid fa-briefcase",
     "title": "İş Hukuku",
-    "description": "İşçi ve işveren tarafında; işe iade, tazminat ve iş kazası süreçleri, henüz kriz masaya gelmeden ele alınır. İşten çıkış süreci başlamadan önce hukuki zemin oluşturulur; olası uyuşmazlıklarda davanın seyrini etkileyebilecek önleyici tedbirler titizlikle planlanır.",
+    "description": "İşçi ve işveren tarafında; işe iade, tazminat ve iş kazası süreçleri, uyuşmazlık doğmadan önce ele alınır. Fesih öncesi ve sonrası hukuki zemin oluşturularak sürecin seyri stratejik biçimde planlanır.",
     "ctaText": "İş Hukuku Yayınlarını İncele →",
     "ctaLink": "/yayinlar"
   },
@@ -19,7 +19,7 @@
     "id": "kira",
     "icon": "fa-solid fa-house-chimney",
     "title": "Konut ve Kira Hukuku",
-    "description": "Kira tespit ve tahliye davaları ile sözleşme süreçlerinde; mülkiyet hakkı ve kiracı güvenliği birlikte değerlendirilir. Ev sahibi veya kiracı olunmasına bakılmaksızın, sözleşmenin kurulmasından tahliye aşamasına kadar tüm süreç; tarafların hukuki riskleri önceden öngörülerek stratejik şekilde yürütülür.",
+    "description": "Kira tespit ve tahliye davaları ile sözleşme süreçlerinde; ev sahibi ve kiracı hakları birlikte değerlendirilir. Sözleşmenin kurulmasından tahliye aşamasına kadar tüm süreç, hukuki riskler öngörülerek yürütülür.",
     "ctaText": "Kira Hukuku Yayınlarını İncele →",
     "ctaLink": "/yayinlar"
   },
@@ -27,7 +27,7 @@
     "id": "sirketler",
     "icon": "fa-solid fa-building",
     "title": "Şirketler Hukuku",
-    "description": "Şirket kuruluşundan birleşme ve devir süreçlerine kadar, işletmelerin hukuki altyapısı bir bütün olarak ele alınır. Ticari sözleşmeler ve çalışan ilişkileri, ileride doğabilecek uyuşmazlıkları en aza indirecek biçimde yapılandırılarak kurumsal ve önleyici bir koruma yaklaşımı benimsenir.",
+    "description": "Şirket kuruluşu, birleşme ve devir süreçleri ile ticari sözleşmeler; işletmenin hukuki altyapısını güçlendirecek şekilde ele alınır. Kurumsal yapılar, ileride doğabilecek uyuşmazlıkları önleyici bir yaklaşımla yapılandırılır.",
     "ctaText": "Kurumsal Danışmanlık Talep Et →",
     "ctaLink": "/iletisim"
   },
@@ -35,7 +35,7 @@
     "id": "uluslararasi",
     "icon": "fa-solid fa-globe",
     "title": "Uluslararası Hukuk",
-    "description": "Yabancı müvekkillerin Türkiye’deki hakları, dil ve mevzuat engellerine takılmadan korunur. Uluslararası unsuru bulunan uyuşmazlıklar; Türk hukuku ve evrensel hukuk normları birlikte değerlendirilerek şeffaf ve güven temelli bir temsil süreci yürütülür.",
+    "description": "Yabancı müvekkillerin Türkiye’deki hukuki süreçleri; dil ve mevzuat engellerine takılmadan yürütülür. Uluslararası unsurlu uyuşmazlıklar, Türk hukuku ve evrensel normlar birlikte değerlendirilerek temsil edilir.",
     "ctaText": "Hukuki Destek İçin Bize Ulaşın →",
     "ctaLink": "/iletisim"
   },
@@ -43,7 +43,7 @@
     "id": "siddet-onleme",
     "icon": "fa-solid fa-shield-heart",
     "title": "6284 Sayılı Kanun ve Şiddetin Önlenmesi",
-    "description": "6284 sayılı Kanun kapsamında koruyucu ve önleyici tedbir kararları, akademik çalışmaların sağladığı teorik derinlik ve uygulama tecrübesiyle ele alınır. Aile içi şiddet vakalarında mağdur hakları gözetilerek, hukuki sürecin hızlı, etkin ve hak odaklı ilerlemesi sağlanır.",
+    "description": "6284 sayılı Kanun kapsamında koruyucu ve önleyici tedbir kararları; teorik birikim ve uygulama tecrübesiyle ele alınır. Aile içi şiddet vakalarında mağdur hakları gözetilerek sürecin hızlı ve etkin ilerlemesi sağlanır.",
     "ctaText": "Detaylı Bilgi Al →",
     "ctaLink": "/iletisim"
   }
