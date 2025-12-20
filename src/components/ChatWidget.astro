@@ -1,12 +1,13 @@
 ---
-// Chat Widget - Masaüstünde gösterilir
+// Chat Widget & Unified Communication FAB
+// Tüm cihazlarda çalışır (Mobil + Masaüstü)
 import { getEntry } from 'astro:content';
 
 const siteEntry = await getEntry('site', 'main');
 const chatbotEntry = await getEntry('chatbot', 'main');
 
 if (!siteEntry || !chatbotEntry) {
-  throw new Error("Site veya Chatbot verisi (json) bulunamadı.");
+  throw new Error("Site veya Chatbot verisi bulunamadı.");
 }
 
 const { contact } = siteEntry.data;
@@ -14,6 +15,7 @@ const { greeting, welcomeMessage, assistantName, options } = chatbotEntry.data;
 
 const safeOptions = options || [];
 
+// Bot cevaplarındaki değişkenleri doldur
 const processTemplate = (text: string) => {
   return text
     .replace(/\{\{phone\}\}/g, contact.phone || '')
@@ -28,25 +30,27 @@ const processedOptions = safeOptions.map(opt => ({
 }));
 ---
 
-<a href={`https://wa.me/${contact.whatsapp}`} class="whatsapp-float" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp ile iletişime geç">
-  <i class="fa-brands fa-whatsapp"></i>
-</a>
+<div id="super-fab-wrapper" class="super-fab-wrapper">
+  
+  <div id="fabGreeting" class="fab-greeting">
+    {greeting}
+    <button class="greeting-close" aria-label="Kapat">&times;</button>
+  </div>
 
-<div class="chat-widget">
-  <div id="chatGreeting" class="chat-greeting">{greeting}</div>
-  <button id="chatToggle" class="chat-toggle-btn" aria-label="Sohbeti aç">
-    <i class="fa-solid fa-comments"></i>
-  </button>
-  <div id="chatBox" class="chat-box" role="dialog" aria-label="Sohbet penceresi">
+  <div id="chatWindow" class="chat-window" role="dialog" aria-hidden="true">
     <div class="chat-header">
-      <span>{assistantName}</span>
-      <div class="chat-quick-actions">
-        <a href={contact.phoneLink} title="Ara"><i class="fa-solid fa-phone"></i></a>
-        <a href={`mailto:${contact.email}`} title="E-posta"><i class="fa-solid fa-envelope"></i></a>
-        <a href={`https://wa.me/${contact.whatsapp}`} target="_blank" rel="noopener noreferrer" title="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+      <div class="header-info">
+        <span class="assistant-avatar"><i class="fa-solid fa-robot"></i></span>
+        <div>
+          <span class="assistant-name">{assistantName}</span>
+          <span class="status-text">Çevrimiçi</span>
+        </div>
       </div>
-      <button id="closeChat" aria-label="Sohbeti kapat">&times;</button>
+      <button id="closeChatBtn" class="close-chat-btn" aria-label="Sohbeti kapat">
+        <i class="fa-solid fa-chevron-down"></i>
+      </button>
     </div>
+    
     <div id="chatBody" class="chat-body">
       <div class="chat-msg bot">{welcomeMessage}</div>
       <div class="chat-options">
@@ -59,77 +63,439 @@ const processedOptions = safeOptions.map(opt => ({
       </div>
     </div>
   </div>
+
+  <div id="fabMenu" class="fab-menu" aria-hidden="true">
+    
+    <a href={`https://wa.me/${contact.whatsapp}`} target="_blank" rel="noopener noreferrer" class="fab-item whatsapp" aria-label="WhatsApp">
+      <span class="fab-label">WhatsApp</span>
+      <div class="fab-icon"><i class="fa-brands fa-whatsapp"></i></div>
+    </a>
+
+    <button id="openAssistantBtn" class="fab-item assistant" aria-label="Asistan">
+      <span class="fab-label">Asistan</span>
+      <div class="fab-icon"><i class="fa-solid fa-comments"></i></div>
+    </button>
+
+    <a href={contact.phoneLink} class="fab-item call" aria-label="Hemen Ara">
+      <span class="fab-label">Hemen Ara</span>
+      <div class="fab-icon"><i class="fa-solid fa-phone"></i></div>
+    </a>
+
+    <a href="/iletisim" class="fab-item appointment" aria-label="Randevu Al">
+      <span class="fab-label">Randevu Al</span>
+      <div class="fab-icon"><i class="fa-solid fa-calendar-check"></i></div>
+    </a>
+
+  </div>
+
+  <button id="mainFabBtn" class="main-fab-btn" aria-label="İletişim Seçenekleri">
+    <i class="fa-solid fa-message icon-default"></i>
+    <i class="fa-solid fa-xmark icon-close"></i>
+  </button>
+
 </div>
 
+<style>
+  /* --- WRAPPER & POSITIONING --- */
+  .super-fab-wrapper {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    z-index: 9999;
+    font-family: 'Montserrat', sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+  }
+
+  /* --- MAIN BUTTON --- */
+  .main-fab-btn {
+    width: 60px;
+    height: 60px;
+    background-color: #002B5B; /* Marka Rengi */
+    color: white;
+    border-radius: 50%;
+    border: none;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    position: relative;
+    z-index: 10002;
+  }
+  
+  .main-fab-btn:hover {
+    transform: scale(1.05);
+    background-color: #003d82;
+  }
+
+  .main-fab-btn .icon-close { display: none; }
+  
+  /* Aktif olduğunda ikon değişimi */
+  .super-fab-wrapper.active .main-fab-btn {
+    transform: rotate(90deg);
+    background-color: #333;
+  }
+  .super-fab-wrapper.active .main-fab-btn .icon-default { display: none; }
+  .super-fab-wrapper.active .main-fab-btn .icon-close { display: block; }
+
+  /* --- GREETING BUBBLE --- */
+  .fab-greeting {
+    position: absolute;
+    bottom: 80px;
+    right: 0;
+    background: white;
+    padding: 12px 20px;
+    border-radius: 12px 12px 0 12px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+    color: #333;
+    font-size: 14px;
+    font-weight: 500;
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px);
+    transition: all 0.3s ease;
+    z-index: 10000;
+    border: 1px solid #eee;
+  }
+  
+  .fab-greeting.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+
+  .greeting-close {
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    background: #eee;
+    color: #666;
+    border: none;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    font-size: 14px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* --- FAB MENU ITEMS --- */
+  .fab-menu {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    position: absolute;
+    bottom: 80px;
+    right: 0;
+    pointer-events: none; /* Kapalıyken tıklanmasın */
+  }
+
+  .super-fab-wrapper.active .fab-menu {
+    pointer-events: auto;
+  }
+
+  .fab-item {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 12px;
+    text-decoration: none;
+    border: none;
+    background: none;
+    cursor: pointer;
+    opacity: 0;
+    transform: translateY(20px) scale(0.8);
+    transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+  }
+
+  /* Menü açılınca animasyon sırası */
+  .super-fab-wrapper.active .fab-item {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+  .super-fab-wrapper.active .fab-item:nth-child(4) { transition-delay: 0.05s; }
+  .super-fab-wrapper.active .fab-item:nth-child(3) { transition-delay: 0.1s; }
+  .super-fab-wrapper.active .fab-item:nth-child(2) { transition-delay: 0.15s; }
+  .super-fab-wrapper.active .fab-item:nth-child(1) { transition-delay: 0.2s; }
+
+  .fab-label {
+    background: white;
+    padding: 6px 12px;
+    border-radius: 6px;
+    font-size: 13px;
+    font-weight: 600;
+    color: #333;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  }
+
+  .fab-icon {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 18px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    transition: transform 0.2s;
+  }
+
+  .fab-item:hover .fab-icon { transform: scale(1.1); }
+
+  /* Renkler */
+  .whatsapp .fab-icon { background-color: #25D366; }
+  .assistant .fab-icon { background-color: #002B5B; }
+  .call .fab-icon { background-color: #007bff; }
+  .appointment .fab-icon { background-color: #e67e22; }
+
+  /* --- CHAT WINDOW (Chatbot) --- */
+  .chat-window {
+    position: fixed;
+    bottom: 90px;
+    right: 25px;
+    width: 350px;
+    height: 500px;
+    max-height: 70vh;
+    background: white;
+    border-radius: 16px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    z-index: 10001;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(20px) scale(0.95);
+    transition: all 0.3s ease;
+    border: 1px solid #eee;
+  }
+
+  .chat-window.open {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0) scale(1);
+  }
+
+  .chat-header {
+    background: #002B5B;
+    color: white;
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .header-info { display: flex; align-items: center; gap: 10px; }
+  .assistant-avatar { background: rgba(255,255,255,0.2); width: 35px; height: 35px; border-radius: 50%; display: flex; align-items: center; justify-content: center; }
+  .assistant-name { font-weight: 700; display: block; font-size: 14px; }
+  .status-text { font-size: 11px; opacity: 0.8; }
+  
+  .close-chat-btn {
+    background: none; border: none; color: white; cursor: pointer; font-size: 16px;
+  }
+
+  .chat-body {
+    flex: 1;
+    padding: 15px;
+    overflow-y: auto;
+    background: #f9f9f9;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  /* Chat Messages Styles */
+  .chat-msg {
+    max-width: 80%;
+    padding: 10px 14px;
+    border-radius: 12px;
+    font-size: 14px;
+    line-height: 1.5;
+    position: relative;
+    word-wrap: break-word;
+  }
+  .chat-msg.bot {
+    background: white;
+    color: #333;
+    border-bottom-left-radius: 2px;
+    border: 1px solid #e5e5e5;
+    align-self: flex-start;
+  }
+  .chat-msg.user {
+    background: #002B5B;
+    color: white;
+    border-bottom-right-radius: 2px;
+    align-self: flex-end;
+  }
+
+  .chat-options {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-top: 5px;
+  }
+  .chat-options button {
+    background: white;
+    border: 1px solid #002B5B;
+    color: #002B5B;
+    padding: 10px;
+    border-radius: 8px;
+    font-size: 13px;
+    cursor: pointer;
+    text-align: left;
+    transition: all 0.2s;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .chat-options button:hover {
+    background: #002B5B;
+    color: white;
+  }
+
+  .typing-indicator span {
+    display: inline-block; width: 6px; height: 6px; background: #ccc; border-radius: 50%; margin: 0 2px;
+    animation: typing 1s infinite;
+  }
+  .typing-indicator span:nth-child(2) { animation-delay: 0.2s; }
+  .typing-indicator span:nth-child(3) { animation-delay: 0.4s; }
+  @keyframes typing { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-5px); } }
+
+  /* --- MOBILE RESPONSIVE --- */
+  @media (max-width: 768px) {
+    .super-fab-wrapper { bottom: 20px; right: 20px; }
+    .chat-window {
+      bottom: 0; right: 0; left: 0;
+      width: 100%; height: 100%; max-height: 100%;
+      border-radius: 0;
+      z-index: 20000;
+    }
+    .chat-header { padding-top: env(safe-area-inset-top); height: 70px; }
+    .close-chat-btn { font-size: 20px; padding: 10px; }
+  }
+</style>
+
 <script>
-  function initChatBot() {
-    if (window.innerWidth <= 768) return;
+  function initSuperFab() {
+    // Mobil kontrolünü kaldırdık - Her yerde çalışacak!
+    
+    const wrapper = document.getElementById('super-fab-wrapper');
+    const mainBtn = document.getElementById('mainFabBtn');
+    const greeting = document.getElementById('fabGreeting');
+    const closeGreeting = document.querySelector('.greeting-close');
+    
+    const openAssistantBtn = document.getElementById('openAssistantBtn');
+    const chatWindow = document.getElementById('chatWindow');
+    const closeChatBtn = document.getElementById('closeChatBtn');
+    const chatBody = document.getElementById('chatBody');
 
-    // TypeScript "as HTMLElement" ile zorlanıyor (Hatalar burada çözüldü)
-    const chatToggle = document.getElementById('chatToggle') as HTMLElement;
-    const chatBox = document.getElementById('chatBox') as HTMLElement;
-    const closeChat = document.getElementById('closeChat') as HTMLElement;
-    const greeting = document.getElementById('chatGreeting') as HTMLElement;
-    const chatBody = document.getElementById('chatBody') as HTMLElement;
+    if (!wrapper || !mainBtn || !chatWindow) return;
 
-    if (!chatToggle || !chatBox || !closeChat || !greeting || !chatBody) return;
-
-    let hasSeenGreeting: string | null = null;
-    try { hasSeenGreeting = localStorage.getItem('chatGreetingShown'); } catch(e) {}
-
-    if (!hasSeenGreeting) {
-      setTimeout(function() {
-        try { localStorage.setItem('chatGreetingShown', 'true'); } catch(e) {}
-        if(chatBox.style.display !== 'flex') greeting.style.display = 'block';
-      }, 2500);
-      setTimeout(function() { greeting.style.display = 'none'; }, 12000);
+    // 1. Greeting (Baloncuk) Mantığı
+    let hasSeenGreeting = localStorage.getItem('fabGreetingShown');
+    if (!hasSeenGreeting && greeting) {
+      setTimeout(() => {
+        greeting.classList.add('show');
+        localStorage.setItem('fabGreetingShown', 'true');
+      }, 3000);
+      
+      // 10 sn sonra otomatik kapa
+      setTimeout(() => greeting.classList.remove('show'), 13000);
+    }
+    
+    if (closeGreeting && greeting) {
+      closeGreeting.addEventListener('click', () => greeting.classList.remove('show'));
     }
 
-    chatToggle.addEventListener('click', function() {
-      if (chatBox.style.display === 'flex') {
-        chatBox.style.display = 'none';
+    // 2. Ana Buton (Menüyü Aç/Kapa)
+    mainBtn.addEventListener('click', () => {
+      // Eğer chat penceresi açıksa, onu kapatıp normale dön
+      if (chatWindow.classList.contains('open')) {
+        chatWindow.classList.remove('open');
+        wrapper.classList.remove('active'); // Menüyü de kapat
       } else {
-        chatBox.style.display = 'flex';
-        greeting.style.display = 'none';
+        // Değilse menüyü toggle et
+        wrapper.classList.toggle('active');
+        if (greeting) greeting.classList.remove('show'); // Menü açılınca baloncuğu gizle
       }
     });
 
-    closeChat.addEventListener('click', function() { chatBox.style.display = 'none'; });
-
-    const buttons = chatBody.querySelectorAll('.chat-options button');
-    buttons.forEach((btn) => {
-      btn.addEventListener('click', function(e) {
-        const target = e.currentTarget as HTMLButtonElement;
-        const userText = target.getAttribute('data-user');
-        const botText = target.getAttribute('data-bot');
-        
-        if (!userText || !botText) return;
-
-        const options = chatBody.querySelector('.chat-options');
-
-        const userDiv = document.createElement('div');
-        userDiv.className = 'chat-msg user';
-        userDiv.innerHTML = userText;
-        if (options) chatBody.insertBefore(userDiv, options);
-
-        const typingDiv = document.createElement('div');
-        typingDiv.className = 'typing-indicator';
-        typingDiv.innerHTML = '<span></span><span></span><span></span>';
-        if (options) chatBody.insertBefore(typingDiv, options);
-        chatBody.scrollTop = chatBody.scrollHeight;
-
-        setTimeout(function() {
-          typingDiv.remove();
-          const botDiv = document.createElement('div');
-          botDiv.className = 'chat-msg bot';
-          botDiv.innerHTML = botText;
-          if (options) chatBody.insertBefore(botDiv, options);
-          chatBody.scrollTop = chatBody.scrollHeight;
-        }, 800);
+    // 3. Asistan (Chatbot) Açma
+    if (openAssistantBtn) {
+      openAssistantBtn.addEventListener('click', () => {
+        wrapper.classList.remove('active'); // Menüyü kapat
+        chatWindow.classList.add('open');   // Chat'i aç
       });
+    }
+
+    // 4. Chatbot Kapatma
+    if (closeChatBtn) {
+      closeChatBtn.addEventListener('click', () => {
+        chatWindow.classList.remove('open');
+      });
+    }
+
+    // 5. Dışarı Tıklama (Menüyü Kapatır)
+    document.addEventListener('click', (e) => {
+      const target = e.target as HTMLElement;
+      if (!wrapper.contains(target) && wrapper.classList.contains('active')) {
+        wrapper.classList.remove('active');
+      }
     });
+
+    // 6. Chatbot Mesajlaşma Mantığı (Mevcut koddan uyarlandı)
+    if (chatBody) {
+      const buttons = chatBody.querySelectorAll('.chat-options button');
+      // Event listener çoğalmasını önlemek için klonlama yöntemi
+      buttons.forEach((btn) => {
+        const newBtn = btn.cloneNode(true) as HTMLButtonElement;
+        btn.parentNode?.replaceChild(newBtn, btn);
+
+        newBtn.addEventListener('click', function(e) {
+          const target = e.currentTarget as HTMLButtonElement;
+          const userText = target.getAttribute('data-user');
+          const botText = target.getAttribute('data-bot');
+          
+          if (!userText || !botText) return;
+
+          const options = chatBody.querySelector('.chat-options');
+
+          // Kullanıcı mesajı
+          const userDiv = document.createElement('div');
+          userDiv.className = 'chat-msg user';
+          userDiv.innerHTML = userText;
+          if (options) chatBody.insertBefore(userDiv, options);
+
+          // Yazıyor animasyonu
+          const typingDiv = document.createElement('div');
+          typingDiv.className = 'typing-indicator';
+          typingDiv.innerHTML = '<span></span><span></span><span></span>';
+          if (options) chatBody.insertBefore(typingDiv, options);
+          chatBody.scrollTop = chatBody.scrollHeight;
+
+          // Bot cevabı (Gecikmeli)
+          setTimeout(function() {
+            typingDiv.remove();
+            const botDiv = document.createElement('div');
+            botDiv.className = 'chat-msg bot';
+            botDiv.innerHTML = botText;
+            if (options) chatBody.insertBefore(botDiv, options);
+            chatBody.scrollTop = chatBody.scrollHeight;
+          }, 800);
+        });
+      });
+    }
   }
 
-  document.addEventListener('DOMContentLoaded', initChatBot);
-  document.addEventListener('astro:after-swap', initChatBot);
+  // Başlatma (SPA uyumlu)
+  document.addEventListener('DOMContentLoaded', initSuperFab);
+  document.addEventListener('astro:after-swap', initSuperFab);
 </script>
