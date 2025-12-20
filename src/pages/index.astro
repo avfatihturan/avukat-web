@@ -5,7 +5,7 @@ import Hero from '../components/Hero.astro';
 import ArticleCard from '../components/ArticleCard.astro';
 import AreaCard from '../components/AreaCard.astro';
 
-// Get site data for CTA
+// Site verisini çekiyoruz
 const siteEntry = await getEntry('site', 'main');
 
 // HATA ÇÖZÜMÜ: Kesin kontrol
@@ -15,10 +15,10 @@ if (!siteEntry) {
 
 const { contact } = siteEntry.data;
 
-// Get work areas
+// Çalışma alanlarını çekiyoruz
 const workAreas = await getCollection('workAreas');
 
-// Get latest 3 articles
+// Son 3 yazıyı çekiyoruz
 const allArticles = await getCollection('articles', ({ data }) => !data.draft);
 const articles = allArticles
   .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
@@ -37,11 +37,11 @@ const articles = allArticles
     showCTA
   />
 
-  <section class="bg-light py-16 md:py-24">
-    <div class="container mx-auto px-4">
+  <section class="home-work-section">
+    <div class="container">
       <h2 class="section-heading section-heading--center mb-12">Çalışma Alanları</h2>
       
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 gap-y-10">
+      <div class="grid-layout">
         {workAreas.map((area) => (
           <AreaCard
             icon={area.data.icon || 'fa-solid fa-gavel'}
@@ -53,21 +53,19 @@ const articles = allArticles
         ))}
       </div>
 
-      <div class="mt-12 md:mt-16">
-        <a href="/iletisim" class="block group">
-          <div class="bg-white border border-gray-200 rounded-lg p-6 md:p-10 shadow-sm hover:shadow-md transition-all hover:-translate-y-1 text-center md:text-left md:flex md:items-center md:justify-between gap-6">
+      <div class="bottom-box-wrapper">
+        <a href="/iletisim" class="bottom-box-link">
+          <div class="bottom-box">
             
-            <div class="mb-4 md:mb-0">
-              <h3 class="text-xl font-semibold text-[#1C1C1C] mb-2">Genel Hukuki Danışmanlık</h3>
-              <p class="text-[#333333] max-w-2xl">
-                Bireysel ve kurumsal müvekkillere, tekil dosyalarla sınırlı olmayan sürdürülebilir bir hukuki iş ortaklığı sunulmaktadır. Amaç, yalnızca mevcut sorunları çözmek değil; hukuki riskleri henüz doğmadan tespit ederek kapsamlı ve sürekli bir hukuki güvenlik sağlamaktır.
+            <div class="box-content">
+              <h3 class="box-title">Genel Hukuki Danışmanlık</h3>
+              <p class="box-desc">
+                Bireysel ve kurumsal müvekkillere, tekil dosyalarla sınırlı olmayan sürdürülebilir bir hukuki danışmanlık sunulur. Amaç, mevcut sorunların ötesinde hukuki riskleri önceden tespit ederek sürekli bir güvenlik sağlamaktır.
               </p>
             </div>
 
-            <div class="flex-shrink-0">
-              <span class="inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-primary hover:bg-opacity-90 transition-colors">
-                Hukuki Destek İçin Bize Ulaşın →
-              </span>
+            <div class="box-action">
+              <span class="btn-custom">Hukuki Destek İçin Bize Ulaşın →</span>
             </div>
 
           </div>
@@ -77,7 +75,7 @@ const articles = allArticles
     </div>
   </section>
 
-  <section>
+  <section class="latest-articles-section">
     <div class="container">
       <h2 class="section-heading section-heading--center">Son Yayınlar</h2>
       <div class="grid-3">
@@ -111,10 +109,90 @@ const articles = allArticles
 </BaseLayout>
 
 <style>
-  /* CSS */
+  /* GENEL STİLLER */
   .section-heading--center { text-align: center; display: block; }
   .section-heading--center::after { margin: 10px auto 0; }
   
+  /* --- ÇALIŞMA ALANLARI İÇİN ÖZEL STİLLER (Manuel CSS) --- */
+  .home-work-section {
+    padding: 5rem 0;
+    background-color: #f9fafb; /* Hafif gri zemin ile ayrışsın */
+  }
+
+  /* Grid Yapısı */
+  .grid-layout {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    margin-top: 3rem;
+  }
+  @media (min-width: 768px) {
+    .grid-layout { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (min-width: 1024px) {
+    .grid-layout { grid-template-columns: repeat(3, 1fr); }
+  }
+
+  /* Alt Geniş Kutu Stilleri */
+  .bottom-box-wrapper { margin-top: 3rem; }
+  .bottom-box-link { text-decoration: none; display: block; }
+  
+  .bottom-box {
+    background-color: #ffffff;
+    border: 2px solid #e5e7eb;
+    border-radius: 12px;
+    padding: 2.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+  }
+
+  .bottom-box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 15px rgba(0,0,0,0.1);
+  }
+
+  @media (min-width: 768px) {
+    .bottom-box {
+      flex-direction: row;
+      text-align: left;
+      justify-content: space-between;
+    }
+  }
+
+  .box-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #111;
+    margin-bottom: 0.5rem;
+    text-align: center;
+  }
+  @media (min-width: 768px) { .box-title { text-align: left; } }
+
+  .box-desc {
+    color: #444;
+    line-height: 1.6;
+    text-align: justify;
+    max-width: 750px;
+    margin: 0;
+  }
+
+  .btn-custom {
+    display: inline-block;
+    background-color: #002B5B;
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border-radius: 8px;
+    font-weight: 600;
+    white-space: nowrap;
+  }
+
+  /* --- DİĞER BÖLÜMLER --- */
+  .latest-articles-section { padding: 5rem 0; }
+
   /* CTA Bölümü Stilleri */
   .cta-section { background: var(--color-bg-secondary); text-align: center; padding: 60px 0; border-top: 1px solid var(--color-border); }
   .cta-section h2 { color: var(--brand-primary); margin-bottom: 15px; }
