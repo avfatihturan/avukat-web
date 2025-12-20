@@ -15,7 +15,6 @@ const { greeting, welcomeMessage, assistantName, options } = chatbotEntry.data;
 
 const safeOptions = options || [];
 
-// Bot cevaplarındaki değişkenleri doldur
 const processTemplate = (text: string) => {
   return text
     .replace(/\{\{phone\}\}/g, contact.phone || '')
@@ -112,9 +111,9 @@ const processedOptions = safeOptions.map(opt => ({
   .main-fab-btn {
     width: 60px;
     height: 60px;
-    background-color: #002B5B; /* Marka Rengi */
+    background-color: #002B5B;
     color: white;
-    border-radius: 50%;
+    border-radius: 50%; /* Tam yuvarlak kalmalı */
     border: none;
     box-shadow: 0 4px 15px rgba(0,0,0,0.3);
     cursor: pointer;
@@ -127,18 +126,9 @@ const processedOptions = safeOptions.map(opt => ({
     z-index: 10002;
   }
   
-  .main-fab-btn:hover {
-    transform: scale(1.05);
-    background-color: #003d82;
-  }
-
+  .main-fab-btn:hover { transform: scale(1.05); background-color: #003d82; }
   .main-fab-btn .icon-close { display: none; }
-  
-  /* Aktif olduğunda ikon değişimi */
-  .super-fab-wrapper.active .main-fab-btn {
-    transform: rotate(90deg);
-    background-color: #333;
-  }
+  .super-fab-wrapper.active .main-fab-btn { transform: rotate(90deg); background-color: #333; }
   .super-fab-wrapper.active .main-fab-btn .icon-default { display: none; }
   .super-fab-wrapper.active .main-fab-btn .icon-close { display: block; }
 
@@ -149,7 +139,7 @@ const processedOptions = safeOptions.map(opt => ({
     right: 0;
     background: white;
     padding: 12px 20px;
-    border-radius: 12px 12px 0 12px;
+    border-radius: 14px 14px 0 14px; /* Modal havası: 14px */
     box-shadow: 0 5px 20px rgba(0,0,0,0.15);
     color: #333;
     font-size: 14px;
@@ -163,11 +153,7 @@ const processedOptions = safeOptions.map(opt => ({
     border: 1px solid #eee;
   }
   
-  .fab-greeting.show {
-    opacity: 1;
-    visibility: visible;
-    transform: translateY(0);
-  }
+  .fab-greeting.show { opacity: 1; visibility: visible; transform: translateY(0); }
 
   .greeting-close {
     position: absolute;
@@ -194,12 +180,10 @@ const processedOptions = safeOptions.map(opt => ({
     position: absolute;
     bottom: 80px;
     right: 0;
-    pointer-events: none; /* Kapalıyken tıklanmasın */
+    pointer-events: none;
   }
 
-  .super-fab-wrapper.active .fab-menu {
-    pointer-events: auto;
-  }
+  .super-fab-wrapper.active .fab-menu { pointer-events: auto; }
 
   .fab-item {
     display: flex;
@@ -215,11 +199,7 @@ const processedOptions = safeOptions.map(opt => ({
     transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
   }
 
-  /* Menü açılınca animasyon sırası */
-  .super-fab-wrapper.active .fab-item {
-    opacity: 1;
-    transform: translateY(0) scale(1);
-  }
+  .super-fab-wrapper.active .fab-item { opacity: 1; transform: translateY(0) scale(1); }
   .super-fab-wrapper.active .fab-item:nth-child(4) { transition-delay: 0.05s; }
   .super-fab-wrapper.active .fab-item:nth-child(3) { transition-delay: 0.1s; }
   .super-fab-wrapper.active .fab-item:nth-child(2) { transition-delay: 0.15s; }
@@ -228,7 +208,7 @@ const processedOptions = safeOptions.map(opt => ({
   .fab-label {
     background: white;
     padding: 6px 12px;
-    border-radius: 6px;
+    border-radius: 4px; /* Teknik etiket: 4px */
     font-size: 13px;
     font-weight: 600;
     color: #333;
@@ -250,7 +230,6 @@ const processedOptions = safeOptions.map(opt => ({
 
   .fab-item:hover .fab-icon { transform: scale(1.1); }
 
-  /* Renkler */
   .whatsapp .fab-icon { background-color: #25D366; }
   .assistant .fab-icon { background-color: #002B5B; }
   .call .fab-icon { background-color: #007bff; }
@@ -265,7 +244,7 @@ const processedOptions = safeOptions.map(opt => ({
     height: 500px;
     max-height: 70vh;
     background: white;
-    border-radius: 16px;
+    border-radius: 16px; /* Modal/Chat: 16px */
     box-shadow: 0 10px 40px rgba(0,0,0,0.2);
     display: flex;
     flex-direction: column;
@@ -278,11 +257,7 @@ const processedOptions = safeOptions.map(opt => ({
     border: 1px solid #eee;
   }
 
-  .chat-window.open {
-    opacity: 1;
-    visibility: visible;
-    transform: translateY(0) scale(1);
-  }
+  .chat-window.open { opacity: 1; visibility: visible; transform: translateY(0) scale(1); }
 
   .chat-header {
     background: #002B5B;
@@ -297,10 +272,7 @@ const processedOptions = safeOptions.map(opt => ({
   .assistant-avatar { background: rgba(255,255,255,0.2); width: 35px; height: 35px; border-radius: 50%; display: flex; align-items: center; justify-content: center; }
   .assistant-name { font-weight: 700; display: block; font-size: 14px; }
   .status-text { font-size: 11px; opacity: 0.8; }
-  
-  .close-chat-btn {
-    background: none; border: none; color: white; cursor: pointer; font-size: 16px;
-  }
+  .close-chat-btn { background: none; border: none; color: white; cursor: pointer; font-size: 16px; }
 
   .chat-body {
     flex: 1;
@@ -312,7 +284,6 @@ const processedOptions = safeOptions.map(opt => ({
     gap: 10px;
   }
 
-  /* Chat Messages Styles */
   .chat-msg {
     max-width: 80%;
     padding: 10px 14px;
@@ -322,19 +293,8 @@ const processedOptions = safeOptions.map(opt => ({
     position: relative;
     word-wrap: break-word;
   }
-  .chat-msg.bot {
-    background: white;
-    color: #333;
-    border-bottom-left-radius: 2px;
-    border: 1px solid #e5e5e5;
-    align-self: flex-start;
-  }
-  .chat-msg.user {
-    background: #002B5B;
-    color: white;
-    border-bottom-right-radius: 2px;
-    align-self: flex-end;
-  }
+  .chat-msg.bot { background: white; color: #333; border-bottom-left-radius: 2px; border: 1px solid #e5e5e5; align-self: flex-start; }
+  .chat-msg.user { background: #002B5B; color: white; border-bottom-right-radius: 2px; align-self: flex-end; }
 
   .chat-options {
     display: flex;
@@ -347,7 +307,7 @@ const processedOptions = safeOptions.map(opt => ({
     border: 1px solid #002B5B;
     color: #002B5B;
     padding: 10px;
-    border-radius: 8px;
+    border-radius: 10px; /* Buton: 10px */
     font-size: 13px;
     cursor: pointer;
     text-align: left;
@@ -356,28 +316,16 @@ const processedOptions = safeOptions.map(opt => ({
     align-items: center;
     gap: 8px;
   }
-  .chat-options button:hover {
-    background: #002B5B;
-    color: white;
-  }
+  .chat-options button:hover { background: #002B5B; color: white; }
 
-  .typing-indicator span {
-    display: inline-block; width: 6px; height: 6px; background: #ccc; border-radius: 50%; margin: 0 2px;
-    animation: typing 1s infinite;
-  }
+  .typing-indicator span { display: inline-block; width: 6px; height: 6px; background: #ccc; border-radius: 50%; margin: 0 2px; animation: typing 1s infinite; }
   .typing-indicator span:nth-child(2) { animation-delay: 0.2s; }
   .typing-indicator span:nth-child(3) { animation-delay: 0.4s; }
   @keyframes typing { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-5px); } }
 
-  /* --- MOBILE RESPONSIVE --- */
   @media (max-width: 768px) {
     .super-fab-wrapper { bottom: 20px; right: 20px; }
-    .chat-window {
-      bottom: 0; right: 0; left: 0;
-      width: 100%; height: 100%; max-height: 100%;
-      border-radius: 0;
-      z-index: 20000;
-    }
+    .chat-window { bottom: 0; right: 0; left: 0; width: 100%; height: 100%; max-height: 100%; border-radius: 0; z-index: 20000; }
     .chat-header { padding-top: env(safe-area-inset-top); height: 70px; }
     .close-chat-btn { font-size: 20px; padding: 10px; }
   }
@@ -385,8 +333,6 @@ const processedOptions = safeOptions.map(opt => ({
 
 <script>
   function initSuperFab() {
-    // Mobil kontrolünü kaldırdık - Her yerde çalışacak!
-    
     const wrapper = document.getElementById('super-fab-wrapper');
     const mainBtn = document.getElementById('mainFabBtn');
     const greeting = document.getElementById('fabGreeting');
@@ -399,15 +345,12 @@ const processedOptions = safeOptions.map(opt => ({
 
     if (!wrapper || !mainBtn || !chatWindow) return;
 
-    // 1. Greeting (Baloncuk) Mantığı
     let hasSeenGreeting = localStorage.getItem('fabGreetingShown');
     if (!hasSeenGreeting && greeting) {
       setTimeout(() => {
         greeting.classList.add('show');
         localStorage.setItem('fabGreetingShown', 'true');
       }, 3000);
-      
-      // 10 sn sonra otomatik kapa
       setTimeout(() => greeting.classList.remove('show'), 13000);
     }
     
@@ -415,35 +358,29 @@ const processedOptions = safeOptions.map(opt => ({
       closeGreeting.addEventListener('click', () => greeting.classList.remove('show'));
     }
 
-    // 2. Ana Buton (Menüyü Aç/Kapa)
     mainBtn.addEventListener('click', () => {
-      // Eğer chat penceresi açıksa, onu kapatıp normale dön
       if (chatWindow.classList.contains('open')) {
         chatWindow.classList.remove('open');
-        wrapper.classList.remove('active'); // Menüyü de kapat
+        wrapper.classList.remove('active');
       } else {
-        // Değilse menüyü toggle et
         wrapper.classList.toggle('active');
-        if (greeting) greeting.classList.remove('show'); // Menü açılınca baloncuğu gizle
+        if (greeting) greeting.classList.remove('show');
       }
     });
 
-    // 3. Asistan (Chatbot) Açma
     if (openAssistantBtn) {
       openAssistantBtn.addEventListener('click', () => {
-        wrapper.classList.remove('active'); // Menüyü kapat
-        chatWindow.classList.add('open');   // Chat'i aç
+        wrapper.classList.remove('active');
+        chatWindow.classList.add('open');
       });
     }
 
-    // 4. Chatbot Kapatma
     if (closeChatBtn) {
       closeChatBtn.addEventListener('click', () => {
         chatWindow.classList.remove('open');
       });
     }
 
-    // 5. Dışarı Tıklama (Menüyü Kapatır)
     document.addEventListener('click', (e) => {
       const target = e.target as HTMLElement;
       if (!wrapper.contains(target) && wrapper.classList.contains('active')) {
@@ -451,10 +388,8 @@ const processedOptions = safeOptions.map(opt => ({
       }
     });
 
-    // 6. Chatbot Mesajlaşma Mantığı (Mevcut koddan uyarlandı)
     if (chatBody) {
       const buttons = chatBody.querySelectorAll('.chat-options button');
-      // Event listener çoğalmasını önlemek için klonlama yöntemi
       buttons.forEach((btn) => {
         const newBtn = btn.cloneNode(true) as HTMLButtonElement;
         btn.parentNode?.replaceChild(newBtn, btn);
@@ -468,20 +403,17 @@ const processedOptions = safeOptions.map(opt => ({
 
           const options = chatBody.querySelector('.chat-options');
 
-          // Kullanıcı mesajı
           const userDiv = document.createElement('div');
           userDiv.className = 'chat-msg user';
           userDiv.innerHTML = userText;
           if (options) chatBody.insertBefore(userDiv, options);
 
-          // Yazıyor animasyonu
           const typingDiv = document.createElement('div');
           typingDiv.className = 'typing-indicator';
           typingDiv.innerHTML = '<span></span><span></span><span></span>';
           if (options) chatBody.insertBefore(typingDiv, options);
           chatBody.scrollTop = chatBody.scrollHeight;
 
-          // Bot cevabı (Gecikmeli)
           setTimeout(function() {
             typingDiv.remove();
             const botDiv = document.createElement('div');
@@ -495,7 +427,6 @@ const processedOptions = safeOptions.map(opt => ({
     }
   }
 
-  // Başlatma (SPA uyumlu)
   document.addEventListener('DOMContentLoaded', initSuperFab);
   document.addEventListener('astro:after-swap', initSuperFab);
 </script>

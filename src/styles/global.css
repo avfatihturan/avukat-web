@@ -4,11 +4,9 @@
    THEME VARIABLES - Light Mode (Default)
    ======================================== */
 :root {
-    /* Brand Colors (sabit) */
     --brand-primary: #002855;
     --brand-accent: #c5a059;
 
-    /* Light Theme - Standard Colors */
     --color-bg: #ffffff;
     --color-bg-secondary: #f5f5f5;
     --color-text: #1a1a1a;
@@ -16,22 +14,19 @@
     --color-border: #e5e5e5;
     --color-border-soft: #d4d4d4;
 
-    /* Semantic Colors */
     --header-bg: #fafafa;
     --card-bg: #ffffff;
     --input-bg: #fafafa;
     --input-border: #d4d4d4;
 
-    /* Chat Widget */
     --chat-bg: #ffffff;
     --chat-text: #1a1a1a;
 }
 
 /* ========================================
-   DARK MODE - Standard Colors
+   DARK MODE
    ======================================== */
 html.dark {
-    /* Dark Theme - Standard Colors */
     --color-bg: #0a0a0a;
     --color-bg-secondary: #171717;
     --color-text: #ededed;
@@ -39,13 +34,11 @@ html.dark {
     --color-border: #262626;
     --color-border-soft: #404040;
 
-    /* Semantic Colors */
     --header-bg: #0a0a0a;
     --card-bg: #171717;
     --input-bg: #171717;
     --input-border: #404040;
 
-    /* Chat Widget */
     --chat-bg: #171717;
     --chat-text: #ededed;
 }
@@ -97,7 +90,7 @@ html.dark h1, html.dark h2, html.dark h3, html.dark h4 { color: var(--color-text
 }
 
 /* ========================================
-   BUTTONS
+   BUTTONS (Radius: 10px)
    ======================================== */
 .btn {
     display: inline-block;
@@ -106,7 +99,7 @@ html.dark h1, html.dark h2, html.dark h3, html.dark h4 { color: var(--color-text
     padding: 15px 35px;
     font-weight: 700;
     text-transform: uppercase;
-    border-radius: 4px;
+    border-radius: 10px; /* Güncellendi: 10px */
     font-size: 0.9rem;
     border: none;
     cursor: pointer;
@@ -121,7 +114,7 @@ html.dark h1, html.dark h2, html.dark h3, html.dark h4 { color: var(--color-text
     padding: 10px 20px;
     border: 1px solid var(--brand-primary);
     color: var(--brand-primary);
-    border-radius: 4px;
+    border-radius: 10px; /* Güncellendi: 10px */
     font-weight: 600;
     text-transform: uppercase;
     font-size: 0.85rem;
@@ -184,7 +177,7 @@ html.dark .brand-text .name { color: var(--color-text); }
 }
 .theme-toggle:hover { background: var(--brand-accent); color: #fff; border-color: var(--brand-accent); }
 
-/* Menu Toggle - Mobile Hamburger Button */
+/* Menu Toggle - Mobile Hamburger */
 .menu-toggle {
     display: none;
     width: 44px;
@@ -195,27 +188,16 @@ html.dark .brand-text .name { color: var(--color-text); }
     color: var(--color-text);
     background: none;
     border: 1px solid var(--color-border-soft);
-    border-radius: 8px;
+    border-radius: 10px; /* Güncellendi: 10px */
     cursor: pointer;
     margin-left: 10px;
     align-items: center;
     justify-content: center;
     transition: 0.2s;
 }
-.menu-toggle:hover {
-    background: var(--brand-accent);
-    color: #fff;
-    border-color: var(--brand-accent);
-}
-html.dark .menu-toggle {
-    border-color: var(--color-border-soft);
-    color: var(--color-text);
-}
-html.dark .menu-toggle:hover {
-    background: var(--brand-accent);
-    color: #000;
-    border-color: var(--brand-accent);
-}
+.menu-toggle:hover { background: var(--brand-accent); color: #fff; border-color: var(--brand-accent); }
+html.dark .menu-toggle { border-color: var(--color-border-soft); color: var(--color-text); }
+html.dark .menu-toggle:hover { background: var(--brand-accent); color: #000; border-color: var(--brand-accent); }
 
 /* ========================================
    HERO
@@ -233,29 +215,15 @@ html.dark .menu-toggle:hover {
     padding: 64px 0 40px;
 }
 @keyframes deepOcean { 0%, 100% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } }
-.hero.hero-sm {
-    min-height: auto;
-    padding: 100px 0 48px;
-    background: var(--color-bg-secondary);
-    position: relative;
-}
+.hero.hero-sm { min-height: auto; padding: 100px 0 48px; background: var(--color-bg-secondary); position: relative; }
 .hero.hero-sm::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    z-index: 1;
-    background-image:
-        linear-gradient(to right, rgba(0,40,85,0.15) 1px, transparent 1px),
-        linear-gradient(to bottom, rgba(0,40,85,0.15) 1px, transparent 1px);
+    content: ''; position: absolute; inset: 0; z-index: 1;
+    background-image: linear-gradient(to right, rgba(0,40,85,0.15) 1px, transparent 1px), linear-gradient(to bottom, rgba(0,40,85,0.15) 1px, transparent 1px);
     background-size: 24px 24px;
-    -webkit-mask-image: radial-gradient(ellipse 80% 70% at 50% 0%, black 40%, transparent 100%);
     mask-image: radial-gradient(ellipse 80% 70% at 50% 0%, black 40%, transparent 100%);
+    -webkit-mask-image: radial-gradient(ellipse 80% 70% at 50% 0%, black 40%, transparent 100%);
 }
-html.dark .hero.hero-sm::before {
-    background-image:
-        linear-gradient(to right, rgba(212,175,55,0.2) 1px, transparent 1px),
-        linear-gradient(to bottom, rgba(212,175,55,0.2) 1px, transparent 1px);
-}
+html.dark .hero.hero-sm::before { background-image: linear-gradient(to right, rgba(212,175,55,0.2) 1px, transparent 1px), linear-gradient(to bottom, rgba(212,175,55,0.2) 1px, transparent 1px); }
 .hero.hero-sm .hero-content { text-align: center; }
 .hero.hero-sm h1 { font-size: 1.75rem; margin-bottom: 0; letter-spacing: 0.08em; color: var(--brand-primary); text-shadow: none; }
 html.dark .hero.hero-sm h1 { color: var(--color-text); }
@@ -267,19 +235,9 @@ html.dark .hero.hero-sm h1 { color: var(--color-text); }
    SECTIONS & LAYOUT
    ======================================== */
 section { padding: 48px 0; }
-.bg-light {
-    background-color: var(--color-bg-secondary);
-    border-bottom: 1px solid var(--color-border);
-}
+.bg-light { background-color: var(--color-bg-secondary); border-bottom: 1px solid var(--color-border); }
 
-h2.section-heading {
-    font-size: 2rem;
-    color: var(--brand-primary);
-    font-weight: 700;
-    margin-bottom: 40px;
-    position: relative;
-    display: inline-block;
-}
+h2.section-heading { font-size: 2rem; color: var(--brand-primary); font-weight: 700; margin-bottom: 40px; position: relative; display: inline-block; }
 html.dark h2.section-heading { color: var(--color-text); }
 h2.section-heading::after { content: ''; display: block; width: 60px; height: 3px; background: var(--brand-accent); margin: 10px 0 0 0; }
 
@@ -288,24 +246,20 @@ h2.section-heading::after { content: ''; display: block; width: 60px; height: 3p
 .contact-wrapper { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; }
 
 /* ========================================
-   CARDS
+   CARDS (Radius: 12px)
    ======================================== */
 .card, .article-preview {
     background: var(--card-bg);
     padding: 30px;
     border: 1px solid var(--color-border);
-    border-radius: 4px;
+    border-radius: 12px; /* Güncellendi: 12px */
     box-shadow: 0 2px 8px rgba(0,0,0,0.04);
     transition: 0.2s;
     display: block;
     height: 100%;
     color: inherit;
 }
-.card:hover, .article-preview:hover {
-    border-top: 4px solid var(--brand-accent);
-    transform: translateY(-5px);
-    box-shadow: 0 8px 24px rgba(0,0,0,0.1);
-}
+.card:hover, .article-preview:hover { border-top: 4px solid var(--brand-accent); transform: translateY(-5px); box-shadow: 0 8px 24px rgba(0,0,0,0.1); }
 .card h3 { color: var(--brand-primary); margin-bottom: 15px; font-size: 1.3rem; }
 html.dark .card h3 { color: var(--color-text); }
 .card i { font-size: 2rem; color: var(--brand-accent); margin-bottom: 15px; }
@@ -332,23 +286,20 @@ html.dark .legal-text h2, html.dark .legal-text h3 { color: var(--color-text); }
 .legal-text li { margin-bottom: 10px; }
 
 /* ========================================
-   FORMS
+   FORMS (Radius: 10px)
    ======================================== */
 form input, form textarea, form select {
     width: 100%;
     padding: 15px;
     margin-bottom: 15px;
     border: 1px solid var(--input-border);
-    border-radius: 4px;
+    border-radius: 10px; /* Güncellendi: 10px */
     background: var(--input-bg);
     color: var(--color-text);
     font-family: inherit;
     transition: border-color 0.2s;
 }
-form input:focus, form textarea:focus, form select:focus {
-    outline: none;
-    border-color: var(--brand-accent);
-}
+form input:focus, form textarea:focus, form select:focus { outline: none; border-color: var(--brand-accent); }
 form button { width: 100%; }
 
 /* ========================================
@@ -397,63 +348,11 @@ html.dark .cookie-table th { background-color: #262626; }
 .cookie-table tr:nth-child(even) { background-color: var(--color-bg-secondary); }
 
 /* ========================================
-   CHAT WIDGET
+   CHAT WIDGET (Fallback Styles)
    ======================================== */
-.whatsapp-float { position: fixed; bottom: 25px; right: 25px; background-color: #25d366; color: white; width: 60px; height: 60px; border-radius: 50%; text-align: center; font-size: 30px; box-shadow: 0 4px 12px rgba(0,0,0,0.15); z-index: 9998; display: flex; align-items: center; justify-content: center; transition: 0.2s; }
-.whatsapp-float:hover { transform: scale(1.1); }
-
-.chat-widget { display: flex; position: fixed; bottom: 25px; right: 25px; z-index: 9999; font-family: 'Montserrat', sans-serif; flex-direction: column; align-items: flex-end; }
-.chat-toggle-btn { width: 60px; height: 60px; background-color: var(--brand-primary); border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; box-shadow: 0 4px 16px rgba(0,0,0,0.2); transition: transform 0.2s; color: var(--brand-accent); font-size: 28px; border: 2px solid var(--brand-accent); }
-
-.chat-greeting {
-    background: var(--chat-bg);
-    color: var(--chat-text);
-    padding: 12px 15px;
-    border-radius: 8px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-    margin-bottom: 15px;
-    font-size: 0.85rem;
-    max-width: 250px;
-    display: none;
-    border: 1px solid var(--color-border);
-    position: relative;
-}
-.chat-greeting::after { content: ''; position: absolute; bottom: -6px; right: 20px; width: 0; height: 0; border-left: 6px solid transparent; border-right: 6px solid transparent; border-top: 6px solid var(--chat-bg); }
-
-.chat-box { width: 320px; background: var(--chat-bg); border-radius: 12px; box-shadow: 0 8px 32px rgba(0,0,0,0.15); display: none; flex-direction: column; overflow: hidden; border: 1px solid var(--color-border); margin-bottom: 15px; }
-.chat-header { background: var(--brand-primary); color: #fff; padding: 15px; font-weight: 700; display: flex; justify-content: space-between; align-items: center; border-bottom: 3px solid var(--brand-accent); }
-#closeChat { background: rgba(255,255,255,0.15); border: none; color: #fff; width: 28px; height: 28px; border-radius: 50%; cursor: pointer; font-size: 1.2rem; line-height: 1; display: flex; align-items: center; justify-content: center; transition: 0.2s; }
-#closeChat:hover { background: var(--brand-accent); color: var(--brand-primary); }
-.chat-body { padding: 15px; max-height: 350px; overflow-y: auto; font-size: 0.9rem; background: var(--color-bg-secondary); color: var(--color-text); }
-.chat-msg { margin-bottom: 10px; padding: 10px 12px; border-radius: 8px; line-height: 1.5; }
-.chat-msg.bot { background: var(--chat-bg); color: var(--chat-text); border: 1px solid var(--color-border); border-left: 3px solid var(--brand-accent); }
-.chat-msg.user { background: var(--brand-primary); color: #fff; text-align: right; align-self: flex-end; margin-left: auto; }
-.chat-options button { display: flex; align-items: center; gap: 8px; width: 100%; padding: 10px 12px; margin-top: 8px; background: transparent; border: 1px solid var(--color-border); color: var(--color-text); border-radius: 8px; cursor: pointer; font-size: 0.85rem; transition: 0.2s; text-align: left; font-weight: 600; }
-.chat-options button:hover { background: var(--brand-primary); color: #fff; border-color: var(--brand-primary); }
-.chat-options button i { font-size: 0.9rem; width: 18px; color: var(--brand-accent); }
-.chat-options button:hover i { color: #fff; }
-
-/* Chat Quick Actions */
-.chat-quick-actions { display: flex; gap: 8px; margin-right: auto; margin-left: 12px; }
-.chat-quick-actions a { width: 28px; height: 28px; display: flex; align-items: center; justify-content: center; background: rgba(255,255,255,0.15); border-radius: 50%; color: #fff; font-size: 0.75rem; transition: 0.2s; }
-.chat-quick-actions a:hover { background: var(--brand-accent); color: var(--brand-primary); }
-
-/* Typing Indicator */
-.typing-indicator { display: flex; gap: 4px; padding: 10px 12px; background: var(--chat-bg); border: 1px solid var(--color-border); border-left: 3px solid var(--brand-accent); border-radius: 8px; margin-bottom: 10px; width: fit-content; }
-.typing-indicator span { width: 8px; height: 8px; background: var(--brand-accent); border-radius: 50%; animation: typing 1.4s infinite; }
-.typing-indicator span:nth-child(2) { animation-delay: 0.2s; }
-.typing-indicator span:nth-child(3) { animation-delay: 0.4s; }
-@keyframes typing {
-  0%, 60%, 100% { transform: translateY(0); opacity: 0.4; }
-  30% { transform: translateY(-4px); opacity: 1; }
-}
-
-/* Chat Message Animation */
-.chat-msg { animation: chatSlideIn 0.3s ease-out; }
-@keyframes chatSlideIn {
-  from { opacity: 0; transform: translateY(10px); }
-  to { opacity: 1; transform: translateY(0); }
-}
+/* NOT: SuperApp modunda ChatWidget.astro stilleri geçerlidir, bunlar yedektir */
+.chat-greeting { border-radius: 12px; } /* 12px */
+.chat-box { border-radius: 16px; } /* 16px */
 
 /* ========================================
    404 PAGE
@@ -475,30 +374,17 @@ html.dark input[aria-invalid="true"] { background-color: #450a0a; }
 /* ========================================
    RESPONSIVE
    ======================================== */
-
-/* Large Tablet (1024px and below) */
 @media (max-width: 1024px) {
     .grid-3 { grid-template-columns: repeat(2, 1fr); gap: 24px; }
     .footer-row { grid-template-columns: repeat(2, 1fr); gap: 30px; }
     .footer-row .footer-col:first-child { grid-column: 1 / -1; }
 }
 
-/* Tablet & Mobile Navigation (900px and below) */
 @media (max-width: 900px) {
     .chat-widget { display: none !important; }
     .whatsapp-float { display: flex !important; bottom: 20px; right: 20px; }
     .menu-toggle { display: flex; }
-    .desktop-nav {
-        display: none;
-        position: absolute;
-        top: 100%;
-        left: 0;
-        width: 100%;
-        background-color: var(--header-bg);
-        padding: 20px;
-        border-bottom: 1px solid var(--color-border);
-        box-shadow: 0 8px 16px rgba(0,0,0,0.1);
-    }
+    .desktop-nav { display: none; position: absolute; top: 100%; left: 0; width: 100%; background-color: var(--header-bg); padding: 20px; border-bottom: 1px solid var(--color-border); box-shadow: 0 8px 16px rgba(0,0,0,0.1); }
     .desktop-nav.active { display: block; }
     .desktop-nav ul { flex-direction: column; gap: 15px; }
     .hero h1 { font-size: 2rem; }
@@ -511,7 +397,6 @@ html.dark input[aria-invalid="true"] { background-color: #450a0a; }
     .brand-text .title { display: none; }
 }
 
-/* Small Tablet (768px and below) */
 @media (max-width: 768px) {
     .grid-3 { grid-template-columns: 1fr; gap: 20px; }
     .footer-row { display: flex; flex-direction: column; gap: 30px; }
@@ -520,7 +405,6 @@ html.dark input[aria-invalid="true"] { background-color: #450a0a; }
     .container { padding: 0 16px; }
 }
 
-/* Mobile (640px and below) */
 @media (max-width: 640px) {
     .hero { min-height: 55vh; padding: 50px 0 30px; }
     .hero h1 { font-size: 1.6rem; letter-spacing: 0.04em; }
@@ -535,7 +419,4 @@ html.dark input[aria-invalid="true"] { background-color: #450a0a; }
     .brand-text .name { font-size: 1rem; }
 }
 
-/* WhatsApp Float Desktop Only */
-@media (min-width: 901px) {
-    .whatsapp-float { display: none; }
-}
+@media (min-width: 901px) { .whatsapp-float { display: none; } }
