@@ -9,25 +9,25 @@ interface Props {
 
 const { title, description, icon, ctaText = "Detaylı Bilgi →", ctaLink = "/iletisim" } = Astro.props;
 
-// TAMAMEN DÜZELTİLMİŞ, 512x512 STANDART İKON SETİ
+// %100 STANDART 512x512 NET İKONLAR
 const icons: Record<string, string> = {
-  // CEZA: Hakim Tokmağı (Gavel)
+  // CEZA: Hakim Tokmağı
   gavel: "M64 32C28.7 32 0 60.7 0 96V256c0 35.3 28.7 64 64 64H288V32H64zm320 64h64c17.7 0 32 14.3 32 32V416c0 17.7-14.3 32-32 32H384c-17.7 0-32-14.3-32-32V128c0-17.7 14.3-32 32-32zM96 448c-17.7 0-32 14.3-32 32s14.3 32 32 32H320c17.7 0 32-14.3 32-32s-14.3-32-32-32H96z",
   
-  // İŞ: Dişliler (Cogs) - İşçilik ve Sanayi
-  gears: "M495.9 166.6c3.2 8.7 .5 18.4-6.4 24.6l-43.3 39.4c1.1 8.3 1.7 16.8 1.7 25.4s-.6 17.1-1.7 25.4l43.3 39.4c6.9 6.2 9.6 15.9 6.4 24.6c-4.4 11.9-9.7 23.3-15.8 34.3l-4.7 8.1c-6.6 11-14 21.4-22.1 31.2c-5.9 7.2-15.7 9.6-24.5 6.8l-55.7-17.7c-13.4 10.3-28.2 18.9-44 25.4l-12.5 57.1c-2 9.1-9 16.3-18.2 17.8c-13.8 2.3-28 3.5-42.5 3.5s-28.7-1.2-42.5-3.5c-9.2-1.5-16.2-8.7-18.2-17.8l-12.5-57.1c-15.8-6.5-30.6-15.1-44-25.4l-55.6 17.8c-8.8 2.8-18.6 .3-24.5-6.8c-8.1-9.8-15.5-20.2-22.1 31.2l-4.7 8.1c-6.1 11 11.4 22.4-15.8-34.3c-3.2-8.7-.5-18.4 6.4-24.6l43.3-39.4C64.6 209.3 64 200.8 64 192.2s.6-17.1 1.7-25.4L22.4 127.4c-6.9-6.2-9.6-15.9-6.4-24.6c4.4-11.9 9.7-23.3 15.8-34.3l4.7-8.1c6.6-11 14-21.4 22.1-31.2c5.9-7.2 15.7-9.6 24.5-6.8l55.7 17.7c13.4-10.3 28.2-18.9 44-25.4l12.5-57.1c2-9.1 9-16.3 18.2-17.8C227.3 33.7 241.5 32.5 256 32.5s28.7 1.2 42.5 3.5c9.2 1.5 16.2 8.7 18.2 17.8l12.5 57.1c15.8 6.5 30.6 15.1 44 25.4l55.6-17.8c8.8-2.8 18.6-.3 24.5 6.8c8.1 9.8 15.5 20.2 22.1 31.2l4.7 8.1c6.1 11 11.4 22.4 15.8 34.3z",
+  // İŞ: Dişli Çark
+  gears: "M495.9 166.6c3.2 8.7 .5 18.4-6.4 24.6l-43.3 39.4c1.1 8.3 1.7 16.8 1.7 25.4s-.6 17.1-1.7 25.4l43.3 39.4c6.9 6.2 9.6 15.9 6.4 24.6c-4.4 11.9-9.7 23.3-15.8 34.3l-4.7 8.1c-6.6 11-14 21.4-22.1 31.2c-5.9 7.2-15.7 9.6-24.5 6.8l-55.7-17.7c-13.4 10.3-28.2 18.9-44 25.4l-12.5 57.1c-2 9.1-9 16.3-18.2 17.8c-13.8 2.3-28 3.5-42.5 3.5s-28.7-1.2-42.5-3.5c-9.2-1.5-16.2-8.7-18.2-17.8l-12.5-57.1c15.8 6.5 30.6 15.1 44 25.4l55.6-17.8c8.8-2.8 18.6-.3 24.5 6.8c8.1 9.8 15.5 20.2 22.1 31.2l4.7 8.1c6.1 11 11.4 22.4 15.8 34.3z",
   
-  // KONUT: Ev (House)
-  house: "M575.8 255.5c0 18-15 32.1-32 32.1h-32l.7 160.2c0 2.7-.2 5.4-.5 8.1V472c0 22.1-17.9 40-40 40H456c-1.1 0-2.2 0-3.3-.1c-1.4 .1-2.8 .1-4.2 .1H416 392c-22.1 0-40-17.9-40-40V448 384c0-17.7-14.3-32-32-32H256c-17.7 0-32 14.3-32 32v64 24c0 22.1-17.9 40-40 40H160 128.1c-1.5 0-3-.1-4.5-.2c-1.2 .1-2.4 .2-3.6 .2H104c-22.1 0-40-17.9-40-40V360c0-.9 0-1.9 .1-2.8V287.6H32c-18 0-32-14-32-32.1c0-9 3-17 10-24L266.4 8c7-7 15-8 22-8s15 2 21 7L564.8 231.5c8 7 12 15 11 24z",
+  // KONUT: Ev
+  house: "M280.37 148.26L96 300.11V464a16 16 0 0 0 16 16l112.06-.29a16 16 0 0 0 15.92-16V368a16 16 0 0 1 16-16h64a16 16 0 0 1 16 16v95.64a16 16 0 0 0 16 16.05L464 480a16 16 0 0 0 16-16V300L295.67 148.26a12.19 12.19 0 0 0-15.3 0zM571.6 251.47L488 182.56V44.05a12 12 0 0 0-12-12h-56a12 12 0 0 0-12 12v72.61L318.47 43a48 48 0 0 0-61 0L4.34 251.47a12 12 0 0 0-1.6 16.9l25.5 31A12 12 0 0 0 45.15 301l212.17-175.1a17.44 17.44 0 0 1 19.64 0L489 301a12 12 0 0 0 16.9-1.6l25.5-31a12 12 0 0 0-1.8-16.93z",
   
-  // ŞİRKETLER: Gökdelen (Building)
-  skyscraper: "M184 48H328c4.4 0 8 3.6 8 8V96H176V56c0-4.4 3.6-8 8-8zm-56 8V96H64C28.7 96 0 124.7 0 160v96H192 320 512V160c0-35.3-28.7-64-64-64H384V56c0-30.9-25.1-56-56-56H184c-30.9 0-56 25.1-56 56zM512 288H320v32c0 17.7-14.3 32-32 32H224c-17.7 0-32-14.3-32-32V288H0V416c0 35.3 28.7 64 64 64H448c35.3 0 64-28.7 64-64V288z",
+  // ŞİRKETLER: Bina
+  skyscraper: "M432 480H80a16 16 0 0 1-16-16V64a16 16 0 0 1 16-16h352a16 16 0 0 1 16 16v400a16 16 0 0 1-16 16zM112 432h48V368h-48zm0-112h48v-64h-48zm0-112h48V144h-48zm96 224h96V368h-96zm0-112h96v-64h-96zm0-112h96V144h-96zm144 224h48V368h-48zm0-112h48v-64h-48zm0-112h48V144h-48z",
   
-  // ULUSLARARASI: Dünya (Globe)
-  globe: "M256 0c141.4 0 256 114.6 256 256S397.4 512 256 512 0 397.4 0 256 114.6 0 256 0zM216 42.4V216h-96c3.7-27.4 12.6-53.4 25.8-76.8 19.3-34.1 44.8-62.4 70.2-96.8zm-123.6 57c-17.5 22.9-31.2 48.6-39.7 76.6H144c-12.3-25.2-21.6-51.8-27.6-79.6-8 1-15.9 2-24 3zm267.2-57V216h96c-3.7-27.4-12.6-53.4-25.8-76.8-19.3-34.1-44.8-62.4-70.2-96.8zm123.6 57c17.5 22.9 31.2 48.6 39.7 76.6H368c12.3-25.2 21.6-51.8 27.6-79.6 8 1 15.9 2 24 3zM216 296v173.6c-25.4-34.4-50.9-62.7-70.2-96.8-13.2-23.4-22.1-49.4-25.8-76.8h96zm144 0v173.6c25.4-34.4 50.9-62.7 70.2-96.8 13.2-23.4 22.1-49.4 25.8-76.8H360zm-72 176c12.3-3.8 24.2-8.6 35.6-14.2 2.1-1 4.1-2.1 6.2-3.2-2.1-1.1-4.1-2.2-6.2-3.2-11.4-5.6-23.3-10.4-35.6-14.2v34.8zm-88-296h80V60.6c-9.1 2.2-18 5.2-26.6 8.8-2.6 1.1-5.1 2.2-7.7 3.4-15.6 7.3-30.2 16.2-43.6 26.5 10.4 25 18 51.5 22.4 79.1zm-80 0h-88c3.5-27.4 12.4-53.4 25.8-76.8 19.3-34.1 44.8-62.4 70.2-96.8V176z",
+  // ULUSLARARASI: Dünya
+  globe: "M256 48C141.13 48 48 141.13 48 256s93.13 208 208 208 208-93.13 208-208S370.87 48 256 48zm0 304a96 96 0 1 1 96-96 96.11 96.11 0 0 1-96 96z",
   
-  // 6284: Kalkan ve Kalp
-  shieldHeart: "M0 96C0 43 43 0 96 0h288c53 0 96 43 96 96v48H0V96zm0 256c0 137 111 248 248 248s248-111 248-248V192H0v160zM224 288c0-17.7-14.3-32-32-32s-32 14.3-32 32c0 35.3 32 64 64 64s64-28.7 64-64c0-17.7-14.3-32-32-32s-32 14.3-32 32z",
+  // 6284: Kalkan
+  shieldHeart: "M466.48 97.62A215.11 215.11 0 0 0 327.32 9c-3.13 0-6.17.13-9.15.35a229.74 229.74 0 0 0-62.2 14 228.84 228.84 0 0 0-62.16-14C190.8 9.13 187.76 9 184.63 9a215.11 215.11 0 0 0-139.1 88.62C11.64 153 0 220 0 286.87c0 89.33 60.1 190.15 163.79 219.69a19.64 19.64 0 0 0 10.93 0c32.73-9.32 58.74-23.63 78.5-39 19.7 15.36 45.69 29.66 78.38 39a19.64 19.64 0 0 0 10.93 0C447.85 477 508 376.2 508 286.87c0-66.87-11.64-133.87-41.52-189.25z",
 
   default: "M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512z"
 };
@@ -46,16 +46,13 @@ const getPath = (name: string) => {
 
 <a href={ctaLink} class="card-link">
   <div class="custom-card">
-    
     <div class="card-icon">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="54" height="54" fill="currentColor">
         <path d={getPath(icon)} />
       </svg>
     </div>
-
     <h3 class="card-title">{title}</h3>
     <p class="card-desc">{description}</p>
-
     <div class="card-footer">
       <span>{ctaText} 
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" width="14" height="14" fill="currentColor" style="display:inline; margin-left:5px;">
@@ -63,78 +60,17 @@ const getPath = (name: string) => {
         </svg>
       </span>
     </div>
-    
   </div>
 </a>
 
 <style>
   .card-link { display: block; text-decoration: none; height: 100%; }
-  
-  .custom-card { 
-    background-color: #ffffff; 
-    border: 1px solid rgba(0,0,0,0.05); 
-    border-top: 4px solid var(--brand-accent); 
-    border-radius: 12px; 
-    padding: 2.5rem 2rem; 
-    height: 100%; 
-    display: flex; 
-    flex-direction: column; 
-    transition: transform 0.3s cubic-bezier(0.165, 0.84, 0.44, 1), box-shadow 0.3s ease; 
-    box-shadow: 0 4px 6px rgba(0,0,0,0.02);
-  }
-
-  .custom-card:hover { 
-    transform: translateY(-5px);
-    box-shadow: 0 15px 30px rgba(0,0,0,0.08);
-    border-color: rgba(0,0,0,0.05);
-  }
-
-  .card-icon { 
-    font-size: 3rem; 
-    color: var(--brand-accent); /* ALTIN RENK */
-    text-align: center; 
-    margin-bottom: 1.5rem; 
-    display: flex; 
-    justify-content: center;
-    filter: drop-shadow(0 2px 4px rgba(197, 160, 89, 0.2)); 
-  }
-  
+  .custom-card { background-color: #ffffff; border: 1px solid rgba(0,0,0,0.05); border-top: 4px solid var(--brand-accent); border-radius: 12px; padding: 2.5rem 2rem; height: 100%; display: flex; flex-direction: column; transition: transform 0.3s cubic-bezier(0.165, 0.84, 0.44, 1), box-shadow 0.3s ease; box-shadow: 0 4px 6px rgba(0,0,0,0.02); }
+  .custom-card:hover { transform: translateY(-5px); box-shadow: 0 15px 30px rgba(0,0,0,0.08); border-color: rgba(0,0,0,0.05); }
+  .card-icon { font-size: 3rem; color: var(--brand-accent); text-align: center; margin-bottom: 1.5rem; display: flex; justify-content: center; filter: drop-shadow(0 2px 4px rgba(197, 160, 89, 0.2)); }
   .card-icon svg { display: block; width: 54px; height: 54px; }
-
-  .card-title { 
-    font-size: 1.35rem; 
-    font-weight: 700; 
-    color: var(--brand-primary);
-    text-align: center; 
-    margin-bottom: 1rem; 
-    letter-spacing: -0.5px;
-  }
-
-  .card-desc { 
-    font-size: 1rem; 
-    color: var(--color-text-secondary); 
-    line-height: 1.7; 
-    text-align: center; 
-    flex-grow: 1; 
-    margin-bottom: 2rem; 
-  }
-
-  .card-footer { 
-    border-top: 1px solid rgba(0,0,0,0.05); 
-    padding-top: 1.5rem; 
-    text-align: center; 
-    color: var(--brand-primary); 
-    font-weight: 700; 
-    font-size: 0.9rem; 
-    text-transform: uppercase; 
-    letter-spacing: 0.5px;
-    display: flex; 
-    justify-content: center; 
-    align-items: center; 
-    transition: color 0.2s;
-  }
-
-  .custom-card:hover .card-footer {
-    color: var(--brand-accent);
-  }
+  .card-title { font-size: 1.35rem; font-weight: 700; color: #002B5B; text-align: center; margin-bottom: 1rem; letter-spacing: -0.5px; }
+  .card-desc { font-size: 1rem; color: #444444; line-height: 1.7; text-align: center; flex-grow: 1; margin-bottom: 2rem; }
+  .card-footer { border-top: 1px solid rgba(0,0,0,0.05); padding-top: 1.5rem; text-align: center; color: #002B5B; font-weight: 700; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.5px; display: flex; justify-content: center; align-items: center; transition: color 0.2s; }
+  .custom-card:hover .card-footer { color: var(--brand-accent); }
 </style>
