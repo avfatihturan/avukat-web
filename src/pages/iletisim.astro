@@ -83,9 +83,9 @@ const icons = {
           <div class="form-group">
             <label style="margin-bottom: 10px; display:block;">Görüşme İçin Uygun Olduğunuz Tarihler (3 Alternatif)</label>
             <div class="date-grid">
-              <input type="date" name="tarih_tercih_1">
-              <input type="date" name="tarih_tercih_2">
-              <input type="date" name="tarih_tercih_3">
+              <input type="date" name="tarih_tercih_1" aria-label="1. Tercih">
+              <input type="date" name="tarih_tercih_2" aria-label="2. Tercih">
+              <input type="date" name="tarih_tercih_3" aria-label="3. Tercih">
             </div>
             <small style="color: #666; font-size: 0.8rem;">* Size uygun 3 farklı gün seçebilirsiniz.</small>
           </div>
@@ -95,11 +95,15 @@ const icons = {
           </div>
           <div class="checkbox-group fee-warning">
             <input type="checkbox" name="ucret_onayi" id="ucret_onayi" value="Kabul Edildi" required>
-            <label for="ucret_onayi"><strong>Danışmanlık Ücreti Onayı:</strong> Ofisimizde veya online yapılacak görüşmelerin, Avukatlık Asgari Ücret Tarifesi gereğince <strong>ücrete tabi olduğunu</strong> biliyor ve kabul ediyorum.</label>
+            <label for="ucret_onayi">
+              <strong>Danışmanlık Ücreti Onayı:</strong> Ofisimizde veya online yapılacak görüşmelerin, Avukatlık Asgari Ücret Tarifesi gereğince <strong>ücrete tabi olduğunu</strong> biliyor ve kabul ediyorum.
+            </label>
           </div>
           <div class="checkbox-group">
             <input type="checkbox" name="kvkk_onayi" id="kvkk_onayi" value="Okudum" required>
-            <label for="kvkk_onayi"><a href="/kvkk-aydinlatma-metni" target="_blank" style="text-decoration: underline;">KVKK Aydınlatma Metni</a>'ni okudum.</label>
+            <label for="kvkk_onayi">
+              <a href="/kvkk-aydinlatma-metni" target="_blank" style="text-decoration: underline;">KVKK Aydınlatma Metni</a>'ni okudum.
+            </label>
           </div>
           <button type="submit" class="btn">Talep Gönder</button>
         </form>
