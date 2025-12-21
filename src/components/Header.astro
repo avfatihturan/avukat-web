@@ -27,13 +27,20 @@ const { currentPage } = Astro.props;
         </nav>
 
         <button id="themeToggle" class="theme-toggle" aria-label="Tema Değiştir">
-          <i class="fa-solid fa-sun sun-icon"></i>
-          <i class="fa-solid fa-moon moon-icon"></i>
+          <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="currentColor">
+            <path d="M361.5 1.2c5 2.1 8.6 6.6 9.6 11.9L391 121l107.9 19.8c5.3 1 9.8 4.6 11.9 9.6s1.5 10.7-1.6 14.8l-72.2 95.7l29 105.1c1.5 5.3-.2 11-4.4 15.2s-10 5.9-15.2 4.4l-105.1-29l-95.7 72.2c-4.1 3.1-9.7 3.7-14.8 1.6s-8.6-6.6-9.6-11.9L201 391L93.1 371.2c-5.3-1-9.8-4.6-11.9-9.6s-1.5-10.7 1.6-14.8l72.2-95.7l-29-105.1c-1.5-5.3 .2-11 4.4-15.2s10-5.9 15.2-4.4l105.1 29l95.7-72.2c4.1-3.1 9.7-3.7 14.8-1.6zM296 256a40 40 0 1 0 -80 0 40 40 0 1 0 80 0z"/>
+          </svg>
+          <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" fill="currentColor">
+            <path d="M223.5 32C100 32 0 132.3 0 256S100 480 223.5 480c60.6 0 115.5-24.2 155.8-63.4c5-4.9 6.3-12.5 3.1-18.7s-10.1-9.7-17-8.5c-9.8 1.7-19.8 2.6-30.1 2.6c-96.9 0-175.5-78.8-175.5-176c0-65.8 36-123.1 89.3-153.3c6.1-3.5 9.2-10.5 7.7-17.3s-7.3-11.9-14.3-12.5c-6.3-.5-12.6-.8-19-.8z"/>
+          </svg>
         </button>
 
         <button class="menu-toggle" aria-label="Menüyü Aç">
-          <i class="fa-solid fa-bars"></i>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" fill="currentColor">
+            <path d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z"/>
+          </svg>
         </button>
+
       </div>
     </div>
   </div>
@@ -47,26 +54,21 @@ const { currentPage } = Astro.props;
   .brand-area { display: flex; align-items: center; gap: 12px; text-decoration: none; color: var(--brand-primary); }
   html.dark .brand-area { color: var(--color-text); }
   
-  /* LOGO AYARLARI */
-  .header-logo {
-    width: auto;
-    height: 60px; /* İdeal yükseklik */
-    object-fit: contain;
-    /* Dark mod filtresi KALDIRILDI - Logo orijinal rengiyle görünsün */
-  }
+  .header-logo { width: auto; height: 60px; object-fit: contain; }
 
   .brand-text { display: flex; flex-direction: column; justify-content: center; }
   .brand-text .name { font-weight: 800; text-transform: uppercase; font-size: 1.15rem; line-height: 1.1; }
   .brand-text .title { font-size: 0.7rem; letter-spacing: 1px; color: var(--brand-accent); font-weight: 600; margin-top: 2px; }
 
-  /* NAV & BUTONLAR */
   .header-right { display: flex; align-items: center; gap: 20px; }
   .desktop-nav ul { display: flex; gap: 25px; list-style: none; margin: 0; padding: 0; }
   .desktop-nav a { font-weight: 600; font-size: 0.85rem; text-transform: uppercase; color: var(--color-text); transition: 0.2s; }
   .desktop-nav a:hover, .desktop-nav a.active { color: var(--brand-accent); }
   
+  /* SVG STİLLERİ */
   .theme-toggle { background: none; border: 1px solid var(--color-border-soft); border-radius: 50%; width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; cursor: pointer; color: var(--color-text); transition: 0.2s; }
   .theme-toggle:hover { background: var(--brand-accent); color: white; border-color: var(--brand-accent); }
+  .theme-toggle svg { width: 20px; height: 20px; }
   
   .sun-icon { display: none; }
   .moon-icon { display: block; }
@@ -74,6 +76,7 @@ const { currentPage } = Astro.props;
   :global(html.dark) .moon-icon { display: none; }
 
   .menu-toggle { display: none; background: none; border: 1px solid var(--color-border-soft); border-radius: 8px; width: 40px; height: 40px; align-items: center; justify-content: center; color: var(--color-text); cursor: pointer; }
+  .menu-toggle svg { width: 24px; height: 24px; }
   
   @media (max-width: 900px) {
     .desktop-nav { display: none; } 
@@ -81,6 +84,6 @@ const { currentPage } = Astro.props;
     .desktop-nav ul { flex-direction: column; gap: 15px; }
     .menu-toggle { display: flex; }
     .brand-text .title { display: none; } 
-    .header-logo { height: 50px; } /* Mobilde hafif küçültme */
+    .header-logo { height: 50px; }
   }
 </style>
