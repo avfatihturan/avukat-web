@@ -66,4 +66,4 @@ Kira tespit davası; doğru zamanlama, doğru emsal araştırması ve doğru tal
 Av. Fatih Turan 
 Ankara Barosu - 46839
 
-Uyarı: Bu yazı, 1136 sayılı Avukatlık Kanunu ve Türkiye Barolar Birliği Reklam Yasağı Yönetmeliği çerçevesinde, yalnızca bilgilendirme amacıyla hazırlanmıştır. Hukuki tavsiye niteliği taşımamaktadır. Her somut olay kendine özgü özellikler taşıdığından, hak kaybına uğramamak için profesyonel hukuki destek almanız önerilir.
+> **Uyarı:** Bu yazı, 1136 sayılı Avukatlık Kanunu ve Türkiye Barolar Birliği Reklam Yasağı Yönetmeliği çerçevesinde, yalnızca bilgilendirme amacıyla hazırlanmıştır. Hukuki tavsiye niteliği taşımamaktadır. Her somut olay kendine özgü özellikler taşıdığından, hak kaybına uğramamak için profesyonel hukuki destek almanız önerilir.
