@@ -125,7 +125,7 @@ html.dark h1, html.dark h2, html.dark h3, html.dark h4 { color: var(--color-text
 }
 .btn-outline-main:hover { background-color: var(--brand-primary); color: #fff; }
 html.dark .btn-outline-main { border-color: var(--brand-accent); color: var(--brand-accent); }
-html.dark .btn-outline-main:hover { background-color: var(--brand-accent); color: #000; }
+html.dark .btn-outline-main:hover { background-color: var(--brand-accent); color: #000; border-color: var(--brand-accent); }
 
 /* ========================================
    HEADER
@@ -378,6 +378,70 @@ input[aria-invalid="true"] { border-color: #dc2626; background-color: #fef2f2; }
 html.dark input[aria-invalid="true"] { background-color: #450a0a; }
 
 /* ========================================
+   HESAPLAMA KUTUSU (10 Yıl Kuralı)
+   ======================================== */
+.calc-container {
+    background: var(--color-bg-secondary);
+    border: 1px solid var(--color-border);
+    border-radius: 12px;
+    padding: 25px;
+    margin: 30px 0;
+    box-shadow: inset 0 2px 4px rgba(0,0,0,0.02);
+}
+
+.calc-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 20px;
+    border-bottom: 2px solid var(--brand-accent);
+    padding-bottom: 10px;
+}
+
+.calc-header i {
+    color: var(--brand-accent);
+    font-size: 1.4rem;
+}
+
+.calc-header h4 {
+    margin: 0;
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.calc-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 12px 0;
+    border-bottom: 1px solid var(--color-border-soft);
+}
+
+.calc-row:last-child {
+    border-bottom: none;
+    margin-top: 10px;
+    background: var(--brand-primary);
+    padding: 15px;
+    border-radius: 8px;
+    color: #fff;
+}
+
+html.dark .calc-row:last-child {
+    background: var(--brand-accent);
+    color: #000;
+}
+
+.calc-label {
+    font-weight: 600;
+    font-size: 0.95rem;
+}
+
+.calc-value {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+}
+
+/* ========================================
    RESPONSIVE
    ======================================== */
 @media (max-width: 1024px) {
@@ -423,6 +487,7 @@ html.dark input[aria-invalid="true"] { background-color: #450a0a; }
     h2.section-heading { font-size: 1.4rem; margin-bottom: 24px; }
     .brand-area img { height: 45px; }
     .brand-text .name { font-size: 1rem; }
+    .calc-row { flex-direction: column; gap: 5px; } /* Hesaplama kutusu mobil uyum */
 }
 
 @media (min-width: 901px) { .whatsapp-float { display: none; } }
