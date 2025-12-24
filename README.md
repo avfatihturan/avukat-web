@@ -1,51 +1,335 @@
+Readme
+# Av. Fatih Turan - Hukuk Bürosu Web Sitesi
+
+Astro ile geliştirilmiş, içerik odaklı avukat web sitesi.
+
+## Hızlı Başlangıç
+
+### Gereksinimler
+- Node.js 18+
+- npm veya pnpm
+
+### Kurulum ve Çalıştırma
+
+```bash
+# Bağımlılıkları yükle
+npm install
+
+# Geliştirme sunucusunu başlat (localhost:4321)
+npm run dev
+
+# Prodüksiyon için derle
+npm run build
+
+# Derlenen siteyi önizle
+npm run preview
+```
+
 ---
-title: "Ev Sahibi Kiracıyı Hangi Şartlarda Tahliye Edebilir? (2025 Güncel)"
-description: "İhtiyaç nedeniyle tahliye, 10 yıl uzama süresi ve tahliye taahhütnamesinin 2025 yılı güncel yargı uygulamalarındaki geçerlilik şartları."
-pubDate: 2025-12-21
-heroImage: "../../assets/images/ev-sahibi-tahliye-rehberi.jpg"
-heroAlt: "Kira hukuku tahliye davası ve ihtarname süreci"
-tag: "KİRA HUKUKU"
+
+## Proje Yapısı
+
+```
+src/
+├── assets/images/          # Makale görselleri (optimize edilir)
+├── components/             # Astro bileşenleri
+├── content/
+│   ├── articles/          # Blog yazıları (Markdown)
+│   ├── data/              # Site verileri (JSON)
+│   │   ├── site.json      # İletişim ve genel bilgiler
+│   │   ├── about.json     # Hakkımda sayfası
+│   │   ├── work-areas.json # Çalışma alanları
+│   │   └── chatbot.json   # Chatbot ayarları
+│   └── legal/             # Yasal sayfalar (Markdown)
+├── layouts/               # Sayfa şablonları
+├── pages/                 # Sayfalar
+└── styles/                # Global CSS
+
+public/
+├── images/                # Statik görseller (logo, banner vb.)
+└── favicon.ico
+```
+
+---
+
+## İçerik Güncelleme Rehberi
+
+### 1. Site Bilgilerini Güncelleme
+
+**Dosya:** `src/content/data/site.json`
+
+```json
+[
+  {
+    "id": "main",
+    "name": "Av. Fatih Turan",
+    "title": "Hukuki Danışmanlık",
+    "contact": {
+      "phone": "+90 532 610 08 05",
+      "phoneLink": "tel:+905326100805",
+      "email": "av.fatihturan@outlook.com",
+      "whatsapp": "905326100805",
+    },
+    "office": {
+      "address": "Ankara",
+      "note": "Randevu ile çalışmaktayız."
+    }
+  }
+]
+```
+
+| Alan | Açıklama |
+|------|----------|
+| `name` | Avukat adı (header ve footer'da görünür) |
+| `title` | Unvan/slogan |
+| `contact.phone` | Görüntülenecek telefon numarası |
+| `contact.phoneLink` | Tıklanabilir telefon linki (`tel:` ile başlar) |
+| `contact.whatsapp` | WhatsApp numarası (ülke kodu ile, boşluksuz) |
+| `office.address` | Ofis adresi |
+| `office.note` | Adres altı notu |
+
+---
+
+### 2. Hakkımda Sayfasını Güncelleme
+
+**Dosya:** `src/content/data/about.json`
+
+```json
+[
+  {
+    "id": "main",
+    "paragraphs": [
+      "İlk paragraf metni. <strong>Kalın metin</strong> için HTML kullanabilirsiniz.",
+      "İkinci paragraf metni.",
+      "Üçüncü paragraf metni."
+    ],
+    "signature": {
+      "name": "Av. Fatih Turan",
+      "bar": "Ankara Barosu - 46839"
+    }
+  }
+]
+```
+
+- Her paragraf `paragraphs` dizisine ayrı bir eleman olarak eklenir
+- HTML etiketleri desteklenir (`<strong>`, `<em>`, `<a href="">` vb.)
+
+---
+
+### 3. Çalışma Alanlarını Güncelleme
+
+**Dosya:** `src/content/data/work-areas.json`
+
+```json
+[
+  {
+    "id": "ceza",
+    "icon": "fa-solid fa-gavel",
+    "title": "Ceza Hukuku",
+    "description": "Bilişim suçları, hakaret, tehdit ve diğer ceza davalarında savunma."
+  },
+  {
+    "id": "is",
+    "icon": "fa-solid fa-briefcase",
+    "title": "İş Hukuku",
+    "description": "İşe iade davaları, kıdem ve ihbar tazminatı."
+  }
+]
+```
+
+**İkon Bulma:**
+- [Font Awesome](https://fontawesome.com/icons) sitesinden ikon arayın
+- Örnek: `fa-solid fa-scale-balanced`, `fa-solid fa-building`
+
+---
+
+### 4. Chatbot Yanıtlarını Düzenleme
+
+**Dosya:** `src/content/data/chatbot.json`
+
+```json
+[
+  {
+    "id": "main",
+    "greeting": "Merhaba! Size nasıl yardımcı olabilirim?",
+    "welcomeMessage": "Size nasıl yardımcı olabilirim?",
+    "assistantName": "Hukuki Asistan",
+    "options": [
+      {
+        "key": "randevu",
+        "label": "Randevu Almak İstiyorum",
+        "userText": "Randevu almak istiyorum",
+        "botResponse": "Randevu için bizi arayabilirsiniz: {{phone}}",
+        "icon": "fa-calendar"
+      }
+    ]
+  }
+]
+```
+
+**Kullanılabilir Şablon Değişkenleri:**
+- `{{phone}}` - Telefon numarası
+- `{{email}}` - E-posta adresi
+- `{{officeAddress}}` - Ofis adresi
+- `{{whatsapp}}` - WhatsApp numarası
+
+---
+
+## Blog Yazısı Ekleme
+
+### Adım 1: Görsel Ekle
+
+Makale için kullanacağınız görseli `src/assets/images/` klasörüne kopyalayın.
+
+**Önerilen boyut:** 1200x630px (16:9 oranı)
+**Desteklenen formatlar:** `.jpg`, `.png`, `.webp`
+
+### Adım 2: Markdown Dosyası Oluştur
+
+`src/content/articles/` klasörüne yeni bir `.md` dosyası oluşturun.
+
+**Dosya adı kuralları:**
+- Küçük harf kullanın
+- Boşluk yerine tire (`-`) kullanın
+- Türkçe karakter kullanmayın
+- Örnek: `ise-iade-davasi.md`, `kira-tespit-davasi.md`
+
+### Adım 3: İçerik Yazın
+
+```markdown
+---
+title: "Makale Başlığı"
+description: "Makale açıklaması (150-160 karakter, SEO için önemli)"
+pubDate: 2024-01-15
+heroImage: "../../assets/images/gorsel-adi.jpg"
+heroAlt: "Görsel açıklaması (erişilebilirlik için)"
+tag: "CEZA HUKUKU"
 author: "Av. Fatih Turan"
 draft: false
 ---
 
-Kira hukuku, uygulamada en sık karşılaşılan ve aynı zamanda en fazla yanlış yorumlanan alanlardan biridir[cite: 13]. 2025 yılı itibarıyla Türk Borçlar Kanunu (TBK) ve güncel yargı içtihatları çerçevesinde, bir mülk sahibinin kiracısını tahliye edebilmesi için kanunda sayılan sınırlı sayıdaki sebeplerden birinin varlığı şarttır.
+Makale içeriği buraya yazılır.
 
-## 1. İhtiyaç Nedeniyle Tahliye (TBK m. 350/1)
-[cite_start]Kiraya veren; kendisinin, eşinin, altsoyunun, üstsoyunun veya kanun gereği bakmakla yükümlü olduğu diğer kişilerin konut ya da işyeri ihtiyacı için bu davayı açabilir[cite: 479].
+## Alt Başlık
 
-* [cite_start]**Kriterler:** İhtiyaç iddiasının mahkemece kabulü için gerçek, samimi ve zorunlu olması gerekir[cite: 483, 484].
-* [cite_start]**Kapsam:** Kardeşin ihtiyacı için bu yolla tahliye davası açılamaz[cite: 480].
-* [cite_start]**Süreç:** Belirli süreli sözleşmelerde sürenin sonundan itibaren bir ay içinde dava açılmalıdır[cite: 505].
+Normal paragraf metni.
 
-## 2. On Yıllık Uzama Süresi Sonunda Tahliye (TBK m. 347)
-[cite_start]Konut ve çatılı işyeri kiralarında kiraya veren, on yıllık uzama süresi geçtikten sonra herhangi bir sebep göstermeksizin sözleşmeyi feshedebilir[cite: 447, 448]. 
+### Daha Küçük Başlık
 
-### Örnek Hesaplama
-Bu hakkın ne zaman doğacağını şu kronoloji ile somutlaştırabiliriz:
-* **Kira Sözleşmesi Başlangıcı:** Mayıs 2015.
-* **Sözleşme Süresi:** 1 Yıl (Mayıs 2016'da biter).
-* **10 Yıllık Uzama Süresi Sonu:** Mayıs 2026.
-* **İhtarın Tebliğ Edilmesi Gereken Son Tarih:** Dönem sonundan en az 3 ay önce, yani en geç **Şubat 2027**.
-* **Tahliye Edilebilecek En Erken Tarih:** Mayıs 2027 dönemi sonu.
+- Madde 1
+- Madde 2
+- Madde 3
 
-## 3. Tahliye Taahhütnamesi ile Tahliye (TBK m. 352/1)
-[cite_start]Geçerli bir tahliye taahhüdü için şu şartların bir arada bulunması zorunludur[cite: 613]:
-* [cite_start]**Yazılı olmalıdır**[cite: 614].
-* [cite_start]**Kiralananın tesliminden sonraki bir tarihte** düzenlenmiş olmalıdır[cite: 617]. [cite_start]Sözleşme ile aynı tarihte imzalanan taahhütler geçersizdir[cite: 617].
-* [cite_start]**Boş Taahhütname:** Boş bir belgeye imza atan kiracı, bunun sonradan doldurulmasının sonuçlarına katlanmak zorundadır[cite: 619].
+**Kalın metin** ve *italik metin* kullanabilirsiniz.
 
-## 4. İki Haklı İhtar Nedeniyle Tahliye (TBK m. 352/2)
-[cite_start]Kiracı, bir kira yılı içinde kira bedelini zamanında ödemediği için kendisine yazılı olarak iki defa haklı ihtarda bulunulmasına sebep olmuşsa tahliye davası açılabilir[cite: 658, 661].
+> Bu bir alıntı bloğudur.
 
-* [cite_start]İhtarlar iki farklı aya ait kira bedelleri için çekilmiş olmalıdır[cite: 662].
-* [cite_start]Kira yılının bitiminden itibaren bir ay içinde dava açılması gerekir[cite: 667].
+[Link metni](https://example.com)
+```
+
+### Frontmatter Alanları
+
+| Alan | Zorunlu | Açıklama |
+|------|---------|----------|
+| `title` | Evet | Makale başlığı |
+| `description` | Evet | SEO açıklaması (150-160 karakter) |
+| `pubDate` | Evet | Yayın tarihi (YYYY-MM-DD formatı) |
+| `heroImage` | Evet | Kapak görseli yolu |
+| `heroAlt` | Evet | Görsel alt metni |
+| `tag` | Evet | Kategori etiketi (BÜYÜK HARF) |
+| `author` | Hayır | Yazar adı (varsayılan: Av. Fatih Turan) |
+| `draft` | Hayır | `true` ise yayınlanmaz |
+| `updatedDate` | Hayır | Güncelleme tarihi |
+
+### Örnek Tag'ler
+
+- `CEZA HUKUKU`
+- `İŞ HUKUKU`
+- `KİRA HUKUKU`
+- `ŞİRKETLER HUKUKU`
+- `GENEL`
 
 ---
 
-### Sonuç: Haklıyken Haksız Duruma Düşmeyin
-Tahliye süreçleri; doğru ihtarname, süresinde açılan dava ve usulüne uygun tebligatlarla yürütülmelidir. Yapacağınız hatalı bir tebligat ya da açacağınız yanlış bir dava hak kaybına uğramanıza neden olabilir ve yıllarca sürecek bir uyuşmazlığın fitilini ateşleyebilir. Mülkiyet hakkınızı korumak isterken usul hataları nedeniyle mağdur olmamak için sürecin her aşamasında dikkatli olunmalıdır.
+## Yasal Sayfaları Düzenleme
 
-**Av. Fatih Turan** **Ankara Barosu - 46839**
+**Konum:** `src/content/legal/`
 
-> **Uyarı:** Bu yazı, 1136 sayılı Avukatlık Kanunu ve Türkiye Barolar Birliği Reklam Yasağı Yönetmeliği çerçevesinde, yalnızca bilgilendirme amacıyla hazırlanmıştır. Hukuki tavsiye niteliği taşımamaktadır. Her somut olay kendine özgü özellikler taşıdığından, hak kaybına uğramamak için profesyonel hukuki destek almanız önerilir.
+| Dosya | Sayfa |
+|-------|-------|
+| `kvkk.md` | KVKK Aydınlatma Metni |
+| `gizlilik.md` | Gizlilik Bildirimi |
+| `cerez.md` | Çerez Politikası |
+| `yasal-uyari.md` | Yasal Uyarı |
+
+---
+
+## Logo ve Görselleri Değiştirme
+
+### Logo
+- **Dosya:** `src/assets/images/transparent-logo.png`
+- **Önerilen boyut:** 200x200px, şeffaf arka plan
+
+### Banner Görseli
+- **Dosya:** `public/images/banner.jpg`
+- **Önerilen boyut:** 1920x1080px
+
+### Favicon
+- **Dosyalar:**
+  - `public/favicon.ico`
+  - `public/favicon-16.png`
+  - `public/favicon-32.png`
+  - `public/apple-touch-icon.png`
+
+---
+
+## Deployment
+
+### Netlify / Vercel
+
+1. GitHub'a push edin
+2. Netlify/Vercel'de yeni site oluşturun
+3. Build komutu: `npm run build`
+4. Publish dizini: `dist`
+
+### Manuel Deployment
+
+```bash
+npm run build
+# dist/ klasörünü sunucunuza yükleyin
+```
+
+---
+
+## Sık Sorulan Sorular
+
+### Değişiklikler neden görünmüyor?
+
+1. Geliştirme sunucusunu yeniden başlatın: `npm run dev`
+2. Tarayıcı önbelleğini temizleyin (Ctrl+Shift+R)
+
+### Görsel yüklenmiyor?
+
+1. Görsel yolunun doğru olduğundan emin olun
+2. `src/assets/images/` içindeki görseller için: `../../assets/images/dosya.jpg`
+3. `public/images/` içindeki görseller için: `/images/dosya.jpg`
+
+### Markdown'da Türkçe karakter sorunu?
+
+Dosyayı UTF-8 encoding ile kaydedin.
+
+---
+
+## Teknik Bilgiler
+
+- **Framework:** Astro 5.x
+- **Stil:** Vanilla CSS (Tailwind yok)
+- **Font:** Montserrat (Google Fonts)
+- **İkonlar:** Font Awesome 6
+- **Responsive:** 640px, 768px, 900px, 1024px breakpoint'leri
+
+---
+
+## Destek
+
+Teknik sorunlar için: [GitHub Issues](https://github.com/your-repo/issues)
