@@ -12,80 +12,54 @@ const {
   title,
   description,
   href = "/iletisim",
-  linkText = "Detaylı Bilgi →",
+  linkText = "DETAYLI BİLGİ AL →", // Sizin kodunuzdaki metinle aynı yaptım
   icon = "genel",
   variant = "default",
 } = Astro.props;
 
-// İKON VERİTABANI: Her ikonun kendi orijinal 'viewBox' değeri var.
-// Bu sayede dar ikonlar genişlemez, geniş ikonlar sıkışmaz.
-const ICONS: Record<string, { viewBox: string; d: string }> = {
+// %100 DÜZGÜN, STANDART 512x512 İKONLAR
+const ICONS: Record<string, string> = {
+  // CEZA: Net Hakim Tokmağı
+  gavel: "M64 32C28.7 32 0 60.7 0 96V256c0 35.3 28.7 64 64 64H288V32H64zm320 64h64c17.7 0 32 14.3 32 32V416c0 17.7-14.3 32-32 32H384c-17.7 0-32-14.3-32-32V128c0-17.7 14.3-32 32-32zM96 448c-17.7 0-32 14.3-32 32s14.3 32 32 32H320c17.7 0 32-14.3 32-32s-14.3-32-32-32H96z",
   
-  // CEZA: Hakim Tokmağı (Gavel) - Kare (512x512)
-  ceza: {
-    viewBox: "0 0 512 512",
-    d: "M64 32C28.7 32 0 60.7 0 96V256c0 35.3 28.7 64 64 64H288V32H64zm320 64h64c17.7 0 32 14.3 32 32V416c0 17.7-14.3 32-32 32H384c-17.7 0-32-14.3-32-32V128c0-17.7 14.3-32 32-32zM96 448c-17.7 0-32 14.3-32 32s14.3 32 32 32H320c17.7 0 32-14.3 32-32s-14.3-32-32-32H96z"
-  },
+  // İŞ: Net Sanayi Dişlisi
+  gear: "M495.9 166.6c3.2 8.7 .5 18.4-6.4 24.6l-43.3 39.4c1.1 8.3 1.7 16.8 1.7 25.4s-.6 17.1-1.7 25.4l43.3 39.4c6.9 6.2 9.6 15.9 6.4 24.6c-4.4 11.9-9.7 23.3-15.8 34.3l-4.7 8.1c-6.6 11-14 21.4-22.1 31.2c-5.9 7.2-15.7 9.6-24.5 6.8l-55.7-17.7c-13.4 10.3-28.2 18.9-44 25.4l-12.5 57.1c-2 9.1-9 16.3-18.2 17.8c-13.8 2.3-28 3.5-42.5 3.5s-28.7-1.2-42.5-3.5c-9.2-1.5-16.2-8.7-18.2-17.8l-12.5-57.1c15.8 6.5 30.6 15.1 44 25.4l55.6-17.8c8.8-2.8 18.6-.3 24.5 6.8c8.1 9.8 15.5 20.2 22.1 31.2l4.7 8.1c6.1 11 11.4 22.4 15.8 34.3z",
+  
+  // KONUT: Ev
+  house: "M575.8 255.5c0 18-15 32.1-32 32.1h-32l.7 160.2c0 2.7-.2 5.4-.5 8.1V472c0 22.1-17.9 40-40 40H456c-1.1 0-2.2 0-3.3-.1c-1.4 .1-2.8 .1-4.2 .1H416 392c-22.1 0-40-17.9-40-40V448 384c0-17.7-14.3-32-32-32H256c-17.7 0-32 14.3-32 32v64 24c0 22.1-17.9 40-40 40H160 128.1c-1.5 0-3-.1-4.5-.2c-1.2 .1-2.4 .2-3.6 .2H104c-22.1 0-40-17.9-40-40V360c0-.9 0-1.9 .1-2.8V287.6H32c-18 0-32-14-32-32.1c0-9 3-17 10-24L266.4 8c7-7 15-8 22-8s15 2 21 7L564.8 231.5c8 7 12 15 11 24z",
+  
+  // ŞİRKETLER: Bina
+  building: "M48 0C21.5 0 0 21.5 0 48V464c0 26.5 21.5 48 48 48H336c26.5 0 48-21.5 48-48V48c0-26.5-21.5-48-48-48H48zM96 96h64c8.8 0 16 7.2 16 16v64c0 8.8-7.2 16-16 16H96c-8.8 0-16-7.2-16-16V112c0-8.8 7.2-16 16-16zm0 160h64c8.8 0 16 7.2 16 16v64c0 8.8-7.2 16-16 16H96c-8.8 0-16-7.2-16-16V272c0-8.8 7.2-16 16-16zm128-144c0-8.8 7.2-16 16-16h64c8.8 0 16 7.2 16 16v64c0 8.8-7.2 16-16 16H240c-8.8 0-16-7.2-16-16V112zm16 144h64c8.8 0 16 7.2 16 16v64c0 8.8-7.2 16-16 16H240c-8.8 0-16-7.2-16-16V272c0-8.8 7.2-16 16-16z",
+  
+  // ULUSLARARASI: Dünya
+  globe: "M256 0c141.4 0 256 114.6 256 256S397.4 512 256 512 0 397.4 0 256 114.6 0 256 0zM216 42.4V216h-96c3.7-27.4 12.6-53.4 25.8-76.8 19.3-34.1 44.8-62.4 70.2-96.8zm-123.6 57c-17.5 22.9-31.2 48.6-39.7 76.6H144c-12.3-25.2-21.6-51.8-27.6-79.6-8 1-15.9 2-24 3zm267.2-57V216h96c-3.7-27.4-12.6-53.4-25.8-76.8-19.3-34.1-44.8-62.4-70.2-96.8zm123.6 57c17.5 22.9 31.2 48.6 39.7 76.6H368c12.3-25.2 21.6-51.8 27.6-79.6 8 1 15.9 2 24 3zM216 296v173.6c-25.4-34.4-50.9-62.7-70.2-96.8-13.2-23.4-22.1-49.4-25.8-76.8h96zm144 0v173.6c25.4-34.4 50.9-62.7 70.2-96.8 13.2-23.4 22.1-49.4 25.8-76.8H360zm-72 176c12.3-3.8 24.2-8.6 35.6-14.2 2.1-1 4.1-2.1 6.2-3.2-2.1-1.1-4.1-2.2-6.2-3.2-11.4-5.6-23.3-10.4-35.6-14.2v34.8zm-88-296h80V60.6c-9.1 2.2-18 5.2-26.6 8.8-2.6 1.1-5.1 2.2-7.7 3.4-15.6 7.3-30.2 16.2-43.6 26.5 10.4 25 18 51.5 22.4 79.1zm-80 0h-88c3.5-27.4 12.4-53.4 25.8-76.8 19.3-34.1 44.8-62.4 70.2-96.8V176z",
+  
+  // 6284: Kalkan
+  shield: "M256 0c4.6 0 9.2 1 13.4 2.9L457.7 82.8c22 9.3 38.4 31 38.3 57.2c-.5 99.2-41.3 280.7-213.6 363.5c-16.7 8-36.1 8-52.8 0C57.3 420.7 16.5 239.2 16 140c-.1-26.2 16.3-47.9 38.3-57.2L242.7 2.9c4.2-1.9 8.7-2.9 13.3-2.9zm0 64l-192 78.9c.4 82.6 32.7 225.8 168.1 290.9L256 445.2l23.9-11.4C415.3 368.7 447.6 225.5 448 142.9L256 64z",
 
-  // İŞ: Dişli (Cog) - Kare (512x512) (Bu çalışıyordu, aynen korundu)
-  is: {
-    viewBox: "0 0 512 512",
-    d: "M487.4 315.7l-42.6-24.6c4.3-23.2 4.3-47 0-70.2l42.6-24.6c4.9-2.8 7.1-8.6 5.5-14-11.1-35.6-30-67.8-54.7-94.6-3.8-4.1-10-5.1-14.8-2.3L380.8 110c-17.9-15.4-38.5-27.3-60.8-35.1V25.8c0-5.6-3.9-10.5-9.4-11.7-36.7-8.2-74.3-7.8-109.2 0-5.5 1.2-9.4 6.1-9.4 11.7V75c-22.2 7.9-42.8 19.8-60.8 35.1L88.7 85.5c-4.9-2.8-11-1.9-14.8 2.3-24.7 26.7-43.6 58.9-54.7 94.6-1.7 5.4 .6 11.2 5.5 14L67.3 221c-4.3 23.2-4.3 47 0 70.2l-42.6 24.6c-4.9 2.8-7.1 8.6-5.5 14 11.1 35.6 30 67.8 54.7 94.6 3.8 4.1 10 5.1 14.8 2.3l42.6-24.6c17.9 15.4 38.5 27.3 60.8 35.1v49.2c0 5.6 3.9 10.5 9.4 11.7 36.7 8.2 74.3 7.8 109.2 0 5.5-1.2 9.4-6.1 9.4-11.7v-49.2c22.2-7.9 42.8-19.8 60.8-35.1l42.6 24.6c4.9 2.8 11 1.9 14.8-2.3 24.7-26.7 43.6-58.9 54.7-94.6 1.5-5.5-.7-11.3-5.6-14.1zM256 336c-44.1 0-80-35.9-80-80s35.9-80 80-80 80 35.9 80 80-35.9 80-80 80z"
-  },
-
-  // KİRA: Ev (House) - GENİŞ (576x512) -> Bunu 512'ye sıkıştırınca bozuluyordu. Şimdi düzeldi.
-  kira: {
-    viewBox: "0 0 576 512",
-    d: "M575.8 255.5c0 18-15 32.1-32 32.1h-32l.7 160.2c0 2.7-.2 5.4-.5 8.1V472c0 22.1-17.9 40-40 40H456c-1.1 0-2.2 0-3.3-.1c-1.4 .1-2.8 .1-4.2 .1H416 392c-22.1 0-40-17.9-40-40V448 384c0-17.7-14.3-32-32-32H256c-17.7 0-32 14.3-32 32v64 24c0 22.1-17.9 40-40 40H160 128.1c-1.5 0-3-.1-4.5-.2c-1.2 .1-2.4 .2-3.6 .2H104c-22.1 0-40-17.9-40-40V360c0-.9 0-1.9 .1-2.8V287.6H32c-18 0-32-14-32-32.1c0-9 3-17 10-24L266.4 8c7-7 15-8 22-8s15 2 21 7L564.8 231.5c8 7 12 15 11 24z"
-  },
-
-  // ŞİRKETLER: Bina (Building) - DAR (384x512) -> Bunu kareye gerince şişmanlıyordu. Şimdi düzeldi.
-  sirketler: {
-    viewBox: "0 0 384 512",
-    d: "M48 0C21.5 0 0 21.5 0 48V464c0 26.5 21.5 48 48 48H336c26.5 0 48-21.5 48-48V48c0-26.5-21.5-48-48-48H48zM96 96h64c8.8 0 16 7.2 16 16v64c0 8.8-7.2 16-16 16H96c-8.8 0-16-7.2-16-16V112c0-8.8 7.2-16 16-16zm0 160h64c8.8 0 16 7.2 16 16v64c0 8.8-7.2 16-16 16H96c-8.8 0-16-7.2-16-16V272c0-8.8 7.2-16 16-16zm128-144c0-8.8 7.2-16 16-16h64c8.8 0 16 7.2 16 16v64c0 8.8-7.2 16-16 16H240c-8.8 0-16-7.2-16-16V112zm16 144h64c8.8 0 16 7.2 16 16v64c0 8.8-7.2 16-16 16H240c-8.8 0-16-7.2-16-16V272c0-8.8 7.2-16 16-16z"
-  },
-
-  // ULUSLARARASI: Dünya (Globe) - Kare (512x512)
-  uluslararasi: {
-    viewBox: "0 0 512 512",
-    d: "M256 48C141.13 48 48 141.13 48 256s93.13 208 208 208 208-93.13 208-208S370.87 48 256 48zm0 304a96 96 0 1 1 96-96 96.11 96.11 0 0 1-96 96z"
-  },
-
-  // 6284: Kalkan (Shield) - Kare (512x512)
-  kanun6284: {
-    viewBox: "0 0 512 512",
-    d: "M466.48 97.62A215.11 215.11 0 0 0 327.32 9c-3.13 0-6.17.13-9.15.35a229.74 229.74 0 0 0-62.2 14 228.84 228.84 0 0 0-62.16-14C190.8 9.13 187.76 9 184.63 9a215.11 215.11 0 0 0-139.1 88.62C11.64 153 0 220 0 286.87c0 89.33 60.1 190.15 163.79 219.69a19.64 19.64 0 0 0 10.93 0c32.73-9.32 58.74-23.63 78.5-39 19.7 15.36 45.69 29.66 78.38 39a19.64 19.64 0 0 0 10.93 0C447.85 477 508 376.2 508 286.87c0-66.87-11.64-133.87-41.52-189.25z"
-  },
-
-  // VARSAYILAN
-  genel: {
-    viewBox: "0 0 512 512",
-    d: "M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512z"
-  }
+  // GENEL: Daire (Yedek)
+  default: "M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512z"
 };
 
-// JSON'dan gelen ismi yakalama fonksiyonu
-const getIconData = (name: string) => {
-  if (!name) return ICONS.genel;
+const getPath = (name: string) => {
+  if (!name) return ICONS.default;
   
-  const n = name.toLowerCase();
-  if (n.includes('gavel') || n === 'ceza') return ICONS.ceza;
-  if (n.includes('gear') || n === 'is' || n.includes('briefcase')) return ICONS.is;
-  if (n.includes('house') || n.includes('home') || n === 'kira') return ICONS.kira;
-  if (n.includes('building') || n.includes('skyscraper') || n === 'sirketler') return ICONS.sirketler;
-  if (n.includes('globe') || n === 'uluslararasi') return ICONS.uluslararasi;
-  if (n.includes('shield') || n === 'kanun6284' || n === 'siddet-onleme') return ICONS.kanun6284;
+  // Gelen veriye göre doğru ikonu seç (Çoklu isim kontrolü)
+  if (name.includes('gavel') || name === 'ceza') return ICONS.gavel;
+  if (name.includes('gear') || name === 'is') return ICONS.gear;
+  if (name.includes('house') || name.includes('home') || name === 'kira') return ICONS.house;
+  if (name.includes('building') || name.includes('skyscraper') || name === 'sirketler' || name === 'sirket') return ICONS.building;
+  if (name.includes('globe') || name === 'uluslararasi') return ICONS.globe;
+  if (name.includes('shield') || name === 'siddet-onleme' || name === 'kanun6284') return ICONS.shield;
   
-  return ICONS.genel;
+  return ICONS.default;
 };
-
-const iconData = getIconData(icon);
 ---
 
 <a class={`area-card ${variant === "compact" ? "compact" : ""}`} href={href}>
   <div class="icon-wrap" aria-hidden="true">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox={iconData.viewBox} fill="currentColor">
-      <path d={iconData.d} />
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="currentColor">
+      <path d={getPath(icon)} />
     </svg>
   </div>
 
@@ -129,10 +103,9 @@ const iconData = getIconData(icon);
   }
 
   .icon-wrap svg {
-    /* İkonları 48px yüksekliğe sabitliyoruz, genişlik orantılı olacak */
+    /* İkonları 48px'e sabitliyoruz, bozulma yok */
+    width: 48px;
     height: 48px;
-    width: auto; 
-    max-width: 56px; /* Taşan geniş ikonları sınırla */
     display: block;
   }
 
@@ -172,5 +145,5 @@ const iconData = getIconData(icon);
 
   .area-card.compact { padding: 24px; }
   .area-card.compact .icon-wrap { width: 56px; height: 56px; margin-bottom: 14px; }
-  .area-card.compact .icon-wrap svg { height: 42px; }
+  .area-card.compact .icon-wrap svg { width: 42px; height: 42px; }
 </style>
