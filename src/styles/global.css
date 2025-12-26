@@ -1,4 +1,4 @@
-/* AV. FATİH TURAN - GLOBAL STYLES (FULL & FINAL) */
+/* AV. FATİH TURAN - GLOBAL STYLES (FULL SAFETY VERSION) */
 
 /* ========================================
    1. THEME VARIABLES (PREMIUM PALETTE)
@@ -8,29 +8,25 @@
     --brand-accent: #c5a059;  /* Altın/Bronz */
 
     --color-bg: #ffffff;
-    --color-bg-secondary: #f9fafb; /* Apple stili çok açık gri - Premium his */
-    --color-text: #1d1d1f; /* Tam siyah yerine yumuşak koyu gri */
+    --color-bg-secondary: #f9fafb; /* Apple stili çok açık gri */
+    --color-text: #1d1d1f; /* Yumuşak Siyah */
     --color-text-secondary: #86868b;
     --color-border: #d2d2d7;
     --color-border-soft: #e5e5e5;
 
-    --header-bg: rgba(255, 255, 255, 0.95); /* Hafif transparanlık */
+    --header-bg: rgba(255, 255, 255, 0.95);
     --card-bg: #ffffff;
     --input-bg: #f5f5f7;
     --input-border: #d2d2d7;
 
     --chat-bg: #ffffff;
     --chat-text: #1d1d1f;
-    
-    /* Yeni Premium Gölgeler */
+
     --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.04);
     --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.08);
     --shadow-hover: 0 12px 32px rgba(0, 0, 0, 0.12);
 }
 
-/* ========================================
-   2. DARK MODE
-   ======================================== */
 html.dark {
     --color-bg: #000000;
     --color-bg-secondary: #121212;
@@ -43,9 +39,6 @@ html.dark {
     --card-bg: #1c1c1e;
     --input-bg: #1c1c1e;
     --input-border: #333333;
-
-    --chat-bg: #1c1c1e;
-    --chat-text: #ededed;
     
     --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.3);
     --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.4);
@@ -53,11 +46,16 @@ html.dark {
 }
 
 /* ========================================
-   3. RESET & BASE
+   2. RESET & LAYOUT FIXES
    ======================================== */
 * { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; }
-[id] { scroll-margin-top: 130px; }
+
+html, body {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
 
 body {
     font-family: 'Montserrat', sans-serif;
@@ -68,36 +66,38 @@ body {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
-    overflow-x: hidden;
-    -webkit-font-smoothing: antialiased; /* Fontları keskinleştirir */
     transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-:focus-visible { outline: 2px solid var(--brand-accent); outline-offset: 2px; }
-a { text-decoration: none; color: inherit; transition: color 0.2s ease; }
-ul { list-style: none; }
-img { max-width: 100%; display: block; }
-
-@media (max-width: 768px) {
-    body { font-size: 17px; line-height: 1.7; }
-    p { margin-bottom: 1.1em; }
-    [id] { scroll-margin-top: 100px; }
+main {
+    flex: 1;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
 }
 
+/* Container Merkezleme */
+.container { 
+    max-width: 1200px; 
+    width: 100%; 
+    margin: 0 auto; 
+    padding: 0 24px; 
+}
+
+section { 
+    width: 100%; 
+    padding: 60px 0; 
+}
+
+a { text-decoration: none; color: inherit; transition: color 0.2s ease; }
+ul { list-style: none; }
+img { max-width: 100%; display: block; height: auto; }
+
 /* ========================================
-   4. TYPOGRAPHY
+   3. TYPOGRAPHY & BUTTONS
    ======================================== */
 h1, h2, h3, h4 { font-weight: 700; color: var(--brand-primary); letter-spacing: -0.02em; }
 html.dark h1, html.dark h2, html.dark h3, html.dark h4 { color: var(--color-text); }
-
-.hero h1 {
-    font-size: clamp(2rem, 3vw, 2.8rem);
-    letter-spacing: 0.02em;
-    text-transform: uppercase;
-    color: #fff;
-    margin-bottom: 20px;
-    text-shadow: 0 2px 10px rgba(0,0,0,0.3);
-}
 
 h2.section-heading {
     font-size: 2.2rem;
@@ -112,12 +112,10 @@ h2.section-heading::after {
     content: ''; display: block; width: 60px; height: 3px; 
     background: var(--brand-accent); margin: 12px 0 0 0; 
 }
-.section-heading--center { text-align: center; }
+.section-heading--center { text-align: center; display: block; }
 .section-heading--center::after { margin: 12px auto 0; }
 
-/* ========================================
-   5. BUTTONS (Premium Pill Shape)
-   ======================================== */
+/* Buttons */
 .btn {
     display: inline-flex;
     align-items: center;
@@ -127,7 +125,7 @@ h2.section-heading::after {
     padding: 14px 32px;
     font-weight: 700;
     text-transform: uppercase;
-    border-radius: 99px; /* Apple Stili Tam Oval */
+    border-radius: 99px;
     font-size: 0.9rem;
     border: none;
     cursor: pointer;
@@ -135,11 +133,7 @@ h2.section-heading::after {
     margin-top: 20px;
     text-decoration: none;
 }
-.btn:hover { 
-    background-color: #fff; 
-    transform: translateY(-2px); 
-    box-shadow: 0 4px 15px rgba(197, 160, 89, 0.4);
-}
+.btn:hover { background-color: #fff; transform: translateY(-2px); box-shadow: 0 4px 15px rgba(197, 160, 89, 0.4); }
 
 .btn-outline-main {
     display: inline-flex;
@@ -161,7 +155,53 @@ html.dark .btn-outline-main { border-color: var(--brand-accent); color: var(--br
 html.dark .btn-outline-main:hover { background-color: var(--brand-accent); color: #000; border-color: var(--brand-accent); }
 
 /* ========================================
-   6. HEREO & SECTIONS
+   4. HEADER STYLES (Geri Eklendi - Güvenlik İçin)
+   ======================================== */
+header {
+    background-color: var(--header-bg);
+    padding: 15px 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    border-bottom: 1px solid var(--color-border);
+    backdrop-filter: blur(10px);
+    transition: background-color 0.3s ease;
+}
+
+.header-row { display: flex; justify-content: space-between; align-items: center; width: 100%; }
+
+.brand-area { display: flex; align-items: center; gap: 15px; text-decoration: none; color: var(--brand-primary); }
+html.dark .brand-area { color: var(--color-text); }
+.header-logo { height: 55px; width: auto; }
+
+.brand-text { display: flex; flex-direction: column; line-height: 1.1; }
+.brand-text .name { font-size: 1.2rem; font-weight: 800; color: var(--brand-primary); text-transform: uppercase; }
+.brand-text .title { font-size: 0.7rem; color: var(--brand-accent); font-weight: 600; letter-spacing: 1px; text-transform: uppercase; }
+html.dark .brand-text .name { color: var(--color-text); }
+
+.header-right { display: flex; align-items: center; gap: 20px; }
+.desktop-nav ul { display: flex; gap: 25px; margin: 0; padding: 0; }
+.desktop-nav a { font-size: 0.85rem; font-weight: 600; text-transform: uppercase; color: var(--color-text); padding: 5px 0; transition: color 0.2s; }
+.desktop-nav a:hover, .desktop-nav a.active { color: var(--brand-accent); }
+
+.theme-toggle, .menu-toggle {
+    background: none;
+    border: 1px solid var(--color-border-soft);
+    border-radius: 50%;
+    width: 44px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    color: var(--color-text);
+    transition: 0.2s;
+}
+.theme-toggle:hover, .menu-toggle:hover { background: var(--brand-accent); color: #fff; border-color: var(--brand-accent); }
+.menu-toggle { display: none; border-radius: 12px; }
+
+/* ========================================
+   5. COMPONENTS (Hero, Cards, Layouts)
    ======================================== */
 .hero {
     min-height: 65vh;
@@ -177,39 +217,26 @@ html.dark .btn-outline-main:hover { background-color: var(--brand-accent); color
 }
 @keyframes deepOcean { 0%, 100% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } }
 
-.hero.hero-sm { min-height: auto; padding: 120px 0 60px; background: var(--color-bg-secondary); position: relative; }
-.hero.hero-sm::before {
-    content: ''; position: absolute; inset: 0; z-index: 1;
-    background-image: linear-gradient(to right, rgba(0,40,85,0.05) 1px, transparent 1px), linear-gradient(to bottom, rgba(0,40,85,0.05) 1px, transparent 1px);
-    background-size: 32px 32px;
-    mask-image: radial-gradient(ellipse 80% 70% at 50% 0%, black 40%, transparent 100%);
-    -webkit-mask-image: radial-gradient(ellipse 80% 70% at 50% 0%, black 40%, transparent 100%);
-}
-html.dark .hero.hero-sm::before { background-image: linear-gradient(to right, rgba(212,175,55,0.1) 1px, transparent 1px), linear-gradient(to bottom, rgba(212,175,55,0.1) 1px, transparent 1px); }
-
+.hero.hero-sm { min-height: auto; padding: 120px 0 60px; background: var(--color-bg-secondary); }
 .hero.hero-sm .hero-content { text-align: center; position: relative; z-index: 2; }
-.hero.hero-sm h1 { font-size: 2rem; margin-bottom: 0; letter-spacing: 0.05em; color: var(--brand-primary); text-shadow: none; }
+.hero.hero-sm h1 { font-size: 2rem; margin-bottom: 0; color: var(--brand-primary); text-shadow: none; }
 html.dark .hero.hero-sm h1 { color: var(--color-text); }
 
-.hero:not(.hero-sm)::before { content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: url('/images/banner.jpg') center/cover; opacity: 0.3; mix-blend-mode: overlay; z-index: 0; }
 .hero-content { position: relative; z-index: 2; max-width: 1200px; width: 100%; margin: 0 auto; padding: 0 20px; }
 .hero p { font-size: 1.25rem; border-left: 4px solid var(--brand-accent); padding-left: 20px; max-width: 700px; color: #eee; background: rgba(0,0,0,0.2); backdrop-filter: blur(8px); border-radius: 0 8px 8px 0; }
 
-section { padding: 60px 0; }
 .bg-light { background-color: var(--color-bg-secondary); border-bottom: 1px solid var(--color-border); }
 
 .grid-2 { display: grid; grid-template-columns: 1.2fr 1fr; gap: 60px; align-items: start; }
 .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; }
 .contact-wrapper { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; }
 
-/* ========================================
-   7. CARDS & PREVIEWS
-   ======================================== */
+/* Cards */
 .card, .article-preview {
     background: var(--card-bg);
     padding: 30px;
     border: 1px solid var(--color-border);
-    border-radius: 16px; /* Daha modern köşe */
+    border-radius: 16px;
     box-shadow: var(--shadow-sm);
     transition: all 0.3s ease;
     display: block;
@@ -221,13 +248,12 @@ section { padding: 60px 0; }
     transform: translateY(-4px);
     box-shadow: var(--shadow-hover);
 }
-
 .card h3 { color: var(--brand-primary); margin-bottom: 15px; font-size: 1.35rem; }
 html.dark .card h3 { color: var(--color-text); }
 .card i { font-size: 2rem; color: var(--brand-accent); margin-bottom: 15px; }
 .card p { color: var(--color-text-secondary); line-height: 1.7; }
 
-/* Bottom Box (Shared) - Buraya geri ekledik */
+/* Bottom Box */
 .bottom-box-wrapper { margin-top: 3rem; }
 .bottom-box-link { text-decoration: none; display: block; }
 .bottom-box {
@@ -248,7 +274,7 @@ html.dark .box-title { color: var(--color-text); }
 html.dark .btn-custom { background-color: var(--brand-accent); color: #000; }
 
 /* ========================================
-   8. FORMS (Premium Inputs)
+   6. FORMS & INPUTS
    ======================================== */
 form input, form textarea, form select {
     width: 100%;
@@ -262,43 +288,18 @@ form input, form textarea, form select {
     font-size: 1rem;
     transition: all 0.2s ease;
 }
-form input:focus, form textarea:focus, form select:focus { 
-    outline: none; 
-    border-color: var(--brand-accent); 
-    box-shadow: 0 0 0 4px rgba(197, 160, 89, 0.1); 
-    background: var(--card-bg);
-}
+form input:focus, form textarea:focus, form select:focus { outline: none; border-color: var(--brand-accent); box-shadow: 0 0 0 4px rgba(197, 160, 89, 0.1); background: var(--card-bg); }
 form button { width: 100%; }
 
-/* Validation */
 .error-message { display: none; color: #dc2626; font-size: 0.85rem; margin-top: 5px; font-weight: 500; }
 .error-message.active { display: block; }
 input[aria-invalid="true"] { border-color: #dc2626; background-color: #fef2f2; }
 html.dark input[aria-invalid="true"] { background-color: #450a0a; }
 
 /* ========================================
-   9. TABLES (Cookie & Data)
+   7. FOOTER
    ======================================== */
-.table-wrapper { overflow-x: auto; margin-bottom: 20px; border-radius: 12px; border: 1px solid var(--color-border); }
-.cookie-table { width: 100%; border-collapse: collapse; font-size: 0.95rem; min-width: 600px; }
-.cookie-table caption { caption-side: top; text-align: left; font-weight: 700; margin-bottom: 12px; color: var(--brand-primary); font-size: 1.1rem; }
-html.dark .cookie-table caption { color: var(--color-text); }
-.cookie-table th, .cookie-table td { padding: 16px 20px; text-align: left; border-bottom: 1px solid var(--color-border-soft); }
-.cookie-table th { background-color: var(--color-bg-secondary); color: var(--brand-primary); font-weight: 700; text-transform: uppercase; font-size: 0.8rem; letter-spacing: 0.5px; }
-html.dark .cookie-table th { background-color: #262626; color: var(--brand-accent); }
-.cookie-table tr:last-child td { border-bottom: none; }
-.cookie-table tr:hover { background-color: var(--input-bg); }
-
-/* ========================================
-   10. FOOTER (Restored)
-   ======================================== */
-footer { 
-    background-color: var(--color-bg-secondary); 
-    color: var(--color-text-secondary); 
-    padding: 80px 0 30px; 
-    margin-top: auto; 
-    border-top: 1px solid var(--color-border); 
-}
+footer { background-color: var(--color-bg-secondary); color: var(--color-text-secondary); padding: 80px 0 30px; margin-top: auto; border-top: 1px solid var(--color-border); }
 .footer-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 50px; border-bottom: 1px solid var(--color-border); padding-bottom: 40px; }
 .footer-col h4 { color: var(--brand-primary); margin-bottom: 24px; text-transform: uppercase; font-size: 0.95rem; letter-spacing: 1.5px; font-weight: 800; }
 html.dark .footer-col h4 { color: var(--color-text); }
@@ -308,9 +309,17 @@ html.dark .footer-col h4 { color: var(--color-text); }
 .footer-bottom { text-align: center; margin-top: 30px; font-size: 0.85rem; color: var(--color-text-secondary); opacity: 0.8; }
 
 /* ========================================
-   11. EXTRA COMPONENTS (Tabs, Chat, 404, Banner)
+   8. MISC (Tabs, Table, Chat, Calc)
    ======================================== */
-/* Tabs */
+.table-wrapper { overflow-x: auto; margin-bottom: 20px; border-radius: 12px; border: 1px solid var(--color-border); }
+.cookie-table { width: 100%; border-collapse: collapse; font-size: 0.95rem; min-width: 600px; }
+.cookie-table caption { caption-side: top; text-align: left; font-weight: 700; margin-bottom: 12px; color: var(--brand-primary); font-size: 1.1rem; }
+html.dark .cookie-table caption { color: var(--color-text); }
+.cookie-table th, .cookie-table td { padding: 16px 20px; text-align: left; border-bottom: 1px solid var(--color-border-soft); }
+.cookie-table th { background-color: var(--color-bg-secondary); color: var(--brand-primary); font-weight: 700; text-transform: uppercase; font-size: 0.8rem; letter-spacing: 0.5px; }
+html.dark .cookie-table th { background-color: #262626; color: var(--brand-accent); }
+.cookie-table tr:hover { background-color: var(--input-bg); }
+
 .tab-nav { display: flex; justify-content: center; gap: 30px; margin-bottom: 40px; border-bottom: 1px solid var(--color-border); }
 .tab-btn { background: none; border: none; font-family: 'Montserrat', sans-serif; font-size: 1.1rem; font-weight: 600; color: var(--color-text-secondary); padding: 15px 20px; cursor: pointer; position: relative; transition: 0.2s; text-transform: uppercase; letter-spacing: 1px; }
 .tab-btn:hover { color: var(--brand-accent); }
@@ -320,30 +329,12 @@ html.dark .footer-col h4 { color: var(--color-text); }
 .tab-content.active { display: block; }
 @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
 
-/* Special Banners */
 #special-banner { display: none; width: 100%; text-align: center; padding: 12px 0; font-size: 0.95rem; font-weight: 700; z-index: 2000; color: #fff; }
 #special-banner.national { background-color: #E30A17; }
 #special-banner.memorial { background-color: #000000; border-bottom: 1px solid #333; }
 #special-banner.maritime { background-color: #002855; color: #c5a059; }
-body.grayscale-mode { filter: grayscale(100%); }
-body.grayscale-mode #special-banner { filter: none; }
 
-/* 404 Page */
-.error-hero { padding: 100px 0; background: var(--color-bg-secondary); text-align: center; }
-.error-hero h1 { font-size: clamp(2rem, 4vw, 3.5rem); margin-bottom: 24px; font-weight: 800; color: var(--brand-primary); text-transform: none; }
-html.dark .error-hero h1 { color: var(--color-text); }
-.error-hero p { max-width: 600px; margin: 0 auto 40px; font-size: 1.2rem; line-height: 1.6; color: var(--color-text-secondary); }
-.btn-group-404 { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; }
-
-/* HESAPLAMA KUTUSU (10 Yıl Kuralı - Premium) */
-.calc-container {
-    background: var(--card-bg);
-    border: 1px solid var(--color-border);
-    border-radius: 16px;
-    padding: 30px;
-    margin: 40px 0;
-    box-shadow: var(--shadow-sm);
-}
+.calc-container { background: var(--card-bg); border: 1px solid var(--color-border); border-radius: 16px; padding: 30px; margin: 40px 0; box-shadow: var(--shadow-sm); }
 .calc-header { display: flex; align-items: center; gap: 15px; margin-bottom: 25px; border-bottom: 2px solid var(--brand-accent); padding-bottom: 15px; }
 .calc-header i { color: var(--brand-accent); font-size: 1.6rem; }
 .calc-header h4 { margin: 0; font-size: 1.2rem; text-transform: uppercase; letter-spacing: 0.5px; }
@@ -353,19 +344,17 @@ html.dark .calc-row:last-child { background: var(--brand-accent); color: #000; }
 .calc-label { font-weight: 600; font-size: 1rem; }
 .calc-value { font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 1.1rem; }
 
-/* Chat & Whatsapp Wrappers */
 .chat-greeting { border-radius: 12px; }
 .chat-box { border-radius: 16px; box-shadow: var(--shadow-md); }
 
 /* ========================================
-   12. RESPONSIVE
+   9. RESPONSIVE
    ======================================== */
 @media (max-width: 1024px) {
     .grid-3 { grid-template-columns: repeat(2, 1fr); gap: 24px; }
     .footer-row { grid-template-columns: repeat(2, 1fr); gap: 30px; }
     .footer-row .footer-col:first-child { grid-column: 1 / -1; }
 }
-
 @media (max-width: 900px) {
     .chat-widget { display: none !important; }
     .whatsapp-float { display: flex !important; bottom: 20px; right: 20px; }
@@ -375,31 +364,23 @@ html.dark .calc-row:last-child { background: var(--brand-accent); color: #000; }
     .desktop-nav ul { flex-direction: column; gap: 15px; }
     .hero h1 { font-size: 2rem; }
     .hero.hero-sm { padding: 90px 0 40px; }
-    .hero p { font-size: 1rem; padding: 15px; padding-left: 15px; border-left-width: 3px; border-radius: 0 6px 6px 0; }
-    .grid-2 { display: flex; flex-direction: column; gap: 40px; }
-    .contact-wrapper { display: flex; flex-direction: column; gap: 40px; }
-    .header-right { gap: 10px; }
+    .grid-2, .contact-wrapper { display: flex; flex-direction: column; gap: 40px; }
     .brand-text .title { display: none; }
 }
-
 @media (max-width: 768px) {
     .grid-3 { grid-template-columns: 1fr; gap: 20px; }
     .footer-row { display: flex; flex-direction: column; gap: 40px; }
     section { padding: 40px 0; }
     h2.section-heading { font-size: 1.8rem; margin-bottom: 30px; }
-    .container { padding: 0 20px; }
+    .container { padding: 0 16px; }
     .bottom-box { padding: 2rem; }
 }
-
 @media (max-width: 640px) {
     .hero { min-height: 55vh; padding: 50px 0 30px; }
     .hero h1 { font-size: 1.7rem; }
-    .hero.hero-sm h1 { font-size: 1.4rem; }
-    .btn, .btn-outline-main { width: 100%; text-align: center; display: flex; }
-    h2.section-heading { font-size: 1.6rem; margin-bottom: 24px; }
+    .btn, .btn-outline-main { width: 100%; display: flex; }
     .brand-area img { height: 45px; }
     .brand-text .name { font-size: 1rem; }
     .calc-row { flex-direction: column; gap: 8px; }
 }
-
 @media (min-width: 901px) { .whatsapp-float { display: none; } }
