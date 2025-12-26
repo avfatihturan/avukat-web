@@ -33,12 +33,12 @@ const articles = allArticles
 
   <section class="home-work-section">
     <div class="container">
-      <h2 class="section-heading section-heading--center mb-12">Çalışma Alanları</h2>
+      <h2 class="section-heading section-heading--center">Çalışma Alanları</h2>
       
       <div class="grid-layout">
         {workAreas.map((area) => (
           <AreaCard
-            icon={area.data.icon || 'fa-solid fa-gavel'}
+            icon={area.data.icon}
             title={area.data.title || ''}
             description={area.data.description || ''}
             ctaText={area.data.ctaText}
@@ -92,10 +92,10 @@ const articles = allArticles
       <p>Sorularınız için iletişime geçebilir veya randevu talep edebilirsiniz.</p>
       <div class="cta-buttons">
         <a href="/iletisim" class="btn">
-          <i class="fa-solid fa-calendar"></i> Randevu Al
+           Randevu Al
         </a>
         <a href={contact.phoneLink || '#'} class="btn-outline-main">
-          <i class="fa-solid fa-phone"></i> Hemen Ara
+           Hemen Ara
         </a>
       </div>
     </div>
@@ -103,10 +103,7 @@ const articles = allArticles
 </BaseLayout>
 
 <style>
-  .section-heading--center { text-align: center; display: block; }
-  .section-heading--center::after { margin: 10px auto 0; }
-  
-  .home-work-section { padding: 5rem 0; background-color: #f9fafb; }
+  .home-work-section { padding: 5rem 0; background-color: var(--color-bg-secondary); }
 
   .grid-layout {
     display: grid;
@@ -117,68 +114,18 @@ const articles = allArticles
   @media (min-width: 768px) { .grid-layout { grid-template-columns: repeat(2, 1fr); } }
   @media (min-width: 1024px) { .grid-layout { grid-template-columns: repeat(3, 1fr); } }
 
-  .bottom-box-wrapper { margin-top: 3rem; }
-  .bottom-box-link { text-decoration: none; display: block; }
-  
-  .bottom-box {
-    background-color: #ffffff;
-    border: 2px solid #e5e7eb;
-    border-radius: 12px;
-    padding: 2.5rem;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 2rem;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-  }
-
-  /* PREMIUM HOVER */
-  .bottom-box:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(0,0,0,0.06);
-  }
-
-  @media (min-width: 768px) {
-    .bottom-box { flex-direction: row; text-align: left; justify-content: space-between; }
-  }
-
-  .box-title {
-    font-size: 1.25rem;
-    font-weight: 700;
-    color: #111;
-    margin-bottom: 0.5rem;
-    text-align: center;
-  }
-  @media (min-width: 768px) { .box-title { text-align: left; } }
-
-  .box-desc {
-    color: #444;
-    line-height: 1.6;
-    text-align: justify;
-    max-width: 750px;
-    margin: 0;
-  }
-
-  .btn-custom {
-    display: inline-block;
-    background-color: #002B5B;
-    color: white;
-    padding: 0.75rem 1.5rem;
-    border-radius: 8px;
-    font-weight: 600;
-    white-space: nowrap;
-  }
-
   .latest-articles-section { padding: 5rem 0; }
 
-  .cta-section { background: var(--color-bg-secondary); text-align: center; padding: 60px 0; border-top: 1px solid var(--color-border); }
-  .cta-section h2 { color: var(--brand-primary); margin-bottom: 15px; }
+  .cta-section { 
+    background: var(--card-bg); 
+    text-align: center; 
+    padding: 80px 0; 
+    border-top: 1px solid var(--color-border); 
+  }
+  .cta-section h2 { color: var(--brand-primary); margin-bottom: 15px; font-size: 2rem; }
   :global(html.dark) .cta-section h2 { color: var(--color-text); }
-  .cta-section h2::after { display: none; }
-  .cta-section p { color: var(--color-text-secondary); margin-bottom: 25px; font-size: 1.1rem; }
-  .cta-buttons { display: flex; gap: 15px; justify-content: center; flex-wrap: wrap; }
-  .cta-buttons .btn, .cta-buttons .btn-outline-main { width: 180px; display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 14px 24px; font-size: 0.85rem; margin-top: 0; }
-  .cta-buttons .btn:hover { background: var(--brand-primary); color: #fff; transform: none; }
-  :global(html.dark) .cta-buttons .btn:hover { background: var(--brand-accent); color: var(--brand-primary); }
+  
+  .cta-section p { color: var(--color-text-secondary); margin-bottom: 30px; font-size: 1.15rem; }
+  
+  .cta-buttons { display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; }
 </style>
