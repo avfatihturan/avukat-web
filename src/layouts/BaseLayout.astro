@@ -23,8 +23,11 @@ const {
   ogType = 'website'
 } = Astro.props;
 
+// SİTE ADRESİNİ BURAYA SABİTLEDİM
 const siteUrl = 'https://fatihturan.av.tr';
 const fullCanonical = canonicalUrl ? `${siteUrl}${canonicalUrl}` : siteUrl;
+// OG Image tam URL olmalı
+const fullOgImage = ogImage.startsWith('http') ? ogImage : `${siteUrl}${ogImage}`;
 ---
 
 <!DOCTYPE html>
@@ -35,22 +38,15 @@ const fullCanonical = canonicalUrl ? `${siteUrl}${canonicalUrl}` : siteUrl;
   <meta name="color-scheme" content="light dark" />
 
   <script is:inline>
-    /* Sayfa ilk yüklenirken tema kontrolü - FOUC önlemek için head içinde */
-    const getTheme = () => {
-      if (typeof localStorage !== 'undefined' && localStorage.getItem('theme')) {
-        return localStorage.getItem('theme');
+    (function() {
+      const theme = localStorage.getItem('theme') || 
+                    (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+      if (theme === 'dark') {
+        document.documentElement.classList.add('dark');
+      } else {
+        document.documentElement.classList.remove('dark');
       }
-      if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-        return 'dark';
-      }
-      return 'light';
-    };
-    
-    if (getTheme() === 'dark') {
-      document.documentElement.classList.add('dark');
-    } else {
-      document.documentElement.classList.remove('dark');
-    }
+    })();
   </script>
 
   <title>{title}</title>
@@ -61,11 +57,11 @@ const fullCanonical = canonicalUrl ? `${siteUrl}${canonicalUrl}` : siteUrl;
   <meta property="og:description" content={description}>
   <meta property="og:type" content={ogType}>
   <meta property="og:url" content={fullCanonical}>
-  <meta property="og:image" content={`${siteUrl}${ogImage}`}>
+  <meta property="og:image" content={fullOgImage}>
   <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content={fullOgImage}>
 
   <link rel="icon" type="image/x-icon" href="/favicon.ico" />
-  
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
@@ -90,40 +86,9 @@ const fullCanonical = canonicalUrl ? `${siteUrl}${canonicalUrl}` : siteUrl;
   <ChatWidget />
   <Footer />
 
-  <script>
-    // Astro ViewTransitions uyumlu script
-    // Her sayfa değişiminde (navigate) tekrar çalışır.
-    document.addEventListener('astro:page-load', () => {
-      
-      // 1. TEMA BUTONU
-      const themeToggleBtn = document.getElementById('themeToggle');
-      
-      const handleThemeToggle = () => {
-        const element = document.documentElement;
-        element.classList.toggle("dark");
-        const isDark = element.classList.contains("dark");
-        localStorage.setItem("theme", isDark ? "dark" : "light");
-      };
-
-      if (themeToggleBtn) {
-        themeToggleBtn.addEventListener('click', handleThemeToggle);
-      }
-
-      // 2. MOBİL MENÜ
-      const menuToggle = document.querySelector('.menu-toggle');
-      const nav = document.querySelector('.desktop-nav');
-
-      if (menuToggle && nav) {
-        menuToggle.addEventListener('click', () => {
-          nav.classList.toggle('active');
-        });
-      }
-    });
-
-    // Sayfa geçişlerinden sonra tema durumunu koru (Swap işlemi için)
+  <script is:inline>
     document.addEventListener('astro:after-swap', () => {
-      if (localStorage.getItem('theme') === 'dark' || 
-         (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+      if (localStorage.getItem('theme') === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
         document.documentElement.classList.add('dark');
       } else {
         document.documentElement.classList.remove('dark');
