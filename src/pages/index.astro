@@ -26,9 +26,10 @@ const articles = allArticles
   canonicalUrl="/"
 >
   <Hero
+    size="lg"
     title="Stratejik Hukuk.<br>Güvenilir Temsil."
     subtitle="&quot;Hangi limana gideceğini bilmeyen gemiye, hiçbir rüzgar yardım edemez.&quot; — Seneca"
-    showCTA
+    image="/images/banner-home.webp"
   />
 
   <section class="home-work-section">
@@ -78,7 +79,7 @@ const articles = allArticles
           <ArticleCard
             title={article.data.title}
             description={article.data.description}
-            href={`/yayinlar/${article.id}`}
+            href={`/yayinlar/${article.id}`} 
             image={article.data.heroImage}
             tag={article.data.tag || ''} 
           />
@@ -129,7 +130,7 @@ const articles = allArticles
   .cta-section p { color: var(--color-text-secondary); margin-bottom: 30px; font-size: 1.15rem; }
   
   .cta-buttons { display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; }
-  /* Make both CTA buttons visually identical size */
+  
   .cta-buttons .btn, .cta-buttons .btn-outline-main {
     padding: 14px 36px;
     min-height: 52px;

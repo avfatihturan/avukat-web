@@ -2,36 +2,143 @@
 interface Props {
   title: string;
   subtitle?: string;
-  showCTA?: boolean;
-  ctaText?: string;
-  ctaHref?: string;
-  size?: 'default' | 'sm';
+  image?: string;    
+  size?: "lg" | "sm"; 
 }
 
-const {
-  title,
-  subtitle,
-  showCTA = false,
-  ctaText = 'Randevu Alın',
-  ctaHref = '/iletisim',
-  size = 'default'
+const { 
+  title, 
+  subtitle, 
+  image = "/images/banner-home.webp", // Varsayılan görsel
+  size = "sm" 
 } = Astro.props;
 
-// Split title by <br> for safe rendering
-const titleParts = title.split(/<br\s*\/?>/i);
+const isLarge = size === "lg";
 ---
 
-<section class:list={['hero', { 'hero-sm': size === 'sm' }]}>
-  <div class="hero-content">
-    <h1>
-      {titleParts.map((part, i) => (
-        <>
-          {i > 0 && <br />}
-          <Fragment set:text={part} />
-        </>
-      ))}
+<section class:list={["hero-section", { "hero-lg": isLarge, "hero-sm": !isLarge }]}>
+  
+  <div class="hero-bg-wrapper">
+    <img 
+      src={image} 
+      alt={title} 
+      class="hero-img"
+      width="2560" 
+      height="1440"
+      loading={isLarge ? "eager" : "lazy"}       
+      fetchpriority={isLarge ? "high" : "auto"}
+      decoding="async"
+    />
+    <div class="hero-overlay"></div>
+  </div>
+
+  <div class="container hero-content">
+    
+    {subtitle && <span class="hero-subtitle">{subtitle}</span>}
+    
+    <h1 class="hero-title">
+      {title}
     </h1>
-    {subtitle && <p>{subtitle}</p>}
-    {showCTA && <a href={ctaHref} class="btn">{ctaText}</a>}
+
+    {isLarge && (
+      <div class="hero-actions">
+        <a href="/iletisim" class="btn-hero primary">Randevu Alın</a>
+        <a href="/calisma-alanlari" class="btn-hero outline">Çalışma Alanları</a>
+      </div>
+    )}
+
   </div>
 </section>
+
+<style>
+  .hero-section {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    padding-top: 80px; 
+  }
+
+  .hero-lg { min-height: 85vh; background-color: var(--brand-primary); }
+  .hero-sm { min-height: 45vh; background-color: var(--brand-primary); }
+
+  .hero-bg-wrapper { position: absolute; inset: 0; z-index: 1; }
+  
+  .hero-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+
+  /* Modern Gradient Overlay */
+  .hero-overlay {
+    position: absolute;
+    inset: 0;
+    /* Soldan sağa lacivert geçiş - Yazı okunabilirliği için */
+    background: linear-gradient(90deg, 
+      rgba(0, 40, 85, 0.95) 0%, 
+      rgba(0, 40, 85, 0.75) 50%, 
+      rgba(0, 40, 85, 0.3) 100%
+    );
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 2; 
+    color: #fff;
+    max-width: 1200px;
+    width: 100%;
+  }
+
+  .hero-subtitle {
+    display: inline-block;
+    color: var(--brand-accent);
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+    border-left: 3px solid var(--brand-accent);
+    padding-left: 12px;
+  }
+
+  .hero-title {
+    font-size: 3.5rem;
+    font-weight: 800;
+    line-height: 1.1;
+    margin-bottom: 2rem;
+    max-width: 700px; 
+    color: #ffffff;
+    text-shadow: 0 10px 30px rgba(0,0,0,0.3);
+  }
+
+  .hero-actions { display: flex; gap: 16px; flex-wrap: wrap; }
+
+  .btn-hero {
+    padding: 16px 36px;
+    border-radius: 8px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    letter-spacing: 0.5px;
+  }
+
+  .btn-hero.primary { background-color: var(--brand-accent); color: #000; }
+  .btn-hero.primary:hover { background-color: #fff; transform: translateY(-2px); }
+
+  .btn-hero.outline { border: 1px solid rgba(255,255,255,0.4); color: #fff; backdrop-filter: blur(4px); }
+  .btn-hero.outline:hover { border-color: #fff; background: rgba(255,255,255,0.1); }
+
+  @media (max-width: 768px) {
+    .hero-title { font-size: 2.2rem; }
+    .hero-lg { min-height: 70vh; }
+    .hero-sm { min-height: 35vh; }
+    .hero-overlay {
+      background: linear-gradient(180deg, rgba(0, 40, 85, 0.9) 0%, rgba(0, 40, 85, 0.5) 100%);
+    }
+  }
+</style>
