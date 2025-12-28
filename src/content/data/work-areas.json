@@ -9,7 +9,7 @@
   },
   {
     "id": "is",
-    "icon": "gears",
+    "icon": "gear",
     "title": "İş Hukuku",
     "description": "İşçi ve işveren tarafında; işe iade, tazminat ve iş kazası süreçleri, uyuşmazlık doğmadan önce ele alınır. Fesih öncesi ve sonrası hukuki zemin oluşturularak sürecin seyri stratejik biçimde planlanır.",
     "ctaText": "İş Hukuku Yayınlarını İncele →",
@@ -17,7 +17,7 @@
   },
   {
     "id": "kira",
-    "icon": "house",
+    "icon": "key",
     "title": "Konut ve Kira Hukuku",
     "description": "Kira tespit ve tahliye davaları ile sözleşme süreçlerinde; ev sahibi ve kiracı hakları birlikte değerlendirilir. Sözleşmenin kurulmasından tahliye aşamasına kadar tüm süreç, hukuki riskler öngörülerek yürütülür.",
     "ctaText": "Kira Hukuku Yayınlarını İncele →",
@@ -25,7 +25,7 @@
   },
   {
     "id": "sirketler",
-    "icon": "skyscraper",
+    "icon": "city",
     "title": "Şirketler Hukuku",
     "description": "Şirket kuruluşu, birleşme ve devir süreçleri ile ticari sözleşmeler; işletmenin hukuki altyapısını güçlendirecek şekilde ele alınır. Kurumsal yapılar, ileride doğabilecek uyuşmazlıkları önleyici bir yaklaşımla yapılandırılır.",
     "ctaText": "Kurumsal Danışmanlık Talep Et →",
@@ -41,7 +41,7 @@
   },
   {
     "id": "siddet-onleme",
-    "icon": "shield",
+    "icon": "umbrella",
     "title": "6284 Sayılı Kanun",
     "description": "6284 sayılı Kanun kapsamında koruyucu ve önleyici tedbir kararları; teorik birikim ve uygulama tecrübesiyle ele alınır. Aile içi şiddet vakalarında mağdur hakları gözetilerek sürecin hızlı ve etkin ilerlemesi sağlanır.",
     "ctaText": "Detaylı Bilgi Al →",
