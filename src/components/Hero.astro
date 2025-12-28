@@ -9,7 +9,7 @@ interface Props {
 const { 
   title, 
   subtitle, 
-  image = "/images/banner-home.webp", // Varsayılan görsel
+  image = "/images/banner-home.webp",
   size = "sm" 
 } = Astro.props;
 
@@ -36,9 +36,7 @@ const isLarge = size === "lg";
     
     {subtitle && <span class="hero-subtitle">{subtitle}</span>}
     
-    <h1 class="hero-title">
-      {title}
-    </h1>
+    <h1 class="hero-title" set:html={title}></h1>
 
     {isLarge && (
       <div class="hero-actions">
@@ -72,11 +70,9 @@ const isLarge = size === "lg";
     object-position: center;
   }
 
-  /* Modern Gradient Overlay */
   .hero-overlay {
     position: absolute;
     inset: 0;
-    /* Soldan sağa lacivert geçiş - Yazı okunabilirliği için */
     background: linear-gradient(90deg, 
       rgba(0, 40, 85, 0.95) 0%, 
       rgba(0, 40, 85, 0.75) 50%, 
@@ -107,9 +103,9 @@ const isLarge = size === "lg";
   .hero-title {
     font-size: 3.5rem;
     font-weight: 800;
-    line-height: 1.1;
+    line-height: 1.2; /* Satır aralığı düzeltildi */
     margin-bottom: 2rem;
-    max-width: 700px; 
+    max-width: 800px; 
     color: #ffffff;
     text-shadow: 0 10px 30px rgba(0,0,0,0.3);
   }

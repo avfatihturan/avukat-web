@@ -15,6 +15,11 @@ const allArticles = await getCollection('articles', ({ data }) => !data.draft);
 const sortedArticles = allArticles.sort(
   (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
 );
+
+// Tüm etiketleri (tags) topla ve benzersiz olanları al
+const allTags = [
+  ...new Set(allArticles.map((article) => article.data.tag).filter(Boolean))
+].sort();
 ---
 
 <BaseLayout
@@ -31,23 +36,107 @@ const sortedArticles = allArticles.sort(
 
   <section class="page-section">
     <div class="container">
-      <div class="grid-3">
-        {sortedArticles.map((article) => (
-          <ArticleCard
-            title={article.data.title}
-            description={article.data.description}
-            href={`/yayinlar/${article.slug}`}
-            image={article.data.heroImage}
-            tag={article.data.tag || ''} 
-          />
+      
+      <div class="filter-container">
+        <button class="filter-btn active" data-filter="all">Tümü</button>
+        {allTags.map((tag) => (
+          <button class="filter-btn" data-filter={tag}>{tag}</button>
         ))}
       </div>
+
+      <div class="grid-3" id="article-grid">
+        {sortedArticles.map((article) => (
+          <div class="article-item" data-tag={article.data.tag || ''}>
+            <ArticleCard
+              title={article.data.title}
+              description={article.data.description}
+              href={`/yayinlar/${article.id}`} 
+              image={article.data.heroImage}
+              tag={article.data.tag || ''} 
+            />
+          </div>
+        ))}
+      </div>
+
+      <div id="no-results" style="display: none; text-align: center; padding: 40px; color: var(--color-text-secondary);">
+        <p>Seçilen kategoride henüz bir yayın bulunmamaktadır.</p>
+      </div>
+
     </div>
   </section>
 </BaseLayout>
 
+<script>
+  // FİLTRELEME MANTIĞI
+  const filterBtns = document.querySelectorAll('.filter-btn');
+  const articles = document.querySelectorAll('.article-item');
+  const noResults = document.getElementById('no-results');
+
+  filterBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      // 1. Butonların aktiflik sınıfını değiştir
+      filterBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+
+      const filterValue = btn.getAttribute('data-filter');
+      let hasVisibleArticles = false;
+
+      // 2. Makaleleri gizle/göster
+      articles.forEach(article => {
+        const articleTag = article.getAttribute('data-tag');
+        
+        if (filterValue === 'all' || filterValue === articleTag) {
+          (article as HTMLElement).style.display = 'block';
+          hasVisibleArticles = true;
+        } else {
+          (article as HTMLElement).style.display = 'none';
+        }
+      });
+
+      // 3. Sonuç yoksa mesaj göster
+      if (noResults) {
+        noResults.style.display = hasVisibleArticles ? 'none' : 'block';
+      }
+    });
+  });
+</script>
+
 <style>
-  .page-section { padding: 4rem 0; background-color: var(--color-bg); }
+  .page-section { padding: 4rem 0; background-color: var(--color-bg); min-height: 60vh; }
+  
+  /* Filtre Stilleri */
+  .filter-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+    margin-bottom: 40px;
+  }
+
+  .filter-btn {
+    padding: 10px 24px;
+    border: 1px solid var(--color-border);
+    background-color: var(--card-bg);
+    color: var(--color-text-secondary);
+    border-radius: 30px;
+    cursor: pointer;
+    font-size: 0.95rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+  }
+
+  .filter-btn:hover {
+    border-color: var(--brand-accent);
+    color: var(--brand-primary);
+  }
+
+  .filter-btn.active {
+    background-color: var(--brand-primary);
+    color: #fff;
+    border-color: var(--brand-primary);
+  }
+  
+  /* Grid Stilleri */
   .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; }
   
   @media (max-width: 1024px) { .grid-3 { grid-template-columns: repeat(2, 1fr); } }
