@@ -1,99 +1,94 @@
 ---
-import { ViewTransitions } from 'astro:transitions';
+import '../styles/global.css';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
-import ChatWidget from '../components/ChatWidget.astro';
-import '../styles/global.css';
 
 interface Props {
   title: string;
   description: string;
+  image?: string; 
   currentPage?: string;
-  canonicalUrl?: string;
-  ogImage?: string;
-  ogType?: 'website' | 'article';
+  canonicalUrl?: string; 
 }
 
-const {
-  title,
-  description,
-  currentPage = '',
-  canonicalUrl,
-  ogImage = '/images/og-image.jpg',
-  ogType = 'website'
+// Varsayılan OG görseli: /images/og-image.jpg
+const { 
+  title, 
+  description, 
+  image = "/images/og-image.jpg", 
+  currentPage,
+  canonicalUrl 
 } = Astro.props;
 
-// SİTE ADRESİNİ BURAYA SABİTLEDİM
-const siteUrl = 'https://fatihturan.av.tr';
-const fullCanonical = canonicalUrl ? `${siteUrl}${canonicalUrl}` : siteUrl;
-// OG Image tam URL olmalı
-const fullOgImage = ogImage.startsWith('http') ? ogImage : `${siteUrl}${ogImage}`;
+// Canonical URL oluşturma
+const siteUrl = import.meta.env.SITE || "https://fatihturan.av.tr";
+const currentPath = canonicalUrl || Astro.url.pathname;
+const finalCanonicalUrl = new URL(currentPath, siteUrl).href;
+const finalImageUrl = new URL(image, siteUrl).href;
 ---
 
-<!DOCTYPE html>
-<html lang="tr">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="color-scheme" content="light dark" />
+<!doctype html>
+<html lang="tr" class="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="author" content="Av. Fatih Turan" />
+    <link rel="canonical" href={finalCanonicalUrl} />
 
-  <script is:inline>
-    (function() {
-      const theme = localStorage.getItem('theme') || 
-                    (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
-      if (theme === 'dark') {
-        document.documentElement.classList.add('dark');
-      } else {
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={finalCanonicalUrl} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={finalImageUrl} />
+
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content={finalCanonicalUrl} />
+    <meta property="twitter:title" content={title} />
+    <meta property="twitter:description" content={description} />
+    <meta property="twitter:image" content={finalImageUrl} />
+
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="sitemap" href="/sitemap-index.xml" />
+    <meta name="generator" content={Astro.generator} />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  </head>
+  <body>
+    <div class="site-wrapper">
+      <Header currentPage={currentPage} />
+      
+      <main class="site-main">
+        <slot />
+      </main>
+
+      <Footer />
+    </div>
+
+    <script is:inline>
+      const theme = (() => {
+        if (typeof localStorage !== 'undefined' && localStorage.getItem('theme')) {
+          return localStorage.getItem('theme');
+        }
+        if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+          return 'dark';
+        }
+        return 'light';
+      })();
+    
+      if (theme === 'light') {
         document.documentElement.classList.remove('dark');
-      }
-    })();
-  </script>
-
-  <title>{title}</title>
-  <meta name="description" content={description}>
-  <link rel="canonical" href={fullCanonical}>
-
-  <meta property="og:title" content={title}>
-  <meta property="og:description" content={description}>
-  <meta property="og:type" content={ogType}>
-  <meta property="og:url" content={fullCanonical}>
-  <meta property="og:image" content={fullOgImage}>
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:image" content={fullOgImage}>
-
-  <link rel="icon" type="image/x-icon" href="/favicon.ico" />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-  
-  <ViewTransitions />
-
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZBVH7DGDCZ"></script>
-  <script is:inline>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-ZBVH7DGDCZ');
-  </script>
-</head>
-<body>
-  <Header currentPage={currentPage} />
-  
-  <main>
-    <slot />
-  </main>
-  
-  <ChatWidget />
-  <Footer />
-
-  <script is:inline>
-    document.addEventListener('astro:after-swap', () => {
-      if (localStorage.getItem('theme') === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-        document.documentElement.classList.add('dark');
+        document.documentElement.classList.add('light');
       } else {
-        document.documentElement.classList.remove('dark');
+        document.documentElement.classList.remove('light');
+        document.documentElement.classList.add('dark');
       }
-    });
-  </script>
-</body>
+      
+      window.localStorage.setItem('theme', theme);
+    </script>
+  </body>
 </html>

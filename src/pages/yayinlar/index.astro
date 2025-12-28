@@ -16,10 +16,19 @@ const sortedArticles = allArticles.sort(
   (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
 );
 
-// Tüm etiketleri (tags) topla ve benzersiz olanları al
+// 1. Etiketleri Topla (TS Düzeltmesi: ': t is string' eklendi)
 const allTags = [
-  ...new Set(allArticles.map((article) => article.data.tag).filter(Boolean))
+  ...new Set(allArticles.map((article) => article.data.tag).filter((t): t is string => !!t))
 ].sort();
+
+// 2. Hangi etiketten kaç tane var hesapla (TS Düzeltmesi: 'acc: Record<string, number>' eklendi)
+const tagCounts = allArticles.reduce((acc: Record<string, number>, article) => {
+  const tag = article.data.tag;
+  if (tag) {
+    acc[tag] = (acc[tag] || 0) + 1;
+  }
+  return acc;
+}, {});
 ---
 
 <BaseLayout
@@ -38,9 +47,14 @@ const allTags = [
     <div class="container">
       
       <div class="filter-container">
-        <button class="filter-btn active" data-filter="all">Tümü</button>
+        <button class="filter-btn active" data-filter="all">
+          Tümü ({sortedArticles.length})
+        </button>
+        
         {allTags.map((tag) => (
-          <button class="filter-btn" data-filter={tag}>{tag}</button>
+          <button class="filter-btn" data-filter={tag}>
+            {tag} ({tagCounts[tag] || 0})
+          </button>
         ))}
       </div>
 
@@ -67,21 +81,18 @@ const allTags = [
 </BaseLayout>
 
 <script>
-  // FİLTRELEME MANTIĞI
   const filterBtns = document.querySelectorAll('.filter-btn');
   const articles = document.querySelectorAll('.article-item');
   const noResults = document.getElementById('no-results');
 
   filterBtns.forEach(btn => {
     btn.addEventListener('click', () => {
-      // 1. Butonların aktiflik sınıfını değiştir
       filterBtns.forEach(b => b.classList.remove('active'));
       btn.classList.add('active');
 
       const filterValue = btn.getAttribute('data-filter');
       let hasVisibleArticles = false;
 
-      // 2. Makaleleri gizle/göster
       articles.forEach(article => {
         const articleTag = article.getAttribute('data-tag');
         
@@ -93,7 +104,6 @@ const allTags = [
         }
       });
 
-      // 3. Sonuç yoksa mesaj göster
       if (noResults) {
         noResults.style.display = hasVisibleArticles ? 'none' : 'block';
       }
@@ -104,7 +114,6 @@ const allTags = [
 <style>
   .page-section { padding: 4rem 0; background-color: var(--color-bg); min-height: 60vh; }
   
-  /* Filtre Stilleri */
   .filter-container {
     display: flex;
     flex-wrap: wrap;
@@ -114,13 +123,13 @@ const allTags = [
   }
 
   .filter-btn {
-    padding: 10px 24px;
+    padding: 10px 20px;
     border: 1px solid var(--color-border);
     background-color: var(--card-bg);
     color: var(--color-text-secondary);
     border-radius: 30px;
     cursor: pointer;
-    font-size: 0.95rem;
+    font-size: 0.9rem;
     font-weight: 500;
     transition: all 0.3s ease;
   }
@@ -136,7 +145,6 @@ const allTags = [
     border-color: var(--brand-primary);
   }
   
-  /* Grid Stilleri */
   .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; }
   
   @media (max-width: 1024px) { .grid-3 { grid-template-columns: repeat(2, 1fr); } }
