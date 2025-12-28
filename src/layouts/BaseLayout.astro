@@ -11,7 +11,7 @@ interface Props {
   canonicalUrl?: string; 
 }
 
-// Varsayılan OG görseli: /images/og-image.jpg
+// Varsayılan OG görseli
 const { 
   title, 
   description, 
@@ -20,7 +20,6 @@ const {
   canonicalUrl 
 } = Astro.props;
 
-// Canonical URL oluşturma
 const siteUrl = import.meta.env.SITE || "https://fatihturan.av.tr";
 const currentPath = canonicalUrl || Astro.url.pathname;
 const finalCanonicalUrl = new URL(currentPath, siteUrl).href;
@@ -28,7 +27,7 @@ const finalImageUrl = new URL(image, siteUrl).href;
 ---
 
 <!doctype html>
-<html lang="tr" class="light">
+<html lang="tr">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -50,24 +49,13 @@ const finalImageUrl = new URL(image, siteUrl).href;
     <meta property="twitter:description" content={description} />
     <meta property="twitter:image" content={finalImageUrl} />
 
+    <link rel="icon" href="/favicon.ico" sizes="any" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    
+    <link rel="apple-touch-icon" href="/images/og-image.jpg" />
+
     <link rel="sitemap" href="/sitemap-index.xml" />
     <meta name="generator" content={Astro.generator} />
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
-  </head>
-  <body>
-    <div class="site-wrapper">
-      <Header currentPage={currentPage} />
-      
-      <main class="site-main">
-        <slot />
-      </main>
-
-      <Footer />
-    </div>
 
     <script is:inline>
       const theme = (() => {
@@ -82,13 +70,21 @@ const finalImageUrl = new URL(image, siteUrl).href;
     
       if (theme === 'light') {
         document.documentElement.classList.remove('dark');
-        document.documentElement.classList.add('light');
       } else {
-        document.documentElement.classList.remove('light');
         document.documentElement.classList.add('dark');
       }
-      
       window.localStorage.setItem('theme', theme);
     </script>
+  </head>
+  <body>
+    <div class="site-wrapper">
+      <Header currentPage={currentPage} />
+      
+      <main class="site-main">
+        <slot />
+      </main>
+
+      <Footer />
+    </div>
   </body>
 </html>

@@ -70,10 +70,10 @@ const isLarge = size === "lg";
     object-position: center;
   }
 
+  /* Modern Gradient Overlay */
   .hero-overlay {
     position: absolute;
     inset: 0;
-    /* Soldan sağa lacivert geçiş - Yazı okunabilirliği için */
     background: linear-gradient(90deg, 
       rgba(0, 40, 85, 0.95) 0%, 
       rgba(0, 40, 85, 0.75) 50%, 
@@ -109,6 +109,8 @@ const isLarge = size === "lg";
     max-width: 800px; 
     color: #ffffff;
     text-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    /* Alt satıra geçmeyi garantiye alan ek ayar */
+    white-space: pre-line; 
   }
 
   .hero-actions { display: flex; gap: 16px; flex-wrap: wrap; }
