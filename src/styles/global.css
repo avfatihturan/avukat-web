@@ -1,15 +1,15 @@
-/* AV. FATİH TURAN - GLOBAL STYLES (FULL SAFETY VERSION) */
+/* AV. FATİH TURAN - GLOBAL STYLES (FINAL CORRECTED) */
 
 /* ========================================
-   1. THEME VARIABLES (PREMIUM PALETTE)
+   1. THEME VARIABLES
    ======================================== */
 :root {
-    --brand-primary: #002855; /* Otoriter Lacivert */
-    --brand-accent: #c5a059;  /* Altın/Bronz */
+    --brand-primary: #002855;
+    --brand-accent: #c5a059;
 
     --color-bg: #ffffff;
-    --color-bg-secondary: #f9fafb; /* Apple stili çok açık gri */
-    --color-text: #1d1d1f; /* Yumuşak Siyah */
+    --color-bg-secondary: #f9fafb;
+    --color-text: #1d1d1f;
     --color-text-secondary: #86868b;
     --color-border: #d2d2d7;
     --color-border-soft: #e5e5e5;
@@ -46,7 +46,7 @@ html.dark {
 }
 
 /* ========================================
-   2. RESET & LAYOUT FIXES
+   2. RESET & LAYOUT
    ======================================== */
 * { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -71,12 +71,12 @@ body {
 
 main {
     flex: 1;
-    width: 100%;
     display: flex;
     flex-direction: column;
+    width: 100%;
 }
 
-/* Container Merkezleme */
+/* CONTAINER YAPISI (ÖNEMLİ: Sağa/Sola yapışmayı engeller) */
 .container { 
     max-width: 1200px; 
     width: 100%; 
@@ -84,10 +84,7 @@ main {
     padding: 0 24px; 
 }
 
-section { 
-    width: 100%; 
-    padding: 60px 0; 
-}
+section { padding: 60px 0; width: 100%; }
 
 a { text-decoration: none; color: inherit; transition: color 0.2s ease; }
 ul { list-style: none; }
@@ -104,18 +101,14 @@ h2.section-heading {
     color: var(--brand-primary);
     font-weight: 700;
     margin-bottom: 48px;
+    text-align: center;
     position: relative;
-    display: inline-block;
 }
-html.dark h2.section-heading { color: var(--color-text); }
 h2.section-heading::after { 
     content: ''; display: block; width: 60px; height: 3px; 
-    background: var(--brand-accent); margin: 12px 0 0 0; 
+    background: var(--brand-accent); margin: 12px auto 0; 
 }
-.section-heading--center { text-align: center; display: block; }
-.section-heading--center::after { margin: 12px auto 0; }
 
-/* Buttons */
 .btn {
     display: inline-flex;
     align-items: center;
@@ -131,7 +124,6 @@ h2.section-heading::after {
     cursor: pointer;
     transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
     margin-top: 20px;
-    text-decoration: none;
 }
 .btn:hover { background-color: #fff; transform: translateY(-2px); box-shadow: 0 4px 15px rgba(197, 160, 89, 0.4); }
 
@@ -146,7 +138,6 @@ h2.section-heading::after {
     font-weight: 600;
     text-transform: uppercase;
     font-size: 0.85rem;
-    text-decoration: none;
     margin-top: 30px;
     transition: all 0.3s ease;
 }
@@ -155,59 +146,14 @@ html.dark .btn-outline-main { border-color: var(--brand-accent); color: var(--br
 html.dark .btn-outline-main:hover { background-color: var(--brand-accent); color: #000; border-color: var(--brand-accent); }
 
 /* ========================================
-   4. HEADER STYLES (Geri Eklendi - Güvenlik İçin)
-   ======================================== */
-header {
-    background-color: var(--header-bg);
-    padding: 15px 0;
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-    border-bottom: 1px solid var(--color-border);
-    backdrop-filter: blur(10px);
-    transition: background-color 0.3s ease;
-}
-
-.header-row { display: flex; justify-content: space-between; align-items: center; width: 100%; }
-
-.brand-area { display: flex; align-items: center; gap: 15px; text-decoration: none; color: var(--brand-primary); }
-html.dark .brand-area { color: var(--color-text); }
-.header-logo { height: 55px; width: auto; }
-
-.brand-text { display: flex; flex-direction: column; line-height: 1.1; }
-.brand-text .name { font-size: 1.2rem; font-weight: 800; color: var(--brand-primary); text-transform: uppercase; }
-.brand-text .title { font-size: 0.7rem; color: var(--brand-accent); font-weight: 600; letter-spacing: 1px; text-transform: uppercase; }
-html.dark .brand-text .name { color: var(--color-text); }
-
-.header-right { display: flex; align-items: center; gap: 20px; }
-.desktop-nav ul { display: flex; gap: 25px; margin: 0; padding: 0; }
-.desktop-nav a { font-size: 0.85rem; font-weight: 600; text-transform: uppercase; color: var(--color-text); padding: 5px 0; transition: color 0.2s; }
-.desktop-nav a:hover, .desktop-nav a.active { color: var(--brand-accent); }
-
-.theme-toggle, .menu-toggle {
-    background: none;
-    border: 1px solid var(--color-border-soft);
-    border-radius: 50%;
-    width: 44px;
-    height: 44px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    color: var(--color-text);
-    transition: 0.2s;
-}
-.theme-toggle:hover, .menu-toggle:hover { background: var(--brand-accent); color: #fff; border-color: var(--brand-accent); }
-.menu-toggle { display: none; border-radius: 12px; }
-
-/* ========================================
-   5. COMPONENTS (Hero, Cards, Layouts)
+   4. COMPONENTS
    ======================================== */
 .hero {
     min-height: 65vh;
-    background: linear-gradient(-45deg, #002855, #00152a, #003366, #004080);
-    background-size: 400% 400%;
-    animation: deepOcean 15s ease infinite;
+    background-image: url(/images/banner.jpg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
     display: flex;
     align-items: center;
     color: #ffffff;
@@ -215,8 +161,11 @@ html.dark .brand-text .name { color: var(--color-text); }
     overflow: hidden;
     padding: 64px 0 40px;
 }
-@keyframes deepOcean { 0%, 100% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } }
-
+.hero::after {
+    content: ''; position: absolute; inset: 0;
+    background: linear-gradient(180deg, rgba(0,8,20,0.55) 0%, rgba(0,16,32,0.65) 100%);
+    z-index: 1;
+}
 .hero.hero-sm { min-height: auto; padding: 120px 0 60px; background: var(--color-bg-secondary); }
 .hero.hero-sm .hero-content { text-align: center; position: relative; z-index: 2; }
 .hero.hero-sm h1 { font-size: 2rem; margin-bottom: 0; color: var(--brand-primary); text-shadow: none; }
@@ -261,7 +210,10 @@ html.dark .card h3 { color: var(--color-text); }
     border: 1px solid var(--color-border);
     border-radius: 20px;
     padding: 3rem;
-    display: flex; flex-direction: column; align-items: center; gap: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
     transition: all 0.3s ease;
     box-shadow: var(--shadow-sm);
 }
@@ -274,7 +226,7 @@ html.dark .box-title { color: var(--color-text); }
 html.dark .btn-custom { background-color: var(--brand-accent); color: #000; }
 
 /* ========================================
-   6. FORMS & INPUTS
+   5. FORMS
    ======================================== */
 form input, form textarea, form select {
     width: 100%;
@@ -297,7 +249,7 @@ input[aria-invalid="true"] { border-color: #dc2626; background-color: #fef2f2; }
 html.dark input[aria-invalid="true"] { background-color: #450a0a; }
 
 /* ========================================
-   7. FOOTER
+   6. FOOTER
    ======================================== */
 footer { background-color: var(--color-bg-secondary); color: var(--color-text-secondary); padding: 80px 0 30px; margin-top: auto; border-top: 1px solid var(--color-border); }
 .footer-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 50px; border-bottom: 1px solid var(--color-border); padding-bottom: 40px; }
@@ -309,7 +261,7 @@ html.dark .footer-col h4 { color: var(--color-text); }
 .footer-bottom { text-align: center; margin-top: 30px; font-size: 0.85rem; color: var(--color-text-secondary); opacity: 0.8; }
 
 /* ========================================
-   8. MISC (Tabs, Table, Chat, Calc)
+   7. EXTRAS
    ======================================== */
 .table-wrapper { overflow-x: auto; margin-bottom: 20px; border-radius: 12px; border: 1px solid var(--color-border); }
 .cookie-table { width: 100%; border-collapse: collapse; font-size: 0.95rem; min-width: 600px; }
@@ -348,7 +300,7 @@ html.dark .calc-row:last-child { background: var(--brand-accent); color: #000; }
 .chat-box { border-radius: 16px; box-shadow: var(--shadow-md); }
 
 /* ========================================
-   9. RESPONSIVE
+   8. RESPONSIVE
    ======================================== */
 @media (max-width: 1024px) {
     .grid-3 { grid-template-columns: repeat(2, 1fr); gap: 24px; }

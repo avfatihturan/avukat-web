@@ -38,6 +38,7 @@ const articles = allArticles
       <div class="grid-layout">
         {workAreas.map((area) => (
           <AreaCard
+            id={area.id}
             icon={area.data.icon}
             title={area.data.title || ''}
             description={area.data.description || ''}
@@ -88,7 +89,7 @@ const articles = allArticles
 
   <section class="cta-section">
     <div class="container">
-      <h2>Hukuki Destek Almak İster misiniz?</h2>
+      <h2>Hukuki destek almak ister misiniz?</h2>
       <p>Sorularınız için iletişime geçebilir veya randevu talep edebilirsiniz.</p>
       <div class="cta-buttons">
         <a href="/iletisim" class="btn">
@@ -128,4 +129,14 @@ const articles = allArticles
   .cta-section p { color: var(--color-text-secondary); margin-bottom: 30px; font-size: 1.15rem; }
   
   .cta-buttons { display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; }
+  /* Make both CTA buttons visually identical size */
+  .cta-buttons .btn, .cta-buttons .btn-outline-main {
+    padding: 14px 36px;
+    min-height: 52px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+  }
+  .cta-buttons .btn-outline-main { margin-top: 20px; }
 </style>
