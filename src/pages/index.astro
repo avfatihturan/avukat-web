@@ -5,21 +5,22 @@ import AreaCard from '../components/AreaCard.astro';
 import ArticleCard from '../components/ArticleCard.astro';
 import { getEntry, getCollection } from 'astro:content';
 
-// 1. DATA VERİLERİNİ ÇEK
-const siteEntry = await getEntry('data', 'site');
+// YOL B: Site verisi "site/main"
+const siteEntry = await getEntry('site', 'main');
+
+// work-areas hâlâ "data" koleksiyonunda
 const workAreasEntry = await getEntry('data', 'work-areas');
 
-// 2. MAKALELERİ ÇEK
+// Makaleler
 const allArticles = await getCollection('articles', ({ data }) => !data.draft);
 const latestArticles = allArticles
   .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
-  .slice(0, 3); // Son 3 yazı
+  .slice(0, 3);
 
 if (!siteEntry) throw new Error("Site verisi bulunamadı.");
 
-// Verileri hazırla
 const workAreas = workAreasEntry ? (workAreasEntry.data as any[]) : [];
-const { name } = siteEntry.data;
+const { name } = siteEntry.data as any;
 ---
 
 <BaseLayout
@@ -71,7 +72,7 @@ const { name } = siteEntry.data;
           <a href="/hakkimda" class="btn-outline-main">Detaylı Bilgi</a>
         </div>
         <div class="about-img-wrapper">
-             <div style="background: var(--brand-primary); width: 100%; height: 300px; border-radius: 12px; opacity: 0.1;"></div>
+          <div style="background: var(--brand-primary); width: 100%; height: 300px; border-radius: 12px; opacity: 0.1;"></div>
         </div>
       </div>
     </div>

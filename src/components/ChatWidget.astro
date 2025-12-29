@@ -1,12 +1,14 @@
 ---
 import { getEntry } from 'astro:content';
 
-// VERİ ÇEKME GÜNCELLEMESİ: 'data' klasöründen çekiyoruz
-const siteEntry = await getEntry('data', 'site');
+// YOL B: Site verisi "site" koleksiyonundan "main" entry'si ile çekilir
+const siteEntry = await getEntry('site', 'main');
+
+// Chatbot verisi data koleksiyonunda kalır
 const chatbotEntry = await getEntry('data', 'chatbot');
 
 // Hata önleyici güvenli veri ataması
-const contact = siteEntry?.data?.contact || {};
+const contact = (siteEntry?.data as any)?.contact || {};
 const chatbotData = chatbotEntry?.data || {};
 
 const greeting = chatbotData.greeting || "Merhaba";

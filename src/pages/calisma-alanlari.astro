@@ -4,15 +4,19 @@ import Hero from '../components/Hero.astro';
 import AreaCard from '../components/AreaCard.astro';
 import { getEntry } from 'astro:content';
 
-// DEĞİŞİKLİK: Verileri 'data' koleksiyonundan çekiyoruz
-const siteEntry = await getEntry('data', 'site');
+// YOL B: Site verisi "site" koleksiyonundan "main" entry'si ile çekilir
+const siteEntry = await getEntry('site', 'main');
+
+// work-areas hâlâ "data" koleksiyonunda (dokunmuyoruz)
 const workAreasEntry = await getEntry('data', 'work-areas');
 
 if (!siteEntry) throw new Error("Site verisi bulunamadı.");
 
-// Eğer workAreasEntry boşsa boş dizi döndür
+// workAreasEntry boşsa boş dizi
 const workAreas = workAreasEntry ? (workAreasEntry.data as any[]) : [];
-const { name } = siteEntry.data;
+
+// Yol B: main.json tek obje olduğu için direkt erişilir
+const { name } = siteEntry.data as any;
 ---
 
 <BaseLayout
