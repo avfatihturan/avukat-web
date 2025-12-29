@@ -1,25 +1,139 @@
 ---
-import LegalLayout from '../layouts/LegalLayout.astro';
-import { getEntry, render } from 'astro:content';
-
-const entry = await getEntry('legal', 'yasal-uyari');
-
-// HATA KİLİDİ
-if (!entry) {
-  throw new Error('Yasal Uyarı verisi bulunamadı.');
-}
-
-const { Content } = await render(entry);
-const { title, description, slug } = entry.data;
+import BaseLayout from '../layouts/BaseLayout.astro';
 ---
 
-<LegalLayout
-  title={`${title} | Av. Fatih Turan`}
-  description={description}
-  canonicalUrl={`/${slug || 'yasal-uyari'}`}
-  heroTitle={title}
+<BaseLayout 
+  title="Yasal Uyarı | Av. Fatih Turan" 
+  description="Web sitesi kullanım koşulları ve yasal uyarılar."
+  canonicalUrl="/yasal-uyari"
 >
-  <Content />
-  <hr style="margin:40px 0; border:0; border-top:1px solid var(--color-border);">
-  <p><strong>Av. Fatih Turan</strong><br>Ankara Barosu - 46839</p>
-</LegalLayout>
+  <section class="legal-page">
+    <div class="container">
+      <h1 class="page-title">Yasal Uyarı</h1>
+      
+      <div class="legal-content">
+        <p>
+          Bu internet sitesi (<strong>fatihturan.av.tr</strong>), Türkiye Barolar Birliği Meslek Kuralları ve yürürlükteki <strong>Avukatlık Reklam Yasağı Yönetmeliği</strong>’ne tam uygunluk çerçevesinde, yalnızca bilgilendirme amacıyla hazırlanmıştır. Sitenin amacı, herhangi bir şekilde reklam yapmak, iş sağlamak veya ticari bir faaliyet yürütmek değildir.
+        </p>
+
+        <h3>1. Hukuki Niteliği</h3>
+        <p>Bu sitede yer alan bilgi, makale, açıklama ve tüm içerikler:</p>
+        <ul>
+          <li><strong>Hukuki danışmanlık veya mütalaa niteliği taşımaz.</strong></li>
+          <li>Ziyaretçi ile Av. Fatih Turan arasında kendiliğinden bir <strong>avukat-müvekkil ilişkisi kurmaz.</strong></li>
+          <li>Devam eden veya somut uyuşmazlıklar için bağlayıcı bir hukuki görüş olarak kabul edilemez.</li>
+        </ul>
+        <p>
+          Ziyaretçilerin, bu sitedeki bilgilere dayanarak işlem tesis etmeden önce, somut olayın özelliklerine göre mutlaka alanında uzman bir avukattan profesyonel hukuki destek almaları tavsiye edilir. Sitedeki bilgilerin yanlış yorumlanması veya güncelliğini yitirmesi nedeniyle doğabilecek zararlardan Av. Fatih Turan sorumlu tutulamaz.
+        </p>
+
+        <h3>2. İçerik Değişikliği ve Güncellik</h3>
+        <p>
+          Mevzuat değişiklikleri veya yargı kararları nedeniyle hukuki bilgiler zamanla değişebilir. Bu sitede yer alan içerikler, önceden haber verilmeksizin değiştirilebilir, güncellenebilir veya yayından kaldırılabilir. İçeriklerin her an güncel, eksiksiz veya hatasız olduğu konusunda herhangi bir garanti verilmemektedir.
+        </p>
+
+        <h3>3. Telif Hakları</h3>
+        <p>
+          Bu internet sitesinde yer alan tüm metinler, makaleler, site tasarımı, logo ve görseller <strong>5846 sayılı Fikir ve Sanat Eserleri Kanunu</strong> kapsamında korunmaktadır. Bu içeriklerin Av. Fatih Turan'ın açık yazılı izni olmaksızın kopyalanması, başka mecralarda yayınlanması, çoğaltılması veya ticari amaçla kullanılması yasaktır.
+        </p>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  /* GENEL MASAÜSTÜ AYARLARI */
+  .legal-page { 
+    padding: 6rem 0; 
+    background-color: var(--color-bg); 
+  }
+  
+  .page-title { 
+    font-size: 2.5rem; 
+    color: var(--brand-primary); 
+    margin-bottom: 2rem; 
+    border-bottom: 2px solid var(--color-border); 
+    padding-bottom: 1rem; 
+    line-height: 1.2;
+  }
+  
+  .legal-content { 
+    font-size: 1.05rem; 
+    line-height: 1.8; 
+    color: var(--color-text); 
+  }
+  
+  .legal-content h3 { 
+    color: var(--brand-primary); 
+    margin-top: 2.5rem; 
+    margin-bottom: 1rem; 
+    font-size: 1.4rem; 
+    font-weight: 600;
+  }
+  
+  .legal-content ul { 
+    list-style: disc; 
+    margin-left: 1.5rem; 
+    margin-bottom: 1.5rem; 
+  }
+  
+  .legal-content li { margin-bottom: 0.5rem; }
+  .legal-content a { color: var(--brand-accent); text-decoration: underline; }
+
+  /* TABLO AYARLARI (Mobilde Patlamaması İçin Kritik) */
+  .table-wrapper { 
+    width: 100%; 
+    overflow-x: auto; /* Yatay kaydırmayı açar */
+    -webkit-overflow-scrolling: touch; /* iPhone'da akıcı kaydırma */
+    margin: 2rem 0; 
+    border-radius: 8px; 
+    border: 1px solid var(--color-border); 
+  }
+  
+  table { 
+    width: 100%; 
+    border-collapse: collapse; 
+    min-width: 600px; /* Tablo içeriğini sıkıştırmaz, geniş tutar */
+  }
+  
+  th, td { 
+    padding: 15px; 
+    text-align: left; 
+    border-bottom: 1px solid var(--color-border); 
+  }
+  
+  th { 
+    background-color: var(--brand-primary); 
+    color: #fff; 
+    font-weight: 600; 
+    font-size: 0.9rem; 
+    text-transform: uppercase;
+  }
+  
+  tr:last-child td { border-bottom: none; }
+  tr:nth-child(even) { background-color: var(--color-bg-secondary); }
+
+  /* 📱 MOBİL CİHAZLAR İÇİN ÖZEL AYARLAR (Max Genişlik: 768px) */
+  @media (max-width: 768px) {
+    .legal-page { 
+      padding: 3rem 0; /* Mobilde boşluğu azalttık */
+    }
+
+    .page-title { 
+      font-size: 1.8rem; /* Başlığı küçülttük, ekrana sığsın */
+      margin-bottom: 1.5rem;
+    }
+
+    .legal-content { 
+      font-size: 1rem; /* Okuma metnini standartlaştırdık */
+    }
+
+    .legal-content h3 { 
+      font-size: 1.25rem; /* Alt başlıkları dengeledik */
+      margin-top: 2rem;
+    }
+
+    /* Mobilde tablo başlıklarını ve hücrelerini biraz sıkılaştırabiliriz */
+    th, td { padding: 10px; }
+  }
+</style>

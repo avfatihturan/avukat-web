@@ -1,25 +1,164 @@
 ---
-import LegalLayout from '../layouts/LegalLayout.astro';
-import { getEntry, render } from 'astro:content';
-
-const entry = await getEntry('legal', 'cerez-politikasi');
-
-// HATA KİLİDİ
-if (!entry) {
-  throw new Error('Çerez Politikası verisi bulunamadı.');
-}
-
-const { Content } = await render(entry);
-const { title, description, slug } = entry.data;
+import BaseLayout from '../layouts/BaseLayout.astro';
 ---
 
-<LegalLayout
-  title={`${title} | Av. Fatih Turan`}
-  description={description}
-  canonicalUrl={`/${slug || 'cerez-politikasi'}`}
-  heroTitle={title}
+<BaseLayout 
+  title="Çerez Politikası | Av. Fatih Turan" 
+  description="Web sitemizde kullanılan çerezler (cookies) hakkında bilgilendirme."
+  canonicalUrl="/cerez-politikasi"
 >
-  <Content />
-  <hr style="margin:40px 0; border:0; border-top:1px solid var(--color-border);">
-  <p><strong>Av. Fatih Turan</strong><br>Ankara Barosu - 46839</p>
-</LegalLayout>
+  <section class="legal-page">
+    <div class="container">
+      <h1 class="page-title">Çerez Politikası</h1>
+      
+      <div class="legal-content">
+        <p>
+          Bu internet sitesinde, ziyaretçilerimize daha iyi bir kullanıcı deneyimi sunmak, sitenin verimli çalışmasını sağlamak ve hizmet kalitemizi artırmak amacıyla Çerezler (Cookies) kullanılmaktadır.
+        </p>
+
+        <h3>1. Çerez (Cookie) Nedir?</h3>
+        <p>
+          Çerezler, ziyaret ettiğiniz web siteleri tarafından tarayıcınız aracılığıyla cihazınıza (bilgisayar, telefon, tablet) kaydedilen küçük metin dosyalarıdır. Bu dosyalar, sitenin sizi hatırlamasına ve tercihlerinizi saklamasına yardımcı olur.
+        </p>
+
+        <h3>2. Kullanılan Çerez Türleri</h3>
+        <p>Sitemizde kullanılan çerezler ve kullanım amaçları aşağıdaki gibidir:</p>
+
+        <div class="table-wrapper">
+          <table>
+            <thead>
+              <tr>
+                <th>Çerez Türü</th>
+                <th>Açıklama ve Amaç</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Zorunlu Çerezler</strong></td>
+                <td>
+                  Web sitesinin temel fonksiyonlarının çalışabilmesi için teknik olarak gerekli olan çerezlerdir. Bu çerezler olmadan site düzgün görüntülenemez.
+                </td>
+              </tr>
+              <tr>
+                <td><strong>Analitik Çerezler</strong></td>
+                <td>
+                  Ziyaretçi sayıları, görüntülenen sayfalar ve site içi dolaşım gibi istatistiksel verileri <strong>anonim</strong> olarak toplar. Bu veriler hizmetlerimizi geliştirmek için kullanılır.
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p><strong>Önemli Not:</strong> Kullandığımız çerezler; kimliğinizi tespit etmez, kişisel verilerinize (dosya içerikleri, özel bilgiler vb.) erişmez ve ticari/reklam amaçlarıyla kullanılmaz.</p>
+
+        <h3>3. Çerezlerin Yönetimi ve Silinmesi</h3>
+        <p>
+          Çoğu internet tarayıcısı çerezleri otomatik olarak kabul eder. Ancak tarayıcı ayarlarınızı değiştirerek çerezleri reddedebilir veya silebilirsiniz. Çerezleri devre dışı bırakmanız durumunda web sitesinin bazı özellikleri sınırlı çalışabilir.
+        </p>
+        <p>Tarayıcınızın çerez ayarlarını aşağıdaki linklerden yönetebilirsiniz:</p>
+        <ul>
+          <li><a href="https://support.google.com/chrome/answer/95647?hl=tr" target="_blank" rel="nofollow">Google Chrome</a></li>
+          <li><a href="https://support.apple.com/tr-tr/guide/safari/sfri11471/mac" target="_blank" rel="nofollow">Safari</a></li>
+          <li><a href="https://support.mozilla.org/tr/kb/cerezleri-silme-web-sitelerinin-bilgilerini-kaldirma" target="_blank" rel="nofollow">Mozilla Firefox</a></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  /* GENEL MASAÜSTÜ AYARLARI */
+  .legal-page { 
+    padding: 6rem 0; 
+    background-color: var(--color-bg); 
+  }
+  
+  .page-title { 
+    font-size: 2.5rem; 
+    color: var(--brand-primary); 
+    margin-bottom: 2rem; 
+    border-bottom: 2px solid var(--color-border); 
+    padding-bottom: 1rem; 
+    line-height: 1.2;
+  }
+  
+  .legal-content { 
+    font-size: 1.05rem; 
+    line-height: 1.8; 
+    color: var(--color-text); 
+  }
+  
+  .legal-content h3 { 
+    color: var(--brand-primary); 
+    margin-top: 2.5rem; 
+    margin-bottom: 1rem; 
+    font-size: 1.4rem; 
+    font-weight: 600;
+  }
+  
+  .legal-content ul { 
+    list-style: disc; 
+    margin-left: 1.5rem; 
+    margin-bottom: 1.5rem; 
+  }
+  
+  .legal-content li { margin-bottom: 0.5rem; }
+  .legal-content a { color: var(--brand-accent); text-decoration: underline; }
+
+  /* TABLO AYARLARI (Mobilde Patlamaması İçin Kritik) */
+  .table-wrapper { 
+    width: 100%; 
+    overflow-x: auto; /* Yatay kaydırmayı açar */
+    -webkit-overflow-scrolling: touch; /* iPhone'da akıcı kaydırma */
+    margin: 2rem 0; 
+    border-radius: 8px; 
+    border: 1px solid var(--color-border); 
+  }
+  
+  table { 
+    width: 100%; 
+    border-collapse: collapse; 
+    min-width: 600px; /* Tablo içeriğini sıkıştırmaz, geniş tutar */
+  }
+  
+  th, td { 
+    padding: 15px; 
+    text-align: left; 
+    border-bottom: 1px solid var(--color-border); 
+  }
+  
+  th { 
+    background-color: var(--brand-primary); 
+    color: #fff; 
+    font-weight: 600; 
+    font-size: 0.9rem; 
+    text-transform: uppercase;
+  }
+  
+  tr:last-child td { border-bottom: none; }
+  tr:nth-child(even) { background-color: var(--color-bg-secondary); }
+
+  /* 📱 MOBİL CİHAZLAR İÇİN ÖZEL AYARLAR (Max Genişlik: 768px) */
+  @media (max-width: 768px) {
+    .legal-page { 
+      padding: 3rem 0; /* Mobilde boşluğu azalttık */
+    }
+
+    .page-title { 
+      font-size: 1.8rem; /* Başlığı küçülttük, ekrana sığsın */
+      margin-bottom: 1.5rem;
+    }
+
+    .legal-content { 
+      font-size: 1rem; /* Okuma metnini standartlaştırdık */
+    }
+
+    .legal-content h3 { 
+      font-size: 1.25rem; /* Alt başlıkları dengeledik */
+      margin-top: 2rem;
+    }
+
+    /* Mobilde tablo başlıklarını ve hücrelerini biraz sıkılaştırabiliriz */
+    th, td { padding: 10px; }
+  }
+</style>

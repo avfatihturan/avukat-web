@@ -1,25 +1,202 @@
 ---
-import LegalLayout from '../layouts/LegalLayout.astro';
-import { getEntry, render } from 'astro:content';
-
-const entry = await getEntry('legal', 'kvkk-aydinlatma-metni');
-
-// HATA KİLİDİ: Veri yoksa işlemi durdur (TS hatasını çözer)
-if (!entry) {
-  throw new Error('KVKK Aydınlatma Metni verisi bulunamadı.');
-}
-
-const { Content } = await render(entry);
-const { title, description, slug } = entry.data;
+import BaseLayout from '../layouts/BaseLayout.astro';
 ---
 
-<LegalLayout
-  title={`${title} | Av. Fatih Turan`}
-  description={description}
-  canonicalUrl={`/${slug || 'kvkk-aydinlatma-metni'}`}
-  heroTitle={title}
+<BaseLayout 
+  title="KVKK Aydınlatma Metni | Av. Fatih Turan" 
+  description="6698 Sayılı KVKK kapsamında kişisel verilerin işlenmesi hakkında aydınlatma metni."
+  canonicalUrl="/kvkk-aydinlatma-metni"
 >
-  <Content />
-  <hr style="margin:40px 0; border:0; border-top:1px solid var(--color-border);">
-  <p><strong>Av. Fatih Turan</strong><br>Ankara Barosu - 46839</p>
-</LegalLayout>
+  <section class="legal-page">
+    <div class="container">
+      <h1 class="page-title">KVKK Aydınlatma Metni</h1>
+      
+      <div class="legal-content">
+        <p>
+          Bu aydınlatma metni, <strong>6698 sayılı Kişisel Verilerin Korunması Kanunu (“KVKK”)</strong> uyarınca, veri sorumlusu sıfatıyla <strong>Av. Fatih Turan</strong> tarafından, web sitesi ziyaretçilerini ve müvekkil adaylarını bilgilendirmek amacıyla hazırlanmıştır.
+        </p>
+
+        <h3>1. Veri Sorumlusunun Kimliği</h3>
+        <p>
+          Av. Fatih Turan, hukuki danışmanlık faaliyetleri kapsamında elde ettiği kişisel verilerin güvenliğini sağlamakla yükümlü veri sorumlusudur.
+        </p>
+
+        <h3>2. İşlenen Kişisel Veriler</h3>
+        <p>Web sitemiz ve iletişim kanallarımız üzerinden aşağıdaki kişisel veriler işlenebilmektedir:</p>
+        
+        <div class="table-wrapper">
+          <table>
+            <thead>
+              <tr>
+                <th>Veri Kategorisi</th>
+                <th>İşlenen Veriler</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Kimlik Bilgisi</strong></td>
+                <td>Ad, Soyad</td>
+              </tr>
+              <tr>
+                <td><strong>İletişim Bilgisi</strong></td>
+                <td>Telefon numarası, E-posta adresi</td>
+              </tr>
+              <tr>
+                <td><strong>Talep / Mesaj</strong></td>
+                <td>İletişim formu mesaj içeriği, WhatsApp görüşme kayıtları</td>
+              </tr>
+              <tr>
+                <td><strong>Teknik Veriler</strong></td>
+                <td>IP adresi, Tarayıcı bilgisi, Log kayıtları (İşlem güvenliği için anonim olarak)</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>3. Kişisel Verilerin İşlenme Amaçları</h3>
+        <p>Toplanan kişisel verileriniz aşağıdaki amaçlarla işlenmektedir:</p>
+        <ul>
+          <li>Hukuki danışmanlık ve randevu taleplerinin değerlendirilmesi,</li>
+          <li>Tarafınıza geri dönüş sağlanması ve iletişimin sürdürülmesi,</li>
+          <li>Yasal yükümlülüklerin (Avukatlık Kanunu vb.) yerine getirilmesi,</li>
+          <li>Bilgi güvenliği süreçlerinin yürütülmesi ve yetkili makamlara bilgi verilmesi.</li>
+        </ul>
+
+        <h3>4. Kişisel Verilerin Toplanma Yöntemi ve Hukuki Sebebi</h3>
+        <p>
+          Kişisel verileriniz; web sitemizdeki iletişim formları, e-posta gönderimi veya telefon aramaları yoluyla elektronik ortamda toplanmaktadır. Bu veriler, KVKK’nın 5. maddesinde belirtilen şu hukuki sebeplere dayanarak işlenir:
+        </p>
+        <ul>
+          <li><strong>Bir hakkın tesisi, kullanılması veya korunması için veri işlemenin zorunlu olması,</strong></li>
+          <li>Veri sorumlusunun hukuki yükümlülüğünü yerine getirebilmesi için zorunlu olması,</li>
+          <li>İlgili kişinin açık rızasının bulunması (İletişim formu doldurulurken verilen onay).</li>
+        </ul>
+
+        <h3>5. Kişisel Verilerin Aktarımı</h3>
+        <p>
+          Kişisel verileriniz; mesleki sır saklama yükümlülüğü gereği üçüncü kişilerle paylaşılmamaktadır. Ancak;
+        </p>
+        <ul>
+          <li>Yetkili kamu kurum ve kuruluşlarının hukuki talepleri,</li>
+          <li>Kanuni zorunluluk halleri,</li>
+        </ul>
+        <p>saklı kalmak kaydıyla ilgili mercilere aktarılabilir.</p>
+
+        <h3>6. Saklama Süresi</h3>
+        <p>
+          Kişisel veriler, işlenme amacının gerektirdiği süre boyunca ve ilgili mevzuatta (Avukatlık Kanunu, TBK) öngörülen zaman aşımı süreleri dikkate alınarak saklanır. Süre sonunda veriler silinir, yok edilir veya anonim hale getirilir.
+        </p>
+
+        <h3>7. KVKK Kapsamındaki Haklarınız (Madde 11)</h3>
+        <p>Veri sahibi olarak aşağıdaki haklara sahipsiniz:</p>
+        <ul>
+          <li>Kişisel verilerinizin işlenip işlenmediğini öğrenme,</li>
+          <li>İşlenmişse buna ilişkin bilgi talep etme,</li>
+          <li>Yanlış veya eksik işlenmişse düzeltilmesini isteme,</li>
+          <li>KVKK şartlarına uygun olarak silinmesini veya yok edilmesini talep etme,</li>
+          <li>Aleyhinize bir sonucun ortaya çıkmasına itiraz etme.</li>
+        </ul>
+        <p>
+          Bu haklarınıza ilişkin taleplerinizi, web sitemizdeki iletişim bilgileri üzerinden yazılı olarak tarafımıza iletebilirsiniz.
+        </p>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  /* GENEL MASAÜSTÜ AYARLARI */
+  .legal-page { 
+    padding: 6rem 0; 
+    background-color: var(--color-bg); 
+  }
+  
+  .page-title { 
+    font-size: 2.5rem; 
+    color: var(--brand-primary); 
+    margin-bottom: 2rem; 
+    border-bottom: 2px solid var(--color-border); 
+    padding-bottom: 1rem; 
+    line-height: 1.2;
+  }
+  
+  .legal-content { 
+    font-size: 1.05rem; 
+    line-height: 1.8; 
+    color: var(--color-text); 
+  }
+  
+  .legal-content h3 { 
+    color: var(--brand-primary); 
+    margin-top: 2.5rem; 
+    margin-bottom: 1rem; 
+    font-size: 1.4rem; 
+    font-weight: 600;
+  }
+  
+  .legal-content ul { 
+    list-style: disc; 
+    margin-left: 1.5rem; 
+    margin-bottom: 1.5rem; 
+  }
+  
+  .legal-content li { margin-bottom: 0.5rem; }
+  .legal-content a { color: var(--brand-accent); text-decoration: underline; }
+
+  /* TABLO AYARLARI (Mobilde Patlamaması İçin Kritik) */
+  .table-wrapper { 
+    width: 100%; 
+    overflow-x: auto; /* Yatay kaydırmayı açar */
+    -webkit-overflow-scrolling: touch; /* iPhone'da akıcı kaydırma */
+    margin: 2rem 0; 
+    border-radius: 8px; 
+    border: 1px solid var(--color-border); 
+  }
+  
+  table { 
+    width: 100%; 
+    border-collapse: collapse; 
+    min-width: 600px; /* Tablo içeriğini sıkıştırmaz, geniş tutar */
+  }
+  
+  th, td { 
+    padding: 15px; 
+    text-align: left; 
+    border-bottom: 1px solid var(--color-border); 
+  }
+  
+  th { 
+    background-color: var(--brand-primary); 
+    color: #fff; 
+    font-weight: 600; 
+    font-size: 0.9rem; 
+    text-transform: uppercase;
+  }
+  
+  tr:last-child td { border-bottom: none; }
+  tr:nth-child(even) { background-color: var(--color-bg-secondary); }
+
+  /* 📱 MOBİL CİHAZLAR İÇİN ÖZEL AYARLAR (Max Genişlik: 768px) */
+  @media (max-width: 768px) {
+    .legal-page { 
+      padding: 3rem 0; /* Mobilde boşluğu azalttık */
+    }
+
+    .page-title { 
+      font-size: 1.8rem; /* Başlığı küçülttük, ekrana sığsın */
+      margin-bottom: 1.5rem;
+    }
+
+    .legal-content { 
+      font-size: 1rem; /* Okuma metnini standartlaştırdık */
+    }
+
+    .legal-content h3 { 
+      font-size: 1.25rem; /* Alt başlıkları dengeledik */
+      margin-top: 2rem;
+    }
+
+    /* Mobilde tablo başlıklarını ve hücrelerini biraz sıkılaştırabiliriz */
+    th, td { padding: 10px; }
+  }
+</style>
