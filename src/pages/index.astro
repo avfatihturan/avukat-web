@@ -5,22 +5,21 @@ import AreaCard from '../components/AreaCard.astro';
 import ArticleCard from '../components/ArticleCard.astro';
 import { getEntry, getCollection } from 'astro:content';
 
-// YOL B: Site verisi "site/main"
-const siteEntry = await getEntry('site', 'main');
-
-// work-areas hâlâ "data" koleksiyonunda
+// 1. DATA VERİLERİNİ ÇEK
+const siteEntry = await getEntry('data', 'site');
 const workAreasEntry = await getEntry('data', 'work-areas');
 
-// Makaleler
+// 2. MAKALELERİ ÇEK
 const allArticles = await getCollection('articles', ({ data }) => !data.draft);
 const latestArticles = allArticles
   .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
-  .slice(0, 3);
+  .slice(0, 3); // Son 3 yazı
 
 if (!siteEntry) throw new Error("Site verisi bulunamadı.");
 
+// Verileri hazırla
 const workAreas = workAreasEntry ? (workAreasEntry.data as any[]) : [];
-const { name } = siteEntry.data as any;
+const { name } = siteEntry.data;
 ---
 
 <BaseLayout
@@ -31,7 +30,7 @@ const { name } = siteEntry.data as any;
 >
   <Hero 
     title="Stratejik Hukuk.<br>Güvenilir Temsil."
-    subtitle="Hangi limana gideceğini bilmeyen biri için hiçbir rüzgâr elverişli değildir. - Seneca"
+    subtitle="GİDECEĞİ LİMANI BİLMEYENE HİÇBİR RÜZGAR YARDIM EDEMEZ. — SENECA"
     size="lg" 
     image="/images/banner-home.webp"
   />
@@ -60,26 +59,6 @@ const { name } = siteEntry.data as any;
 
   <section class="page-section bg-light">
     <div class="container">
-      <div class="grid-2">
-        <div class="about-text">
-          <h2 class="section-heading" style="text-align: left; margin-left: 0;">Hakkımda</h2>
-          <p class="lead">Hukuki süreçlerinizi şeffaflık ve güven ilkesiyle yönetiyoruz.</p>
-          <p>
-            Ankara merkezli hukuk büromuzda; Ceza Hukuku, Şirketler Hukuku, İş Hukuku ve Kira Hukuku başta olmak üzere, 
-            müvekkillerimize kapsamlı hukuki danışmanlık ve avukatlık hizmeti sunmaktayız. 
-            Amacımız, karmaşık hukuki süreçleri müvekkillerimiz için en anlaşılır ve lehe olacak şekilde sonuçlandırmaktır.
-          </p>
-          <a href="/hakkimda" class="btn-outline-main">Detaylı Bilgi</a>
-        </div>
-        <div class="about-img-wrapper">
-          <div style="background: var(--brand-primary); width: 100%; height: 300px; border-radius: 12px; opacity: 0.1;"></div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="page-section">
-    <div class="container">
       <h2 class="section-heading">Güncel Yayınlar</h2>
       
       <div class="grid-3">
@@ -107,15 +86,10 @@ const { name } = siteEntry.data as any;
   .bg-light { background-color: var(--color-bg-secondary); }
   
   .grid-layout { display: grid; grid-template-columns: 1fr; gap: 2rem; }
-  .grid-2 { display: grid; grid-template-columns: 1fr; gap: 40px; }
   .grid-3 { display: grid; grid-template-columns: 1fr; gap: 30px; }
-
-  .lead { font-size: 1.2rem; font-weight: 500; color: var(--brand-primary); margin-bottom: 20px; }
-  html.dark .lead { color: var(--brand-accent); }
 
   @media (min-width: 768px) { 
     .grid-layout { grid-template-columns: repeat(2, 1fr); } 
-    .grid-2 { grid-template-columns: 1.2fr 1fr; align-items: center; }
     .grid-3 { grid-template-columns: repeat(2, 1fr); }
   }
   @media (min-width: 1024px) { 
