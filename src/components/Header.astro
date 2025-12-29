@@ -7,7 +7,7 @@ const { currentPage } = Astro.props;
     <div class="header-row">
       
       <a href="/" class="brand-area">
-        <img src="/images/transparent-logo.png" alt="Av. Fatih Turan" width="65" height="65" class="header-logo" />
+        <img src="/images/header-logo.png" alt="Av. Fatih Turan" width="200" height="65" class="header-logo" />
         
         <div class="brand-text">
           <span class="name">Av. Fatih Turan</span>
@@ -16,7 +16,7 @@ const { currentPage } = Astro.props;
       </a>
 
       <div class="header-right">
-        <nav class="desktop-nav">
+        <nav class="desktop-nav" id="mainNav">
           <ul>
             <li><a href="/" class={currentPage === 'home' ? 'active' : ''}>Ana Sayfa</a></li>
             <li><a href="/hakkimda" class={currentPage === 'hakkimda' ? 'active' : ''}>Hakkımda</a></li>
@@ -27,7 +27,7 @@ const { currentPage } = Astro.props;
         </nav>
 
         <button id="themeToggle" class="theme-toggle" aria-label="Tema Değiştir" type="button">
-          <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <circle cx="12" cy="12" r="5"></circle>
             <line x1="12" y1="1" x2="12" y2="3"></line>
             <line x1="12" y1="21" x2="12" y2="23"></line>
@@ -39,13 +39,13 @@ const { currentPage } = Astro.props;
             <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
           </svg>
           
-          <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
           </svg>
         </button>
 
-        <button class="menu-toggle" aria-label="Menüyü Aç" type="button">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <button id="menuToggle" class="menu-toggle" aria-label="Menüyü Aç" type="button">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <line x1="3" y1="12" x2="21" y2="12"></line>
             <line x1="3" y1="6" x2="21" y2="6"></line>
             <line x1="3" y1="18" x2="21" y2="18"></line>
@@ -58,13 +58,14 @@ const { currentPage } = Astro.props;
 </header>
 
 <style>
-  header { background-color: var(--header-bg); padding: 12px 0; position: sticky; top: 0; z-index: 1000; border-bottom: 1px solid var(--color-border); }
+  header { background-color: var(--header-bg); padding: 12px 0; position: sticky; top: 0; z-index: 1000; border-bottom: 1px solid var(--color-border); backdrop-filter: blur(10px); }
   .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
   .header-row { display: flex; justify-content: space-between; align-items: center; }
   
   .brand-area { display: flex; align-items: center; gap: 12px; text-decoration: none; color: var(--brand-primary); }
   html.dark .brand-area { color: var(--color-text); }
   
+  /* Logo yüksekliği ayarlandı */
   .header-logo { width: auto; height: 60px; object-fit: contain; }
 
   .brand-text { display: flex; flex-direction: column; justify-content: center; }
@@ -78,21 +79,32 @@ const { currentPage } = Astro.props;
 
   .theme-toggle { background: none; border: 1px solid var(--color-border-soft); border-radius: 50%; width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; cursor: pointer; color: var(--color-text); transition: 0.2s; }
   .theme-toggle:hover { background: var(--brand-accent); color: white; border-color: var(--brand-accent); }
-  .theme-toggle svg { width: 20px; height: 20px; }
 
-  /* Doğru ikon görünürlüğü */
   .sun-icon { display: block; }
   .moon-icon { display: none; }
   :global(html.dark) .sun-icon { display: none; }
   :global(html.dark) .moon-icon { display: block; }
 
   .menu-toggle { display: none; background: none; border: 1px solid var(--color-border-soft); border-radius: 8px; width: 40px; height: 40px; align-items: center; justify-content: center; color: var(--color-text); cursor: pointer; }
-  .menu-toggle svg { width: 24px; height: 24px; }
   
   @media (max-width: 900px) {
-    .desktop-nav { display: none; } 
-    .desktop-nav.active { display: block; position: absolute; top: 100%; left: 0; width: 100%; background: var(--header-bg); padding: 20px; border-bottom: 1px solid var(--color-border); box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
-    .desktop-nav ul { flex-direction: column; gap: 15px; }
+    .desktop-nav { 
+      display: none; 
+      position: absolute; 
+      top: 100%; 
+      left: 0; 
+      width: 100%; 
+      background: var(--header-bg); 
+      padding: 20px; 
+      border-bottom: 1px solid var(--color-border); 
+      box-shadow: 0 10px 20px rgba(0,0,0,0.2); 
+      flex-direction: column;
+    }
+    
+    /* JavaScript ile 'active' sınıfı eklenince görünür olacak */
+    .desktop-nav.active { display: flex; }
+
+    .desktop-nav ul { flex-direction: column; gap: 20px; width: 100%; text-align: center; }
     .menu-toggle { display: flex; }
     .brand-text .title { display: none; } 
     .header-logo { height: 50px; }
@@ -100,41 +112,34 @@ const { currentPage } = Astro.props;
 </style>
 
 <script>
-  function initTheme() {
+  // Astro Sayfa Geçişleri (View Transitions) ile uyumlu, temiz Script
+  document.addEventListener('astro:page-load', () => {
+    const menuBtn = document.getElementById('menuToggle');
+    const nav = document.getElementById('mainNav');
     const themeBtn = document.getElementById('themeToggle');
-    const menuBtn = document.querySelector('.menu-toggle');
-    const nav = document.querySelector('.desktop-nav');
 
-    // Başlangıç temasını kontrol et
-    const savedTheme = localStorage.getItem('theme');
-    if (savedTheme === 'dark') {
-      document.documentElement.classList.add('dark');
-    } else {
-      document.documentElement.classList.remove('dark');
-    }
-
-    if (themeBtn) {
-      // Event listener temizliği (cloneNode ile)
-      const newBtn = themeBtn.cloneNode(true);
-      themeBtn.parentNode?.replaceChild(newBtn, themeBtn);
-      
-      newBtn.addEventListener('click', () => {
-        document.documentElement.classList.toggle('dark');
-        const isDark = document.documentElement.classList.contains('dark');
-        localStorage.setItem('theme', isDark ? 'dark' : 'light');
-      });
-    }
-
+    // 1. MOBİL MENÜ MANTIĞI
     if (menuBtn && nav) {
-       const newMenuBtn = menuBtn.cloneNode(true);
-       menuBtn.parentNode?.replaceChild(newMenuBtn, menuBtn);
-
-       newMenuBtn.addEventListener('click', () => {
+      menuBtn.onclick = (e) => {
+        // Tıklama olayını durdur, sayfa geneline yayılmasın
+        e.stopPropagation();
         nav.classList.toggle('active');
+      };
+
+      // Menü açıkken sayfanın boş bir yerine tıklanırsa menüyü kapat
+      document.addEventListener('click', (e) => {
+        if (!nav.contains(e.target as Node) && !menuBtn.contains(e.target as Node)) {
+          nav.classList.remove('active');
+        }
       });
     }
-  }
 
-  // Hem ilk yüklemede hem de sayfa geçişlerinde çalıştır
-  document.addEventListener('astro:page-load', initTheme);
+    // 2. TEMA DEĞİŞTİRME MANTIĞI
+    if (themeBtn) {
+      themeBtn.onclick = () => {
+        const isDark = document.documentElement.classList.toggle('dark');
+        localStorage.setItem('theme', isDark ? 'dark' : 'light');
+      };
+    }
+  });
 </script>

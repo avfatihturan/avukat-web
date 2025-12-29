@@ -11,7 +11,6 @@ interface Props {
   canonicalUrl?: string; 
 }
 
-// Varsayılan OG görseli
 const { 
   title, 
   description, 
@@ -42,17 +41,20 @@ const finalImageUrl = new URL(image, siteUrl).href;
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:image" content={finalImageUrl} />
-
+    
     <meta property="twitter:card" content="summary_large_image" />
     <meta property="twitter:url" content={finalCanonicalUrl} />
     <meta property="twitter:title" content={title} />
     <meta property="twitter:description" content={description} />
     <meta property="twitter:image" content={finalImageUrl} />
 
-    <link rel="icon" href="/favicon.ico" sizes="any" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    
-    <link rel="apple-touch-icon" href="/images/og-image.jpg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <link rel="icon" type="image/png" href="/images/favicon.png" />
+    <link rel="apple-touch-icon" href="/images/apple-touch-icon.png" />
+    <link rel="manifest" href="/manifest.webmanifest" />
 
     <link rel="sitemap" href="/sitemap-index.xml" />
     <meta name="generator" content={Astro.generator} />
