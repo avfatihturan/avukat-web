@@ -6,7 +6,7 @@ const { currentPage } = Astro.props;
   <div class="container">
     <div class="header-row">
       
-      <a href="/" class="brand-area">
+      <a href="/" class="brand-area" aria-label="Ana Sayfaya Git">
         <img src="/images/header-logo.png" alt="Av. Fatih Turan" width="200" height="65" class="header-logo" />
         
         <div class="brand-text">
@@ -26,7 +26,7 @@ const { currentPage } = Astro.props;
           </ul>
         </nav>
 
-        <button id="themeToggle" class="theme-toggle" aria-label="Tema Değiştir" type="button">
+        <button id="themeToggle" class="theme-toggle" aria-label="Tema Değiştir (Gece/Gündüz)" type="button">
           <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <circle cx="12" cy="12" r="5"></circle>
             <line x1="12" y1="1" x2="12" y2="3"></line>
@@ -44,7 +44,7 @@ const { currentPage } = Astro.props;
           </svg>
         </button>
 
-        <button id="menuToggle" class="menu-toggle" aria-label="Menüyü Aç" type="button">
+        <button id="menuToggle" class="menu-toggle" aria-label="Mobil Menüyü Aç" type="button">
           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <line x1="3" y1="12" x2="21" y2="12"></line>
             <line x1="3" y1="6" x2="21" y2="6"></line>
@@ -110,25 +110,18 @@ const { currentPage } = Astro.props;
 </style>
 
 <script>
-  // DÜZELTME: 'astro:page-load' beklemesini kaldırdık.
-  // Bu kod artık sayfa yüklenir yüklenmez direkt çalışacak.
-  
   function initHeader() {
     const menuBtn = document.getElementById('menuToggle');
     const nav = document.getElementById('mainNav');
     const themeBtn = document.getElementById('themeToggle');
 
-    // 1. MOBİL MENÜ MANTIĞI
     if (menuBtn && nav) {
-      // Olası çakışmaları önlemek için önce temizle
       menuBtn.onclick = null;
-      
       menuBtn.onclick = (e) => {
-        e.stopPropagation(); // Tıklamayı yayma
+        e.stopPropagation();
         nav.classList.toggle('active');
       };
 
-      // Menü dışına tıklayınca kapatma
       document.onclick = (e) => {
         if (!nav.contains(e.target as Node) && !menuBtn.contains(e.target as Node)) {
           nav.classList.remove('active');
@@ -136,10 +129,8 @@ const { currentPage } = Astro.props;
       };
     }
 
-    // 2. TEMA DEĞİŞTİRME MANTIĞI
     if (themeBtn) {
       themeBtn.onclick = null;
-      
       themeBtn.onclick = () => {
         const isDark = document.documentElement.classList.toggle('dark');
         localStorage.setItem('theme', isDark ? 'dark' : 'light');
@@ -147,6 +138,5 @@ const { currentPage } = Astro.props;
     }
   }
 
-  // Fonksiyonu hemen çalıştır
   initHeader();
 </script>
