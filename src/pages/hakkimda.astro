@@ -3,16 +3,30 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import Hero from '../components/Hero.astro';
 import { getEntry } from 'astro:content';
 
-const siteEntry = await getEntry('site', 'main');
-const aboutEntry = await getEntry('about', 'main');
+type AboutData = {
+  paragraphs: string[];
+  signature?: {
+    name?: string;
+    bar?: string;
+  };
+};
 
-// HATA ÇÖZÜMÜ: Bu kontrol TypeScript'i susturur
-if (!siteEntry || !aboutEntry) {
-  throw new Error('Hakkımda sayfası için gerekli veriler (json) bulunamadı.');
+const siteEntry = await getEntry('site', 'main');
+if (!siteEntry) {
+  throw new Error('Site verisi (site/main) bulunamadı.');
 }
 
-const { name } = siteEntry.data;
-const { paragraphs, signature } = aboutEntry.data;
+// ✅ about koleksiyonu YOK: data koleksiyonundan oku
+const aboutEntry = await getEntry('data', 'about');
+if (!aboutEntry) {
+  throw new Error('Hakkımda sayfası için gerekli veriler (data/about.json) bulunamadı.');
+}
+
+const { name } = siteEntry.data as any;
+const aboutData = aboutEntry.data as AboutData;
+
+const paragraphs: string[] = Array.isArray(aboutData?.paragraphs) ? aboutData.paragraphs : [];
+const signature = aboutData?.signature ?? {};
 ---
 
 <BaseLayout
@@ -26,13 +40,17 @@ const { paragraphs, signature } = aboutEntry.data;
   <section class="bg-light">
     <div class="container about-container">
       <h2 class="section-heading">Disiplin. Strateji. Hukuk.</h2>
-      
+
       <div class="about-content">
-        {paragraphs && paragraphs.map((paragraph) => (
+        {paragraphs.map((paragraph: string) => (
           <p set:html={paragraph} />
         ))}
+
         <div class="about-signature">
-          <p><strong>{signature?.name}</strong><br>{signature?.bar}</p>
+          <p>
+            <strong>{signature?.name}</strong><br />
+            {signature?.bar}
+          </p>
         </div>
       </div>
     </div>
