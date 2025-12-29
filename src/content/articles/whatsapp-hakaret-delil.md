@@ -2,7 +2,7 @@
 title: "WhatsApp ve Sosyal Medyada Hakaret: Ekran Görüntüsü Tek Başına Delil Olur Mu?"
 description: "WhatsApp, Instagram veya Twitter üzerinden hakarete uğradıysanız ekran görüntüsü yeterli mi? Yargıtay kararları, E-Tespit ve matufiyet şartı hakkında hukuki rehber."
 pubDate: 2024-01-05
-heroImage: "../../assets/images/dijital-delil-guvenilirlik-piramidi.jpg"
+heroImage: "/images/dijital-delil-guvenilirlik-piramidi.webp"
 heroAlt: "Dijital delil hiyerarşisi"
 tag: "CEZA HUKUKU"
 ---

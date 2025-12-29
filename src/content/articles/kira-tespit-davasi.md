@@ -2,7 +2,7 @@
 title: "Kira Tespit Davası Açmadan Önce Bilmeniz Gereken 7 Kritik Nokta"
 description: "Kira tespit davası açmadan önce bilmeniz gereken 5 yıl kuralı, ÜFE-TÜFE tuzağı, hakkaniyet indirimi ve arabuluculuk şartları hakkında 7 kritik nokta."
 pubDate: 2024-01-15
-heroImage: "../../assets/images/kira-tespit-hero-desktop.jpg"
+heroImage: "/images/kira-tespit-hero.webp"
 heroAlt: "Kira tespit davası için apartman silueti illüstrasyonu"
 tag: "KİRA HUKUKU"
 ---
