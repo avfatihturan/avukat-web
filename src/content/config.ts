@@ -1,23 +1,34 @@
 import { defineCollection, z } from 'astro:content';
-import { glob, file } from 'astro/loaders';
 
 const articles = defineCollection({
-  loader: glob({ pattern: '**/*.md', base: './src/content/articles' }),
-  schema: ({ image }) => z.object({
+  type: 'content',
+  schema: z.object({
     title: z.string(),
     description: z.string(),
-    pubDate: z.coerce.date(),
-    updatedDate: z.coerce.date().optional(),
-    heroImage: image(),
+    pubDate: z.date(),
+    // BURASI KRİTİK: image() değil, z.string() olmalı.
+    heroImage: z.string(),
     heroAlt: z.string().optional(),
     tag: z.string().optional(),
-    author: z.string().default('Av. Fatih Turan'),
+    author: z.string().optional(),
     draft: z.boolean().default(false),
   }),
 });
 
+const workAreas = defineCollection({
+  type: 'content',
+  schema: z.object({
+    title: z.string(),
+    description: z.string(),
+    icon: z.string(),
+    ctaText: z.string().default('Detaylı Bilgi'),
+    ctaLink: z.string().default('/iletisim'),
+    order: z.number().default(99),
+  }),
+});
+
 const site = defineCollection({
-  loader: file('src/content/data/site.json'),
+  type: 'data',
   schema: z.object({
     name: z.string(),
     title: z.string(),
@@ -26,49 +37,20 @@ const site = defineCollection({
       phone: z.string(),
       phoneLink: z.string(),
       email: z.string(),
-      whatsapp: z.string(),
       address: z.string(),
-      mapUrl: z.string().optional(),
+      whatsapp: z.string(),
+      mapsLink: z.string().optional(),
     }),
-    social: z.record(z.string()).optional(),
-  }),
-});
-
-const about = defineCollection({
-  loader: file('src/content/data/about.json'),
-  schema: z.object({
-    paragraphs: z.array(z.string()),
-    signature: z.object({
-      name: z.string(),
-      bar: z.string(),
-    }),
-  }),
-});
-
-// GÜNCELLENEN KISIM: ctaText ve ctaLink eklendi
-const workAreas = defineCollection({
-  loader: file('src/content/data/work-areas.json'),
-  schema: z.object({
-    id: z.string().optional(),
-    icon: z.string(),
-    title: z.string(),
-    description: z.string(),
-    ctaText: z.string().optional(),
-    ctaLink: z.string().optional(),
-  }),
-});
-
-const legal = defineCollection({
-  loader: glob({ pattern: '**/*.md', base: './src/content/legal' }),
-  schema: z.object({
-    title: z.string(),
-    description: z.string(),
-    slug: z.string().optional(),
+    social: z.object({
+      instagram: z.string().optional(),
+      linkedin: z.string().optional(),
+      twitter: z.string().optional(),
+    }).optional(),
   }),
 });
 
 const chatbot = defineCollection({
-  loader: file('src/content/data/chatbot.json'),
+  type: 'data',
   schema: z.object({
     greeting: z.string(),
     welcomeMessage: z.string(),
@@ -76,11 +58,16 @@ const chatbot = defineCollection({
     options: z.array(z.object({
       key: z.string(),
       label: z.string(),
+      icon: z.string().optional(),
       userText: z.string(),
       botResponse: z.string(),
-      icon: z.string().optional(),
-    })),
+    })).optional(),
   }),
 });
 
-export const collections = { articles, site, about, workAreas, legal, chatbot };
+export const collections = {
+  articles,
+  workAreas,
+  site,
+  chatbot,
+};
