@@ -2,15 +2,16 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Hero from '../components/Hero.astro';
 import AreaCard from '../components/AreaCard.astro';
-import { getEntry, getCollection } from 'astro:content';
+import { getEntry } from 'astro:content';
 
-const siteEntry = await getEntry('site', 'main');
+// DEĞİŞİKLİK: Verileri 'data' koleksiyonundan çekiyoruz
+const siteEntry = await getEntry('data', 'site');
+const workAreasEntry = await getEntry('data', 'work-areas');
 
-if (!siteEntry) {
-  throw new Error("Site verisi bulunamadı.");
-}
+if (!siteEntry) throw new Error("Site verisi bulunamadı.");
 
-const workAreas = await getCollection('workAreas');
+// Eğer workAreasEntry boşsa boş dizi döndür
+const workAreas = workAreasEntry ? (workAreasEntry.data as any[]) : [];
 const { name } = siteEntry.data;
 ---
 
@@ -32,11 +33,11 @@ const { name } = siteEntry.data;
       <div class="grid-layout">
         {workAreas.map((area) => (
           <AreaCard
-            icon={area.data.icon}
-            title={area.data.title}
-            description={area.data.description}
-            ctaText={area.data.ctaText}
-            ctaLink={area.data.ctaLink}
+            icon={area.icon}
+            title={area.title}
+            description={area.description}
+            ctaText={area.ctaText}
+            ctaLink={area.ctaLink}
           />
         ))}
       </div>

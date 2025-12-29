@@ -1,143 +1,124 @@
 ---
-import { getCollection, getEntry } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Hero from '../components/Hero.astro';
-import ArticleCard from '../components/ArticleCard.astro';
 import AreaCard from '../components/AreaCard.astro';
+import ArticleCard from '../components/ArticleCard.astro';
+import { getEntry, getCollection } from 'astro:content';
 
-const siteEntry = await getEntry('site', 'main');
+// 1. DATA VERİLERİNİ ÇEK
+const siteEntry = await getEntry('data', 'site');
+const workAreasEntry = await getEntry('data', 'work-areas');
 
-if (!siteEntry) {
-  throw new Error("Site verisi (site.json) bulunamadı.");
-}
-
-const { contact } = siteEntry.data;
-const workAreas = await getCollection('workAreas');
+// 2. MAKALELERİ ÇEK
 const allArticles = await getCollection('articles', ({ data }) => !data.draft);
-const articles = allArticles
+const latestArticles = allArticles
   .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
-  .slice(0, 3);
+  .slice(0, 3); // Son 3 yazı
+
+if (!siteEntry) throw new Error("Site verisi bulunamadı.");
+
+// Verileri hazırla
+const workAreas = workAreasEntry ? (workAreasEntry.data as any[]) : [];
+const { name } = siteEntry.data;
 ---
 
 <BaseLayout
-  title="Av. Fatih Turan | Ankara Hukuk ve Danışmanlık"
-  description="Ankara merkezli Av. Fatih Turan ile Ceza, Şirketler, İş ve Kira Hukuku alanlarında stratejik ve güvenilir hukuki danışmanlık hizmeti alın."
+  title={`Ana Sayfa | ${name}`}
+  description="Ankara merkezli Ceza, Şirketler, İş ve Kira Hukuku danışmanlığı."
   currentPage="home"
   canonicalUrl="/"
 >
-  <Hero
-    size="lg"
-    title="Stratejik Hukuk.<br>Güvenilir Temsil."
-    subtitle="&quot;Hangi limana gideceğini bilmeyen gemiye, hiçbir rüzgar yardım edemez.&quot; — Seneca"
+  <Hero 
+    title="Hukuki Sorunlarınız İçin<br>Profesyonel Çözümler"
+    subtitle="AV. FATİH TURAN"
+    size="lg" 
     image="/images/banner-home.webp"
   />
 
-  <section class="home-work-section">
+  <section class="page-section">
     <div class="container">
-      <h2 class="section-heading section-heading--center">Çalışma Alanları</h2>
+      <h2 class="section-heading">Çalışma Alanları</h2>
       
       <div class="grid-layout">
-        {workAreas.map((area) => (
+        {workAreas.slice(0, 3).map((area) => (
           <AreaCard
-            id={area.id}
-            icon={area.data.icon}
-            title={area.data.title || ''}
-            description={area.data.description || ''}
-            ctaText={area.data.ctaText}
-            ctaLink={area.data.ctaLink}
+            icon={area.icon}
+            title={area.title}
+            description={area.description}
+            ctaText={area.ctaText}
+            ctaLink={area.ctaLink}
           />
         ))}
       </div>
 
-      <div class="bottom-box-wrapper">
-        <a href="/iletisim" class="bottom-box-link">
-          <div class="bottom-box">
-            
-            <div class="box-content">
-              <h3 class="box-title">Genel Hukuki Danışmanlık</h3>
-              <p class="box-desc">
-                Bireysel ve kurumsal müvekkillere, tekil dosyalarla sınırlı olmayan sürdürülebilir bir hukuki danışmanlık sunulur. Amaç, mevcut sorunların ötesinde hukuki riskleri önceden tespit ederek sürekli bir güvenlik sağlamaktır.
-              </p>
-            </div>
-
-            <div class="box-action">
-              <span class="btn-custom">Hukuki Destek İçin Bize Ulaşın →</span>
-            </div>
-
-          </div>
-        </a>
+      <div style="text-align: center; margin-top: 40px;">
+        <a href="/calisma-alanlari" class="btn">Tüm Alanları İncele</a>
       </div>
-
     </div>
   </section>
 
-  <section class="latest-articles-section">
+  <section class="page-section bg-light">
     <div class="container">
-      <h2 class="section-heading section-heading--center">Son Yayınlar</h2>
+      <div class="grid-2">
+        <div class="about-text">
+          <h2 class="section-heading" style="text-align: left; margin-left: 0;">Hakkımda</h2>
+          <p class="lead">Hukuki süreçlerinizi şeffaflık ve güven ilkesiyle yönetiyoruz.</p>
+          <p>
+            Ankara merkezli hukuk büromuzda; Ceza Hukuku, Şirketler Hukuku, İş Hukuku ve Kira Hukuku başta olmak üzere, 
+            müvekkillerimize kapsamlı hukuki danışmanlık ve avukatlık hizmeti sunmaktayız. 
+            Amacımız, karmaşık hukuki süreçleri müvekkillerimiz için en anlaşılır ve lehe olacak şekilde sonuçlandırmaktır.
+          </p>
+          <a href="/hakkimda" class="btn-outline-main">Detaylı Bilgi</a>
+        </div>
+        <div class="about-img-wrapper">
+             <div style="background: var(--brand-primary); width: 100%; height: 300px; border-radius: 12px; opacity: 0.1;"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="page-section">
+    <div class="container">
+      <h2 class="section-heading">Güncel Yayınlar</h2>
+      
       <div class="grid-3">
-        {articles.map((article) => (
+        {latestArticles.map((article) => (
           <ArticleCard
             title={article.data.title}
             description={article.data.description}
-            href={`/yayinlar/${article.id}`} 
+            href={`/yayinlar/${article.id}`}
             image={article.data.heroImage}
-            tag={article.data.tag || ''} 
+            tag={article.data.tag || ''}
           />
         ))}
       </div>
-    </div>
-  </section>
 
-  <section class="cta-section">
-    <div class="container">
-      <h2>Hukuki destek almak ister misiniz?</h2>
-      <p>Sorularınız için iletişime geçebilir veya randevu talep edebilirsiniz.</p>
-      <div class="cta-buttons">
-        <a href="/iletisim" class="btn">
-           Randevu Al
-        </a>
-        <a href={contact.phoneLink || '#'} class="btn-outline-main">
-           Hemen Ara
-        </a>
+      <div style="text-align: center; margin-top: 40px;">
+        <a href="/yayinlar" class="btn-outline-main">Tüm Yayınları Oku</a>
       </div>
     </div>
   </section>
+
 </BaseLayout>
 
 <style>
-  .home-work-section { padding: 5rem 0; background-color: var(--color-bg-secondary); }
-
-  .grid-layout {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 2rem;
-    margin-top: 3rem;
-  }
-  @media (min-width: 768px) { .grid-layout { grid-template-columns: repeat(2, 1fr); } }
-  @media (min-width: 1024px) { .grid-layout { grid-template-columns: repeat(3, 1fr); } }
-
-  .latest-articles-section { padding: 5rem 0; }
-
-  .cta-section { 
-    background: var(--card-bg); 
-    text-align: center; 
-    padding: 80px 0; 
-    border-top: 1px solid var(--color-border); 
-  }
-  .cta-section h2 { color: var(--brand-primary); margin-bottom: 15px; font-size: 2rem; }
-  :global(html.dark) .cta-section h2 { color: var(--color-text); }
+  .page-section { padding: 5rem 0; background-color: var(--color-bg); }
+  .bg-light { background-color: var(--color-bg-secondary); }
   
-  .cta-section p { color: var(--color-text-secondary); margin-bottom: 30px; font-size: 1.15rem; }
-  
-  .cta-buttons { display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; }
-  
-  .cta-buttons .btn, .cta-buttons .btn-outline-main {
-    padding: 14px 36px;
-    min-height: 52px;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    margin-top: 20px;
+  .grid-layout { display: grid; grid-template-columns: 1fr; gap: 2rem; }
+  .grid-2 { display: grid; grid-template-columns: 1fr; gap: 40px; }
+  .grid-3 { display: grid; grid-template-columns: 1fr; gap: 30px; }
+
+  .lead { font-size: 1.2rem; font-weight: 500; color: var(--brand-primary); margin-bottom: 20px; }
+  html.dark .lead { color: var(--brand-accent); }
+
+  @media (min-width: 768px) { 
+    .grid-layout { grid-template-columns: repeat(2, 1fr); } 
+    .grid-2 { grid-template-columns: 1.2fr 1fr; align-items: center; }
+    .grid-3 { grid-template-columns: repeat(2, 1fr); }
   }
-  .cta-buttons .btn-outline-main { margin-top: 20px; }
+  @media (min-width: 1024px) { 
+    .grid-layout { grid-template-columns: repeat(3, 1fr); } 
+    .grid-3 { grid-template-columns: repeat(3, 1fr); }
+  }
 </style>
