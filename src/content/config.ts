@@ -1,5 +1,6 @@
 import { defineCollection, z } from 'astro:content';
 
+/* Makaleler */
 const articles = defineCollection({
   type: 'content',
   schema: z.object({
@@ -14,9 +15,13 @@ const articles = defineCollection({
   }),
 });
 
-// HATA ÇÖZÜMÜ: "site", "chatbot", "workAreas" klasörleri yerine
-// tek bir "data" klasörü kullanıyoruz. Katı kuralları (schema) kaldırdık (z.any).
-// Bu sayede Vercel "klasör eksik" hatası vermeyecek.
+/* Site genel ayarları (site.json) */
+const site = defineCollection({
+  type: 'data',
+  schema: z.any(), // bilinçli: esnek yapı
+});
+
+/* Genel veri koleksiyonu (chatbot, workAreas vb. için) */
 const data = defineCollection({
   type: 'data',
   schema: z.any(),
@@ -24,5 +29,6 @@ const data = defineCollection({
 
 export const collections = {
   articles,
-  data, 
+  site,
+  data,
 };
