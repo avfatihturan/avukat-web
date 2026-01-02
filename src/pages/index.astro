@@ -5,7 +5,7 @@ import AreaCard from '../components/AreaCard.astro';
 import ArticleCard from '../components/ArticleCard.astro';
 import { getCollection } from 'astro:content';
 
-// DÜZELTME: Verileri doğrudan JSON dosyasından çekiyoruz (Hata vermez)
+// DÜZELTME: Verileri doğrudan JSON dosyasından çekiyoruz
 import siteData from '../content/data/site.json';
 import workAreasData from '../content/data/work-areas.json';
 
@@ -13,7 +13,7 @@ import workAreasData from '../content/data/work-areas.json';
 const allArticles = await getCollection('articles', ({ data }) => !data.draft);
 const latestArticles = allArticles
   .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
-  .slice(0, 3);
+  .slice(0, 3); // Son 3 yazı
 
 // Verileri hazırla
 const { name } = siteData;
