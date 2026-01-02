@@ -1,22 +1,39 @@
 ---
-import { getEntry } from 'astro:content';
+// GÜVENLİ İMPORT
+import rawSiteData from '../content/data/site.json';
+import rawChatbotData from '../content/data/chatbot.json';
 
-// YOL B: Site verisi "site" koleksiyonundan "main" entry'si ile çekilir
-const siteEntry = await getEntry('site', 'main');
+// --- TÜR TANIMLAMALARI (TypeScript Hatalarını Çözer) ---
+interface SiteData {
+  contact?: {
+    phone?: string;
+    phoneLink?: string;
+    email?: string;
+    whatsapp?: string;
+  };
+  [key: string]: any;
+}
 
-// Chatbot verisi data koleksiyonunda kalır
-const chatbotEntry = await getEntry('data', 'chatbot');
+interface ChatbotData {
+  greeting?: string;
+  welcomeMessage?: string;
+  assistantName?: string;
+  options?: any[];
+  [key: string]: any;
+}
 
-// Hata önleyici güvenli veri ataması
-const contact = (siteEntry?.data as any)?.contact || {};
-const chatbotData = chatbotEntry?.data || {};
+// --- AKILLI VERİ DÜZELTİCİ ---
+const siteData: SiteData = Array.isArray(rawSiteData) ? rawSiteData[0] : rawSiteData;
+const chatbotData: ChatbotData = Array.isArray(rawChatbotData) ? rawChatbotData[0] : rawChatbotData;
 
-const greeting = chatbotData.greeting || "Merhaba";
-const welcomeMessage = chatbotData.welcomeMessage || "Size nasıl yardımcı olabilirim?";
-const assistantName = chatbotData.assistantName || "Asistan";
-const options = chatbotData.options || [];
+// Veri Güvenliği
+const contact = siteData?.contact || {};
+const greeting = chatbotData?.greeting || "Merhaba";
+const welcomeMessage = chatbotData?.welcomeMessage || "Size nasıl yardımcı olabilirim?";
+const assistantName = chatbotData?.assistantName || "Asistan";
+const options = chatbotData?.options || [];
 
-// Metin içindeki değişkenleri yerleştirme fonksiyonu
+// Metin işleme fonksiyonu (Tür: string eklendi)
 const processTemplate = (text: string) => {
   if (!text) return "";
   return text
@@ -26,13 +43,14 @@ const processTemplate = (text: string) => {
     .replace(/\{\{whatsapp\}\}/g, contact.whatsapp || '');
 };
 
+// Map işlemi (Tür: any eklendi)
 const processedOptions = options.map((opt: any) => ({
   ...opt,
   botResponse: processTemplate(opt.botResponse),
   icon: opt.icon
 }));
 
-// İKON YOLLARI (EKSİKSİZ)
+// İkon Listesi (Record tipi eklendi - Index hatasını çözer)
 const iconPaths: Record<string, string> = {
   whatsapp: "M256 32C132.3 32 32 132.3 32 256c0 44.3 13 87.6 37.6 124.7L48 480l102.6-20.7C186 480.7 220.7 496 256 496c123.7 0 224-100.3 224-224S379.7 32 256 32zm0 416c-30.2 0-59.9-8.1-85.9-23.4l-6.2-3.7-60.9 12.3 12.8-59.1-4-6.5C88.1 340.5 80 298.6 80 256c0-97 79-176 176-176s176 79 176 176-79 176-176 176zm101.8-125.6c-5.6-2.8-33-16.3-38.1-18.1-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.4 18.1-17.7 21.8-3.3 3.7-6.5 4.2-12.1 1.4-5.6-2.8-23.6-8.7-45-27.7-16.7-14.8-27.9-33.2-31.2-38.8-3.3-5.6-.3-8.6 2.5-11.3 2.5-2.5 5.6-6.5 8.4-9.8 2.8-3.3 3.7-5.6 5.6-9.3 1.9-3.7.9-7-0.5-9.8-1.4-2.8-12.5-30.2-17.1-41.3-4.6-11-9.3-9.5-12.5-9.7-3-.1-6.5-.1-9.9-.1-3.5 0-9.3 1.3-14.1 6.5-4.8 5.2-18.5 18.1-18.5 44 0 25.9 19 50.9 21.7 54.6 2.7 3.7 37.2 56.6 90.2 79.4 31.5 13.6 37.6 10.9 51.2 10.1 13.6-.8 33-13.6 37.6-26.9 4.6-13.3 4.6-24.6 3.2-26.9-1.4-2.3-5.1-3.7-10.7-6.5z",
   robot: "M64 256a64 64 0 1 1 128 0 64 64 0 1 1-128 0zm256 0a64 64 0 1 1 128 0 64 64 0 1 1-128 0zM176 144c0-26.5 21.5-48 48-48h64c26.5 0 48 21.5 48 48v48h-16c-8.8 0-16 7.2-16 16v32c0 8.8 7.2 16 16 16h16v32c0 26.5-21.5 48-48 48H224c-26.5 0-48-21.5-48-48V256h16c8.8 0 16-7.2 16-16V208c0-8.8-7.2-16-16-16h-16V144z",
@@ -44,11 +62,18 @@ const iconPaths: Record<string, string> = {
   calendar: "M96 32V64H48C21.5 64 0 85.5 0 112v48H448V112c0-26.5-21.5-48-48-48H352V32c0-17.7-14.3-32-32-32s-32 14.3-32 32V64H160V32c0-17.7-14.3-32-32-32S96 14.3 96 32zM448 192H0V464c0 26.5 21.5 48 48 48H400c26.5 0 48-21.5 48-48V192z",
   briefcase: "M128 480h256V80c0-26.5-21.5-48-48-48H176c-26.5 0-48 21.5-48 48v400zm64-400h128v32H192V80zM0 128C0 92.7 28.7 64 64 64h32v48H64c-8.8 0-16 7.2-16 16v32h416v-32c0-8.8-7.2-16-16-16h-32V64h32c35.3 0 64 28.7 64 64v320c0 35.3-28.7 64-64 64H64c-35.3 0-64-28.7-64-64V128z",
   coins: "M0 405.3c0 50.5 108.8 91.5 243 91.5 134.2 0 243-41 243-91.5 0-24.1-24.9-46.4-66.9-63.5-36.8 28.6-94.8 47.5-161.4 47.5-66.6 0-124.6-18.9-161.4-47.5-42 17.1-66.9 39.4-66.9 63.5z",
-  default: "M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512z"
+  default: "M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512z",
+  "fa-whatsapp": "M256 32C132.3 32 32 132.3 32 256c0 44.3 13 87.6 37.6 124.7L48 480l102.6-20.7C186 480.7 220.7 496 256 496c123.7 0 224-100.3 224-224S379.7 32 256 32zm0 416c-30.2 0-59.9-8.1-85.9-23.4l-6.2-3.7-60.9 12.3 12.8-59.1-4-6.5C88.1 340.5 80 298.6 80 256c0-97 79-176 176-176s176 79 176 176-79 176-176 176zm101.8-125.6c-5.6-2.8-33-16.3-38.1-18.1-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.4 18.1-17.7 21.8-3.3 3.7-6.5 4.2-12.1 1.4-5.6-2.8-23.6-8.7-45-27.7-16.7-14.8-27.9-33.2-31.2-38.8-3.3-5.6-.3-8.6 2.5-11.3 2.5-2.5 5.6-6.5 8.4-9.8 2.8-3.3 3.7-5.6 5.6-9.3 1.9-3.7.9-7-0.5-9.8-1.4-2.8-12.5-30.2-17.1-41.3-4.6-11-9.3-9.5-12.5-9.7-3-.1-6.5-.1-9.9-.1-3.5 0-9.3 1.3-14.1 6.5-4.8 5.2-18.5 18.1-18.5 44 0 25.9 19 50.9 21.7 54.6 2.7 3.7 37.2 56.6 90.2 79.4 31.5 13.6 37.6 10.9 51.2 10.1 13.6-.8 33-13.6 37.6-26.9 4.6-13.3 4.6-24.6 3.2-26.9-1.4-2.3-5.1-3.7-10.7-6.5z",
+  "fa-calendar": "M96 32V64H48C21.5 64 0 85.5 0 112v48H448V112c0-26.5-21.5-48-48-48H352V32c0-17.7-14.3-32-32-32s-32 14.3-32 32V64H160V32c0-17.7-14.3-32-32-32S96 14.3 96 32zM448 192H0V464c0 26.5 21.5 48 48 48H400c26.5 0 48-21.5 48-48V192z",
+  "fa-briefcase": "M128 480h256V80c0-26.5-21.5-48-48-48H176c-26.5 0-48 21.5-48 48v400zm64-400h128v32H192V80zM0 128C0 92.7 28.7 64 64 64h32v48H64c-8.8 0-16 7.2-16 16v32h416v-32c0-8.8-7.2-16-16-16h-32V64h32c35.3 0 64 28.7 64 64v320c0 35.3-28.7 64-64 64H64c-35.3 0-64-28.7-64-64V128z",
+  "fa-coins": "M0 405.3c0 50.5 108.8 91.5 243 91.5 134.2 0 243-41 243-91.5 0-24.1-24.9-46.4-66.9-63.5-36.8 28.6-94.8 47.5-161.4 47.5-66.6 0-124.6-18.9-161.4-47.5-42 17.1-66.9 39.4-66.9 63.5z",
+  "fa-phone": "M164.9 24.6c-7.7-18.6-28-28.5-47.4-23.2l-88 24C12.1 30.2 0 46 0 64C0 311.4 200.6 512 448 512c18 0 33.8-12.1 38.6-29.5l24-88c5.3-19.4-4.6-39.7-23.2-47.4l-96-40c-16.3-6.8-35.2-2.1-46.3 11.6L304.7 368C234.3 334.7 177.3 277.7 144 207.3L193.3 167c13.7-11.2 18.4-30 11.6-46.3l-40-96z"
 };
 
 const getIconPath = (iconClass: string) => {
   if (!iconClass) return iconPaths.default;
+  if (iconPaths[iconClass]) return iconPaths[iconClass];
+  
   if (iconClass.includes('whatsapp')) return iconPaths.whatsapp;
   if (iconClass.includes('phone')) return iconPaths.phone;
   if (iconClass.includes('calendar')) return iconPaths.calendar;
@@ -63,7 +88,7 @@ const getIconPath = (iconClass: string) => {
 <div id="super-fab-wrapper" class="super-fab-wrapper">
   <div id="fabGreeting" class="fab-greeting">
     {greeting}
-    <button class="greeting-close" onclick="closeGreeting()" aria-label="Bildirimi Kapat">&times;</button>
+    <button class="greeting-close" onclick="closeGreeting()" aria-label="Bildirimi Kapat">×</button>
   </div>
 
   <div id="chatWindow" class="chat-window" role="dialog" aria-hidden="true">
