@@ -24,9 +24,9 @@ const icons = {
   currentPage="iletisim"
   canonicalUrl="/iletisim"
 >
-  <Hero 
-    title="İletişim" 
-    size="sm" 
+  <Hero
+    title="İletişim"
+    size="sm"
     image="/images/banner-contact.webp"
   />
 
@@ -65,31 +65,43 @@ const icons = {
       </div>
 
       <div class="form-wrapper">
-        <h2 class="section-heading" style="font-size: 1.8rem; margin-bottom: 30px;">Randevu Talep Formu</h2>
-        <p style="margin-bottom: 30px; color: var(--color-text-secondary);">
+        <h2 class="section-heading" style="font-size: 1.8rem; margin-bottom: 20px;">Randevu Talep Formu</h2>
+
+        <p class="form-intro">
           Hukuki danışmanlık talepleriniz için aşağıdaki formu doldurabilirsiniz.
           Müsaitlik durumuna göre size en kısa sürede geri dönüş yapılacaktır.
         </p>
 
+        <div class="form-meta">
+          <span class="required-note"><span class="req">*</span> Zorunlu alan</span>
+        </div>
+
         <form action="https://formspree.io/f/xankgjed" method="POST" class="contact-form">
+          <!-- SPAM KORUMA (Honeypot): botlar doldurur, gerçek kullanıcı görmez -->
+          <div class="hp-wrap" aria-hidden="true">
+            <label for="website">Website</label>
+            <input id="website" type="text" name="_gotcha" tabindex="-1" autocomplete="off" />
+          </div>
+
           <div class="form-row">
             <div class="form-group">
-              <label>Adınız Soyadınız</label>
-              <input type="text" name="adsoyad" placeholder="Ad Soyad" required />
+              <label for="adsoyad">Adınız Soyadınız <span class="req">*</span></label>
+              <input id="adsoyad" type="text" name="adsoyad" placeholder="Ad Soyad" required />
             </div>
+
             <div class="form-group">
-              <label>Telefon Numaranız</label>
-              <input type="tel" name="telefon" placeholder="05XX XXX XX XX" required />
+              <label for="telefon">Telefon Numaranız <span class="req">*</span></label>
+              <input id="telefon" type="tel" name="telefon" placeholder="05XX XXX XX XX" required inputmode="tel" />
             </div>
           </div>
 
           <div class="form-group">
-            <label>E-posta Adresiniz</label>
-            <input type="email" name="email" placeholder="ornek@email.com" required />
+            <label for="email">E-posta Adresiniz <span class="req">*</span></label>
+            <input id="email" type="email" name="email" placeholder="ornek@email.com" required inputmode="email" />
           </div>
 
           <div class="form-group">
-            <label style="margin-bottom: 10px; display:block;">Görüşme İçin Uygun Olduğunuz Tarihler (3 Alternatif)</label>
+            <label class="label-block">Görüşme İçin Uygun Olduğunuz Tarihler (3 Alternatif)</label>
             <div class="date-grid">
               <input type="date" name="tarih_tercih_1" aria-label="1. Tercih" />
               <input type="date" name="tarih_tercih_2" aria-label="2. Tercih" />
@@ -98,21 +110,23 @@ const icons = {
           </div>
 
           <div class="form-group">
-            <label>Konu / Hukuki Sorun Özeti</label>
-            <textarea name="mesaj" rows="5" placeholder="Danışmak istediğiniz konuyu kısaca özetleyiniz..." required></textarea>
+            <label for="mesaj">Konu / Hukuki Sorun Özeti <span class="req">*</span></label>
+            <textarea id="mesaj" name="mesaj" rows="5" placeholder="Danışmak istediğiniz konuyu kısaca özetleyiniz..." required></textarea>
           </div>
 
           <div class="checkbox-group fee-warning">
             <input type="checkbox" name="ucret_onayi" id="ucret_onayi" value="Kabul Edildi" required />
             <label for="ucret_onayi">
-              <strong>Danışmanlık Ücreti Onayı:</strong> Ofisimizde veya online yapılacak görüşmelerin, Avukatlık Asgari Ücret Tarifesi gereğince <strong>ücrete tabi olduğunu</strong> biliyor ve kabul ediyorum.
+              <strong>Danışmanlık Ücreti Onayı <span class="req">*</span>:</strong>
+              Ofisimizde veya online yapılacak görüşmelerin, Avukatlık Asgari Ücret Tarifesi gereğince
+              <strong>ücrete tabi olduğunu</strong> biliyor ve kabul ediyorum.
             </label>
           </div>
 
           <div class="checkbox-group">
             <input type="checkbox" name="kvkk_onayi" id="kvkk_onayi" value="Okudum" required />
             <label for="kvkk_onayi">
-              <a href="/kvkk-aydinlatma-metni" target="_blank" style="text-decoration: underline;">KVKK Aydınlatma Metni</a>'ni okudum.
+              <a href="/kvkk-aydinlatma-metni" target="_blank" style="text-decoration: underline;">KVKK Aydınlatma Metni</a>'ni okudum. <span class="req">*</span>
             </label>
           </div>
 
@@ -194,49 +208,118 @@ const icons = {
     border: 1px solid var(--color-border);
     box-shadow: 0 4px 20px rgba(0,0,0,0.05);
   }
-  @media (max-width: 600px) { .form-wrapper { padding: 25px; } }
+  @media (max-width: 600px) { .form-wrapper { padding: 22px; } }
 
-  .form-group { margin-bottom: 20px; }
+  .form-intro{
+    margin-bottom: 18px;
+    color: var(--color-text-secondary);
+  }
+
+  .form-meta{
+    display:flex;
+    justify-content:flex-start;
+    margin-bottom: 18px;
+  }
+
+  .required-note{
+    font-size: .92rem;
+    color: var(--color-text-secondary);
+  }
+
+  .req{
+    color: #dc2626;
+    font-weight: 800;
+    margin-left: 2px;
+  }
+
+  .form-group { margin-bottom: 18px; }
+
   .form-group label {
     display: block;
     margin-bottom: 8px;
-    font-weight: 600;
+    font-weight: 650;
     font-size: 0.95rem;
     color: var(--brand-primary);
   }
   :global(html.dark) .form-group label { color: var(--color-text); }
 
-  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
-  @media (max-width: 600px) { .form-row { grid-template-columns: 1fr; } }
+  .label-block{ display:block; margin-bottom: 10px; }
 
-  .date-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 15px; }
-  @media (max-width: 600px) { .date-grid { grid-template-columns: 1fr; } }
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  @media (max-width: 700px) { .form-row { grid-template-columns: 1fr; } }
 
-  input[type="text"], input[type="email"], input[type="tel"], input[type="date"], textarea {
+  .date-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; }
+  @media (max-width: 700px) { .date-grid { grid-template-columns: 1fr; } }
+
+  /* FORM INPUTS — premium + mobile-friendly */
+  input[type="text"],
+  input[type="email"],
+  input[type="tel"],
+  input[type="date"],
+  textarea {
     width: 100%;
-    padding: 14px;
+    padding: 14px 14px;
     border: 1px solid var(--input-border);
     background-color: var(--input-bg);
-    border-radius: 10px;
+    border-radius: 12px;
     font-family: inherit;
-    font-size: 1rem;
+    font-size: 16px; /* iOS zoom engeli */
     color: var(--color-text);
     transition: 0.2s;
   }
+
+  input[type="text"],
+  input[type="email"],
+  input[type="tel"],
+  input[type="date"]{
+    height: 48px;
+  }
+
+  textarea{
+    min-height: 140px;
+    resize: vertical;
+  }
+
   input:focus, textarea:focus {
     outline: none;
     border-color: var(--brand-accent);
-    box-shadow: 0 0 0 3px rgba(197, 160, 89, 0.1);
+    box-shadow: 0 0 0 3px rgba(197, 160, 89, 0.10);
+    background: var(--card-bg);
+  }
+
+  /* Mobilde “çok büyük” hissini düzelt */
+  @media (max-width: 600px){
+    input[type="text"],
+    input[type="email"],
+    input[type="tel"],
+    input[type="date"],
+    textarea{
+      padding: 12px 12px;
+      border-radius: 12px;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="tel"],
+    input[type="date"]{
+      height: 44px;
+    }
+
+    textarea{
+      min-height: 132px;
+    }
   }
 
   .checkbox-group {
-    display: flex;
-    align-items: flex-start;
+    display: grid;
+    grid-template-columns: 20px 1fr;
     gap: 12px;
-    margin-bottom: 15px;
-    font-size: 0.9rem;
-    line-height: 1.5;
+    margin: 14px 0;
+    font-size: 0.92rem;
+    line-height: 1.55;
+    align-items: start;
   }
+
   .checkbox-group input {
     margin-top: 4px;
     accent-color: var(--brand-accent);
@@ -245,12 +328,22 @@ const icons = {
   }
 
   .fee-warning {
-    background-color: rgba(197, 160, 89, 0.1);
-    padding: 15px;
+    background-color: rgba(197, 160, 89, 0.10);
+    padding: 14px;
     border-left: 4px solid var(--brand-accent);
-    border-radius: 4px;
+    border-radius: 10px;
   }
-  :global(html.dark) .fee-warning { background-color: rgba(197, 160, 89, 0.05); }
+  :global(html.dark) .fee-warning { background-color: rgba(197, 160, 89, 0.06); }
 
   .btn { width: 100%; margin-top: 10px; }
+
+  /* Honeypot: ekranda görünmesin, botlar görür */
+  .hp-wrap{
+    position:absolute !important;
+    left:-10000px !important;
+    top:auto !important;
+    width:1px !important;
+    height:1px !important;
+    overflow:hidden !important;
+  }
 </style>

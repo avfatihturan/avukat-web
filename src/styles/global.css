@@ -52,9 +52,7 @@ html.dark {
 * { box-sizing: border-box; margin: 0; padding: 0; }
 
 /* iOS / mobil overscroll & pull-to-refresh azaltma */
-html {
-    overscroll-behavior-y: none;
-}
+html { overscroll-behavior-y: none; }
 
 html, body {
     width: 100%;
@@ -65,7 +63,6 @@ html, body {
 }
 
 body {
-    /* DÜZELTME: BaseLayout'ta eklediğimiz Montserrat fontu burada aktif edildi */
     font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
     color: var(--color-text);
     background-color: var(--color-bg);
@@ -76,7 +73,6 @@ body {
     min-height: 100vh;
     transition: background-color 0.3s ease, color 0.3s ease;
 
-    /* iOS scroll davranışını daha stabil yapar */
     -webkit-overflow-scrolling: touch;
 }
 
@@ -84,8 +80,6 @@ body {
 body.menu-open {
     overflow: hidden;
     touch-action: none;
-
-    /* iOS'ta overflow:hidden tek başına yetmez -> fixed body */
     position: fixed;
     width: 100%;
     left: 0;
@@ -99,7 +93,6 @@ main {
     width: 100%;
 }
 
-/* CONTAINER YAPISI */
 .container {
     max-width: 1200px;
     width: 100%;
@@ -128,12 +121,8 @@ h2.section-heading {
     position: relative;
 }
 h2.section-heading::after {
-    content: '';
-    display: block;
-    width: 60px;
-    height: 3px;
-    background: var(--brand-accent);
-    margin: 12px auto 0;
+    content: ''; display: block; width: 60px; height: 3px;
+    background: var(--brand-accent); margin: 12px auto 0;
 }
 
 .btn {
@@ -189,9 +178,7 @@ html.dark .btn-outline-main:hover { background-color: var(--brand-accent); color
     padding: 64px 0 40px;
 }
 .hero::after {
-    content: '';
-    position: absolute;
-    inset: 0;
+    content: ''; position: absolute; inset: 0;
     background: linear-gradient(180deg, rgba(0,8,20,0.55) 0%, rgba(0,16,32,0.65) 100%);
     z-index: 1;
 }
@@ -340,8 +327,6 @@ html.dark .calc-row:last-child { background: var(--brand-accent); color: #000; }
     .chat-widget { display: none !important; }
     .whatsapp-float { display: flex !important; bottom: 20px; right: 20px; }
     .menu-toggle { display: flex; }
-
-    /* Mobil menü z-index / davranış Header.astro içinde overlay ile çözüldü */
     .brand-text .title { display: none; }
 }
 @media (max-width: 768px) {
