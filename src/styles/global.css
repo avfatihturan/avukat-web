@@ -40,7 +40,7 @@ html.dark {
     --card-bg: #1c1c1e;
     --input-bg: #1c1c1e;
     --input-border: #333333;
-    
+
     --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.3);
     --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.4);
     --shadow-hover: 0 12px 32px rgba(0, 0, 0, 0.5);
@@ -51,11 +51,17 @@ html.dark {
    ======================================== */
 * { box-sizing: border-box; margin: 0; padding: 0; }
 
+/* iOS / mobil overscroll & pull-to-refresh azaltma */
+html {
+    overscroll-behavior-y: none;
+}
+
 html, body {
     width: 100%;
     margin: 0;
     padding: 0;
     overflow-x: hidden;
+    overscroll-behavior-y: none;
 }
 
 body {
@@ -69,6 +75,21 @@ body {
     flex-direction: column;
     min-height: 100vh;
     transition: background-color 0.3s ease, color 0.3s ease;
+
+    /* iOS scroll davranışını daha stabil yapar */
+    -webkit-overflow-scrolling: touch;
+}
+
+/* Mobil menü açıkken scroll kilidi (iOS garantili yöntem) */
+body.menu-open {
+    overflow: hidden;
+    touch-action: none;
+
+    /* iOS'ta overflow:hidden tek başına yetmez -> fixed body */
+    position: fixed;
+    width: 100%;
+    left: 0;
+    right: 0;
 }
 
 main {
@@ -79,11 +100,11 @@ main {
 }
 
 /* CONTAINER YAPISI */
-.container { 
-    max-width: 1200px; 
-    width: 100%; 
-    margin: 0 auto; 
-    padding: 0 24px; 
+.container {
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 24px;
 }
 
 section { padding: 60px 0; width: 100%; }
@@ -106,9 +127,13 @@ h2.section-heading {
     text-align: center;
     position: relative;
 }
-h2.section-heading::after { 
-    content: ''; display: block; width: 60px; height: 3px; 
-    background: var(--brand-accent); margin: 12px auto 0; 
+h2.section-heading::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 3px;
+    background: var(--brand-accent);
+    margin: 12px auto 0;
 }
 
 .btn {
@@ -152,7 +177,7 @@ html.dark .btn-outline-main:hover { background-color: var(--brand-accent); color
    ======================================== */
 .hero {
     min-height: 65vh;
-    background-image: url(/images/banner-home.webp);   
+    background-image: url(/images/banner-home.webp);
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
@@ -164,7 +189,9 @@ html.dark .btn-outline-main:hover { background-color: var(--brand-accent); color
     padding: 64px 0 40px;
 }
 .hero::after {
-    content: ''; position: absolute; inset: 0;
+    content: '';
+    position: absolute;
+    inset: 0;
     background: linear-gradient(180deg, rgba(0,8,20,0.55) 0%, rgba(0,16,32,0.65) 100%);
     z-index: 1;
 }
@@ -313,15 +340,8 @@ html.dark .calc-row:last-child { background: var(--brand-accent); color: #000; }
     .chat-widget { display: none !important; }
     .whatsapp-float { display: flex !important; bottom: 20px; right: 20px; }
     .menu-toggle { display: flex; }
-    
-    /* DÜZELTME: Mobil menü z-index sorunu giderildi */
-    .desktop-nav { display: none; position: absolute; top: 100%; left: 0; width: 100%; background-color: var(--header-bg); padding: 20px; border-bottom: 1px solid var(--color-border); box-shadow: var(--shadow-md); backdrop-filter: blur(10px); }
-    .desktop-nav.active { display: block; z-index: 999; }
-    
-    .desktop-nav ul { flex-direction: column; gap: 15px; }
-    .hero h1 { font-size: 2rem; }
-    .hero.hero-sm { padding: 90px 0 40px; }
-    .grid-2, .contact-wrapper { display: flex; flex-direction: column; gap: 40px; }
+
+    /* Mobil menü z-index / davranış Header.astro içinde overlay ile çözüldü */
     .brand-text .title { display: none; }
 }
 @media (max-width: 768px) {

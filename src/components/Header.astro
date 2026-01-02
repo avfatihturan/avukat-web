@@ -1,14 +1,19 @@
 ---
+// Header.astro
+// Props tanımlaması (TypeScript için)
+interface Props {
+  currentPage?: string;
+}
+
 const { currentPage } = Astro.props;
 ---
 
 <header>
   <div class="container">
     <div class="header-row">
-      
+
       <a href="/" class="brand-area" aria-label="Ana Sayfaya Git">
         <img src="/images/header-logo.png" alt="Av. Fatih Turan" width="200" height="65" class="header-logo" />
-        
         <div class="brand-text">
           <span class="name">Av. Fatih Turan</span>
           <span class="title">Hukuki Danışmanlık</span>
@@ -16,7 +21,7 @@ const { currentPage } = Astro.props;
       </a>
 
       <div class="header-right">
-        <nav class="desktop-nav" id="mainNav">
+        <nav class="desktop-nav" id="mainNav" aria-label="Ana Menü">
           <ul>
             <li><a href="/" class={currentPage === 'home' ? 'active' : ''}>Ana Sayfa</a></li>
             <li><a href="/hakkimda" class={currentPage === 'hakkimda' ? 'active' : ''}>Hakkımda</a></li>
@@ -26,30 +31,28 @@ const { currentPage } = Astro.props;
           </ul>
         </nav>
 
-        <button id="themeToggle" class="theme-toggle" aria-label="Tema Değiştir (Gece/Gündüz)" type="button">
-          <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <circle cx="12" cy="12" r="5"></circle>
-            <line x1="12" y1="1" x2="12" y2="3"></line>
-            <line x1="12" y1="21" x2="12" y2="23"></line>
-            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
-            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
-            <line x1="1" y1="12" x2="3" y2="12"></line>
-            <line x1="21" y1="12" x2="23" y2="12"></line>
-            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
-            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
-          </svg>
-          
-          <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
-          </svg>
+        <button
+          id="menuBackdrop"
+          class="menu-backdrop"
+          type="button"
+          aria-label="Menüyü Kapat"
+          tabindex="-1"
+        ></button>
+
+        <button id="themeToggle" class="theme-toggle" aria-label="Tema Değiştir" type="button">
+          <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+          <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
         </button>
 
-        <button id="menuToggle" class="menu-toggle" aria-label="Mobil Menüyü Aç" type="button">
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <line x1="3" y1="12" x2="21" y2="12"></line>
-            <line x1="3" y1="6" x2="21" y2="6"></line>
-            <line x1="3" y1="18" x2="21" y2="18"></line>
-          </svg>
+        <button
+          id="menuToggle"
+          class="menu-toggle"
+          aria-label="Mobil Menüyü Aç"
+          aria-controls="mainNav"
+          aria-expanded="false"
+          type="button"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
         </button>
 
       </div>
@@ -58,25 +61,50 @@ const { currentPage } = Astro.props;
 </header>
 
 <style>
-  header { background-color: var(--header-bg); padding: 12px 0; position: sticky; top: 0; z-index: 1000; border-bottom: 1px solid var(--color-border); backdrop-filter: blur(10px); }
+  header {
+    background-color: var(--header-bg);
+    padding: 12px 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    border-bottom: 1px solid var(--color-border);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+  }
+
   .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
   .header-row { display: flex; justify-content: space-between; align-items: center; }
-  
+
   .brand-area { display: flex; align-items: center; gap: 12px; text-decoration: none; color: var(--brand-primary); }
-  html.dark .brand-area { color: var(--color-text); }
-  
+  :global(html.dark) .brand-area { color: var(--color-text); }
+
   .header-logo { width: auto; height: 60px; object-fit: contain; }
 
   .brand-text { display: flex; flex-direction: column; justify-content: center; }
   .brand-text .name { font-weight: 800; text-transform: uppercase; font-size: 1.15rem; line-height: 1.1; }
   .brand-text .title { font-size: 0.7rem; letter-spacing: 1px; color: var(--brand-accent); font-weight: 600; margin-top: 2px; }
 
-  .header-right { display: flex; align-items: center; gap: 20px; }
+  .header-right { display: flex; align-items: center; gap: 14px; }
+
+  /* Desktop nav */
   .desktop-nav ul { display: flex; gap: 25px; list-style: none; margin: 0; padding: 0; }
   .desktop-nav a { font-weight: 600; font-size: 0.85rem; text-transform: uppercase; color: var(--color-text); transition: 0.2s; }
   .desktop-nav a:hover, .desktop-nav a.active { color: var(--brand-accent); }
 
-  .theme-toggle { background: none; border: 1px solid var(--color-border-soft); border-radius: 50%; width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; cursor: pointer; color: var(--color-text); transition: 0.2s; }
+  /* Theme button */
+  .theme-toggle {
+    background: none;
+    border: 1px solid var(--color-border-soft);
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    color: var(--color-text);
+    transition: 0.2s;
+  }
   .theme-toggle:hover { background: var(--brand-accent); color: white; border-color: var(--brand-accent); }
 
   .sun-icon { display: block; }
@@ -84,59 +112,197 @@ const { currentPage } = Astro.props;
   :global(html.dark) .sun-icon { display: none; }
   :global(html.dark) .moon-icon { display: block; }
 
-  .menu-toggle { display: none; background: none; border: 1px solid var(--color-border-soft); border-radius: 8px; width: 40px; height: 40px; align-items: center; justify-content: center; color: var(--color-text); cursor: pointer; }
-  
-  @media (max-width: 900px) {
-    .desktop-nav { 
-      display: none; 
-      position: absolute; 
-      top: 100%; 
-      left: 0; 
-      width: 100%; 
-      background: var(--header-bg); 
-      padding: 20px; 
-      border-bottom: 1px solid var(--color-border); 
-      box-shadow: 0 10px 20px rgba(0,0,0,0.2); 
-      flex-direction: column;
-    }
-    
-    .desktop-nav.active { display: flex; }
+  /* Menu button */
+  .menu-toggle {
+    display: none;
+    background: none;
+    border: 1px solid var(--color-border-soft);
+    border-radius: 10px;
+    width: 40px;
+    height: 40px;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-text);
+    cursor: pointer;
+    transition: 0.2s;
+  }
+  .menu-toggle:hover { border-color: var(--brand-accent); }
 
-    .desktop-nav ul { flex-direction: column; gap: 20px; width: 100%; text-align: center; }
+  /* Premium: Backdrop overlay */
+  .menu-backdrop {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.35);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 0;
+    z-index: 998;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.25s ease;
+  }
+  .menu-backdrop.active { opacity: 1; pointer-events: auto; }
+
+  @media (max-width: 900px) {
     .menu-toggle { display: flex; }
-    .brand-text .title { display: none; } 
+
+    .desktop-nav {
+      display: block;
+      position: fixed;
+      top: 72px;
+      left: 12px;
+      right: 12px;
+      max-width: 520px;
+      margin: 0 auto;
+      background: var(--header-bg);
+      border: 1px solid var(--color-border);
+      border-radius: 18px;
+      padding: 18px;
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      outline: 1px solid rgba(197,160,89,0.22);
+      outline-offset: -1px;
+      box-shadow: 0 24px 70px rgba(0,0,0,0.22), inset 0 1px 0 rgba(255,255,255,0.18);
+      z-index: 999;
+      transform: translateY(-14px);
+      opacity: 0;
+      pointer-events: none;
+      transition: transform 0.25s ease, opacity 0.25s ease;
+    }
+
+    :global(html.dark) .desktop-nav {
+      box-shadow: 0 24px 70px rgba(0,0,0,0.35), inset 0 1px 0 rgba(255,255,255,0.06);
+      outline: 1px solid rgba(197,160,89,0.18);
+    }
+
+    .desktop-nav.active {
+      transform: translateY(0);
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .desktop-nav ul { flex-direction: column; gap: 12px; width: 100%; text-align: center; }
+
+    .desktop-nav a {
+      display: block;
+      padding: 12px 10px;
+      border-radius: 12px;
+    }
+
+    .desktop-nav a:hover {
+      background: rgba(197, 160, 89, 0.12);
+      color: var(--brand-accent);
+      transform: translateY(-1px);
+    }
+
+    .menu-backdrop { display: block; }
+    .brand-text .title { display: none; }
     .header-logo { height: 50px; }
   }
 </style>
 
 <script>
   function initHeader() {
+    // HTML elemanlarını seçiyoruz ve "HTMLElement" olduklarını belirtiyoruz
     const menuBtn = document.getElementById('menuToggle');
     const nav = document.getElementById('mainNav');
     const themeBtn = document.getElementById('themeToggle');
+    const backdrop = document.getElementById('menuBackdrop');
 
-    if (menuBtn && nav) {
-      menuBtn.onclick = null;
-      menuBtn.onclick = (e) => {
-        e.stopPropagation();
-        nav.classList.toggle('active');
-      };
+    // Eğer menü yoksa (hata durumu) kodu durdur
+    if (!nav || !menuBtn) return;
 
-      document.onclick = (e) => {
-        if (!nav.contains(e.target as Node) && !menuBtn.contains(e.target as Node)) {
-          nav.classList.remove('active');
-        }
-      };
+    let scrollY = 0;
+
+    // Fonksiyon parametresinin boolean olduğunu belirttik
+    const setExpanded = (open: boolean) => {
+      menuBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
+    };
+
+    const isMenuOpen = () => nav.classList.contains('active');
+
+    const openMenu = () => {
+      nav.classList.add('active');
+      if (backdrop) backdrop.classList.add('active');
+
+      // Scroll kilitleme
+      scrollY = window.scrollY || window.pageYOffset || 0;
+      document.body.classList.add('menu-open');
+      document.body.style.top = `-${scrollY}px`;
+
+      setExpanded(true);
+    };
+
+    const closeMenu = () => {
+      nav.classList.remove('active');
+      if (backdrop) backdrop.classList.remove('active');
+
+      document.body.classList.remove('menu-open');
+      const top = document.body.style.top;
+      document.body.style.top = '';
+
+      const restored = top ? parseInt(top, 10) * -1 : scrollY;
+      window.scrollTo(0, Number.isFinite(restored) ? restored : 0);
+
+      setExpanded(false);
+    };
+
+    // Tıklama Olayları
+    menuBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      if (isMenuOpen()) closeMenu();
+      else openMenu();
+    });
+
+    if (backdrop) {
+      backdrop.addEventListener('click', () => {
+        if (isMenuOpen()) closeMenu();
+      });
     }
 
+    // Dışarı tıklamayı kapat (e.target'ın Node olduğunu TS'ye söyledik)
+    document.addEventListener('click', (e) => {
+      if (!isMenuOpen()) return;
+      
+      const target = e.target;
+      // target'ın DOM elemanı olup olmadığını kontrol et
+      if (!(target instanceof Node)) return;
+
+      if (!nav.contains(target) && !menuBtn.contains(target)) {
+        closeMenu();
+      }
+    });
+
+    // ESC tuşu (e: KeyboardEvent)
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && isMenuOpen()) closeMenu();
+    });
+
+    // Linklere tıklayınca menüyü kapat
+    nav.querySelectorAll('a').forEach((a) => {
+      a.addEventListener('click', () => {
+        if (isMenuOpen()) closeMenu();
+      });
+    });
+
+    // Ekran genişleyince (masaüstü) menüyü kapat
+    window.addEventListener('resize', () => {
+      if (window.innerWidth > 900 && isMenuOpen()) closeMenu();
+    });
+
+    // Tema Değiştirme
     if (themeBtn) {
-      themeBtn.onclick = null;
-      themeBtn.onclick = () => {
+      themeBtn.addEventListener('click', () => {
         const isDark = document.documentElement.classList.toggle('dark');
         localStorage.setItem('theme', isDark ? 'dark' : 'light');
-      };
+      });
     }
   }
 
+  // Sayfa yüklendiğinde çalıştır
   initHeader();
+
+  // Eğer Astro View Transitions kullanıyorsan sayfalar arası geçişte tekrar çalışması için:
+  document.addEventListener('astro:after-swap', initHeader);
 </script>
