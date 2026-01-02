@@ -5,7 +5,8 @@
     "title": "Ceza Hukuku",
     "description": "Ceza mevzuatı kapsamındaki tüm suçlara ilişkin soruşturma ve kovuşturma aşamalarında; karakoldaki ilk ifade sürecinden kararın kesinleşmesine kadar savunma ve müdahillik hizmeti sunulmaktadır.",
     "ctaText": "Ceza Hukuku Yayınlarını İncele →",
-    "ctaLink": "/yayinlar"
+    "ctaLink": "/yayinlar",
+    "order": 1
   },
   {
     "id": "is",
@@ -13,7 +14,8 @@
     "title": "İş Hukuku",
     "description": "İşçi ve işveren tarafında; işe iade, tazminat ve iş kazası süreçleri, uyuşmazlık doğmadan önce ele alınır. Fesih öncesi ve sonrası hukuki zemin oluşturularak sürecin seyri stratejik biçimde planlanır.",
     "ctaText": "İş Hukuku Yayınlarını İncele →",
-    "ctaLink": "/yayinlar"
+    "ctaLink": "/yayinlar",
+    "order": 2
   },
   {
     "id": "kira",
@@ -21,7 +23,8 @@
     "title": "Konut ve Kira Hukuku",
     "description": "Kira tespit ve tahliye davaları ile sözleşme süreçlerinde; ev sahibi ve kiracı hakları birlikte değerlendirilir. Sözleşmenin kurulmasından tahliye aşamasına kadar tüm süreç, hukuki riskler öngörülerek yürütülür.",
     "ctaText": "Kira Hukuku Yayınlarını İncele →",
-    "ctaLink": "/yayinlar"
+    "ctaLink": "/yayinlar",
+    "order": 3
   },
   {
     "id": "sirketler",
@@ -29,7 +32,8 @@
     "title": "Şirketler Hukuku",
     "description": "Şirket kuruluşu, birleşme ve devir süreçleri ile ticari sözleşmeler; işletmenin hukuki altyapısını güçlendirecek şekilde ele alınır. Kurumsal yapılar, ileride doğabilecek uyuşmazlıkları önleyici bir yaklaşımla yapılandırılır.",
     "ctaText": "Kurumsal Danışmanlık Talep Et →",
-    "ctaLink": "/iletisim"
+    "ctaLink": "/iletisim",
+    "order": 4
   },
   {
     "id": "uluslararasi",
@@ -37,7 +41,8 @@
     "title": "Uluslararası Hukuk",
     "description": "Yabancı müvekkillerin Türkiye’deki hukuki süreçleri; dil ve mevzuat engellerine takılmadan yürütülür. Uluslararası unsurlu uyuşmazlıklar, Türk hukuku ve evrensel normlar birlikte değerlendirilerek temsil edilir.",
     "ctaText": "Hukuki Destek İçin Bize Ulaşın →",
-    "ctaLink": "/iletisim"
+    "ctaLink": "/iletisim",
+    "order": 5
   },
   {
     "id": "siddet-onleme",
@@ -45,6 +50,7 @@
     "title": "6284 Sayılı Kanun",
     "description": "6284 sayılı Kanun kapsamında koruyucu ve önleyici tedbir kararları; teorik birikim ve uygulama tecrübesiyle ele alınır. Aile içi şiddet vakalarında mağdur hakları gözetilerek sürecin hızlı ve etkin ilerlemesi sağlanır.",
     "ctaText": "Detaylı Bilgi Al →",
-    "ctaLink": "/iletisim"
+    "ctaLink": "/iletisim",
+    "order": 6
   }
 ]

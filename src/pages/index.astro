@@ -3,23 +3,22 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import Hero from '../components/Hero.astro';
 import AreaCard from '../components/AreaCard.astro';
 import ArticleCard from '../components/ArticleCard.astro';
-import { getEntry, getCollection } from 'astro:content';
+import { getCollection } from 'astro:content';
 
-// 1. DATA VERİLERİNİ ÇEK
-const siteEntry = await getEntry('data', 'site');
-const workAreasEntry = await getEntry('data', 'work-areas');
+// DÜZELTME: Verileri doğrudan JSON dosyasından çekiyoruz (Hata vermez)
+import siteData from '../content/data/site.json';
+import workAreasData from '../content/data/work-areas.json';
 
-// 2. MAKALELERİ ÇEK
+// MAKALELERİ ÇEK
 const allArticles = await getCollection('articles', ({ data }) => !data.draft);
 const latestArticles = allArticles
   .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
-  .slice(0, 3); // Son 3 yazı
-
-if (!siteEntry) throw new Error("Site verisi bulunamadı.");
+  .slice(0, 3);
 
 // Verileri hazırla
-const workAreas = workAreasEntry ? (workAreasEntry.data as any[]) : [];
-const { name } = siteEntry.data;
+const { name } = siteData;
+// work-areas.json bir dizi mi yoksa obje mi kontrolü
+const workAreas = Array.isArray(workAreasData) ? workAreasData : (workAreasData['data'] || []);
 ---
 
 <BaseLayout

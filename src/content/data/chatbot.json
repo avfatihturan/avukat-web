@@ -1,38 +1,42 @@
-[
-  {
-    "id": "main",
-    "greeting": "Merhaba! Size nasıl yardımcı olabilirim? 👋",
-    "welcomeMessage": "Merhaba, ben Av. Fatih Turan'ın sanal asistanıyım. Size nasıl yardımcı olabilirim?",
-    "assistantName": "Turan Asistan",
-    "options": [
-      {
-        "key": "randevu",
-        "label": "Randevu Almak İstiyorum",
-        "userText": "Randevu almak istiyorum.",
-        "botResponse": "Randevu talebinizi <a href='/iletisim'>buraya tıklayarak</a> iletebilirsiniz.",
-        "icon": "fa-calendar"
-      },
-      {
-        "key": "alanlar",
-        "label": "Çalışma Alanları",
-        "userText": "Çalışma alanları nelerdir?",
-        "botResponse": "Detaylar için <a href='/calisma-alanlari'>tıklayınız.</a>",
-        "icon": "fa-briefcase"
-      },
-      {
-        "key": "ucret",
-        "label": "Danışmanlık Ücreti",
-        "userText": "Danışmanlık ücretli mi?",
-        "botResponse": "Evet, Avukatlık Kanunu gereği danışmanlık hizmetleri ücrete tabidir. Kısa bir değerlendirme için <a href='/iletisim'>randevu talebi oluşturabilirsiniz.</a>",
-        "icon": "fa-coins"
-      },
-      {
-        "key": "telefon",
-        "label": "Hemen Ara",
-        "userText": "Telefon numarası nedir?",
-        "botResponse": "Bizi hemen arayabilirsiniz: <a href='{{phoneLink}}'>{{phone}}</a>",
-        "icon": "fa-phone"
-      }
-    ]
-  }
-]
+{
+  "greeting": "Merhaba! Size nasıl yardımcı olabilirim? 👋",
+  "welcomeMessage": "Merhaba, ben Av. Fatih Turan'ın sanal asistanıyım. Size nasıl yardımcı olabilirim?",
+  "assistantName": "Turan Asistan",
+  "options": [
+    {
+      "key": "whatsapp",
+      "label": "WhatsApp'tan Yaz",
+      "userText": "WhatsApp üzerinden yazmak istiyorum.",
+      "botResponse": "Tabii, <a href='https://wa.me/{{whatsapp}}' target='_blank'>buraya tıklayarak</a> WhatsApp sohbetini başlatabilirsiniz.",
+      "icon": "fa-whatsapp"
+    },
+    {
+      "key": "randevu",
+      "label": "Randevu Almak İstiyorum",
+      "userText": "Randevu almak istiyorum.",
+      "botResponse": "Randevu talebinizi <a href='/iletisim'>buraya tıklayarak</a> iletebilirsiniz.",
+      "icon": "fa-calendar"
+    },
+    {
+      "key": "alanlar",
+      "label": "Çalışma Alanları",
+      "userText": "Çalışma alanları nelerdir?",
+      "botResponse": "Detaylar için <a href='/calisma-alanlari'>tıklayınız.</a>",
+      "icon": "fa-briefcase"
+    },
+    {
+      "key": "ucret",
+      "label": "Danışmanlık Ücreti",
+      "userText": "Danışmanlık ücretli mi?",
+      "botResponse": "Evet, Avukatlık Kanunu gereği danışmanlık hizmetleri ücrete tabidir. Kısa bir değerlendirme için <a href='/iletisim'>randevu talebi oluşturabilirsiniz.</a>",
+      "icon": "fa-coins"
+    },
+    {
+      "key": "telefon",
+      "label": "Hemen Ara",
+      "userText": "Telefon numarası nedir?",
+      "botResponse": "Bizi hemen arayabilirsiniz: <a href='{{phoneLink}}'>{{phone}}</a>",
+      "icon": "fa-phone"
+    }
+  ]
+}

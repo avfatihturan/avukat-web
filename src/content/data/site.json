@@ -1,0 +1,18 @@
+{
+  "id": "main",
+  "name": "Av. Fatih Turan",
+  "title": "Hukuki Danışmanlık",
+  "description": "Ankara Barosu'na kayıtlı Av. Fatih Turan, Ceza, İş ve Şirketler hukuku alanlarında hukuki danışmanlık ve avukatlık hizmeti sunmaktadır.",
+  "contact": {
+    "email": "av.fatihturan@outlook.com",
+    "phone": "+90 532 610 08 05",
+    "phoneLink": "tel:+905326100805",
+    "whatsapp": "905326100805",
+    "address": "Ankara, Türkiye"
+  },
+  "social": {
+    "linkedin": "",
+    "twitter": "",
+    "instagram": ""
+  }
+}

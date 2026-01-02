@@ -1,15 +1,8 @@
 ---
-import { getEntry } from 'astro:content';
+// DÜZELTME: Doğrudan import
+import siteData from '../content/data/site.json';
 
-const siteEntry = await getEntry('site', 'main');
-
-// --- HATA DÜZELTME KODU ---
-if (!siteEntry) {
-  throw new Error('Site verisi (site.json) bulunamadı!');
-}
-// --------------------------
-
-const { contact, name } = siteEntry.data;
+const { contact, name } = siteData;
 const year = new Date().getFullYear();
 ---
 
