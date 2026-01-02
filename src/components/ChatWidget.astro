@@ -1,27 +1,21 @@
 ---
 // @ts-nocheck
-// ^ BU SATIR ÇOK ÖNEMLİ: TypeScript hatalarını engeller.
 
 import siteJson from '../content/data/site.json';
 import chatbotJson from '../content/data/chatbot.json';
 
-// --- VERİ İŞLEME (GÜVENLİ MOD) ---
-// Astro/Vite bazen JSON'u 'default' property içinde getirir.
 const rawSite = siteJson.default || siteJson;
 const rawChatbot = chatbotJson.default || chatbotJson;
 
-// Veri Dizi mi ([]) Yoksa Obje mi ({})? Kontrol et.
 const siteData = Array.isArray(rawSite) ? rawSite[0] : rawSite;
 const chatbotData = Array.isArray(rawChatbot) ? rawChatbot[0] : rawChatbot;
 
-// Verileri tanımla (Yoksa boş obje ata ki patlamasın)
 const contact = siteData?.contact || {};
 const greeting = chatbotData?.greeting || "Merhaba";
 const welcomeMessage = chatbotData?.welcomeMessage || "Size nasıl yardımcı olabilirim?";
 const assistantName = chatbotData?.assistantName || "Asistan";
 const options = chatbotData?.options || [];
 
-// Metin içindeki {{değişken}} yerlerini doldur
 const processTemplate = (text) => {
   if (!text || typeof text !== 'string') return "";
   return text
@@ -31,38 +25,30 @@ const processTemplate = (text) => {
     .replace(/\{\{whatsapp\}\}/g, contact.whatsapp || '');
 };
 
-// Seçenekleri işle (ikonları ve metinleri hazırla)
 const processedOptions = Array.isArray(options) ? options.map((opt) => ({
   ...opt,
   botResponse: processTemplate(opt.botResponse),
   icon: opt.icon
 })) : [];
 
-// İkon Kütüphanesi (SVG Kodları)
 const iconPaths = {
   whatsapp: "M256 32C132.3 32 32 132.3 32 256c0 44.3 13 87.6 37.6 124.7L48 480l102.6-20.7C186 480.7 220.7 496 256 496c123.7 0 224-100.3 224-224S379.7 32 256 32zm0 416c-30.2 0-59.9-8.1-85.9-23.4l-6.2-3.7-60.9 12.3 12.8-59.1-4-6.5C88.1 340.5 80 298.6 80 256c0-97 79-176 176-176s176 79 176 176-79 176-176 176zm101.8-125.6c-5.6-2.8-33-16.3-38.1-18.1-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.4 18.1-17.7 21.8-3.3 3.7-6.5 4.2-12.1 1.4-5.6-2.8-23.6-8.7-45-27.7-16.7-14.8-27.9-33.2-31.2-38.8-3.3-5.6-.3-8.6 2.5-11.3 2.5-2.5 5.6-6.5 8.4-9.8 2.8-3.3 3.7-5.6 5.6-9.3 1.9-3.7.9-7-0.5-9.8-1.4-2.8-12.5-30.2-17.1-41.3-4.6-11-9.3-9.5-12.5-9.7-3-.1-6.5-.1-9.9-.1-3.5 0-9.3 1.3-14.1 6.5-4.8 5.2-18.5 18.1-18.5 44 0 25.9 19 50.9 21.7 54.6 2.7 3.7 37.2 56.6 90.2 79.4 31.5 13.6 37.6 10.9 51.2 10.1 13.6-.8 33-13.6 37.6-26.9 4.6-13.3 4.6-24.6 3.2-26.9-1.4-2.3-5.1-3.7-10.7-6.5z",
   phone: "M164.9 24.6c-7.7-18.6-28-28.5-47.4-23.2l-88 24C12.1 30.2 0 46 0 64C0 311.4 200.6 512 448 512c18 0 33.8-12.1 38.6-29.5l24-88c5.3-19.4-4.6-39.7-23.2-47.4l-96-40c-16.3-6.8-35.2-2.1-46.3 11.6L304.7 368C234.3 334.7 177.3 277.7 144 207.3L193.3 167c13.7-11.2 18.4-30 11.6-46.3l-40-96z",
   calendar: "M96 32V64H48C21.5 64 0 85.5 0 112v48H448V112c0-26.5-21.5-48-48-48H352V32c0-17.7-14.3-32-32-32s-32 14.3-32 32V64H160V32c0-17.7-14.3-32-32-32S96 14.3 96 32zM448 192H0V464c0 26.5 21.5 48 48 48H400c26.5 0 48-21.5 48-48V192z",
   briefcase: "M128 480h256V80c0-26.5-21.5-48-48-48H176c-26.5 0-48 21.5-48 48v400zm64-400h128v32H192V80zM0 128C0 92.7 28.7 64 64 64h32v48H64c-8.8 0-16 7.2-16 16v32h416v-32c0-8.8-7.2-16-16-16h-32V64h32c35.3 0 64 28.7 64 64v320c0 35.3-28.7 64-64 64H64c-35.3 0-64-28.7-64-64V128z",
   coins: "M0 405.3c0 50.5 108.8 91.5 243 91.5 134.2 0 243-41 243-91.5 0-24.1-24.9-46.4-66.9-63.5-36.8 28.6-94.8 47.5-161.4 47.5-66.6 0-124.6-18.9-161.4-47.5-42 17.1-66.9 39.4-66.9 63.5z",
-  robot: "M64 256a64 64 0 1 1 128 0 64 64 0 1 1-128 0zm256 0a64 64 0 1 1 128 0 64 64 0 1 1-128 0zM176 144c0-26.5 21.5-48 48-48h64c26.5 0 48 21.5 48 48v48h-16c-8.8 0-16 7.2-16 16v32c0 8.8 7.2 16 16 16h16v32c0 26.5-21.5 48-48 48H224c-26.5 0-48-21.5-48-48V256h16c8.8 0 16-7.2 16-16V208c0-8.8-7.2-16-16-16h-16V144z",
+  robot: "M64 256a64 64 0 1 1 128 0 64 64 0 1 1-128 0zm256 0a64 64 0 1 1 128 0 64 64 0 1 1-128 0zM176 144c0-26.5 21.5-48 48-48h64c26.5 0 48 21.5 48 48v48h-16c-8.8 0-16 7.2-16 16v32c0 8.8 7.2 16 16 16h16v32c0 26.5-21.5 48-48 48H224c-26.5 0-48-21.5-48-48V256h16c-8.8 0-16 7.2-16-16V208c0-8.8 7.2-16 16-16h-16V144z",
+  // "comments" eksikti -> premium fallback
+  comments: "M256 32C114.6 32 0 125.1 0 240c0 47.6 19.9 91.2 52.9 126.3C38 405.7 7 439.1 6.5 439.5c-6.6 7-8.4 17.2-4.6 26S14.4 480 24 480c61.5 0 110-25.7 139.1-46.3C192 442.8 223.2 448 256 448c141.4 0 256-93.1 256-208S397.4 32 256 32z",
   chevron_down: "M233.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L256 338.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z",
   xmark: "M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z",
   message: "M256 32C114.6 32 0 125.1 0 240c0 47.6 19.9 91.2 52.9 126.3C38 405.7 7 439.1 6.5 439.5c-6.6 7-8.4 17.2-4.6 26S14.4 480 24 480c61.5 0 110-25.7 139.1-46.3C192 442.8 223.2 448 256 448c141.4 0 256-93.1 256-208S397.4 32 256 32z",
   default: "M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512z",
-  "fa-whatsapp": "M256 32C132.3 32 32 132.3 32 256c0 44.3 13 87.6 37.6 124.7L48 480l102.6-20.7C186 480.7 220.7 496 256 496c123.7 0 224-100.3 224-224S379.7 32 256 32zm0 416c-30.2 0-59.9-8.1-85.9-23.4l-6.2-3.7-60.9 12.3 12.8-59.1-4-6.5C88.1 340.5 80 298.6 80 256c0-97 79-176 176-176s176 79 176 176-79 176-176 176zm101.8-125.6c-5.6-2.8-33-16.3-38.1-18.1-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.4 18.1-17.7 21.8-3.3 3.7-6.5 4.2-12.1 1.4-5.6-2.8-23.6-8.7-45-27.7-16.7-14.8-27.9-33.2-31.2-38.8-3.3-5.6-.3-8.6 2.5-11.3 2.5-2.5 5.6-6.5 8.4-9.8 2.8-3.3 3.7-5.6 5.6-9.3 1.9-3.7.9-7-0.5-9.8-1.4-2.8-12.5-30.2-17.1-41.3-4.6-11-9.3-9.5-12.5-9.7-3-.1-6.5-.1-9.9-.1-3.5 0-9.3 1.3-14.1 6.5-4.8 5.2-18.5 18.1-18.5 44 0 25.9 19 50.9 21.7 54.6 2.7 3.7 37.2 56.6 90.2 79.4 31.5 13.6 37.6 10.9 51.2 10.1 13.6-.8 33-13.6 37.6-26.9 4.6-13.3 4.6-24.6 3.2-26.9-1.4-2.3-5.1-3.7-10.7-6.5z",
-  "fa-calendar": "M96 32V64H48C21.5 64 0 85.5 0 112v48H448V112c0-26.5-21.5-48-48-48H352V32c0-17.7-14.3-32-32-32s-32 14.3-32 32V64H160V32c0-17.7-14.3-32-32-32S96 14.3 96 32zM448 192H0V464c0 26.5 21.5 48 48 48H400c26.5 0 48-21.5 48-48V192z",
-  "fa-briefcase": "M128 480h256V80c0-26.5-21.5-48-48-48H176c-26.5 0-48 21.5-48 48v400zm64-400h128v32H192V80zM0 128C0 92.7 28.7 64 64 64h32v48H64c-8.8 0-16 7.2-16 16v32h416v-32c0-8.8-7.2-16-16-16h-32V64h32c35.3 0 64 28.7 64 64v320c0 35.3-28.7 64-64 64H64c-35.3 0-64-28.7-64-64V128z",
-  "fa-coins": "M0 405.3c0 50.5 108.8 91.5 243 91.5 134.2 0 243-41 243-91.5 0-24.1-24.9-46.4-66.9-63.5-36.8 28.6-94.8 47.5-161.4 47.5-66.6 0-124.6-18.9-161.4-47.5-42 17.1-66.9 39.4-66.9 63.5z",
-  "fa-phone": "M164.9 24.6c-7.7-18.6-28-28.5-47.4-23.2l-88 24C12.1 30.2 0 46 0 64C0 311.4 200.6 512 448 512c18 0 33.8-12.1 38.6-29.5l24-88c5.3-19.4-4.6-39.7-23.2-47.4l-96-40c-16.3-6.8-35.2-2.1-46.3 11.6L304.7 368C234.3 334.7 177.3 277.7 144 207.3L193.3 167c13.7-11.2 18.4-30 11.6-46.3l-40-96z"
 };
 
 const getIconPath = (iconClass) => {
   if (!iconClass || typeof iconClass !== 'string') return iconPaths.default;
-  // Önce birebir eşleşme var mı bak (örn: fa-whatsapp)
   if (iconPaths[iconClass]) return iconPaths[iconClass];
-  
-  // Yoksa içindeki kelimeye bak (örn: 'whatsapp' kelimesi geçiyor mu?)
   if (iconClass.includes('whatsapp')) return iconPaths.whatsapp;
   if (iconClass.includes('phone')) return iconPaths.phone;
   if (iconClass.includes('calendar')) return iconPaths.calendar;
@@ -83,7 +69,7 @@ const getIconPath = (iconClass) => {
   <div id="chatWindow" class="chat-window" role="dialog" aria-hidden="true">
     <div class="chat-header">
       <div class="header-info">
-        <span class="assistant-avatar">
+        <span class="assistant-avatar" aria-hidden="true">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="currentColor" width="20" height="20">
             <path d={iconPaths.robot}/>
           </svg>
@@ -102,23 +88,34 @@ const getIconPath = (iconClass) => {
 
     <div id="chatBody" class="chat-body">
       <div class="chat-msg bot" set:html={welcomeMessage}></div>
-      <div class="chat-options">
+
+      <div class="chat-options" id="chatOptions">
         {processedOptions.map((opt) => (
-          <button class="option-btn" data-reply={opt.key} data-user={opt.userText} data-bot={opt.botResponse} onclick="handleOptionClick(this)">
+          <button
+            class="option-btn"
+            data-user={opt.userText}
+            data-bot={opt.botResponse}
+            onclick="handleOptionClick(this)"
+            type="button"
+          >
             {opt.icon && (
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="currentColor" width="14" height="14" style="min-width:14px; margin-right: 5px;">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="currentColor" width="14" height="14" style="min-width:14px;">
                 <path d={getIconPath(opt.icon)}/>
               </svg>
             )}
-            {opt.label}
+            <span>{opt.label}</span>
           </button>
         ))}
       </div>
+
+      <button id="resetOptionsBtn" class="reset-options-btn" type="button" onclick="resetOptions()">
+        Başka bir konu
+      </button>
     </div>
   </div>
 
   <div id="fabMenu" class="fab-menu" aria-hidden="true">
-    <a href={`https://wa.me/${contact.whatsapp}`} target="_blank" class="fab-item whatsapp" aria-label="WhatsApp ile Sohbet Et">
+    <a href={`https://wa.me/${contact.whatsapp}`} target="_blank" rel="noopener noreferrer" class="fab-item whatsapp" aria-label="WhatsApp ile Sohbet Et">
       <span class="fab-label">WhatsApp</span>
       <div class="fab-icon">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="currentColor" width="24" height="24">
@@ -127,7 +124,7 @@ const getIconPath = (iconClass) => {
       </div>
     </a>
 
-    <button id="openAssistantBtn" class="fab-item assistant" onclick="openAssistant()" aria-label="Asistanı Başlat">
+    <button id="openAssistantBtn" class="fab-item assistant" onclick="openAssistant()" aria-label="Asistanı Başlat" type="button">
       <span class="fab-label">Asistan</span>
       <div class="fab-icon">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="currentColor" width="20" height="20">
@@ -155,7 +152,7 @@ const getIconPath = (iconClass) => {
     </a>
   </div>
 
-  <button id="mainFabBtn" class="main-fab-btn" onclick="toggleFabMenu()" aria-label="İletişim Menüsünü Aç">
+  <button id="mainFabBtn" class="main-fab-btn" onclick="toggleFabMenu()" aria-label="İletişim Menüsünü Aç" type="button">
     <svg class="icon-default" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="currentColor" width="24" height="24">
       <path d={iconPaths.message}/>
     </svg>
@@ -165,53 +162,314 @@ const getIconPath = (iconClass) => {
   </button>
 </div>
 
-<style>
-  .super-fab-wrapper { position: fixed; bottom: 25px; right: 25px; z-index: 9999; font-family: 'Montserrat', sans-serif; display: flex; flex-direction: column; align-items: flex-end; }
-  .main-fab-btn { width: 60px; height: 60px; background-color: #002B5B; color: white; border-radius: 50%; border: none; box-shadow: 0 4px 15px rgba(0,0,0,0.3); cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 24px; transition: 0.3s; position: relative; z-index: 10002; }
-  .main-fab-btn:hover { transform: scale(1.05); background-color: #003d82; }
-  .main-fab-btn .icon-close { display: none; }
-  .super-fab-wrapper.active .main-fab-btn { transform: rotate(90deg); background-color: #333; }
-  .super-fab-wrapper.active .main-fab-btn .icon-default { display: none; }
-  .super-fab-wrapper.active .main-fab-btn .icon-close { display: block; }
-  .fab-greeting { position: absolute; bottom: 80px; right: 0; background: white; padding: 12px 20px; border-radius: 14px 14px 0 14px; box-shadow: 0 5px 20px rgba(0,0,0,0.15); color: #333; font-size: 14px; font-weight: 500; white-space: nowrap; opacity: 0; visibility: hidden; transform: translateY(10px); transition: 0.3s; z-index: 10000; border: 1px solid #eee; }
-  .fab-greeting.show { opacity: 1; visibility: visible; transform: translateY(0); }
-  .greeting-close { position: absolute; top: -8px; right: -8px; background: #eee; color: #666; border: none; border-radius: 50%; width: 20px; height: 20px; font-size: 14px; cursor: pointer; display: flex; align-items: center; justify-content: center; }
-  .fab-menu { display: flex; flex-direction: column; gap: 12px; position: absolute; bottom: 80px; right: 0; pointer-events: none; }
-  .super-fab-wrapper.active .fab-menu { pointer-events: auto; }
-  .fab-item { display: flex; align-items: center; justify-content: flex-end; gap: 12px; text-decoration: none; border: none; background: none; cursor: pointer; opacity: 0; transform: translateY(20px) scale(0.8); transition: 0.3s; }
-  .super-fab-wrapper.active .fab-item { opacity: 1; transform: translateY(0) scale(1); }
-  .super-fab-wrapper.active .fab-item:nth-child(4) { transition-delay: 0.05s; }
-  .super-fab-wrapper.active .fab-item:nth-child(3) { transition-delay: 0.1s; }
-  .super-fab-wrapper.active .fab-item:nth-child(2) { transition-delay: 0.15s; }
-  .super-fab-wrapper.active .fab-item:nth-child(1) { transition-delay: 0.2s; }
-  .fab-label { background: white; padding: 6px 12px; border-radius: 4px; font-size: 13px; font-weight: 600; color: #333; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
-  .fab-icon { width: 45px; height: 45px; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 18px; box-shadow: 0 4px 10px rgba(0,0,0,0.2); transition: 0.2s; }
-  .fab-item:hover .fab-icon { transform: scale(1.1); }
-  .whatsapp .fab-icon { background-color: #25D366; }
-  .assistant .fab-icon { background-color: #002B5B; }
-  .call .fab-icon { background-color: #007bff; }
-  .appointment .fab-icon { background-color: #e67e22; }
-  .chat-window { position: fixed; bottom: 90px; right: 25px; width: 350px; height: 500px; max-height: 70vh; background: white; border-radius: 16px; box-shadow: 0 10px 40px rgba(0,0,0,0.2); display: flex; flex-direction: column; overflow: hidden; z-index: 10001; opacity: 0; visibility: hidden; transform: translateY(20px) scale(0.95); transition: 0.3s; border: 1px solid #eee; }
-  .chat-window.open { opacity: 1; visibility: visible; transform: translateY(0) scale(1); }
-  .chat-header { background: #002B5B; color: white; padding: 15px; display: flex; justify-content: space-between; align-items: center; }
-  .header-info { display: flex; align-items: center; gap: 10px; }
-  .assistant-avatar { background: rgba(255,255,255,0.2); width: 35px; height: 35px; border-radius: 50%; display: flex; align-items: center; justify-content: center; }
-  .assistant-name { font-weight: 700; display: block; font-size: 14px; }
-  .status-text { font-size: 11px; opacity: 0.8; }
-  .close-chat-btn { background: none; border: none; color: white; cursor: pointer; font-size: 16px; display: flex; align-items: center; justify-content: center; }
-  .chat-body { flex: 1; padding: 15px; overflow-y: auto; background: #f9f9f9; display: flex; flex-direction: column; gap: 10px; }
-  .chat-msg { max-width: 80%; padding: 10px 14px; border-radius: 12px; font-size: 14px; line-height: 1.5; position: relative; word-wrap: break-word; }
-  .chat-msg.bot { background: white; color: #333; border-bottom-left-radius: 2px; border: 1px solid #e5e5e5; align-self: flex-start; }
-  .chat-msg.user { background: #002B5B; color: white; border-bottom-right-radius: 2px; align-self: flex-end; }
-  .chat-options { display: flex; flex-direction: column; gap: 8px; margin-top: 5px; }
-  .chat-options button { background: white; border: 1px solid #002B5B; color: #002B5B; padding: 10px; border-radius: 10px; font-size: 13px; cursor: pointer; text-align: left; transition: 0.2s; display: flex; align-items: center; gap: 8px; }
-  .chat-options button:hover { background: #002B5B; color: white; }
-  .chat-options button svg { width: 16px; height: 16px; }
-  @media (max-width: 768px) {
-    .super-fab-wrapper { bottom: 20px; right: 20px; }
-    .chat-window { bottom: 0; right: 0; left: 0; width: 100%; height: 100%; max-height: 100%; border-radius: 0; z-index: 20000; }
-    .chat-header { padding-top: env(safe-area-inset-top); height: 70px; }
-    .close-chat-btn { font-size: 20px; padding: 10px; }
+<!-- ✅ Astro scoped CSS sorunu çözümü: global + wrapper ile izole -->
+<style is:global>
+  /* ====== Wrapper isolation ====== */
+  #super-fab-wrapper {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    z-index: 9999;
+    font-family: 'Montserrat', sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+  }
+
+  /* ====== Main FAB ====== */
+  #super-fab-wrapper .main-fab-btn{
+    width: 60px; height: 60px;
+    background: #002B5B; color: #fff;
+    border-radius: 50%;
+    border: none;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.28);
+    cursor: pointer;
+    display:flex; align-items:center; justify-content:center;
+    transition: transform .18s ease, background .18s ease;
+    position: relative;
+    z-index: 10002;
+  }
+  #super-fab-wrapper .main-fab-btn:hover { transform: translateY(-1px) scale(1.03); background:#003d82; }
+  #super-fab-wrapper .main-fab-btn .icon-close { display:none; }
+  #super-fab-wrapper.active .main-fab-btn { transform: rotate(90deg); background:#2b2b2b; }
+  #super-fab-wrapper.active .main-fab-btn .icon-default { display:none; }
+  #super-fab-wrapper.active .main-fab-btn .icon-close { display:block; }
+
+  /* ====== Greeting bubble ====== */
+  #super-fab-wrapper .fab-greeting{
+    position:absolute;
+    bottom:80px; right:0;
+    background:#fff;
+    padding:12px 16px;
+    border-radius: 14px 14px 0 14px;
+    box-shadow: 0 14px 45px rgba(0,0,0,.14);
+    color:#111; font-size:14px; font-weight:600;
+    white-space:nowrap;
+    opacity:0; visibility:hidden;
+    transform: translateY(10px);
+    transition:.22s ease;
+    z-index:10000;
+    border:1px solid rgba(0,0,0,.06);
+  }
+  #super-fab-wrapper .fab-greeting.show{ opacity:1; visibility:visible; transform: translateY(0); }
+  #super-fab-wrapper .greeting-close{
+    position:absolute; top:-8px; right:-8px;
+    width:22px; height:22px;
+    border-radius:50%;
+    border:1px solid rgba(0,0,0,.08);
+    background:#fff;
+    color:#555;
+    cursor:pointer;
+    display:flex; align-items:center; justify-content:center;
+  }
+
+  /* ====== Menu items ====== */
+  #super-fab-wrapper .fab-menu{
+    display:flex; flex-direction:column; gap:12px;
+    position:absolute; bottom:80px; right:0;
+    pointer-events:none;
+  }
+  #super-fab-wrapper.active .fab-menu{ pointer-events:auto; }
+  #super-fab-wrapper .fab-item{
+    display:flex; align-items:center; justify-content:flex-end;
+    gap:12px;
+    text-decoration:none;
+    border:none; background:none;
+    cursor:pointer;
+    opacity:0;
+    transform: translateY(16px) scale(.92);
+    transition:.22s ease;
+  }
+  #super-fab-wrapper.active .fab-item{ opacity:1; transform: translateY(0) scale(1); }
+  #super-fab-wrapper.active .fab-item:nth-child(4){ transition-delay:.04s; }
+  #super-fab-wrapper.active .fab-item:nth-child(3){ transition-delay:.08s; }
+  #super-fab-wrapper.active .fab-item:nth-child(2){ transition-delay:.12s; }
+  #super-fab-wrapper.active .fab-item:nth-child(1){ transition-delay:.16s; }
+
+  #super-fab-wrapper .fab-label{
+    background:#fff;
+    padding:7px 12px;
+    border-radius: 999px;
+    font-size: 12.5px;
+    font-weight: 700;
+    color:#111;
+    box-shadow: 0 12px 35px rgba(0,0,0,.12);
+    border: 1px solid rgba(0,0,0,.06);
+  }
+  #super-fab-wrapper .fab-icon{
+    width:46px; height:46px;
+    border-radius:50%;
+    display:flex; align-items:center; justify-content:center;
+    color:#fff;
+    box-shadow: 0 16px 40px rgba(0,0,0,.22);
+    transition: transform .16s ease;
+  }
+  #super-fab-wrapper .fab-item:hover .fab-icon{ transform: scale(1.06); }
+  #super-fab-wrapper .whatsapp .fab-icon{ background:#25D366; }
+  #super-fab-wrapper .assistant .fab-icon{ background:#002B5B; }
+  #super-fab-wrapper .call .fab-icon{ background:#1f6fff; }
+  #super-fab-wrapper .appointment .fab-icon{ background:#e67e22; }
+
+  /* ====== Chat window ====== */
+  #super-fab-wrapper .chat-window{
+    position: fixed;
+    bottom: 90px;
+    right: 25px;
+    width: 360px;
+    height: 520px;
+    max-height: 72vh;
+    background: rgba(255,255,255,.86);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border-radius: 18px;
+    box-shadow: 0 26px 70px rgba(0,0,0,.25);
+    display:flex; flex-direction:column;
+    overflow:hidden;
+    z-index:10001;
+    opacity:0; visibility:hidden;
+    transform: translateY(16px) scale(.98);
+    transition: .22s ease;
+    border: 1px solid rgba(0,0,0,.08);
+  }
+  #super-fab-wrapper .chat-window.open{
+    opacity:1; visibility:visible;
+    transform: translateY(0) scale(1);
+  }
+
+  /* Header */
+  #super-fab-wrapper .chat-header{
+    background: linear-gradient(135deg, #002B5B, #001a3a);
+    color:#fff;
+    padding: 14px 14px;
+    display:flex; align-items:center; justify-content:space-between;
+  }
+  #super-fab-wrapper .header-info{ display:flex; align-items:center; gap:10px; }
+  #super-fab-wrapper .assistant-avatar{
+    background: rgba(255,255,255,0.18);
+    width: 38px; height: 38px;
+    border-radius: 12px;
+    display:flex; align-items:center; justify-content:center;
+  }
+  #super-fab-wrapper .assistant-name{ font-weight: 800; display:block; font-size: 14px; letter-spacing:.2px; }
+  #super-fab-wrapper .status-text{ font-size: 11.5px; opacity:.85; }
+  #super-fab-wrapper .close-chat-btn{
+    background:none; border:none; color:#fff;
+    cursor:pointer;
+    width: 38px; height: 38px;
+    border-radius: 12px;
+    display:flex; align-items:center; justify-content:center;
+    transition: background .16s ease;
+  }
+  #super-fab-wrapper .close-chat-btn:hover{ background: rgba(255,255,255,.14); }
+
+  /* Body */
+  #super-fab-wrapper .chat-body{
+    flex:1;
+    padding: 14px;
+    overflow-y:auto;
+    background: radial-gradient(1200px 700px at 20% 0%, rgba(0,43,91,.06), transparent 60%),
+                radial-gradient(900px 600px at 80% 0%, rgba(230,126,34,.06), transparent 55%),
+                #f7f7f8;
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+  }
+
+  /* WhatsApp style bubbles */
+  #super-fab-wrapper .chat-msg{
+    max-width: 82%;
+    padding: 10px 12px;
+    border-radius: 16px;
+    font-size: 14px;
+    line-height: 1.45;
+    position: relative;
+    word-wrap: break-word;
+    border: 1px solid rgba(0,0,0,.06);
+  }
+  #super-fab-wrapper .chat-msg a{ color: inherit; text-decoration: underline; }
+  #super-fab-wrapper .chat-msg.bot{
+    background: #fff;
+    color:#111;
+    align-self:flex-start;
+    border-top-left-radius: 10px;
+  }
+  #super-fab-wrapper .chat-msg.user{
+    background: linear-gradient(135deg, #002B5B, #003d82);
+    color:#fff;
+    align-self:flex-end;
+    border-top-right-radius: 10px;
+    border-color: rgba(255,255,255,.10);
+  }
+
+  /* bubble tails */
+  #super-fab-wrapper .chat-msg.bot:before{
+    content:"";
+    position:absolute;
+    left:-6px; bottom: 10px;
+    width:12px; height:12px;
+    background:#fff;
+    border-left: 1px solid rgba(0,0,0,.06);
+    border-bottom: 1px solid rgba(0,0,0,.06);
+    transform: rotate(45deg);
+    border-bottom-left-radius: 4px;
+  }
+  #super-fab-wrapper .chat-msg.user:before{
+    content:"";
+    position:absolute;
+    right:-6px; bottom: 10px;
+    width:12px; height:12px;
+    background: #00346f;
+    border-right: 1px solid rgba(255,255,255,.10);
+    border-bottom: 1px solid rgba(255,255,255,.10);
+    transform: rotate(45deg);
+    border-bottom-right-radius: 4px;
+  }
+
+  /* typing indicator */
+  #super-fab-wrapper .typing-indicator{
+    align-self:flex-start;
+    background:#fff;
+    border: 1px solid rgba(0,0,0,.06);
+    border-radius: 16px;
+    padding: 10px 12px;
+    display:flex;
+    gap:6px;
+    width: fit-content;
+  }
+  #super-fab-wrapper .typing-indicator span{
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: rgba(0,0,0,.35);
+    display:block;
+    animation: tfPulse 1s infinite ease-in-out;
+  }
+  #super-fab-wrapper .typing-indicator span:nth-child(2){ animation-delay: .12s; }
+  #super-fab-wrapper .typing-indicator span:nth-child(3){ animation-delay: .24s; }
+  @keyframes tfPulse{
+    0%, 60%, 100% { transform: translateY(0); opacity: .35; }
+    30% { transform: translateY(-3px); opacity: .9; }
+  }
+
+  /* Options as quick replies */
+  #super-fab-wrapper .chat-options{
+    margin-top: 2px;
+    display:flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  #super-fab-wrapper .option-btn{
+    background: rgba(255,255,255,.9);
+    border: 1px solid rgba(0,43,91,.22);
+    color: #002B5B;
+    padding: 9px 10px;
+    border-radius: 999px;
+    font-size: 13px;
+    font-weight: 700;
+    cursor:pointer;
+    transition: .16s ease;
+    display:flex; align-items:center; gap:8px;
+    box-shadow: 0 10px 25px rgba(0,0,0,.06);
+  }
+  #super-fab-wrapper .option-btn:hover{
+    transform: translateY(-1px);
+    background: #002B5B;
+    color: #fff;
+    border-color: rgba(0,43,91,.35);
+  }
+
+  /* Reset options button (hidden until first selection) */
+  #super-fab-wrapper .reset-options-btn{
+    margin-top: 10px;
+    align-self: center;
+    border: 1px solid rgba(0,0,0,.08);
+    background: rgba(255,255,255,.85);
+    padding: 9px 12px;
+    border-radius: 999px;
+    font-weight: 800;
+    font-size: 13px;
+    cursor: pointer;
+    display: none;
+    transition: .16s ease;
+  }
+  #super-fab-wrapper .reset-options-btn:hover{
+    transform: translateY(-1px);
+    background: #fff;
+  }
+
+  @media (max-width: 768px){
+    #super-fab-wrapper { bottom: 20px; right: 20px; }
+    #super-fab-wrapper .chat-window{
+      bottom: 0; right: 0; left: 0;
+      width: 100%;
+      height: 100%;
+      max-height: 100%;
+      border-radius: 0;
+      z-index: 20000;
+    }
+    #super-fab-wrapper .chat-header{
+      padding-top: env(safe-area-inset-top);
+      min-height: 70px;
+    }
   }
 </style>
 
@@ -235,6 +493,9 @@ const getIconPath = (iconClass) => {
     const chatWindow = document.getElementById('chatWindow');
     if (wrapper) wrapper.classList.remove('active');
     if (chatWindow) chatWindow.classList.add('open');
+    // focus scroll
+    const chatBody = document.getElementById('chatBody');
+    if (chatBody) chatBody.scrollTop = chatBody.scrollHeight;
   };
 
   window.toggleChatWindow = function(shouldOpen) {
@@ -249,31 +510,62 @@ const getIconPath = (iconClass) => {
     if (greeting) greeting.classList.remove('show');
   };
 
-  window.handleOptionClick = function(btn) {
-    const userText = btn.getAttribute('data-user');
-    const botText = btn.getAttribute('data-bot');
+  function scrollToBottom() {
     const chatBody = document.getElementById('chatBody');
-    const optionsDiv = chatBody.querySelector('.chat-options');
+    if (!chatBody) return;
+    chatBody.scrollTop = chatBody.scrollHeight;
+  }
 
+  function safeHTML(html) {
+    // botResponse zaten sizin JSON'dan geliyor; yine de basit koruma:
+    if (!html || typeof html !== 'string') return '';
+    return html;
+  }
+
+  window.handleOptionClick = function(btn) {
+    const userText = btn.getAttribute('data-user') || '';
+    const botText = btn.getAttribute('data-bot') || '';
+
+    const chatBody = document.getElementById('chatBody');
+    const optionsDiv = document.getElementById('chatOptions');
+    const resetBtn = document.getElementById('resetOptionsBtn');
+    if (!chatBody || !optionsDiv) return;
+
+    // 1) User bubble (right)
     const userDiv = document.createElement('div');
     userDiv.className = 'chat-msg user';
-    userDiv.innerHTML = userText;
+    userDiv.textContent = userText;
     chatBody.insertBefore(userDiv, optionsDiv);
 
+    // 2) Hide options (WhatsApp quick reply feel)
+    optionsDiv.style.display = 'none';
+    if (resetBtn) resetBtn.style.display = 'inline-flex';
+
+    // 3) Typing
     const typingDiv = document.createElement('div');
     typingDiv.className = 'typing-indicator';
     typingDiv.innerHTML = '<span></span><span></span><span></span>';
     chatBody.insertBefore(typingDiv, optionsDiv);
-    chatBody.scrollTop = chatBody.scrollHeight;
+    scrollToBottom();
 
+    // 4) Bot bubble (left)
     setTimeout(function() {
       typingDiv.remove();
+
       const botDiv = document.createElement('div');
       botDiv.className = 'chat-msg bot';
-      botDiv.innerHTML = botText;
+      botDiv.innerHTML = safeHTML(botText);
       chatBody.insertBefore(botDiv, optionsDiv);
-      chatBody.scrollTop = chatBody.scrollHeight;
-    }, 800);
+      scrollToBottom();
+    }, 650);
+  };
+
+  window.resetOptions = function() {
+    const optionsDiv = document.getElementById('chatOptions');
+    const resetBtn = document.getElementById('resetOptionsBtn');
+    if (optionsDiv) optionsDiv.style.display = 'flex';
+    if (resetBtn) resetBtn.style.display = 'none';
+    scrollToBottom();
   };
 
   document.addEventListener('DOMContentLoaded', () => {
