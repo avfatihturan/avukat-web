@@ -5,7 +5,6 @@ import AreaCard from '../components/AreaCard.astro';
 import ArticleCard from '../components/ArticleCard.astro';
 import { getCollection } from 'astro:content';
 
-// DÜZELTME: Verileri doğrudan JSON dosyasından çekiyoruz
 import siteData from '../content/data/site.json';
 import workAreasData from '../content/data/work-areas.json';
 
@@ -13,11 +12,10 @@ import workAreasData from '../content/data/work-areas.json';
 const allArticles = await getCollection('articles', ({ data }) => !data.draft);
 const latestArticles = allArticles
   .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
-  .slice(0, 3); // Son 3 yazı
+  .slice(0, 3);
 
 // Verileri hazırla
 const { name } = siteData;
-// work-areas.json bir dizi mi yoksa obje mi kontrolü
 const workAreas = Array.isArray(workAreasData) ? workAreasData : (workAreasData['data'] || []);
 ---
 
@@ -27,17 +25,19 @@ const workAreas = Array.isArray(workAreasData) ? workAreasData : (workAreasData[
   currentPage="home"
   canonicalUrl="/"
 >
-  <Hero 
+  <Hero
     title="Stratejik Hukuk.<br>Güvenilir Temsil."
     subtitle="GİDECEĞİ LİMANI BİLMEYENE HİÇBİR RÜZGAR YARDIM EDEMEZ. — SENECA"
-    size="lg" 
+    lead="Ankara’da ceza, iş, kira ve şirketler hukuku alanlarında avukatlık ve hukuki danışmanlık."
+    size="lg"
     image="/images/banner-home.webp"
+    altText="Stratejik Hukuk. Güvenilir Temsil."
   />
 
   <section class="page-section">
     <div class="container">
       <h2 class="section-heading">Çalışma Alanları</h2>
-      
+
       <div class="grid-layout">
         {workAreas.slice(0, 3).map((area) => (
           <AreaCard
@@ -59,7 +59,7 @@ const workAreas = Array.isArray(workAreasData) ? workAreasData : (workAreasData[
   <section class="page-section bg-light">
     <div class="container">
       <h2 class="section-heading">Güncel Yayınlar</h2>
-      
+
       <div class="grid-3">
         {latestArticles.map((article) => (
           <ArticleCard
@@ -83,16 +83,17 @@ const workAreas = Array.isArray(workAreasData) ? workAreasData : (workAreasData[
 <style>
   .page-section { padding: 5rem 0; background-color: var(--color-bg); }
   .bg-light { background-color: var(--color-bg-secondary); }
-  
+
   .grid-layout { display: grid; grid-template-columns: 1fr; gap: 2rem; }
   .grid-3 { display: grid; grid-template-columns: 1fr; gap: 30px; }
 
-  @media (min-width: 768px) { 
-    .grid-layout { grid-template-columns: repeat(2, 1fr); } 
+  @media (min-width: 768px) {
+    .grid-layout { grid-template-columns: repeat(2, 1fr); }
     .grid-3 { grid-template-columns: repeat(2, 1fr); }
   }
-  @media (min-width: 1024px) { 
-    .grid-layout { grid-template-columns: repeat(3, 1fr); } 
+
+  @media (min-width: 1024px) {
+    .grid-layout { grid-template-columns: repeat(3, 1fr); }
     .grid-3 { grid-template-columns: repeat(3, 1fr); }
   }
 </style>
