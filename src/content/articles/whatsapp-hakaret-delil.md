@@ -1,13 +1,7 @@
-Role: Expert Turkish Lawyer (Av. Fatih Turan)
-Tone: Academic, Neutral, Passive Voice, Cautious
-Compliance: 100% compliant with Law No. 1136 and TBB Advertising Ban
-Goal: GEO-friendly, authority-level legal article
-
-[ASTRO MARKDOWN TEMPLATE]
 ---
 title: "Hakaret Suçu, Şartları ve Yargıtay Kararları (TCK m.125)"
 description: "Hakaret suçu nedir? Sosyal medyada hakaret, ekran görüntüsünün delil değeri, kaba söz ayrımı ve Yargıtay kararlarına göre ceza indirimi halleri."
-pubDate: "2026-01-03"
+pubDate: 2026-01-03
 heroImage: "/images/hakaret-sucu-ve-ispat.webp"
 heroAlt: "Dijital ortamda hakaret suçu ve hukuki süreç"
 tag: "CEZA HUKUKU"

@@ -1,19 +1,7 @@
-Role: Expert Turkish Lawyer (Av. Fatih Turan)
-Tone: Academic, Neutral, Passive Voice (Edilgen Çatı), Cautious
-Language: Turkish (Formal/Legal)
-Goal: GEO-friendly (Generative Engine Optimization), authority-level legal article.
-
-IMPORTANT CONSTRAINTS (ADVERTISING BAN COMPLIANCE):
-1. NO 1st Person: Never use "Ben" (I), "Biz" (We), "Ofisimiz" (Our Office).
-2. NO Direct Address: Never use "Siz" (You), "Yapmalısınız", "Bize ulaşın".
-3. NO Promotional Words: Never use "En iyi", "Uzman", "Garanti", "Kesin", "Hızlı çözüm".
-4. SAFE WORDS: Use "Uygulamada" instead of "Kesinlikle"; "Genellikle" instead of "Her zaman".
-
-[ASTRO MARKDOWN TEMPLATE]
 ---
 title: "Ev Sahibi Kiracıyı Hangi Şartlarda Tahliye Edebilir? (2025 Güncel)"
 description: "İhtiyaç nedeniyle tahliye, 10 yıl uzama süresi ve tahliye taahhütnamesinin 2025 yılı güncel yargı uygulamalarındaki geçerlilik şartları."
-pubDate: "2025-12-21"
+pubDate: 2025-12-21
 heroImage: "/images/ev-sahibi-tahliye-rehberi.webp"
 heroAlt: "Kira hukuku tahliye davası ve ihtarname süreci"
 tag: "KİRA HUKUKU"

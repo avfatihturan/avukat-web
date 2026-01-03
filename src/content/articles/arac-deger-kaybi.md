@@ -1,19 +1,7 @@
-Role: Expert Turkish Lawyer (Av. Fatih Turan)
-Tone: Academic, Neutral, Passive Voice (Edilgen Çatı), Cautious
-Language: Turkish (Formal/Legal)
-Goal: GEO-friendly (Generative Engine Optimization), authority-level legal article.
-
-IMPORTANT CONSTRAINTS (ADVERTISING BAN COMPLIANCE):
-1. NO 1st Person: Never use "Ben" (I), "Biz" (We), "Ofisimiz" (Our Office).
-2. NO Direct Address: Never use "Siz" (You), "Yapmalısınız", "Bize ulaşın".
-3. NO Promotional Words: Never use "En iyi", "Uzman", "Garanti", "Kesin", "Hızlı çözüm".
-4. SAFE WORDS: Use "Uygulamada" instead of "Kesinlikle"; "Genellikle" instead of "Her zaman".
-
-[ASTRO MARKDOWN TEMPLATE]
 ---
 title: "Araç Değer Kaybı: Sigorta Tahkim Komisyonu Başvuru Şartları ve Hesaplama"
 description: "Araç değer kaybı nedir, nasıl alınır? Sigorta Tahkim Komisyonu başvuru süreci, 15 gün kuralı ve Yargıtay kararlarına göre hesaplama yöntemleri."
-pubDate: "2026-01-03"
+pubDate: 2026-01-03
 heroImage: "/images/arac-deger-kaybi-tahkim.webp"
 heroAlt: "Hasarlı araç ve sigorta tahkim süreci görseli"
 tag: "SİGORTA HUKUKU"
@@ -30,11 +18,9 @@ Ancak sigorta şirketlerinin teklif ettiği tutarlar ile gerçek piyasa kaybı a
 ## 1. Hukuki Dayanak ve Şartlar
 Karayolları Trafik Kanunu (KTK) m. 97 ve Türk Ticaret Kanunu m. 1409 uyarınca, kazada kusursuz veya az kusurlu olan taraf, aracında oluşan değer kaybını karşı tarafın Zorunlu Mali Sorumluluk Sigortasından (Trafik Sigortası) talep edebilir.
 
-
-
 **Değer Kaybı Talep Edebilmek İçin Gerekli Şartlar:**
-* **Kusursuzluk/Az Kusurluluk:** Kazada %100 kusurlu olmamak gerekir. Kusur oranına göre tazminat alınır (Örn: %25 kusurlu iseniz tazminatın %75'ini alırsınız).
-* **Çift Taraflı Kaza:** Tek taraflı kazalarda (duvara çarpma vb.) trafik sigortasından değer kaybı alınamaz.
+* **Kusursuzluk/Az Kusurluluk:** Kazada %100 kusurlu olmamak gerekir. Kusur oranına göre tazminat alınır (Örn: %25 kusur oranı mevcutsa tazminatın %75'i ödenir).
+* **Çift Taraflı Kaza:** Tek taraflı kazalarda (duvara çarpma vb.) trafik sigortasından değer kaybı talep edilemez.
 * **Onarım Görmemiş Parça:** Değer kaybı talep edilen parçanın daha önce başka bir kazada hasar görüp onarılmamış olması gerekir.
 * **Pert Olmama:** Araç "pert total" (ağır hasarlı) işlemine tabi tutulmuşsa değer kaybı istenemez.
 * **Kilometre Sınırı Kalktı:** Trafik Sigortası Genel Şartları'nda yapılan değişiklikle, 165.000 km sınırı kaldırılmıştır. Artık her kilometredeki araç için başvuru yapılabilir.
@@ -66,10 +52,6 @@ Araç değer kaybı talepleri, Türk Borçlar Kanunu m. 72 uyarınca, zararın v
 Tahkim başvurusu teknik bir süreçtir. Başvuru formundaki eksiklikler, sigorta şirketine yapılan başvurunun usulüne uygun olmaması veya eksik evrak sunulması başvurunun reddine neden olabilir. Ayrıca sigorta şirketleri süreci profesyonel vekillerle takip etmektedir. Hak kaybı yaşanmaması ve tazminatın "gerçek piyasa değeri" üzerinden tam alınabilmesi için sürecin uzman desteğiyle yürütülmesi önem arz eder.
 
 Sonuç:
-Araç değer kaybı, kaza yapan araç sahiplerinin en temel yasal haklarından biridir. Sigorta Tahkim Komisyonu, bu hakkın hızlı ve etkin bir şekilde alınması için en pratik yoldur. Ancak sürecin başında sigorta şirketine yapılan başvurunun doğru kurgulanması, sonucun başarısını doğrudan etkilemektedir.
+Araç değer kaybı, kaza yapan araç sahiplerinin en temel yasal haklarından biridir. Sigorta Tahkim Komisyonu, bu hakkın hızlı ve etkin bir şekilde alınması için en etkin hukuki yollardan biridir. Ancak sürecin başında sigorta şirketine yapılan başvurunun doğru kurgulanması, sonucun başarısını doğrudan etkilemektedir.
 
 > **Yasal Uyarı:** Bu yazı, 1136 sayılı Avukatlık Kanunu ve Türkiye Barolar Birliği Reklam Yasağı Yönetmeliği çerçevesinde, yalnızca bilgilendirme amacıyla hazırlanmıştır. Hukuki tavsiye niteliği taşımamaktadır. Her somut olay kendine özgü özellikler taşıdığından, hak kaybına uğramamak için profesyonel hukuki destek almanız önerilir.
-
----
-
-TOPIC: Araç Değer Kaybı ve Tahkim

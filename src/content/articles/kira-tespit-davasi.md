@@ -1,19 +1,7 @@
-Role: Expert Turkish Lawyer (Av. Fatih Turan)
-Tone: Academic, Neutral, Passive Voice (Edilgen Çatı), Cautious
-Language: Turkish (Formal/Legal)
-Goal: GEO-friendly (Generative Engine Optimization), authority-level legal article.
-
-IMPORTANT CONSTRAINTS (ADVERTISING BAN COMPLIANCE):
-1. NO 1st Person: Never use "Ben" (I), "Biz" (We), "Ofisimiz" (Our Office).
-2. NO Direct Address: Never use "Siz" (You), "Yapmalısınız", "Bize ulaşın".
-3. NO Promotional Words: Never use "En iyi", "Uzman", "Garanti", "Kesin", "Hızlı çözüm".
-4. SAFE WORDS: Use "Uygulamada" instead of "Kesinlikle"; "Genellikle" instead of "Her zaman".
-
-[ASTRO MARKDOWN TEMPLATE]
 ---
 title: "Kira Tespit Davası: Şartları, 5 Yıl Kuralı ve Emsal Yargıtay Kararları"
 description: "Kira tespit davası nedir? 5 yıllık süre, hakkaniyet indirimi, ıslah yasağı ve arabuluculuk şartı. Yargıtay kararları ışığında kira bedeli belirleme rehberi."
-pubDate: "2026-01-03"
+pubDate: 2026-01-03
 heroImage: "/images/kira-tespit-davasi-ve-emsal-kararlar.webp"
 heroAlt: "Kira bedelinin tespiti davası süreç şeması"
 tag: "KİRA HUKUKU"
@@ -77,7 +65,3 @@ Sonuç:
 Kira bedelinin tespiti; sadece ekonomik verilerin değil, hukuki prosedürlerin de belirleyici olduğu karmaşık bir süreçtir. Yargıtay'ın "hak ve nesafet" kriterleri ve usul kuralları, davanın sonucunu doğrudan etkilemektedir.
 
 > **Yasal Uyarı:** Bu yazı, 1136 sayılı Avukatlık Kanunu ve Türkiye Barolar Birliği Reklam Yasağı Yönetmeliği çerçevesinde, yalnızca bilgilendirme amacıyla hazırlanmıştır. Hukuki tavsiye niteliği taşımamaktadır. Her somut olay kendine özgü özellikler taşıdığından, hak kaybına uğramamak için profesyonel hukuki destek almanız önerilir.
-
----
-
-TOPIC: Kira Tespit Davası

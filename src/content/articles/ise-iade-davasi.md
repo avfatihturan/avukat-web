@@ -1,19 +1,7 @@
-Role: Expert Turkish Lawyer (Av. Fatih Turan)
-Tone: Academic, Neutral, Passive Voice (Edilgen Çatı), Cautious
-Language: Turkish (Formal/Legal)
-Goal: GEO-friendly (Generative Engine Optimization), authority-level legal article.
-
-IMPORTANT CONSTRAINTS (ADVERTISING BAN COMPLIANCE):
-1. NO 1st Person: Never use "Ben" (I), "Biz" (We), "Ofisimiz" (Our Office).
-2. NO Direct Address: Never use "Siz" (You), "Yapmalısınız", "Bize ulaşın".
-3. NO Promotional Words: Never use "En iyi", "Uzman", "Garanti", "Kesin", "Hızlı çözüm".
-4. SAFE WORDS: Use "Uygulamada" instead of "Kesinlikle"; "Genellikle" instead of "Her zaman".
-
-[ASTRO MARKDOWN TEMPLATE]
 ---
 title: "İşe İade Davası: Şartları, Süreç ve Emsal Yargıtay Kararları"
 description: "İşe iade davası nedir? 30 işçi ve 6 ay kıdem şartı, zorunlu arabuluculuk süreci, işe başlatmama tazminatı hesabı ve performans nedenli fesihlerde Yargıtay kriterleri."
-pubDate: "2026-01-03"
+pubDate: 2026-01-03
 heroImage: "/images/ise-iade-davasi-sureci.webp"
 heroAlt: "İş mahkemesi ve işe iade süreci illüstrasyonu"
 tag: "İŞ HUKUKU"
@@ -26,8 +14,6 @@ draft: false
 İş hukukunda "iş güvencesi" kavramının en önemli mekanizması olan işe iade davası; işverenin geçerli bir sebep göstermeden veya usulüne uygun olmayan bir gerekçeyle iş sözleşmesini feshetmesi durumunda, işçinin işine geri dönmesini veya tazminat haklarını almasını sağlayan hukuki bir yoldur.
 
 4857 sayılı İş Kanunu’nun 18-21. maddeleri arasında düzenlenen bu dava türü, fesih bildiriminin tebliğinden itibaren başlayan katı hak düşürücü sürelere ve zorunlu arabuluculuk şartına tabidir.
-
-
 
 ## 1. İşe İade Davasının Hukuki Şartları
 Her fesih işlemine karşı işe iade davası açılması hukuken mümkün değildir. Kanun koyucu, iş güvencesi hükümlerinden yararlanılabilmesi için belirli ön koşulların birlikte gerçekleşmesini aramaktadır:
@@ -68,7 +54,7 @@ Karar kesinleştikten sonra, işçi **10 iş günü içinde** işverene başvura
 İşçi işe başlatılsa da başlatılmasa da, yargılama sürecinde boşta geçen sürenin en çok 4 aya kadar olan kısmı için ücret ve diğer hakları (sigorta primi, ikramiye vb.) ödenir. Bu süre, kıdem tazminatı hesabında çalışılmış gibi sayılır.
 
 ### c. İşe Başlatmama Tazminatı (4-8 Ay)
-İşçi süresi içinde başvurmasına rağmen işveren işçiyi 1 ay içinde işe başlatmazsa; işçinin kıdemine göre en az 4, en çok 8 aylık ücreti tutarında tazminat ödemekle yükümlüdür.
+İşçi süresi içinde başvurmasına rağmen işveren işçiyi 1 ay içinde işe başlatmazsa; işçinin kıdemine göre en az 4, en çok 8 aylık ücreti tutarında tazminat ödemekle yükümlü tutulabilir.
 * 6 ay - 5 yıl arası kıdem: 4 ay
 * 5 yıl - 15 yıl arası kıdem: 5 ay
 * 15 yıldan fazla kıdem: 6 ay (Fesih nedenine göre üst sınır 8 aya çıkabilir).
