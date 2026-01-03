@@ -2,7 +2,7 @@
 title: "İşe İade Davası: Şartları, Süreç ve Emsal Yargıtay Kararları"
 description: "İşe iade davası nedir? 30 işçi ve 6 ay kıdem şartı, zorunlu arabuluculuk süreci, işe başlatmama tazminatı hesabı ve performans nedenli fesihlerde Yargıtay kriterleri."
 pubDate: 2026-01-03
-heroImage: "/images/ise-iade-davasi-sureci.webp"
+heroImage: "/images/is-hukuku-hero.webp"
 heroAlt: "İş mahkemesi ve işe iade süreci illüstrasyonu"
 tag: "İŞ HUKUKU"
 author: "Av. Fatih Turan"

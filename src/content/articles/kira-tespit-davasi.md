@@ -2,7 +2,7 @@
 title: "Kira Tespit Davası: Şartları, 5 Yıl Kuralı ve Emsal Yargıtay Kararları"
 description: "Kira tespit davası nedir? 5 yıllık süre, hakkaniyet indirimi, ıslah yasağı ve arabuluculuk şartı. Yargıtay kararları ışığında kira bedeli belirleme rehberi."
 pubDate: 2026-01-03
-heroImage: "/images/kira-tespit-davasi-ve-emsal-kararlar.webp"
+heroImage: "/images/kira-tespit-hero.webp"
 heroAlt: "Kira bedelinin tespiti davası süreç şeması"
 tag: "KİRA HUKUKU"
 author: "Av. Fatih Turan"

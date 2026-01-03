@@ -2,7 +2,7 @@
 title: "Araç Değer Kaybı: Sigorta Tahkim Komisyonu Başvuru Şartları ve Hesaplama"
 description: "Araç değer kaybı nedir, nasıl alınır? Sigorta Tahkim Komisyonu başvuru süreci, 15 gün kuralı ve Yargıtay kararlarına göre hesaplama yöntemleri."
 pubDate: 2026-01-03
-heroImage: "/images/arac-deger-kaybi-tahkim.webp"
+heroImage: "/images/tahkim-yeni.webp"
 heroAlt: "Hasarlı araç ve sigorta tahkim süreci görseli"
 tag: "SİGORTA HUKUKU"
 author: "Av. Fatih Turan"
