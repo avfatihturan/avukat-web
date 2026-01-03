@@ -1,8 +1,10 @@
 ---
 import { getCollection, render } from 'astro:content';
+// HATA ÇÖZÜMÜ: Burası alt klasörde olduğu için çift nokta (../../) kullanılır
 import ArticleLayout from '../../layouts/ArticleLayout.astro';
 
 export async function getStaticPaths() {
+  // Sadece 'articles' (blog) yazılarını çeker
   const articles = await getCollection('articles', ({ data }) => !data.draft);
   return articles.map((article) => ({
     params: { slug: article.id },
@@ -15,18 +17,13 @@ const { Content, headings } = await render(article);
 ---
 
 <ArticleLayout
-  title={article.data.title}
-  description={article.data.description}
-  heroImage={article.data.heroImage}
-  
-  {/* HATA ÇÖZÜMÜ: Eğer alt metin yoksa başlığı kullan */}
-  heroAlt={article.data.heroAlt ?? article.data.title}
-  
-  {/* HATA ÇÖZÜMÜ: Etiket yoksa varsayılan ata */}
+  title={article.data.title ?? ''}
+  description={article.data.description ?? ''}
+  heroImage={article.data.heroImage ?? '/images/banner-blog.webp'}
+  heroAlt={article.data.heroAlt ?? article.data.title ?? 'Blog Görseli'}
   tag={article.data.tag ?? 'Hukuk'}
-  
   pubDate={article.data.pubDate}
-  author={article.data.author}
+  author={article.data.author ?? 'Av. Fatih Turan'}
   headings={headings}
   slug={article.id} 
 >

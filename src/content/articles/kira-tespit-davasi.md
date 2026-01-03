@@ -1,69 +1,83 @@
+Role: Expert Turkish Lawyer (Av. Fatih Turan)
+Tone: Academic, Neutral, Passive Voice (Edilgen Çatı), Cautious
+Language: Turkish (Formal/Legal)
+Goal: GEO-friendly (Generative Engine Optimization), authority-level legal article.
+
+IMPORTANT CONSTRAINTS (ADVERTISING BAN COMPLIANCE):
+1. NO 1st Person: Never use "Ben" (I), "Biz" (We), "Ofisimiz" (Our Office).
+2. NO Direct Address: Never use "Siz" (You), "Yapmalısınız", "Bize ulaşın".
+3. NO Promotional Words: Never use "En iyi", "Uzman", "Garanti", "Kesin", "Hızlı çözüm".
+4. SAFE WORDS: Use "Uygulamada" instead of "Kesinlikle"; "Genellikle" instead of "Her zaman".
+
+[ASTRO MARKDOWN TEMPLATE]
 ---
-title: "Kira Tespit Davası Açmadan Önce Bilmeniz Gereken 7 Kritik Nokta"
-description: "Kira tespit davası açmadan önce bilmeniz gereken 5 yıl kuralı, ÜFE-TÜFE tuzağı, hakkaniyet indirimi ve arabuluculuk şartları hakkında 7 kritik nokta."
-pubDate: 2024-01-15
-heroImage: "/images/kira-tespit-hero.webp"
-heroAlt: "Kira tespit davası için apartman silueti illüstrasyonu"
+title: "Kira Tespit Davası: Şartları, 5 Yıl Kuralı ve Emsal Yargıtay Kararları"
+description: "Kira tespit davası nedir? 5 yıllık süre, hakkaniyet indirimi, ıslah yasağı ve arabuluculuk şartı. Yargıtay kararları ışığında kira bedeli belirleme rehberi."
+pubDate: "2026-01-03"
+heroImage: "/images/kira-tespit-davasi-ve-emsal-kararlar.webp"
+heroAlt: "Kira bedelinin tespiti davası süreç şeması"
 tag: "KİRA HUKUKU"
+author: "Av. Fatih Turan"
+draft: false
 ---
 
-Son yıllarda artan enflasyon ve konut piyasasındaki dalgalanmalar, ev sahipleri ve kiracılar arasındaki uyuşmazlıkları zirveye taşıdı. Taraflar anlaşamadığında başvurulan en yaygın yol "Kira Tespit Davası" olsa da, bu dava sanıldığı kadar basit bir "dilekçe ver, kirayı arttır" süreci değildir.
+# Kira Tespit Davası: Şartları, 5 Yıl Kuralı ve Emsal Yargıtay Kararları
 
-Bir avukat olarak sıkça karşılaştığım en büyük sorun; haklı olan tarafın, süreleri kaçırdığı veya hatalı talepte bulunduğu için davayı kaybetmesidir.
+Kira sözleşmelerinde taraflar arasındaki en büyük uyuşmazlık konularından biri, değişen ekonomik koşullar karşısında kira bedelinin yeniden belirlenmesidir. Özellikle enflasyon oranlarındaki değişim ve rayiç bedellerdeki artış, **Kira Tespit Davası** (Kira Bedelinin Belirlenmesi Davası) kurumunu hukuki gündemin merkezine taşımıştır.
 
-İşte kira tespit davası açmadan önce, hak kaybına uğramamanız için bilmeniz gereken 7 hayati nokta.
+Türk Borçlar Kanunu'nun (TBK) 344. maddesinde düzenlenen bu dava türü; belirli şartların varlığı halinde, kira bedelinin hakim tarafından emsal rayiçlere ve hakkaniyete uygun olarak yeniden düzenlenmesini sağlar.
 
-## 1. 5 Yıl Kuralı: Enflasyon Oranına Mahkum Değilsiniz
+## 1. Hukuki Dayanak ve Tanım
+Kira tespit davası; tarafların kira artış oranında anlaşamamaları veya yasal sürelerin dolması halinde, yeni dönem kira bedelinin mahkeme tarafından belirlenmesi amacıyla açılan bir tespit davasıdır.
 
-Kira hukukunda en kritik eşik 5. yıldır. Sözleşmeniz 5 yılını doldurmadıysa, kira artışı yasal sınır olan TÜFE (Tüketici Fiyat Endeksi) ortalaması ile sınırlıdır. Ancak 5 yıl dolduktan sonra, hakim TÜFE ile bağlı kalmaksızın, bölgedeki emsal rayiçlere göre kirayı yeniden belirleyebilir.
+TBK m. 344 uyarınca kira bedelinin belirlenmesi iki ana kritere ayrılmaktadır:
+1.  **5 Yıldan Kısa Süreli Sözleşmeler:** Taraflar anlaşmamışsa, artış oranı bir önceki kira yılının tüketici fiyat endeksindeki (TÜFE) on iki aylık ortalamalara göre değişim oranını geçemez.
+2.  **5 Yıldan Uzun Süreli Sözleşmeler:** Beş yıldan uzun süreli veya beş yıldan sonra yenilenen kira sözleşmelerinde; TÜFE oranı, kiralananın durumu ve emsal kira bedelleri göz önünde tutularak **"hakkaniyete uygun"** biçimde belirleme yapılır.
 
-> Bunu Neden Bilmelisiniz? Eğer 3. yıldaysanız ve kira çok düşük kaldıysa "kira tespit davası" değil, şartları çok daha ağır olan "uyarlama davası" açmanız gerekir ki bu davanın kabulü oldukça zordur. Tespit davası için 5 yıllık "hak ve nesafet" döneminin dolması şarttır.
+> **Önemli Ayrım:** Kira tespit davası, "Kira Uyarlama Davası" (TBK m. 138) ile karıştırılmamalıdır. Uyarlama davasında "öngörülemeyen olağanüstü haller" (aşırı ifa güçlüğü) aranırken; tespit davasında 5 yıllık sürenin dolması ve rayiçlerin değişmesi yeterli sebeptir.
 
-## 2. İhtarname ve Zamanlama
+## 2. Dava Açma Şartları ve 5 Yıl Kuralı
+Yargıtay uygulamalarına göre, bir kira tespit davasının dinlenebilmesi için şu şartların birlikte gerçekleşmesi aranır:
+* Taraflar arasında geçerli (yazılı veya sözlü) bir kira sözleşmesinin bulunması,
+* Davacının dava açmakta hukuki yararının bulunması,
+* **5 Yıllık Sürenin Dolması:** Sözleşme tarihinden itibaren 5 yıl geçmedikçe, kira bedeli rayiçlere (emsallere) göre belirlenemez; sadece TÜFE endeksine göre artış yapılabilir.
+* **Zorunlu Arabuluculuk:** 1 Eylül 2023 tarihi itibariyle, kira tespit davası açılmadan önce arabuluculuk yoluna başvurulması **dava şartı** haline getirilmiştir. Arabuluculuk süreci tamamlanmadan açılan davalar usulden reddedilmektedir.
 
-Kira tespit davalarında davanın ne zaman açıldığı, yeni kiranın hangi tarihten itibaren geçerli olacağını belirler. Burada "Sözleşmede Artış Maddesi" olup olmadığı hayati önem taşır:
+## 3. İhtarname Süresi ve Kararın Etkisi (Kritik Usul)
+Kira tespit davasının "her zaman" açılması mümkündür; ancak davanın açıldığı tarih, belirlenecek yeni kiranın hangi dönemden itibaren geçerli olacağını belirler (TBK m. 345).
 
-> Sözleşmede Artış Şartı Varsa: İhtarname çekmeye gerek kalmadan, yeni kira döneminin sonuna kadar davanızı açabilirsiniz. Tespit edilen kira, dönemin başından itibaren geçerli olur.
+* **Yeni Dönemde Geçerli Olması İçin:** Yeni kira dönemi başlangıcından **en geç 30 gün önce** dava açılmış ya da bu süre içinde kiracıya yazılı bildirim (ihtarname) yapılmış olmalıdır.
+* **Bir Sonraki Dönemde Geçerli Olması:** Eğer 30 günlük süre kaçırılırsa, mahkemenin belirleyeceği kira bedeli o yıl için değil, bir sonraki kira yılından itibaren geçerli olur.
+* **İstisna (Sözleşmede Artış Maddesi):** Sözleşmede "kira bedelinin artırılacağına" dair bir hüküm varsa, ihtarname şartı aranmaksızın, yeni dönem sonuna kadar açılacak davada belirlenen bedel, dönemin başından itibaren geçerli sayılır.
 
-Sözleşmede Artış Şartı Yoksa: Yeni dönem başlamadan en az 30 gün önce ya dava açılmalı ya da kiracıya ihtarname tebliğ ettirilmiş olmalıdır.
+## 4. Uygulamada En Sık Yapılan Hatalar
+Kira tespit davalarında yapılan usul hataları, davanın reddine veya beklenen faydanın sağlanamamasına neden olmaktadır.
 
-> Dikkat: Bu süreyi bir gün bile kaçırırsanız, belirlenecek yeni kira bedeli o yıl için değil, bir sonraki yıl için geçerli olur. Bir yıllık kira farkını kaybetmemek için bir avukatla takvim hesabı yapmanız şarttır.
+* **Hata 1: Islah Yoluyla Bedel Artırımı Yapılması**
+    Kira tespit davaları, niteliği gereği "Belirsiz Alacak Davası" veya "Kısmi Dava" olarak açılamaz. Yargıtay Hukuk Genel Kurulu'nun (E. 2017/2792, K. 2021/267) yerleşik içtihadına göre; dava dilekçesinde talep edilen miktar sonradan **ıslah yoluyla artırılamaz**. Davacı, talep ettiği rakamı en başta net olarak belirtmek zorundadır.
+* **Hata 2: Brüt/Net Ayrımının Yapılmaması**
+    Özellikle işyeri kiralarında kira bedelinin "Brüt" veya "Net" olarak talep edildiği açıkça belirtilmelidir. Yargıtay kararlarına göre kira tespiti genellikle "Brüt" bedel üzerinden yapılır. Bu ayrımın yapılmaması, harç eksikliği veya infaz sorunlarına yol açabilir.
+* **Hata 3: Kararın Kesinleşmeden İcraya Konulması**
+    Kira tespit ilamları, inşai nitelikte kararlar olduğundan **kesinleşmeden icra edilemez**. Yani, istinaf veya temyiz süreci bitmeden, belirlenen yeni kira bedeli ve kira farkları için icra takibi başlatılamaz (Yargıtay İBGK, 12.11.1979 tarihli kararı).
 
-## 3. ÜFE – TÜFE Tuzağına Düşmeyin (Emsal Karar Uyarısı)
+## 5. Yargıtay Kararlarının Yaklaşımı ve Hakkaniyet İndirimi
+Hakim, bilirkişi marifetiyle taşınmazın "boş olarak" kiraya verilmesi durumundaki emsal değerini tespit eder. Ancak Yargıtay, kiracının "eski kiracı" olması sebebiyle bu bedelden bir indirim yapılmasını şart koşar.
 
-Eski tarihli birçok kira sözleşmesinde artış oranı olarak "ÜFE-TÜFE ortalaması" veya "TEFE-TÜFE" gibi ifadeler yer alır. Ancak güncel Bölge Adliye Mahkemesi (BAM) kararları, bu tür ifadelerin **belirli ve muayyen olmadığı** için artış şartının geçersiz sayılabileceğini öngörmektedir.
+**Hakkaniyet İndirimi (Eski Kiracı İndirimi):**
+Yargıtay 3. Hukuk Dairesi'nin yerleşik uygulamasına göre (Örn: E. 2017/7927, K. 2018/4805); bilirkişi tarafından belirlenen rayiç bedelden, kiracının eski olması gözetilerek hakkaniyete uygun (**genellikle %10 - %20 aralığında**) bir indirim yapılmalıdır. Bu indirim yapılmadan, doğrudan rayiç bedele hükmedilmesi bozma sebebidir.
 
-Örneğin, İstanbul BAM 2024/3307 Esas sayılı kararında; sözleşmede iki farklı artış maddesi bulunması sebebiyle artış şartının belirsiz olduğuna ve geçersizliğine hükmedilmiştir. Bu durum, davanızın seyrini ve ispat yükünü tamamen değiştirir.
+## 6. Kritik Süreler ve Zamanaşımı
+* **Zamanaşımı:** Kira tespit davası için bir hak düşürücü süre veya zamanaşımı yoktur; kira ilişkisi devam ettiği sürece her zaman açılabilir. Ancak yukarıda belirtilen ihtar süresi, kararın etki doğuracağı dönemi belirler.
+* **Arabuluculuk Süresi:** Arabuluculuk başvurusu yapıldıktan sonra sürecin anlaşamama ile sonuçlanması halinde, son tutanak düzenlendikten sonra dava açılabilir.
 
-Artış maddesinin geçersiz olması durumunda kira artışı, sözleşmedeki oran üzerinden değil; **hakimin belirleyeceği emsal kira** üzerinden yapılır.
+## 7. Neden Profesyonel Hukuki Destek Önemlidir?
+Kira tespit davaları; emsal araştırması, ihtarname sürelerinin hesaplanması, "ıslah yasağı" nedeniyle dava değerinin baştan doğru belirlenmesi ve "hakkaniyet indirimi" gibi teknik detaylar içerir. Yanlış açılan bir davada, mahkemece belirlenen kira bedeli beklentinin çok altında kalabilir veya süre kaçırıldığı için bir yıllık kira farkı kaybı yaşanabilir. Sürecin teknik boyutunun uzman desteğiyle yönetilmesi, hak kayıplarının önüne geçilmesini sağlar.
 
-## 4. "Komşum 30 Bin TL Ödüyor, Ben De İsterim" Yanılgısı (Hakkaniyet İndirimi)
+Sonuç:
+Kira bedelinin tespiti; sadece ekonomik verilerin değil, hukuki prosedürlerin de belirleyici olduğu karmaşık bir süreçtir. Yargıtay'ın "hak ve nesafet" kriterleri ve usul kuralları, davanın sonucunu doğrudan etkilemektedir.
 
-Kira tespit davasında bilirkişi gelip bölgedeki emsallere bakar. Diyelim ki bilirkişi, evinizin boş olarak 30.000 TL'ye kiralanabileceğini raporladı. Mahkeme direkt bu rakama hükmetmez.
+> **Yasal Uyarı:** Bu yazı, 1136 sayılı Avukatlık Kanunu ve Türkiye Barolar Birliği Reklam Yasağı Yönetmeliği çerçevesinde, yalnızca bilgilendirme amacıyla hazırlanmıştır. Hukuki tavsiye niteliği taşımamaktadır. Her somut olay kendine özgü özellikler taşıdığından, hak kaybına uğramamak için profesyonel hukuki destek almanız önerilir.
 
-Kiracınız "eski kiracı" olduğu için, hakim %10 ile %20 arasında bir "Hakkaniyet İndirimi" (eski kiracı indirimi) uygular. Dolayısıyla beklentinizi brüt rakam üzerinden değil, bu hukuki indirimi hesaba katarak oluşturmalısınız.
+---
 
-## 5. İşyeri Kiralarında "Brüt/Net" Ayrımı Davayı Reddettirebilir
-
-Eğer bir işyeri (dükkan, ofis) için kira tespiti istiyorsanız, talebinizin "Brüt" mü yoksa "Net" mi olduğunu dava dilekçesinde açıkça belirtmelisiniz.
-
-Yargıtay uygulamasına göre çatılı işyerlerinde kira tespiti talebi brüt kira bedeli üzerinden yapılmalıdır. Dilekçenizde bu ayrımı hatalı yaparsanız veya harcı eksik yatırırsanız, davanız usulden reddedilebilir veya süreç aylar boyunca uzayabilir.
-
-## 6. "Şimdilik 1.000 TL İstiyorum" Diyemezsiniz (Islah Yasağı)
-
-Hukukumuzdaki pek çok davada (tazminat vb.) dava değeri başta düşük tutulup sonradan arttırılabilir (belirsiz alacak davası). Ancak Kira Tespit Davaları "Belirsiz Alacak Davası" olarak açılamaz ve talep edilen miktar sonradan ISLAH EDİLEMEZ.
-
-Yani dava açarken, talep ettiğiniz kira bedelini nokta atışı ve net bir şekilde yazmak zorundasınız. "Şimdilik 10.000 TL dava açayım, bilirkişi 20.000 TL derse yükseltirim" derseniz, mahkeme sadece talep ettiğiniz 10.000 TL'ye hükmeder. Bu teknik detay, neden uzman bir avukatla çalışmanız gerektiğinin en somut kanıtıdır.
-
-## 7. Zorunlu Arabuluculuk Şartı
-
-2023 yılı itibariyle kira uyuşmazlıklarında dava açmadan önce Arabuluculuk kurumuna başvurmak zorunlu hale gelmiştir. Dava açma hakkınız doğmuş olsa bile, önce arabulucuya gitmeden doğrudan mahkemeye başvurursanız davanız "dava şartı yokluğundan" hemen reddedilir.
-
-## Sonuç: Haklıyken Haksız Duruma Düşmeyin
-
-Kira tespit davası; doğru zamanlama, doğru emsal araştırması ve doğru talep (net/brüt, miktar) ile kazanılır. İnternetten bulduğunuz taslak dilekçelerle, geri dönüşü olmayan hatalar yapabilir (örneğin ıslah yasağına takılarak) ve yıllarca sürecek bir davadan beklediğiniz sonucu alamayabilirsiniz.
-
-Av. Fatih Turan 
-Ankara Barosu - 46839
-
-> **Uyarı:** Bu yazı, 1136 sayılı Avukatlık Kanunu ve Türkiye Barolar Birliği Reklam Yasağı Yönetmeliği çerçevesinde, yalnızca bilgilendirme amacıyla hazırlanmıştır. Hukuki tavsiye niteliği taşımamaktadır. Her somut olay kendine özgü özellikler taşıdığından, hak kaybına uğramamak için profesyonel hukuki destek almanız önerilir.
+TOPIC: Kira Tespit Davası

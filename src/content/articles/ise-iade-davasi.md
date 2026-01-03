@@ -1,84 +1,85 @@
+Role: Expert Turkish Lawyer (Av. Fatih Turan)
+Tone: Academic, Neutral, Passive Voice (Edilgen Çatı), Cautious
+Language: Turkish (Formal/Legal)
+Goal: GEO-friendly (Generative Engine Optimization), authority-level legal article.
+
+IMPORTANT CONSTRAINTS (ADVERTISING BAN COMPLIANCE):
+1. NO 1st Person: Never use "Ben" (I), "Biz" (We), "Ofisimiz" (Our Office).
+2. NO Direct Address: Never use "Siz" (You), "Yapmalısınız", "Bize ulaşın".
+3. NO Promotional Words: Never use "En iyi", "Uzman", "Garanti", "Kesin", "Hızlı çözüm".
+4. SAFE WORDS: Use "Uygulamada" instead of "Kesinlikle"; "Genellikle" instead of "Her zaman".
+
+[ASTRO MARKDOWN TEMPLATE]
 ---
-title: "İşten Çıkarıldınız: İlk 10 Günde Atılması Gereken Adımlar"
-description: "İşten çıkarıldıysanız, ilk 10 günde hangi adımları atmanız ve işe iade davasını nasıl açmanız gerektiğini adım adım öğrenin."
-pubDate: 2024-01-10
-heroImage: "/images/is-hukuku-hero.webp"
-heroAlt: "İşe iade süreci"
+title: "İşe İade Davası: Şartları, Süreç ve Emsal Yargıtay Kararları"
+description: "İşe iade davası nedir? 30 işçi ve 6 ay kıdem şartı, zorunlu arabuluculuk süreci, işe başlatmama tazminatı hesabı ve performans nedenli fesihlerde Yargıtay kriterleri."
+pubDate: "2026-01-03"
+heroImage: "/images/ise-iade-davasi-sureci.webp"
+heroAlt: "İş mahkemesi ve işe iade süreci illüstrasyonu"
 tag: "İŞ HUKUKU"
+author: "Av. Fatih Turan"
+draft: false
 ---
 
-İş hayatında karşılaşılan en stresli durumlardan biri, hiç beklenmedik bir anda iş sözleşmesinin feshedilmesidir. İşveren tarafından yapılan fesih bildirimi, çalışanda çoğu zaman bir panik havası yaratır. Ancak bu süreçte atılacak yanlış imzalar veya kaçırılan süreler, yılların emeğinin karşılıksız kalmasına neden olabilir.
+# İşe İade Davası: Şartları, Süreç ve Emsal Yargıtay Kararları
 
-Bu yazıda; işten çıkarılma anında dikkat edilmesi gerekenler, fesih bildirimine karşı tutum, tutanak süreçleri ve işe iade davası açma şartlarını, güncel Yargıtay kararları ışığında inceleyeceğiz.
+İş hukukunda "iş güvencesi" kavramının en önemli mekanizması olan işe iade davası; işverenin geçerli bir sebep göstermeden veya usulüne uygun olmayan bir gerekçeyle iş sözleşmesini feshetmesi durumunda, işçinin işine geri dönmesini veya tazminat haklarını almasını sağlayan hukuki bir yoldur.
 
-## 1. Panik Yapmayın: Fesih Anında İlk Dikkat Edilmesi Gerekenler
+4857 sayılı İş Kanunu’nun 18-21. maddeleri arasında düzenlenen bu dava türü, fesih bildiriminin tebliğinden itibaren başlayan katı hak düşürücü sürelere ve zorunlu arabuluculuk şartına tabidir.
 
-İşveren tarafından sözleşmenin feshedildiği bildirildiğinde, işçinin soğukkanlılığını koruması ve önüne konulan belgeleri dikkatlice incelemesi hayati önem taşır.
 
-**Fesih Bildirimi Yazılı Olmak Zorundadır:** 4857 sayılı İş Kanunu’nun 19. maddesi gereğince, işveren fesih bildirimini yazılı olarak yapmak ve fesih sebebini açık ve kesin bir şekilde belirtmek zorundadır.
 
-> **Örnek Durum:** İşveren sadece "performans düşüklüğü" diyerek sizi işten çıkaramaz. Hangi davranışın performansı düşürdüğünü somut verilerle ortaya koymalıdır. Nitekim Anayasa Mahkemesi (B. 2019/17945) kararında; fesih bildiriminde işçinin hangi somut fiilinin feshe konu edildiği belirtilmemişse, feshin geçersiz olduğuna hükmetmiştir.
+## 1. İşe İade Davasının Hukuki Şartları
+Her fesih işlemine karşı işe iade davası açılması hukuken mümkün değildir. Kanun koyucu, iş güvencesi hükümlerinden yararlanılabilmesi için belirli ön koşulların birlikte gerçekleşmesini aramaktadır:
 
-**Tutanaklar ve İbraname: Neye İmza Atıyorsunuz?**
+1.  **İş Kanunu veya Basın İş Kanunu Kapsamında Olmak:** Deniz İş Kanunu veya Borçlar Kanunu kapsamında çalışanlar bu davayı açamaz.
+2.  **30 İşçi Şartı:** Fesih tarihinde işyerinde en az 30 işçi çalışıyor olmalıdır. İşverenin aynı işkolundaki tüm şubelerinde çalışan toplam işçi sayısı dikkate alınır.
+3.  **6 Aylık Kıdem:** İşçinin o işyerindeki kıdeminin en az 6 ay olması gerekir (Yer altı işlerinde çalışanlar için bu şart aranmaz).
+4.  **Belirsiz Süreli İş Sözleşmesi:** Sözleşme belirli süreli (proje bazlı vb.) ise işe iade davası açılamaz.
+5.  **İşveren Vekili Olmamak:** İşletmenin bütününü sevk ve idare eden (Genel Müdür vb.) veya işe alma ve çıkarma yetkisi bulunan işveren vekilleri bu haktan yararlanamaz.
 
-İşten çıkış işlemleri sırasında işverenler genellikle "Tüm haklarımı aldım, işvereni ibra ederim" şeklinde belgeler imzalatmak isteyebilir.
+## 2. Fesih Bildiriminde Usul ve "Geçerli Neden" Kavramı
+İş Kanunu m. 19 uyarınca, işveren fesih bildirimini **yazılı** olarak yapmak ve fesih sebebini **açık ve kesin** bir şekilde belirtmek zorundadır. Fesih sebebinin açıkça belirtilmediği durumlarda, fesih geçersiz sayılmaktadır.
 
-> **Dikkat:** Eğer kıdem, ihbar tazminatı veya fazla mesai gibi alacaklarınız hesabınıza yatmadıysa bu belgeleri imzalamaktan kaçınmalısınız.
+### Performans Düşüklüğü Nedeniyle Fesih (Yargıtay Kriteri)
+Uygulamada sıkça karşılaşılan "performans düşüklüğü" gerekçesi, Yargıtay denetiminde sıkı şartlara bağlanmıştır. Yargıtay 9. Hukuk Dairesi'nin 2017/21990 E. sayılı kararında belirtildiği üzere; performans düşüklüğünün geçerli neden sayılabilmesi için:
+* İşyerinde objektif performans kriterlerinin önceden belirlenmiş olması,
+* Bu kriterlerin işçiye tebliğ edilmiş olması,
+* Düşüklüğün süreklilik arz etmesi,
+* İşçiye performansını artırması için eğitim verilmesi gerekmektedir.
 
-> **İhtirazi Kayıt:** Eğer belgeyi imzalamak zorundaysanız, imzanızın altına "Fazlaya ilişkin haklarım saklı kalmak kaydıyla" veya "Tazminat haklarımı almadım" şerhini düşmeniz, ileride açılacak davalarda ispat kolaylığı sağlar.
+Bu şartlar sağlanmadan yapılan fesihler, "geçerli neden" oluşmadığı gerekçesiyle geçersiz sayılabilmektedir.
 
-## 2. İşe İade Davası Nedir?
+## 3. Dava Şartı: Zorunlu Arabuluculuk ve Hak Düşürücü Süreler
+7036 sayılı İş Mahkemeleri Kanunu ile birlikte, işe iade davalarında arabuluculuk "dava şartı" haline getirilmiştir. Süreç şu takvime tabidir:
 
-İşe iade davası; iş güvencesi kapsamında olan bir işçinin, geçerli bir sebep olmaksızın (haksız yere) işten çıkarılması durumunda, işine geri dönmek ve bu süreçte boşta geçen süreye ait ücretini talep etmek amacıyla açtığı bir davadır.
+* **Arabulucuya Başvuru (1 Ay):** Fesih bildiriminin tebliğinden itibaren **1 ay içinde** arabulucuya başvurulmalıdır. Bu süre hak düşürücüdür.
+* **Dava Açma Süresi (2 Hafta):** Arabuluculukta anlaşma sağlanamazsa, son tutanağın düzenlendiği tarihten itibaren **2 hafta içinde** İş Mahkemesinde dava açılmalıdır.
 
-Bu dava türü, feshin geçersizliğinin tespiti ve işçinin işine iadesini sağlar.
+> **Önemli Not (Alt İşveren - Asıl İşveren İlişkisi):** Yargıtay 9. Hukuk Dairesi'nin 2021/9540 E. sayılı kararına göre; asıl işveren-alt işveren ilişkisinin bulunduğu durumlarda, arabuluculuk başvurusunun **her iki işverene karşı birlikte** yapılması zorunludur. Sadece birine karşı başvuru yapılması halinde dava, dava şartı yokluğundan reddedilebilmektedir.
 
-## 3. İşe İade Davası Açma Şartları
+## 4. İşe İade Kararının Sonuçları ve Tazminatlar
+Mahkemece feshin geçersizliğine karar verilmesi halinde, süreç işçinin başvurusuna bağlı olarak işler:
 
-Her işten çıkarılan işçi işe iade davası açamaz. Kanun koyucu, iş güvencesinden yararlanabilmek için belirli şartlar öngörmüştür:
+### a. 10 İş Günü İçinde Başvuru Zorunluluğu
+Karar kesinleştikten sonra, işçi **10 iş günü içinde** işverene başvurarak işe başlamak istediğini bildirmek zorundadır. Bu süre içinde başvuru yapılmazsa, fesih geçerli hale gelir ve işe iadeye bağlı tazminat hakları kaybedilir.
 
-1. İş Kanunu veya Basın İş Kanunu’na Tabi Olmak: Deniz İş Kanunu veya Borçlar Kanunu kapsamında çalışanlar bu davayı açamaz.
+### b. Boşta Geçen Süre Ücreti (4 Ay)
+İşçi işe başlatılsa da başlatılmasa da, yargılama sürecinde boşta geçen sürenin en çok 4 aya kadar olan kısmı için ücret ve diğer hakları (sigorta primi, ikramiye vb.) ödenir. Bu süre, kıdem tazminatı hesabında çalışılmış gibi sayılır.
 
-2. 30 İşçi Şartı: Fesih tarihinde işyerinde en az 30 işçi çalışıyor olmalıdır. (Aynı işkolundaki şubeler toplamı dikkate alınır).
+### c. İşe Başlatmama Tazminatı (4-8 Ay)
+İşçi süresi içinde başvurmasına rağmen işveren işçiyi 1 ay içinde işe başlatmazsa; işçinin kıdemine göre en az 4, en çok 8 aylık ücreti tutarında tazminat ödemekle yükümlüdür.
+* 6 ay - 5 yıl arası kıdem: 4 ay
+* 5 yıl - 15 yıl arası kıdem: 5 ay
+* 15 yıldan fazla kıdem: 6 ay (Fesih nedenine göre üst sınır 8 aya çıkabilir).
 
-3. 6 Aylık Kıdem: İşçinin o işyerinde en az 6 aylık kıdemi bulunmalıdır.
+## 5. İhbar ve Kıdem Tazminatının Mahsubu
+İşe iade davası sonucunda işçinin işe başlatılmaması durumunda, fesih tarihi "işe başlatmama tarihi" olarak kabul edilir. Eğer işe iade davası öncesinde işverence kıdem ve ihbar tazminatı ödenmişse, bu ödemeler işe başlatmama tarihindeki güncel ücret üzerinden hesaplanan yeni tazminattan mahsup edilir. Yargıtay 9. Hukuk Dairesi (E. 2023/18298) kararına göre; daha önce ihbar tazminatı peşin ödenmişse, işe başlatmama halinde tekrar ihbar tazminatı ödenmesi gerekmeyebilir.
 
-> Yargıtay Kararı: Yargıtay 7. Hukuk Dairesi (E. 2015/31765) kararında; 6 aylık kıdem koşulu sağlanmadan davanın kabul edilmesinin hukuka aykırı olduğunu belirtmiştir. (Yer altı işlerinde çalışanlar için bu şart aranmaz).
+## 6. Neden Profesyonel Hukuki Destek Önemlidir?
+İşe iade davaları; arabuluculuk aşamasında taraf teşkili (alt işveren-üst işveren), performans kriterlerinin ispatı ve işe başvuru sürelerinin (10 gün) takibi gibi teknik detaylar barındırır. Özellikle "geçerli neden" ile "haklı neden" ayrımının doğru yapılması, işsizlik maaşı hakkının kazanılmasında belirleyici olmaktadır. Sürecin usul hukukuna hakim bir destekle yürütülmesi, hak kayıplarının önlenmesi açısından önem arz eder.
 
-4. Belirsiz Süreli İş Sözleşmesi: Sözleşme belirli süreli (örneğin proje bazlı veya özel okul öğretmenleri gibi) ise işe iade davası açılamaz.
+Sonuç:
+İş güvencesi hükümleri, işverenin fesih hakkını keyfi kullanmasını engellemek amacıyla getirilmiştir. Ancak bu korumadan yararlanmak, Kanun'un öngördüğü şekil şartlarına ve hak düşürücü sürelere riayet edilmesine bağlıdır.
 
-5. İşveren Vekili Olmamak: İşletmenin bütününü sevk ve idare eden (Genel Müdür vb.) kişiler bu haktan yararlanamaz.
-
-## 4. Kritik Süreç: Arabuluculuk ve Dava Açma Süresi
-
-İşe iade davalarında süreler hak düşürücüdür. Bu sürelerin kaçırılması, haklı olsanız dahi davanın reddedilmesine neden olur.
-
-**Adım 1: Arabulucuya Başvuru (1 Ay):** Fesih bildiriminin size tebliğ edildiği tarihten itibaren 1 ay içinde arabulucuya başvurmak zorundasınız. Bu bir dava şartıdır, yerine getirilmediğinde davanız usulden reddedilecektir.
-
-**Adım 2: Dava Açma (2 Hafta):** Arabuluculukta anlaşma sağlanamazsa, son tutanağın düzenlendiği tarihten itibaren 2 hafta içinde İş Mahkemesinde dava açılmalıdır.
-
-## 5. İşe İade Davasının Sonuçları ve Tazminatlar
-
-Mahkeme feshin geçersizliğine ve işçinin işe iadesine karar verirse süreç şu şekilde işler:
-
-**10 İş Günü Kuralı:** Karar kesinleştikten sonra, işçi 10 iş günü içinde işverene başvurarak işe başlamak istediğini bildirmelidir.
-
->Önemli: Yargıtay 9. Hukuk Dairesi (E. 2021/1681) kararında; işçinin 10 gün içinde başvurmaması halinde feshin geçerli hale geleceğini ve işe iade haklarının kaybedileceğini vurgulamıştır. Bu başvuru noter kanalıyla (ihtarname ile) yapılmalıdır.
-
-**İşçinin Hak Kazandığı Tazminatlar:**
-
-- **Boşta Geçen Süre Ücreti:** İşçi işe başlatılsa da başlatılmasa da, mahkeme süresince çalışamadığı dönem için en çok 4 aya kadar olan ücretini ve diğer haklarını alır.
-- **İşe Başlatmama Tazminatı:** İşçi süresi içinde başvurmasına rağmen işveren onu işe başlatmazsa; en az 4, en çok 8 aylık brüt ücret tutarında tazminat ödemek zorundadır.
-
-İpucu: Eğer işe iade davası öncesinde veya dava sırasında ihbar tazminatı ödenmişse ve işe iade kararı sonrası işveren sizi işe başlatmazsa, tekrar ihbar tazminatı ödenmez. Mahsup işlemi yapılır (Yargıtay 9. HD, E. 2023/18298).
-
-## Sonuç
-
-İşten çıkarılma süreci, hukuki teknik detayların yoğun olduğu ve sürelerin hayati önem taşıdığı bir süreçtir. "Haklı neden" ile "geçerli neden" arasındaki fark, işsizlik maaşı almanızı dahi etkileyebilir. Örneğin; performans düşüklüğü (geçerli neden) ile işten çıkarmada işsizlik maaşı alabilirken, ahlak ve iyi niyet kurallarına aykırılık (haklı neden - Kod 29/46 vb.) iddiasında bu hak kaybedilebilir. Bu tür durumlarda kodun düzeltilmesi için de hukuki yollara başvurulması gerekebilir (Yargıtay 9. HD, E. 2023/15522).
-
-Hak kaybına uğramamak ve sürecin sağlıklı yönetilmesi için bir avukattan hukuki destek almanız yararınıza olacaktır.
-
-Av. Fatih Turan 
-Ankara Barosu - 46839
-
-> **Uyarı:** Bu yazı, 1136 sayılı Avukatlık Kanunu ve Türkiye Barolar Birliği Reklam Yasağı Yönetmeliği çerçevesinde, yalnızca bilgilendirme amacıyla hazırlanmıştır. Hukuki tavsiye niteliği taşımamaktadır. Her somut olay kendine özgü özellikler taşıdığından, hak kaybına uğramamak için profesyonel hukuki destek almanız önerilir.
+> **Yasal Uyarı:** Bu yazı, 1136 sayılı Avukatlık Kanunu ve Türkiye Barolar Birliği Reklam Yasağı Yönetmeliği çerçevesinde, yalnızca bilgilendirme amacıyla hazırlanmıştır. Hukuki tavsiye niteliği taşımamaktadır. Her somut olay kendine özgü özellikler taşıdığından, hak kaybına uğramamak için profesyonel hukuki destek almanız önerilir.

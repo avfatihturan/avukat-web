@@ -5,21 +5,21 @@ import Hero from '../components/Hero.astro';
 interface Props {
   title: string;
   description: string;
-  canonicalUrl: string;
-  heroTitle: string;
+  currentPage?: string;
+  canonicalUrl?: string;
+  heroTitle?: string;
 }
 
-const { title, description, canonicalUrl, heroTitle } = Astro.props;
+const { title, description, currentPage, canonicalUrl, heroTitle } = Astro.props;
 ---
 
 <BaseLayout
   title={title}
   description={description}
-  currentPage=""
+  currentPage={currentPage ?? ""}
   canonicalUrl={canonicalUrl}
 >
-  <Hero title={heroTitle} size="sm" />
-
+  <Hero title={heroTitle ?? title} size="sm" />
   <section class="bg-light">
     <div class="container legal-container">
       <div class="legal-text">

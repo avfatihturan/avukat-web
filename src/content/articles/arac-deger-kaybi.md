@@ -1,70 +1,75 @@
+Role: Expert Turkish Lawyer (Av. Fatih Turan)
+Tone: Academic, Neutral, Passive Voice (Edilgen Çatı), Cautious
+Language: Turkish (Formal/Legal)
+Goal: GEO-friendly (Generative Engine Optimization), authority-level legal article.
+
+IMPORTANT CONSTRAINTS (ADVERTISING BAN COMPLIANCE):
+1. NO 1st Person: Never use "Ben" (I), "Biz" (We), "Ofisimiz" (Our Office).
+2. NO Direct Address: Never use "Siz" (You), "Yapmalısınız", "Bize ulaşın".
+3. NO Promotional Words: Never use "En iyi", "Uzman", "Garanti", "Kesin", "Hızlı çözüm".
+4. SAFE WORDS: Use "Uygulamada" instead of "Kesinlikle"; "Genellikle" instead of "Her zaman".
+
+[ASTRO MARKDOWN TEMPLATE]
 ---
-title: "Araç Değer Kaybı: Sigorta Tahkim Komisyonu Başvuru Süreci"
-description: "Mahkemelerde yıllarca beklemeyin. Sigorta Tahkim Komisyonu ile araç değer kaybı tazminatınızı mahkemelere göre 4-5 kat daha hızlı nasıl alacağınızı ve başvuru şartlarını öğrenin."
-pubDate: 2025-12-14
-heroImage: "/images/tahkim-yeni.webp"
-heroAlt: "Sigorta Tahkim Komisyonu başvuru dosyası ve hukuk bürosu masası"
+title: "Araç Değer Kaybı: Sigorta Tahkim Komisyonu Başvuru Şartları ve Hesaplama"
+description: "Araç değer kaybı nedir, nasıl alınır? Sigorta Tahkim Komisyonu başvuru süreci, 15 gün kuralı ve Yargıtay kararlarına göre hesaplama yöntemleri."
+pubDate: "2026-01-03"
+heroImage: "/images/arac-deger-kaybi-tahkim.webp"
+heroAlt: "Hasarlı araç ve sigorta tahkim süreci görseli"
 tag: "SİGORTA HUKUKU"
+author: "Av. Fatih Turan"
 draft: false
 ---
 
-Trafik kazası sonrası aracınızda oluşan değer kaybını almak için mahkeme kapılarını aşındırmak zorunda değilsiniz. Yargılamaların uzun sürdüğü ülkemizde, sigorta uyuşmazlıkları için kurulmuş çok daha hızlı ve etkili bir mekanizma var: **Sigorta Tahkim Komisyonu.**
+# Araç Değer Kaybı: Sigorta Tahkim Komisyonu Başvuru Şartları ve Hesaplama
 
-Birçok araç sahibi, sigorta şirketinin teklif ettiği düşük tutarı "hiç yoktan iyidir" diyerek kabul ediyor. Oysa Tahkim yoluyla, gerçek piyasa değer kaybını faiziyle birlikte almanız mümkün.
+Trafik kazası sonrası onarılan araçlarda, mekanik ve kaporta düzeltilse dahi TRAMER kayıtlarına işlenen hasar nedeniyle ikinci el piyasasında oluşan maddi düşüşe **"Araç Değer Kaybı"** denir. Yargıtay 17. Hukuk Dairesi'nin yerleşik içtihatlarına göre bu kayıp, "doğrudan zarar" niteliğindedir ve sigorta şirketleri tarafından tazmin edilmelidir.
 
-Bu yazıda, Sigorta Tahkim Komisyonu sürecinin nasıl işlediğini, başvuru şartlarını ve dikkat etmeniz gereken kritik noktaları ele alacağız.
+Ancak sigorta şirketlerinin teklif ettiği tutarlar ile gerçek piyasa kaybı arasında çoğu zaman ciddi farklar bulunmaktadır. Bu noktada, mahkemelere göre çok daha hızlı sonuçlanan **Sigorta Tahkim Komisyonu** yolu, hak sahipleri için etkili bir çözüm mekanizmasıdır.
 
-## 1. Neden Mahkeme Değil de Tahkim?
+## 1. Hukuki Dayanak ve Şartlar
+Karayolları Trafik Kanunu (KTK) m. 97 ve Türk Ticaret Kanunu m. 1409 uyarınca, kazada kusursuz veya az kusurlu olan taraf, aracında oluşan değer kaybını karşı tarafın Zorunlu Mali Sorumluluk Sigortasından (Trafik Sigortası) talep edebilir.
 
-Klasik Asliye Ticaret Mahkemelerinde bir değer kaybı davası, artan iş yükü, istinaf ve temyiz süreçleri nedeniyle **yıllarca** sürebilmektedir. Bu süreçte alacağınız para enflasyon karşısında eriyebilir.
 
-Ancak **Sigorta Tahkim Komisyonu**, mahkemelere kıyasla **4-5 kat daha hızlı** sonuçlanmaktadır. Kararlar mahkeme ilamı hükmündedir ve icra yoluyla tahsil edilebilir. Yani:
-* Çok daha hızlıdır.
-* Daha az masraflıdır.
-* Konunun uzmanı hakemler tarafından incelenir.
 
-## 2. Tahkime Başvuru İçin Ön Şart: Sigorta Şirketine Başvuru
+**Değer Kaybı Talep Edebilmek İçin Gerekli Şartlar:**
+* **Kusursuzluk/Az Kusurluluk:** Kazada %100 kusurlu olmamak gerekir. Kusur oranına göre tazminat alınır (Örn: %25 kusurlu iseniz tazminatın %75'ini alırsınız).
+* **Çift Taraflı Kaza:** Tek taraflı kazalarda (duvara çarpma vb.) trafik sigortasından değer kaybı alınamaz.
+* **Onarım Görmemiş Parça:** Değer kaybı talep edilen parçanın daha önce başka bir kazada hasar görüp onarılmamış olması gerekir.
+* **Pert Olmama:** Araç "pert total" (ağır hasarlı) işlemine tabi tutulmuşsa değer kaybı istenemez.
+* **Kilometre Sınırı Kalktı:** Trafik Sigortası Genel Şartları'nda yapılan değişiklikle, 165.000 km sınırı kaldırılmıştır. Artık her kilometredeki araç için başvuru yapılabilir.
 
-Tahkim Komisyonu'na doğrudan gidemezsiniz. Öncelikle "dava şartı" olan sigorta başvurusunu yapmalısınız.
+## 2. Neden Mahkeme Değil, Tahkim Komisyonu?
+Asliye Ticaret Mahkemelerinde dava süreçleri iş yoğunluğu nedeniyle uzun sürebilmektedir. Sigorta Tahkim Komisyonu ise 5684 sayılı Sigortacılık Kanunu kapsamında kurulmuş olup, uyuşmazlıkları **ortalama 4-6 ay** içinde sonuçlandırmaktadır. Komisyon hakemleri tarafından verilen kararlar, mahkeme ilamı hükmündedir ve icra yoluyla tahsil edilebilir.
 
-**Süreç Şöyle İşler:**
-1.  Kusurlu tarafın trafik sigortacısına yazılı olarak (iadeli taahhütlü posta veya KEP ile) başvurursunuz.
-2.  Eksper raporunuzu ve talep ettiğiniz tutarı bildirirsiniz.
-3.  Sigorta şirketinin yasal olarak **15 gün** cevap verme süresi vardır.
+## 3. Başvuru Süreci: 15 Gün Kuralı (Dava Şartı)
+Tahkim Komisyonu'na veya mahkemeye gitmeden önce, KTK m. 97 uyarınca ilgili sigorta şirketine yazılı başvuru yapılması **zorunlu dava şartıdır.**
 
-> **Dikkat:** Eğer sigorta şirketi 15 gün içinde cevap vermezse, talebinizi reddederse veya eksik ödeme yaparsa (örneğin 50.000 TL hakkınız varken 15.000 TL yatırırsa), Tahkim yolu açılmış olur.
+1.  **Sigorta Şirketine Başvuru:** Kusurlu tarafın trafik sigortacısına iadeli taahhütlü posta, KEP veya noter aracılığıyla başvurulur.
+2.  **15 Gün Bekleme Süresi:** Sigorta şirketinin başvuruya cevap vermesi için yasal 15 günlük süre vardır.
+3.  **Uyuşmazlık:** Şirket 15 gün içinde cevap vermezse, talebi reddederse veya eksik ödeme yaparsa (kısmi ödeme), uyuşmazlık doğmuş sayılır ve Tahkim yolu açılır.
 
-## 3. Başvuru Süreci ve Gerekli Belgeler
+## 4. Hesaplama Yöntemi: Genel Şartlar mı, Piyasa Rayici mi?
+Uygulamada en büyük tartışma hesaplama yöntemindedir. Sigorta şirketleri genellikle "Genel Şartlar"daki formülleri kullanarak düşük tazminat hesaplamaktadır.
 
-Sigorta şirketinden olumsuz yanıt aldınız veya kısmi ödeme yapıldı. Şimdi sırada Tahkim Komisyonu başvurusu var. Başvuru dosyası şunları içermelidir:
+Ancak Yargıtay 4. Hukuk Dairesi'nin güncel kararlarında (Örn: 2021/21252 E., 2022/5913 K.); değer kaybının **"Piyasa Rayiç Değeri"** üzerinden hesaplanması gerektiği vurgulanmıştır. Buna göre:
+* Aracın kaza tarihindeki hasarsız 2. el piyasa değeri belirlenir.
+* Kazalı ve onarılmış haldeki 2. el piyasa değeri belirlenir.
+* Aradaki fark "Gerçek Değer Kaybı" olarak hüküm altına alınır.
 
-* Başvuru Formu (Eksiksiz doldurulmalı)
-* Başvuru ücretinin yatırıldığına dair dekont
-* Sigorta şirketine yapılan başvurunun kanıtı ve gelen cevap (varsa)
-* Kaza Tespit Tutanağı
-* Ekspertiz Raporu (Değer kaybını gösteren)
-* Ruhsat ve Ehliyet Fotokopileri
-* Hasar Fotoğrafları
+Sigorta Tahkim Komisyonu hakemleri de genellikle Yargıtay'ın bu yerleşik içtihadına uygun olarak, bağımsız bilirkişi raporlarıyla "piyasa rayici" üzerinden karar vermektedir.
 
-## 4. Hakem İncelemesi ve Karar
+## 5. Zamanaşımı Süresi
+Araç değer kaybı talepleri, Türk Borçlar Kanunu m. 72 uyarınca, zararın ve failin öğrenildiği tarihten itibaren **2 yıl**, her halde kaza tarihinden itibaren **10 yıl** içinde zamanaşımına uğrar. Bu süreler içinde başvuru yapılmalıdır.
 
-Dosyanız komisyona ulaştıktan sonra bağımsız bir hakeme atanır. Hakem, dosya üzerinden inceleme yapar ve genellikle yeni bir bilirkişi raporu aldırır.
+## 6. Neden Profesyonel Hukuki Destek Önemlidir?
+Tahkim başvurusu teknik bir süreçtir. Başvuru formundaki eksiklikler, sigorta şirketine yapılan başvurunun usulüne uygun olmaması veya eksik evrak sunulması başvurunun reddine neden olabilir. Ayrıca sigorta şirketleri süreci profesyonel vekillerle takip etmektedir. Hak kaybı yaşanmaması ve tazminatın "gerçek piyasa değeri" üzerinden tam alınabilmesi için sürecin uzman desteğiyle yürütülmesi önem arz eder.
 
-Sigorta şirketlerinin kendi formülleri (Genel Şartlar) genellikle düşük tutarlar çıkarırken, Tahkim Komisyonu ve Yargıtay **"Piyasa Rayiç Değeri"** üzerinden hesaplama yapılmasını esas alır. Bu da tazminat miktarını ciddi oranda artırır.
+Sonuç:
+Araç değer kaybı, kaza yapan araç sahiplerinin en temel yasal haklarından biridir. Sigorta Tahkim Komisyonu, bu hakkın hızlı ve etkin bir şekilde alınması için en pratik yoldur. Ancak sürecin başında sigorta şirketine yapılan başvurunun doğru kurgulanması, sonucun başarısını doğrudan etkilemektedir.
 
-## 5. Karara İtiraz ve Kesinlik Sınırları
+> **Yasal Uyarı:** Bu yazı, 1136 sayılı Avukatlık Kanunu ve Türkiye Barolar Birliği Reklam Yasağı Yönetmeliği çerçevesinde, yalnızca bilgilendirme amacıyla hazırlanmıştır. Hukuki tavsiye niteliği taşımamaktadır. Her somut olay kendine özgü özellikler taşıdığından, hak kaybına uğramamak için profesyonel hukuki destek almanız önerilir.
 
-Tahkim hakeminin verdiği karara karşı her zaman itiraz edilemez. 2024-2025 yılı sınırlarına göre:
+---
 
-* **15.000 TL'ye kadar** olan uyuşmazlıklarda hakem kararı **KESİNDİR.** İtiraz edilemez, hemen icraya konulabilir.
-* **15.000 TL üzeri** uyuşmazlıklarda karara karşı bir defa İtiraz Hakem Heyeti'ne gidilebilir.
-* **238.730 TL üzeri** (Yeniden Değerleme Oranına göre değişebilir) uyuşmazlıklarda ise Temyiz (Yargıtay) yolu açıktır.
-
-## Sonuç: Profesyonel Destek Şart
-
-Tahkim süreci teknik bir süreçtir. Başvuru formundaki bir hata veya eksik evrak, dosyanızın usulden reddedilmesine ve başvuru ücretinizin yanmasına neden olabilir. Ayrıca sigorta şirketleri profesyonel vekillerle savunma yapmaktadır. Hak kaybına uğramamak için sürecin uzman bir avukatla yönetilmesi, tazminatınızı tam ve eksiksiz almanızı sağlar.
-
-Av. Fatih Turan
-Ankara Barosu - 46839
-
-> **Uyarı:** Bu yazı, 1136 sayılı Avukatlık Kanunu ve Türkiye Barolar Birliği Reklam Yasağı Yönetmeliği çerçevesinde, yalnızca bilgilendirme amacıyla hazırlanmıştır. Hukuki tavsiye niteliği taşımamaktadır. Her somut olay kendine özgü özellikler taşıdığından, hak kaybına uğramamak için profesyonel hukuki destek almanız önerilir.
+TOPIC: Araç Değer Kaybı ve Tahkim

@@ -40,7 +40,7 @@ src/
 │   │   ├── about.json     # Hakkımda sayfası
 │   │   ├── work-areas.json # Çalışma alanları
 │   │   └── chatbot.json   # Chatbot ayarları
-│   └── legal/             # Yasal sayfalar (Markdown)
+│   └── legal/             # Yasal sayfalar (Markdown - Editoryal Politika dahil)
 ├── layouts/               # Sayfa şablonları
 ├── pages/                 # Sayfalar
 └── styles/                # Global CSS
@@ -255,14 +255,17 @@ Normal paragraf metni.
 
 **Konum:** `src/content/legal/`
 
-| Dosya | Sayfa |
-|-------|-------|
-| `kvkk.md` | KVKK Aydınlatma Metni |
-| `gizlilik.md` | Gizlilik Bildirimi |
-| `cerez.md` | Çerez Politikası |
-| `yasal-uyari.md` | Yasal Uyarı |
+Bu klasördeki dosyalar sitenin alt kısmında (footer) veya kurumsal menüde yer alan yasal metinlerdir.
 
----
+| Dosya | Sayfa Adı | Açıklama |
+|-------|-----------|----------|
+| `editoryal-politika.md` | **Editoryal Politika** | Yayın ilkeleri, AI kullanım şartları ve içerik sorumluluğu. |
+| `kvkk.md` | KVKK Aydınlatma Metni | Kişisel verilerin işlenmesi hakkında bilgilendirme. |
+| `gizlilik.md` | Gizlilik Bildirimi | Genel gizlilik kuralları. |
+| `cerez.md` | Çerez Politikası | Çerez (Cookie) kullanımı hakkında detaylar. |
+| `yasal-uyari.md` | Yasal Uyarı | Standart yasal sorumluluk reddi beyanı. |
+
+--
 
 ## Logo ve Görselleri Değiştirme
 
