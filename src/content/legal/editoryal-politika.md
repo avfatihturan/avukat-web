@@ -1,7 +1,7 @@
 ---
 title: "Editoryal Politika"
 description: "Av. Fatih Turan web sitesi yayın ilkeleri, içerik politikası, yasaklı ifadeler ve yapay zeka kullanım standartları."
-date: "2026-01-03"
+date: 2026-01-03
 ---
 
 # Yayın ve Editoryal Politika
