@@ -1,7 +1,7 @@
 ---
 import { getCollection, render } from 'astro:content';
+// Layout'u doğru yerden çağırıyoruz
 import LegalLayout from '../../layouts/LegalLayout.astro';
-import type { CollectionEntry } from 'astro:content';
 
 export async function getStaticPaths() {
   const legalPages = await getCollection('legal');
@@ -11,13 +11,7 @@ export async function getStaticPaths() {
   }));
 }
 
-// ✅ HATA ÇÖZÜMÜ: Props tipi tanımlandı
-type Props = {
-  page: CollectionEntry<'legal'>;
-};
-
 const { page } = Astro.props;
-
 const { Content } = await render(page);
 
 const metaTitle = page.data.title ?? 'Yasal Metin';
@@ -26,8 +20,7 @@ const metaDesc = page.data.description ?? 'Hukuki bilgilendirme metni.';
 
 <LegalLayout 
   title={metaTitle} 
-  description={metaDesc} 
-  currentPage="kurumsal"
+  description={metaDesc}
 >
   <Content />
 </LegalLayout>

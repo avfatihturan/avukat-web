@@ -6,8 +6,9 @@ const articles = defineCollection({
   schema: z.object({
     title: z.string(),
     description: z.string(),
-    pubDate: z.date(),
-    heroImage: z.string(),
+    // GÜNCELLEME: coerce.date() her türlü tarihi kabul eder
+    pubDate: z.coerce.date(),
+    heroImage: z.string().optional(),
     heroAlt: z.string().optional(),
     tag: z.string().optional(),
     author: z.string().optional(),
@@ -20,18 +21,20 @@ const legal = defineCollection({
   type: 'content',
   schema: z.object({
     title: z.string(),
-    description: z.string().optional(), // yasal sayfalarda opsiyonel olsun
+    description: z.string().optional(),
+    // Yasal sayfalara tarih eklesen de eklemesen de hata vermesin:
+    pubDate: z.coerce.date().optional(),
     draft: z.boolean().default(false),
   }),
 });
 
-/* Site genel ayarları (site.json) */
+/* Site genel ayarları */
 const site = defineCollection({
   type: 'data',
   schema: z.any(),
 });
 
-/* Genel veri koleksiyonu (chatbot, workAreas vb. için) */
+/* Genel veri koleksiyonu */
 const data = defineCollection({
   type: 'data',
   schema: z.any(),
@@ -39,7 +42,7 @@ const data = defineCollection({
 
 export const collections = {
   articles,
-  legal,   // ✅ bunu ekle
+  legal,   
   site,
   data,
 };
