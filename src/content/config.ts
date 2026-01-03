@@ -15,10 +15,20 @@ const articles = defineCollection({
   }),
 });
 
+/* Yasal metinler (legal) */
+const legal = defineCollection({
+  type: 'content',
+  schema: z.object({
+    title: z.string(),
+    description: z.string().optional(), // yasal sayfalarda opsiyonel olsun
+    draft: z.boolean().default(false),
+  }),
+});
+
 /* Site genel ayarları (site.json) */
 const site = defineCollection({
   type: 'data',
-  schema: z.any(), // bilinçli: esnek yapı
+  schema: z.any(),
 });
 
 /* Genel veri koleksiyonu (chatbot, workAreas vb. için) */
@@ -29,6 +39,7 @@ const data = defineCollection({
 
 export const collections = {
   articles,
+  legal,   // ✅ bunu ekle
   site,
   data,
 };
