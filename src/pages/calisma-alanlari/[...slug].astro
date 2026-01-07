@@ -1,160 +1,341 @@
 ---
-interface Props {
-  title: string;
-  description: string;
-  href: string;
-  image: string;
-  tag: string;
+import { getCollection, render } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ArticleCard from '../../components/ArticleCard.astro';
+
+// 1. URL'leri Oluştur
+export async function getStaticPaths() {
+  const services = await getCollection('services');
+  return services.map(service => ({
+    params: { slug: service.slug },
+    props: { service, services },
+  }));
 }
 
-const { title, description, href, image, tag } = Astro.props;
+const { service, services } = Astro.props;
+const { Content } = await render(service);
+
+// 2. Diğer Hizmetleri Filtrele
+const otherServices = services
+  .filter(s => s.slug !== service.slug)
+  .sort((a, b) => (a.data.order || 99) - (b.data.order || 99));
+
+// 3. İlgili Makaleleri Bul (Büyük/Küçük harf hatasını önlemek için lowercase yapıyoruz)
+const allArticles = await getCollection('articles');
+const relatedArticles = allArticles
+  .filter(article => {
+    // Hem makale etiketini hem servis etiketini küçültüp kıyaslıyoruz
+    const articleTag = (article.data.tag || "").toLowerCase().trim();
+    const serviceTag = (service.data.relatedTag || "").toLowerCase().trim();
+    return !article.data.draft && serviceTag && articleTag === serviceTag;
+  })
+  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
+  .slice(0, 3);
+
+// 4. İkon Eşleştirmesi (İstediğin Standart SVG'ler)
+const iconMap: Record<string, string> = {
+  // Ceza Hukuku (Tokmak - Gavel)
+  'gavel': `<path d="M14 13l-7.5 7.5c-.8.8-2 .8-2.8 0s-.8-2 0-2.8L11.2 10.2" /><path d="m16 11 2 2" /><path d="m11 16 2 2" /><path d="M17 8l-2-2" /><path d="m10.7 4.2 8.6 8.6c.8.8.8 2 0 2.8l-1.4 1.4c-.8.8-2 .8-2.8 0L6.5 8.4c-.8-.8-.8-2 0-2.8l1.4-1.4c.8-.8 2-.8 2.8 0Z" />`,
+  
+  // İş Hukuku (Çark - Gear)
+  'gear': `<path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.18-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.18-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.18.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.1a2 2 0 0 1-1-1.72v-.51a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.18.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"/><circle cx="12" cy="12" r="3"/>`,
+  
+  // Kira Hukuku (Anahtar - Key)
+  'key': `<path d="m21 2-2 2m-7.6 7.6a6 6 0 1 1-7.7-7.7 6 6 0 0 1 7.7 7.7v3.3l3 3 1.5-1.5 2.5 2.5 1.5-1.5 5 5V6z" />`
+};
+
+const iconKey = service.data.icon || 'gavel';
+const currentIcon = iconMap[iconKey] || iconMap['gavel'];
 ---
 
-<article class="blog-card">
-  <a href={href} class="blog-card__link">
-    <div class="blog-card__image-wrapper">
-      <img
-        src={image}
-        alt={title}
-        loading="lazy"
-        width="400"
-        height="240"
-        class="blog-card__image"
-      />
-      <div class="blog-card__image-overlay"></div>
-      <span class="blog-card__tag">{tag}</span>
-    </div>
-
-    <div class="blog-card__content">
-      <h3 class="blog-card__title">{title}</h3>
-      <p class="blog-card__description">{description}</p>
-
-      <div class="blog-card__footer">
-        <span class="blog-card__read-more">
-          Devamını Oku
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M5 12h14M12 5l7 7-7 7"/>
-          </svg>
-        </span>
+<BaseLayout 
+  title={`${service.data.title} | Av. Fatih Turan`}
+  description={service.data.description}
+>
+  
+  <header class="service-hero">
+    <div class="hero-bg" style={`background-image: url('${service.data.heroImage}');`}></div>
+    <div class="hero-overlay"></div>
+    <div class="container hero-content">
+      <div class="service-icon">
+        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" set:html={currentIcon} />
       </div>
+      <h1>{service.data.title}</h1>
+      <p class="lead">{service.data.description}</p>
     </div>
-  </a>
-</article>
+  </header>
+
+  <div class="container main-wrapper">
+    <div class="row">
+      
+      <main class="content-col">
+        <article class="service-content">
+          <Content />
+        </article>
+
+        <div class="service-cta">
+          <h3>Hukuki Desteğe mi İhtiyacınız Var?</h3>
+          <p>Ankara'daki hukuki süreçleriniz için profesyonel değerlendirme alın.</p>
+          <a href="/iletisim" class="btn-cta">İletişime Geçin</a>
+        </div>
+
+        {relatedArticles.length > 0 && (
+          <div class="related-articles-section">
+            <h3>İlgili Yayınlar</h3>
+            <div class="articles-grid">
+              {relatedArticles.map((article) => (
+                <ArticleCard 
+                  title={article.data.title}
+                  description={article.data.description}
+                  href={`/yayinlar/${article.slug}`}
+                  image={article.data.heroImage || '/images/banner-blog.webp'}
+                  tag={article.data.tag || 'Hukuk'}
+                />
+              ))}
+            </div>
+          </div>
+        )}
+      </main>
+
+      <aside class="sidebar-col">
+        <div class="sidebar-widget">
+          <h3>Diğer Çalışma Alanları</h3>
+          <ul class="service-list">
+            {otherServices.map(s => (
+              <li>
+                <a href={`/calisma-alanlari/${s.slug}`}>
+                  <span class="arrow">→</span>
+                  {s.data.title.replace('Ankara ', '')}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <div class="sidebar-widget contact-widget">
+          <h3>Hızlı İletişim</h3>
+          <p>Ofis: +90 532 610 08 05</p>
+          <p>E-posta: av.fatihturan@outlook.com</p>
+          <p class="location">📍 Ankara, Türkiye</p>
+        </div>
+      </aside>
+
+    </div>
+  </div>
+
+</BaseLayout>
 
 <style>
-  .blog-card {
+  /* HERO STİLLERİ */
+  .service-hero {
     position: relative;
-    background: var(--card-bg);
-    border-radius: 12px;
-    overflow: hidden;
-    border: 1px solid var(--color-border);
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
+    padding: 140px 0 100px;
+    color: #fff;
+    text-align: center;
+    background-color: #0a192f;
+    margin-bottom: 60px;
   }
 
-  .blog-card:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(0,0,0,0.06);
-  }
-
-  .blog-card__link {
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-    text-decoration: none;
-    color: inherit;
-    flex: 1;
-  }
-
-  .blog-card__image-wrapper {
-    position: relative;
-    aspect-ratio: 16 / 10;
-    overflow: hidden;
-    background-color: var(--color-bg-secondary);
-  }
-
-  .blog-card__image {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-  }
-
-  .blog-card__image-overlay {
+  .hero-bg {
     position: absolute;
-    inset: 0;
-    background: linear-gradient(to bottom, transparent 50%, rgba(0, 40, 85, 0.1) 100%);
-    pointer-events: none;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background-size: cover;
+    background-position: center;
+    z-index: 1;
   }
-
-  .blog-card__tag {
+  
+  /* OKUNABİLİRLİK İÇİN GÜÇLÜ OVERLAY (Düzeltildi) */
+  .hero-overlay {
     position: absolute;
-    top: 16px;
-    left: 16px;
-    padding: 6px 14px;
-    background: var(--brand-accent);
-    color: #000;
-    font-size: 0.7rem;
-    font-weight: 700;
-    letter-spacing: 0.5px;
-    text-transform: uppercase;
-    border-radius: 4px;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: linear-gradient(to bottom, rgba(10, 25, 47, 0.7), rgba(10, 25, 47, 0.95));
     z-index: 2;
   }
 
-  .blog-card__content {
-    display: flex;
-    flex-direction: column;
-    flex: 1;
-    padding: 24px;
+  .hero-content {
+    position: relative;
+    z-index: 3;
+    max-width: 800px;
+    margin: 0 auto;
   }
 
-  .blog-card__title {
-    margin: 0 0 12px;
-    font-size: 1.15rem;
+  .service-icon {
+    display: inline-flex;
+    padding: 16px;
+    background: rgba(255,255,255,0.05);
+    border-radius: 50%;
+    margin-bottom: 24px;
+    color: var(--brand-accent);
+    border: 1px solid rgba(255,255,255,0.1);
+    backdrop-filter: blur(5px);
+  }
+
+  .hero-content h1 {
+    font-size: 2.5rem;
     font-weight: 700;
-    line-height: 1.4;
-    color: var(--brand-primary);
-    display: -webkit-box;
-    -webkit-line-clamp: 2;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
+    margin-bottom: 1.2rem;
+    color: #fff !important; /* Yazıyı zorla beyaz yap */
+    text-shadow: 0 2px 10px rgba(0,0,0,0.3);
   }
-  :global(html.dark) .blog-card__title { color: var(--color-text); }
 
-  .blog-card__description {
-    margin: 0;
-    font-size: 0.9rem;
+  .lead {
+    font-size: 1.25rem;
+    opacity: 0.95;
+    font-weight: 300;
     line-height: 1.6;
-    color: var(--color-text-secondary);
-    display: -webkit-box;
-    -webkit-line-clamp: 3;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-    flex: 1;
+    color: #e6f1ff !important;
   }
 
-  .blog-card__footer {
-    margin-top: 20px;
-    padding-top: 16px;
+  /* LAYOUT */
+  .main-wrapper .row {
+    display: flex;
+    gap: 50px;
+    flex-wrap: wrap;
+  }
+
+  .content-col { flex: 2; min-width: 300px; }
+  .sidebar-col { flex: 1; min-width: 280px; }
+
+  /* İÇERİK */
+  .service-content {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: var(--color-text);
+  }
+
+  .service-content :global(h2) {
+    color: var(--brand-dark);
+    font-size: 1.8rem;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    border-bottom: 2px solid var(--brand-accent);
+    padding-bottom: 10px;
+    display: inline-block;
+  }
+  
+  :global(html.dark) .service-content :global(h2) {
+    color: #fff;
+  }
+
+  .service-content :global(h3) {
+    color: var(--brand-main);
+    font-size: 1.4rem;
+    margin-top: 2rem;
+  }
+
+  .service-content :global(ul) { padding-left: 20px; margin-bottom: 20px; }
+  .service-content :global(li) { margin-bottom: 10px; }
+
+  /* CTA KUTUSU (DÜZELTİLDİ: Sönük kalma sorunu çözüldü) */
+  .service-cta {
+    background: var(--brand-dark); /* Koyu Lacivert */
+    padding: 40px;
+    border-radius: 12px;
+    text-align: center;
+    margin-top: 60px;
+    border: 1px solid rgba(255,255,255,0.1);
+    color: #fff;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+  }
+
+  .service-cta h3 { 
+    margin-top: 0; 
+    color: #fff !important; 
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+  }
+  
+  .service-cta p {
+    color: rgba(255,255,255,0.8);
+    margin-bottom: 25px;
+  }
+
+  /* GÖRÜNÜR CTA BUTONU */
+  .btn-cta {
+    display: inline-block;
+    background: var(--brand-accent); /* Altın Sarısı */
+    color: #000; /* Siyah yazı */
+    padding: 14px 35px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 700;
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .btn-cta:hover { 
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(212, 163, 115, 0.4);
+    background: #fff;
+  }
+
+  /* SIDEBAR (DÜZELTİLDİ: Dark Mode Uyumu) */
+  .sidebar-widget {
+    background: var(--color-bg-offset); /* Tema rengine duyarlı */
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+    margin-bottom: 30px;
+    border: 1px solid var(--color-border);
+  }
+
+  .sidebar-widget h3 {
+    font-size: 1.2rem;
+    margin-top: 0;
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid var(--color-border);
+    color: var(--brand-dark);
+  }
+  
+  :global(html.dark) .sidebar-widget h3 {
+    color: #fff;
+  }
+
+  .service-list { list-style: none; padding: 0; margin: 0; }
+  .service-list li { margin-bottom: 15px; }
+
+  .service-list a {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: var(--color-text-secondary);
+    font-weight: 500;
+    transition: all 0.2s;
+    padding: 5px 0;
+  }
+
+  .service-list a:hover {
+    color: var(--brand-main);
+    transform: translateX(5px);
+  }
+
+  .service-list .arrow { margin-right: 12px; color: var(--brand-accent); font-size: 0.9em; }
+
+  .contact-widget p {
+    margin-bottom: 12px;
+    font-size: 0.95rem;
+    color: var(--color-text-secondary);
+  }
+
+  /* MAKALELER */
+  .related-articles-section {
+    margin-top: 80px;
+    padding-top: 40px;
     border-top: 1px solid var(--color-border);
   }
-
-  .blog-card__read-more {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    font-size: 0.85rem;
-    font-weight: 600;
-    color: var(--brand-primary);
+  .articles-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+    margin-top: 25px;
   }
-  :global(html.dark) .blog-card__read-more { color: var(--brand-accent); }
-  .blog-card__read-more svg { width: 16px; height: 16px; }
 
   @media (max-width: 768px) {
-    .blog-card__content { padding: 20px; }
-    .blog-card__title { font-size: 1.05rem; }
+    .main-wrapper .row { flex-direction: column; }
+    .hero-content h1 { font-size: 2rem; }
+    .sidebar-col { order: 2; margin-top: 30px; }
+    .service-cta { padding: 30px 20px; }
   }
 </style>
