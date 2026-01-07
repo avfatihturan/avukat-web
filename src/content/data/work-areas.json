@@ -4,8 +4,8 @@
     "icon": "gavel",
     "title": "Ceza Hukuku",
     "description": "Ceza mevzuatı kapsamındaki tüm suçlara ilişkin soruşturma ve kovuşturma aşamalarında; karakoldaki ilk ifade sürecinden kararın kesinleşmesine kadar savunma ve müdahillik hizmeti sunulmaktadır.",
-    "ctaText": "Ceza Hukuku Yayınlarını İncele →",
-    "ctaLink": "/yayinlar",
+    "ctaText": "Hizmet Detayları →",
+    "ctaLink": "/calisma-alanlari/ceza-hukuku",
     "order": 1
   },
   {
@@ -13,8 +13,8 @@
     "icon": "gear",
     "title": "İş Hukuku",
     "description": "İşçi ve işveren tarafında; işe iade, tazminat ve iş kazası süreçleri, uyuşmazlık doğmadan önce ele alınır. Fesih öncesi ve sonrası hukuki zemin oluşturularak sürecin seyri stratejik biçimde planlanır.",
-    "ctaText": "İş Hukuku Yayınlarını İncele →",
-    "ctaLink": "/yayinlar",
+    "ctaText": "Hizmet Detayları →",
+    "ctaLink": "/calisma-alanlari/is-hukuku",
     "order": 2
   },
   {
@@ -22,8 +22,8 @@
     "icon": "key",
     "title": "Konut ve Kira Hukuku",
     "description": "Kira tespit ve tahliye davaları ile sözleşme süreçlerinde; ev sahibi ve kiracı hakları birlikte değerlendirilir. Sözleşmenin kurulmasından tahliye aşamasına kadar tüm süreç, hukuki riskler öngörülerek yürütülür.",
-    "ctaText": "Kira Hukuku Yayınlarını İncele →",
-    "ctaLink": "/yayinlar",
+    "ctaText": "Hizmet Detayları →",
+    "ctaLink": "/calisma-alanlari/kira-hukuku",
     "order": 3
   },
   {
