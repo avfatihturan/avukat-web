@@ -3,8 +3,9 @@ title: "Ankara Ceza Avukatı ve Ağır Ceza Davaları"
 description: "Soruşturma, kovuşturma, ağır ceza ve asliye ceza süreçlerinde; gözaltı, tutuklama ve itiraz aşamalarında profesyonel hukuki savunma."
 heroImage: "/images/services/ceza-hukuku-hero.webp"
 heroAlt: "Ankara Adliyesi ve ceza hukuku temsili görseli"
-icon: "gavel"
+icon: "gavel"  
 order: 1
+relatedTag: "CEZA HUKUKU"
 draft: false
 ---
 

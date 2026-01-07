@@ -1,10 +1,11 @@
 ---
 title: "Ankara Kira Hukuku ve Tahliye Davaları"
-description: "Kira tespit davaları, tahliye taahhütnamesi, ihtiyaç nedeniyle tahliye ve 10 yıl tahliyesi süreçlerinde mülk sahibi ve kiracı vekilliği."
+description: "Kira tespit ve tahliye davaları ile sözleşme süreçlerinde; ev sahibi ve kiracı hakları birlikte değerlendirilir. Sözleşmenin kurulmasından tahliye aşamasına kadar tüm süreç, hukuki riskler öngörülerek yürütülür."
 heroImage: "/images/services/kira-hukuku-hero.webp"
 heroAlt: "Gayrimenkul, anahtar ve kira sözleşmesi görseli"
-icon: "home"
+icon: "key"
 order: 3
+relatedTag: "GAYRİMENKUL HUKUKU"
 draft: false
 ---
 
@@ -23,7 +24,3 @@ Ankara genelindeki konut ve çatılı işyeri kiralarında yaşanan uyuşmazlık
 ### Ankara Gayrimenkul Piyasası ve Hukuk
 
 Çankaya, Etimesgut, Yenimahalle gibi Ankara'nın farklı bölgelerindeki rayiç bedel değişimlerini yakından takip ediyor; davalarda bilirkişi süreçlerini bu bilgi birikimiyle yönetiyoruz.
-
----
-**İlgili Diğer Alanlar:**
-Ceza hukuku alanındaki ihtiyaçlarınız için [Ceza Hukuku](/calisma-alanlari/ceza-hukuku) sayfamızı inceleyebilir veya [Anasayfaya](/index) dönebilirsiniz.
