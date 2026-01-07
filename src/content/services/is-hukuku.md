@@ -1,7 +1,7 @@
 ---
 title: "Ankara İş Hukuku ve İşe İade Davaları"
 description: "İşe iade, kıdem ve ihbar tazminatı, mobbing, iş kazası davaları ve iş sözleşmelerinin düzenlenmesi süreçlerinde uzman hukuki destek."
-heroImage: "/images/services/is-hukuku-detay.jpg"
+heroImage: "/images/services/is-hukuku-detay.webp"
 heroAlt: "İş hukuku, sözleşme ve çalışma hayatı görseli"
 icon: "gear" 
 order: 2
