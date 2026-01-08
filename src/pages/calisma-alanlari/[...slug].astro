@@ -31,16 +31,16 @@ const relatedArticles = allArticles
   .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
   .slice(0, 3);
 
-// 4. İkon Eşleştirmesi (LUCIDE STANDART SVG KODLARI)
+// 4. İkon Eşleştirmesi (SENİN VERDİĞİN ÖZEL SVG KODLARI)
 const iconMap: Record<string, string> = {
-  // Gavel (Standart)
-  'gavel': `<path d="m14 13-7.5 7.5c-.83.83-2.17.83-3 0 0 0 0 0 0 0a2.12 2.12 0 0 1 0-3L11.2 10.2" /><path d="m16 11 2 2" /><path d="m11 16 2 2" /><path d="M17 8l-2-2" /><path d="m10.7 4.2 8.6 8.6c.79.79.79 2.06 0 2.85 0 0 0 0 0 0a2.01 2.01 0 0 1-2.85 0L6.5 8.4c-.79-.79-.79-2.06 0-2.85 0 0 0 0 0 0a2.01 2.01 0 0 1 2.85 0Z" />`,
+  // Gavel (Senin verdiğin kod)
+  'gavel': `<path d="m14 13-8.381 8.38a1 1 0 0 1-3.001-3l8.384-8.381"/><path d="m16 16 6-6"/><path d="m21.5 10.5-8-8"/><path d="m8 8 6-6"/><path d="m8.5 7.5 8 8"/>`,
   
-  // Gear / Settings (Standart)
-  'gear': `<path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.18-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.18-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.18.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.1a2 2 0 0 1-1-1.72v-.51a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.18.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z" /><circle cx="12" cy="12" r="3" />`,
+  // Gear / Settings (Senin verdiğin kod)
+  'gear': `<path d="M9.671 4.136a2.34 2.34 0 0 1 4.659 0 2.34 2.34 0 0 0 3.319 1.915 2.34 2.34 0 0 1 2.33 4.033 2.34 2.34 0 0 0 0 3.831 2.34 2.34 0 0 1-2.33 4.033 2.34 2.34 0 0 0-3.319 1.915 2.34 2.34 0 0 1-4.659 0 2.34 2.34 0 0 0-3.32-1.915 2.34 2.34 0 0 1-2.33-4.033 2.34 2.34 0 0 0 0-3.831A2.34 2.34 0 0 1 6.35 6.051a2.34 2.34 0 0 0 3.319-1.915"/><circle cx="12" cy="12" r="3"/>`,
   
-  // Key (Standart)
-  'key': `<path d="m21 2-2 2m-7.6 7.6a6 6 0 1 1-7.7-7.7 6 6 0 0 1 7.7 7.7v3.3l3 3 1.5-1.5 2.5 2.5 1.5-1.5 5 5V6z" />`
+  // Key Round (Senin verdiğin kod)
+  'key': `<path d="M2.586 17.414A2 2 0 0 0 2 18.828V21a1 1 0 0 0 1 1h3a1 1 0 0 0 1-1v-1a1 1 0 0 1 1-1h1a1 1 0 0 0 1-1v-1a1 1 0 0 1 1-1h.172a2 2 0 0 0 1.414-.586l.814-.814a6.5 6.5 0 1 0-4-4z"/><circle cx="16.5" cy="7.5" r=".5" fill="currentColor"/>`
 };
 
 const iconKey = service.data.icon || 'gavel';
@@ -200,7 +200,7 @@ const currentIcon = iconMap[iconKey] || iconMap['gavel'];
   .service-content :global(ul) { padding-left: 20px; margin-bottom: 20px; }
   .service-content :global(li) { margin-bottom: 10px; }
 
-  /* CTA SABİT RENK */
+  /* CTA KUTUSU - ÖNEMLİ: RENKLER SABİT */
   .service-cta {
     background-color: #0a192f !important;
     padding: 40px;
@@ -231,6 +231,7 @@ const currentIcon = iconMap[iconKey] || iconMap['gavel'];
     background: #fff;
   }
 
+  /* SIDEBAR */
   .sidebar-widget {
     background: var(--color-bg-offset);
     padding: 30px;
