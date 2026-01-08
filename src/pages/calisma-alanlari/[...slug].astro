@@ -31,11 +31,16 @@ const relatedArticles = allArticles
   .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
   .slice(0, 3);
 
-// 4. İkon Eşleştirmesi (Temiz ve Kısa SVG'ler)
+// 4. İkon Eşleştirmesi (ORİJİNAL STANDART SVG'LER)
 const iconMap: Record<string, string> = {
+  // Ceza: Tokmak (Gavel) - Orijinal
   'gavel': `<path d="M14 13l-7.5 7.5c-.8.8-2 .8-2.8 0s-.8-2 0-2.8L11.2 10.2" /><path d="m16 11 2 2" /><path d="m11 16 2 2" /><path d="M17 8l-2-2" /><path d="m10.7 4.2 8.6 8.6c.8.8.8 2 0 2.8l-1.4 1.4c-.8.8-2 .8-2.8 0L6.5 8.4c-.8-.8-.8-2 0-2.8l1.4-1.4c.8-.8 2-.8 2.8 0Z" />`,
+  
+  // İş: Çark (Gear) - Orijinal
   'gear': `<path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.18-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.18-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.18.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.1a2 2 0 0 1-1-1.72v-.51a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.18.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"/><circle cx="12" cy="12" r="3"/>`,
-  'key': `<path d="M21 2l-2 2m-7.61 7.61a5.5 5.5 0 1 1-7.778 7.778 5.5 5.5 0 0 1 7.777-7.777zm0 0L15.5 7.5m0 0l3 3L22 7l-3-3m-3.5 3.5L19 4" />`
+  
+  // Kira: Anahtar (Key) - Orijinal
+  'key': `<path d="m21 2-2 2m-7.6 7.6a6 6 0 1 1-7.7-7.7 6 6 0 0 1 7.7 7.7v3.3l3 3 1.5-1.5 2.5 2.5 1.5-1.5 5 5V6z" />`
 };
 
 const iconKey = service.data.icon || 'gavel';
@@ -195,7 +200,7 @@ const currentIcon = iconMap[iconKey] || iconMap['gavel'];
   .service-content :global(ul) { padding-left: 20px; margin-bottom: 20px; }
   .service-content :global(li) { margin-bottom: 10px; }
 
-  /* CTA SABİT RENK */
+  /* CTA SABİT RENK (Gündüz/Gece Koyu Lacivert) */
   .service-cta {
     background-color: #0a192f !important;
     padding: 40px;

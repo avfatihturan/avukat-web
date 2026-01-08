@@ -5,7 +5,7 @@ heroImage: "/images/services/kira-hukuku-hero.webp"
 heroAlt: "Gayrimenkul, anahtar ve kira sözleşmesi görseli"
 icon: "key"
 order: 3
-relatedTag: "GAYRİMENKUL HUKUKU"
+relatedTag: "KİRA HUKUKU"
 draft: false
 ---
 
