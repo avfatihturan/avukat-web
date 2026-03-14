@@ -6,11 +6,7 @@ import type { ImageMetadata } from 'astro';
 interface Props {
   title: string;
   description: string;
-
-  // Frontmatter'dan string geliyor: "/images/....webp"
-  // İleride import edilmiş ImageMetadata da kullanmak istersen destekli
   heroImage: string | ImageMetadata;
-
   heroAlt: string;
   tag: string;
   pubDate: Date;
@@ -21,12 +17,43 @@ interface Props {
 
 const { title, description, heroImage, heroAlt, tag, pubDate, author, headings, slug } = Astro.props as Props;
 
-// BaseLayout'ta prop adı "image"
 const heroImageUrl = typeof heroImage === 'string' ? heroImage : heroImage.src;
 
-// CLS için sabit boyut
 const HERO_WIDTH = 800;
 const HERO_HEIGHT = 450;
+
+const articleSchema = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "@id": `https://fatihturan.av.tr/yayinlar/${slug}`,
+  "headline": title,
+  "description": description,
+  "image": `https://fatihturan.av.tr${heroImageUrl}`,
+  "datePublished": pubDate.toISOString(),
+  "dateModified": pubDate.toISOString(),
+  "author": {
+    "@type": "Person",
+    "@id": "https://fatihturan.av.tr/#person",
+    "name": author
+  },
+  "publisher": {
+    "@type": "LegalService",
+    "@id": "https://fatihturan.av.tr/#legalservice",
+    "name": "Av. Fatih Turan Hukuki Danışmanlık",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://fatihturan.av.tr/images/logo.png"
+    }
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": `https://fatihturan.av.tr/yayinlar/${slug}`
+  },
+  "inLanguage": "tr-TR",
+  "isPartOf": {
+    "@id": "https://fatihturan.av.tr/#legalservice"
+  }
+});
 ---
 
 <BaseLayout
@@ -36,6 +63,8 @@ const HERO_HEIGHT = 450;
   canonicalUrl={`/yayinlar/${slug}`}
   image={heroImageUrl}
 >
+  <script slot="head" type="application/ld+json" set:html={articleSchema} />
+
   <section class="bg-light">
     <div class="container article-container">
       <span class="article-tag">{tag}</span>
@@ -52,7 +81,6 @@ const HERO_HEIGHT = 450;
           height={HERO_HEIGHT}
         />
       ) : (
-        // Eğer ileride src/assets'ten import edersen bu branch devreye girer
         <img
           src={heroImage.src}
           alt={heroAlt}

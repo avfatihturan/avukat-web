@@ -122,6 +122,7 @@ const finalImageUrl = new URL(image, siteUrl).href;
         "address": { "@type": "PostalAddress", "addressLocality": "Ankara", "addressCountry": "TR" },
         "geo": { "@type": "GeoCoordinates", "latitude": 39.9334, "longitude": 32.8597 },
         "founder": { "@id": "https://fatihturan.av.tr/#person" },
+        "openingHours": ["Mo-Fr 09:00-18:00"],
         "image": "https://fatihturan.av.tr/images/logo.png",
         "priceRange": "Avukatlık Asgari Ücret Tarifesi",
         "sameAs": ["https://www.instagram.com/avukatfatihturan", "https://www.linkedin.com/in/fatih-turan-400b9724b/"]
@@ -129,6 +130,7 @@ const finalImageUrl = new URL(image, siteUrl).href;
     ]
   }
   </script>
+  <slot name="head" />
   </head>
   <body>
     <div class="site-wrapper">
@@ -141,6 +143,6 @@ const finalImageUrl = new URL(image, siteUrl).href;
       <Footer />
     </div>
 
-    {/* Chatbot her sayfada yüklensin */}
     <ChatWidget />
   </body>
+</html>
