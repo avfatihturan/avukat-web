@@ -112,6 +112,10 @@ img { max-width: 100%; display: block; height: auto; }
 h1, h2, h3, h4 { font-weight: 700; color: var(--brand-primary); letter-spacing: -0.035em; }
 html.dark h1, html.dark h2, html.dark h3, html.dark h4 { color: var(--color-text); }
 
+h1 { font-size: 3rem; line-height: 1.15; }
+h2 { font-size: 2rem; line-height: 1.25; }
+h3 { font-size: 1.4rem; line-height: 1.35; }
+
 h2.section-heading {
     font-size: 2.2rem;
     color: var(--brand-primary);
@@ -184,7 +188,7 @@ html.dark .btn-outline-main:hover { background-color: var(--brand-accent); color
 }
 .hero.hero-sm { min-height: auto; padding: 120px 0 60px; background: var(--color-bg-secondary); }
 .hero.hero-sm .hero-content { text-align: center; position: relative; z-index: 2; }
-.hero.hero-sm h1 { font-size: 2rem; margin-bottom: 0; color: var(--brand-primary); text-shadow: none; }
+.hero.hero-sm h1 { font-size: 2.8rem; margin-bottom: 0; color: var(--brand-primary); text-shadow: none; }
 html.dark .hero.hero-sm h1 { color: var(--color-text); }
 
 .hero-content { position: relative; z-index: 2; max-width: 1200px; width: 100%; margin: 0 auto; padding: 0 20px; }
@@ -339,7 +343,11 @@ html.dark .calc-row:last-child { background: var(--brand-accent); color: #000; }
 }
 @media (max-width: 640px) {
     .hero { min-height: 55vh; padding: 50px 0 30px; }
-    .hero h1 { font-size: 1.7rem; }
+    .hero h1 { font-size: 2rem; }
+    .hero.hero-sm h1 { font-size: 2rem; }
+    h1 { font-size: 2rem; }
+    h2 { font-size: 1.6rem; }
+    h3 { font-size: 1.2rem; }
     .btn, .btn-outline-main { width: 100%; display: flex; }
     .brand-area img { height: 45px; }
     .brand-text .name { font-size: 1rem; }
