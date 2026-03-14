@@ -7,7 +7,7 @@ export async function getStaticPaths() {
   // Sadece 'articles' (blog) yazılarını çeker
   const articles = await getCollection('articles', ({ data }) => !data.draft);
   return articles.map((article) => ({
-    params: { slug: article.id },
+    params: { slug: article.id.replace(/.md$/, "") },
     props: { article },
   }));
 }
@@ -25,7 +25,7 @@ const { Content, headings } = await render(article);
   pubDate={article.data.pubDate}
   author={article.data.author ?? 'Av. Fatih Turan'}
   headings={headings}
-  slug={article.id} 
+  slug={article.id.replace(/.md$/, "")} 
 >
   <Content />
 </ArticleLayout>
