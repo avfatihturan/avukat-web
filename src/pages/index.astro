@@ -64,7 +64,7 @@ const workAreas = Array.isArray(workAreasData) ? workAreasData : (workAreasData[
           <ArticleCard
             title={article.data.title}
             description={article.data.description}
-            href={`/yayinlar/${article.id}`}
+            href={`/yayinlar/${article.id.replace(/\.md$/, "")}`}
             image={article.data.heroImage}
             tag={article.data.tag || ''}
           />
