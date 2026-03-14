@@ -1,15 +1,21 @@
 ---
 title: "Gizlilik Bildirimi"
-description: "Av. Fatih Turan hukuk bürosu gizlilik politikası ve kişisel verilerin işlenmesi hakkında bilgilendirme."
+description: "Av. Fatih Turan gizlilik politikası ve bilgi güvenliği standartları."
 slug: "gizlilik-bildirimi"
 ---
 
-# Gizlilik Bildirimi
+# Gizlilik Bildirimi ve Bilgi Güvenliği Politikası
 
-Bu gizlilik bildirimi, Av. Fatih Turan web sitesini ziyaret eden kullanıcıların kişisel verilerinin nasıl işlendiğini ve korunduğunu açıklar.
+Müvekkil mahremiyeti ve veri gizliliği, ofisimizin temel öncelikleri arasındadır. Av. Fatih Turan; 1136 sayılı Avukatlık Kanunu'nun getirdiği sır saklama yükümlülüğü ve 6698 sayılı Kişisel Verilerin Korunması Kanunu hükümleri çerçevesinde, uluslararası standartları gözeterek faaliyet göstermektedir.
 
-## Toplanan Veriler
-Web sitemiz üzerinden yapılan iletişim başvurularında ad, e-posta ve telefon numarası gibi bilgiler talep edilebilir.
+## 1. Müvekkil Mahremiyeti ve Sır Saklama Yükümlülüğü
 
-## Verilerin Kullanımı
-Toplanan bilgiler, yalnızca hukuki danışmanlık hizmeti sunmak ve iletişim kurmak amacıyla kullanılır. Üçüncü taraflarla paylaşılmaz.
+Avukatlık mesleğinin onuru ve bağımsızlığı gereği, tarafımıza tevdi edilen her türlü bilgi, belge ve hukuki sır; zaman aşımına tabi olmaksızın mutlak bir gizlilik içinde korunur. Bu yükümlülük vekâlet ilişkisi sona erdikten sonra dahi devam eder. Resmî bir vekâlet ilişkisi kurulmadan önce danışma amacıyla iletilen bilgiler de aynı gizlilik prensipleri çerçevesinde muhafaza edilir.
+
+## 2. Bilgi Güvenliği Standartları
+
+Kişisel verilerin ve hukuki sır niteliğindeki bilgilerin korunmasında yalnızca hukuki değil, teknik güvenlik önlemleri de büyük önem taşımaktadır. Ofisimiz tarafından işlenen kişisel veriler ve dava dosyaları; yetkisiz erişime, kaybolmaya ve hukuk dışı kullanıma karşı korunmakta, yasal zorunluluklar dışında üçüncü kişilerle paylaşılmamaktadır. Veri işleme süreçlerimizde veri minimizasyonu ilkesi esastır; yalnızca hukuki amaca ulaşmak için kesinlikle gerekli olan veri toplanır.
+
+## 3. Web Sitesi Ziyaretçileri
+
+Sitemizi ziyaretiniz sırasında; güvenlik, performans ve kesintisiz çalışmayı sağlamak amacıyla teknik veriler (IP adresi, bağlantı zamanı, log kayıtları) işlenebilmektedir. Kimliğinizi doğrudan belirleyen herhangi bir pazarlama verisi toplanmamaktadır. Detaylı bilgi için KVKK Aydınlatma Metni ve Çerez Politikası sayfalarımızı inceleyebilirsiniz.
