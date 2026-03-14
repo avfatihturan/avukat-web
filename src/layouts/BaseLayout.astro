@@ -80,6 +80,52 @@ const finalImageUrl = new URL(image, siteUrl).href;
       }
       window.localStorage.setItem('theme', theme);
     </script>
+  <script type="application/ld+json" is:inline>
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Person",
+        "@id": "https://fatihturan.av.tr/#person",
+        "name": "Fatih Turan",
+        "givenName": "Fatih",
+        "familyName": "Turan",
+        "jobTitle": "Avukat",
+        "description": "Ankara Barosu'na kayıtlı avukat. Ceza hukuku, iş hukuku, kira hukuku ve şirketler hukuku alanlarında hukuki danışmanlık.",
+        "url": "https://fatihturan.av.tr",
+        "email": "av.fatihturan@outlook.com",
+        "telephone": "+905326100805",
+        "alumniOf": { "@type": "CollegeOrUniversity", "name": "Kırıkkale Üniversitesi Hukuk Fakültesi" },
+        "memberOf": { "@type": "Organization", "name": "Ankara Barosu", "identifier": "46839" },
+        "sameAs": ["https://www.instagram.com/avukatfatihturan", "https://www.linkedin.com/in/fatih-turan-400b9724b/"]
+      },
+      {
+        "@type": "LegalService",
+        "@id": "https://fatihturan.av.tr/#legalservice",
+        "name": "Av. Fatih Turan Hukuki Danışmanlık",
+        "url": "https://fatihturan.av.tr",
+        "telephone": "+905326100805",
+        "email": "av.fatihturan@outlook.com",
+        "provider": { "@id": "https://fatihturan.av.tr/#person" },
+        "areaServed": { "@type": "City", "name": "Ankara", "sameAs": "https://www.wikidata.org/wiki/Q3640" },
+        "serviceType": ["Ceza Hukuku", "İş Hukuku", "Kira Hukuku", "Şirketler Hukuku", "Uluslararası Hukuk"],
+        "priceRange": "Avukatlık Asgari Ücret Tarifesi"
+      },
+      {
+        "@type": "LocalBusiness",
+        "@id": "https://fatihturan.av.tr/#localbusiness",
+        "name": "Av. Fatih Turan Hukuki Danışmanlık",
+        "url": "https://fatihturan.av.tr",
+        "telephone": "+905326100805",
+        "email": "av.fatihturan@outlook.com",
+        "address": { "@type": "PostalAddress", "addressLocality": "Ankara", "addressCountry": "TR" },
+        "geo": { "@type": "GeoCoordinates", "latitude": 39.9334, "longitude": 32.8597 },
+        "founder": { "@id": "https://fatihturan.av.tr/#person" },
+        "sameAs": ["https://www.instagram.com/avukatfatihturan", "https://www.linkedin.com/in/fatih-turan-400b9724b/"]
+      }
+    ]
+  }
+  </script>
   </head>
   <body>
     <div class="site-wrapper">
@@ -95,4 +141,3 @@ const finalImageUrl = new URL(image, siteUrl).href;
     {/* Chatbot her sayfada yüklensin */}
     <ChatWidget />
   </body>
-</html>
