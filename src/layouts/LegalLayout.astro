@@ -63,3 +63,20 @@ const { title, description, currentPage, canonicalUrl, heroTitle } = Astro.props
     }
   }
 </style>
+
+<style>
+  .legal-text :global(ul) {
+    list-style: disc;
+    margin-left: 1.5rem;
+    margin-bottom: 1.25rem;
+  }
+  .legal-text :global(ol) {
+    list-style: decimal;
+    margin-left: 1.5rem;
+    margin-bottom: 1.25rem;
+  }
+  .legal-text :global(li) {
+    margin-bottom: 0.4rem;
+    line-height: 1.7;
+  }
+</style>
