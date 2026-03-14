@@ -346,3 +346,6 @@ html.dark .calc-row:last-child { background: var(--brand-accent); color: #000; }
     .calc-row { flex-direction: column; gap: 8px; }
 }
 @media (min-width: 901px) { .whatsapp-float { display: none; } }
+/* Menü butonu focus fix */
+.menu-toggle:focus { outline: none; }
+.menu-toggle:focus-visible { outline: 2px solid var(--brand-accent); outline-offset: 2px; }
