@@ -3,6 +3,8 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import Hero from '../components/Hero.astro';
 import { getEntry } from 'astro:content';
 type AboutData = {
+  photo?: string;
+  photoAlt?: string;
   paragraphs: string[];
   signature?: {
     name?: string;
@@ -22,6 +24,8 @@ const { name } = siteEntry.data as any;
 const aboutData = aboutEntry.data as AboutData;
 const paragraphs: string[] = Array.isArray(aboutData?.paragraphs) ? aboutData.paragraphs : [];
 const signature = aboutData?.signature ?? {};
+const photo = aboutData?.photo;
+const photoAlt = aboutData?.photoAlt ?? 'Av. Fatih Turan';
 ---
 <BaseLayout
   title={`Hakkımda | ${name}`}
@@ -32,32 +36,58 @@ const signature = aboutData?.signature ?? {};
   <Hero title="Hakkımda" size="sm" />
   <section class="bg-light">
     <div class="container about-container">
-      <h2 class="section-heading">Disiplin. Strateji. Hukuk.</h2>
-      <div class="about-content">
-        {paragraphs.map((paragraph: string) => (
-          <p set:html={paragraph} />
-        ))}
-        <div class="about-signature">
-          <p>
-            <strong>{signature?.name}</strong><br />
-            {signature?.barUrl ? (
-              <a href={signature.barUrl} target="_blank" rel="noopener noreferrer">
-                {signature?.bar}
-              </a>
-            ) : (
-              signature?.bar
-            )}
-          </p>
+      <div class="about-inner">
+        {photo && (
+          <div class="about-photo-wrap">
+            <img
+              src={photo}
+              alt={photoAlt}
+              class="about-photo"
+              width="320"
+              height="480"
+              loading="eager"
+              decoding="async"
+            />
+          </div>
+        )}
+        <div class="about-text">
+          <h2 class="section-heading">Disiplin. Strateji. Hukuk.</h2>
+          <div class="about-content">
+            {paragraphs.map((paragraph: string) => (
+              <p set:html={paragraph} />
+            ))}
+            <div class="about-signature">
+              <p>
+                <strong>{signature?.name}</strong><br />
+                {signature?.barUrl ? (
+                  <a href={signature.barUrl} target="_blank" rel="noopener noreferrer">
+                    {signature?.bar}
+                  </a>
+                ) : (
+                  signature?.bar
+                )}
+              </p>
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </section>
 </BaseLayout>
 <style>
-  .about-container { max-width: 800px; margin: 0 auto; }
+  .about-container { max-width: 900px; margin: 0 auto; padding: 3rem 1rem; }
+  .about-inner { display: flex; gap: 3rem; align-items: flex-start; }
+  .about-photo-wrap { flex-shrink: 0; }
+  .about-photo { width: 260px; height: auto; border-radius: 8px; object-fit: cover; display: block; }
+  .about-text { flex: 1; }
   .about-content { font-size: 1.15rem; text-align: justify; line-height: 1.8; color: var(--color-text); }
   .about-content p { margin-bottom: 1.5em; }
   .about-signature { margin-top: 40px; padding-top: 20px; border-top: 2px solid var(--brand-accent); width: fit-content; }
   .section-heading { margin-bottom: 40px; font-weight: 700; color: var(--brand-primary); }
   :global(html.dark) .section-heading { color: var(--color-text); }
+  @media (max-width: 768px) {
+    .about-inner { flex-direction: column; align-items: center; }
+    .about-photo { width: 200px; }
+    .about-content { text-align: left; }
+  }
 </style>
