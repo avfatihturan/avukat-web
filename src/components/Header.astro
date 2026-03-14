@@ -305,4 +305,20 @@ const { currentPage } = Astro.props;
 
   // Eğer Astro View Transitions kullanıyorsan sayfalar arası geçişte tekrar çalışması için:
   document.addEventListener('astro:after-swap', initHeader);
+</script><script>
+  // ViewTransitions sonrası header'ı yeniden başlat
+  document.addEventListener('astro:page-load', () => {
+    initHeader();
+  });
+
+  // Aynı sayfadaki linklerde reload engelle
+  document.addEventListener('astro:page-load', () => {
+    const currentPath = window.location.pathname;
+    document.querySelectorAll('a[href]').forEach((link) => {
+      const href = (link as HTMLAnchorElement).href;
+      if (new URL(href, window.location.origin).pathname === currentPath) {
+        link.addEventListener('click', (e) => e.preventDefault());
+      }
+    });
+  });
 </script>
