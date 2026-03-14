@@ -6,7 +6,7 @@ import LegalLayout from '../../layouts/LegalLayout.astro';
 export async function getStaticPaths() {
   const legalPages = await getCollection('legal');
   return legalPages.map((page) => ({
-    params: { slug: page.id },
+    params: { slug: page.id.replace(/.md$/, "") },
     props: { page },
   }));
 }
