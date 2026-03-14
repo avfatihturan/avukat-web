@@ -3,7 +3,7 @@ title: "Uluslararası Hukukta Egemenlik ve Yargı Yetkisi: Maduro ve Netanyahu V
 description: "Uluslararası Ceza Mahkemesi'nin yetki sınırları, liderlerin dokunulmazlığı ve yargı kararlarının icra kabiliyeti Maduro ve Netanyahu dosyaları üzerinden analiz edilmektedir."
 pubDate: 2026-01-05
 heroImage: "/images/uluslararasi-hukuk-yargi-yetkisi.webp"
-heroAlt: "Nicolas Maduro captured"
+heroAlt: "Uluslararası hukuk, egemenlik ve yargı yetkisi kavramlarını temsil eden görsel"
 tag: "ULUSLARARASI HUKUK"
 author: "Av. Fatih Turan"
 draft: false
