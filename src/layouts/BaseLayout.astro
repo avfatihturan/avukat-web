@@ -79,7 +79,18 @@ const finalImageUrl = new URL(image, siteUrl).href;
         document.documentElement.classList.add('dark');
       }
       window.localStorage.setItem('theme', theme);
+
+      // ViewTransitions: sayfa geçişinde dark class'ı koru
+      document.addEventListener('astro:after-swap', () => {
+        const saved = localStorage.getItem('theme');
+        if (saved === 'dark') {
+          document.documentElement.classList.add('dark');
+        } else {
+          document.documentElement.classList.remove('dark');
+        }
+      });
     </script>
+
   <script type="application/ld+json" is:inline>
   {
     "@context": "https://schema.org",
