@@ -2,33 +2,27 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Hero from '../components/Hero.astro';
 import { getEntry } from 'astro:content';
-
 type AboutData = {
   paragraphs: string[];
   signature?: {
     name?: string;
     bar?: string;
+    barUrl?: string;
   };
 };
-
 const siteEntry = await getEntry('site', 'main');
 if (!siteEntry) {
   throw new Error('Site verisi (site/main) bulunamadı.');
 }
-
-// ✅ about koleksiyonu YOK: data koleksiyonundan oku
 const aboutEntry = await getEntry('data', 'about');
 if (!aboutEntry) {
   throw new Error('Hakkımda sayfası için gerekli veriler (data/about.json) bulunamadı.');
 }
-
 const { name } = siteEntry.data as any;
 const aboutData = aboutEntry.data as AboutData;
-
 const paragraphs: string[] = Array.isArray(aboutData?.paragraphs) ? aboutData.paragraphs : [];
 const signature = aboutData?.signature ?? {};
 ---
-
 <BaseLayout
   title={`Hakkımda | ${name}`}
   description={`${name} hakkında bilgi. Disiplin, Strateji ve Hukuk vizyonu.`}
@@ -36,27 +30,29 @@ const signature = aboutData?.signature ?? {};
   canonicalUrl="/hakkimda"
 >
   <Hero title="Hakkımda" size="sm" />
-
   <section class="bg-light">
     <div class="container about-container">
       <h2 class="section-heading">Disiplin. Strateji. Hukuk.</h2>
-
       <div class="about-content">
         {paragraphs.map((paragraph: string) => (
           <p set:html={paragraph} />
         ))}
-
         <div class="about-signature">
           <p>
             <strong>{signature?.name}</strong><br />
-            {signature?.bar}
+            {signature?.barUrl ? (
+              <a href={signature.barUrl} target="_blank" rel="noopener noreferrer">
+                {signature?.bar}
+              </a>
+            ) : (
+              signature?.bar
+            )}
           </p>
         </div>
       </div>
     </div>
   </section>
 </BaseLayout>
-
 <style>
   .about-container { max-width: 800px; margin: 0 auto; }
   .about-content { font-size: 1.15rem; text-align: justify; line-height: 1.8; color: var(--color-text); }
