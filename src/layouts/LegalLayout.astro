@@ -28,3 +28,38 @@ const { title, description, currentPage, canonicalUrl, heroTitle } = Astro.props
     </div>
   </section>
 </BaseLayout>
+<style>
+  .legal-text :global(table) {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.5rem 0;
+    font-size: 0.95rem;
+    display: block;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    white-space: nowrap;
+  }
+  .legal-text :global(th) {
+    background-color: var(--brand-primary, #0a1f44);
+    color: #fff;
+    font-weight: 600;
+    text-align: left;
+    padding: 12px 16px;
+  }
+  .legal-text :global(td) {
+    padding: 11px 16px;
+    border-bottom: 1px solid var(--color-border, #e2e8f0);
+    vertical-align: top;
+  }
+  .legal-text :global(tr:last-child td) { border-bottom: none; }
+  .legal-text :global(tr:nth-child(even) td) {
+    background-color: var(--color-bg-secondary, #f8fafc);
+  }
+  @media (max-width: 640px) {
+    .legal-text :global(th),
+    .legal-text :global(td) {
+      padding: 9px 12px;
+      font-size: 0.875rem;
+    }
+  }
+</style>
