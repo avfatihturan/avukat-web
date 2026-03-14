@@ -82,7 +82,8 @@ const svgContent = getSvg(id, icon);
 <style>
   .area-card {
     background: var(--card-bg);
-    border: 1px solid var(--color-border);
+    border: none;
+    border-top: 4px solid var(--brand-accent);
     border-radius: 16px;
     padding: 30px;
     display: flex;
@@ -96,15 +97,15 @@ const svgContent = getSvg(id, icon);
   }
 
   .area-card:hover {
-    border-color: var(--brand-accent);
-    transform: translateY(-4px);
+    
+    transform: translateY(-6px);
     box-shadow: var(--shadow-hover);
   }
 
   .icon-wrap {
     width: 64px;
     height: 64px;
-    margin: 0 auto 18px;
+    margin: 0 0 18px;
     color: var(--brand-accent); /* İkon rengi buradan kontrol ediliyor */
     display: flex;
     align-items: center;
@@ -114,7 +115,7 @@ const svgContent = getSvg(id, icon);
   }
 
   .area-card:hover .icon-wrap {
-    transform: scale(1.1);
+    transform: translateY(-2px);
   }
 
   /* SVG'lere müdahale */
@@ -126,7 +127,7 @@ const svgContent = getSvg(id, icon);
   }
 
   h3 {
-    text-align: center;
+    text-align: left;
     margin: 0 0 14px;
     font-size: 1.35rem;
     color: var(--brand-primary);
@@ -135,7 +136,7 @@ const svgContent = getSvg(id, icon);
   :global(html.dark) h3 { color: var(--color-text); }
 
   p {
-    text-align: center;
+    text-align: left;
     color: var(--color-text-secondary);
     margin: 0;
     line-height: 1.7;
@@ -152,7 +153,7 @@ const svgContent = getSvg(id, icon);
 
   .cta {
     display: block;
-    text-align: center;
+    text-align: left;
     font-weight: 700;
     letter-spacing: 0.05em;
     text-transform: uppercase;
