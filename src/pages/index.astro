@@ -19,9 +19,6 @@ const { name } = siteData;
 const workAreas = Array.isArray(workAreasData) ? workAreasData : (workAreasData['data'] || []);
 ---
 
-<fragment slot="head">
-  <link rel="preload" as="image" href="/images/banner-home.webp" fetchpriority="high" />
-</fragment>
 <BaseLayout
   title={`Ana Sayfa | ${name}`}
   description="Ankara merkezli Ceza, Şirketler, İş ve Kira Hukuku danışmanlığı."
