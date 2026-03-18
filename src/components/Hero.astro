@@ -39,7 +39,7 @@ const computedAlt = altText ? altText : cleanText(title);
       width="2560"
       height="1440"
       loading={isLarge ? "eager" : "lazy"}
-      fetchpriority={isLarge ? "high" : "auto"}
+      fetchpriority={isLarge ? "high" : "auto" as any}
       decoding="async"
     />
     <div class="hero-overlay"></div>
