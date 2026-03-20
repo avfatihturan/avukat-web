@@ -66,7 +66,7 @@ const getIconPath = (iconClass) => {
     <button class="greeting-close" onclick="closeGreeting()" aria-label="Bildirimi Kapat">&times;</button>
   </div>
 
-  <div id="chatWindow" class="chat-window" role="dialog" aria-hidden="true">
+  <div id="chatWindow" class="chat-window" role="dialog" aria-hidden="true" aria-modal="true" inert>
     <div class="chat-header">
       <div class="header-info">
         <span class="assistant-avatar" aria-hidden="true">
@@ -114,7 +114,7 @@ const getIconPath = (iconClass) => {
     </div>
   </div>
 
-  <div id="fabMenu" class="fab-menu" aria-hidden="true">
+  <div id="fabMenu" class="fab-menu" aria-hidden="true" inert>
     <a href={`https://wa.me/${contact.whatsapp}`} target="_blank" rel="noopener noreferrer" class="fab-item whatsapp" aria-label="WhatsApp ile Sohbet Et">
       <span class="fab-label">WhatsApp</span>
       <div class="fab-icon">
@@ -477,13 +477,25 @@ const getIconPath = (iconClass) => {
   window.toggleFabMenu = function() {
     const wrapper = document.getElementById('super-fab-wrapper');
     const chatWindow = document.getElementById('chatWindow');
+    const fabMenu = document.getElementById('fabMenu');
     const greeting = document.getElementById('fabGreeting');
 
     if (chatWindow && chatWindow.classList.contains('open')) {
       chatWindow.classList.remove('open');
+      chatWindow.setAttribute('aria-hidden', 'true');
+      chatWindow.setAttribute('inert', '');
       wrapper.classList.remove('active');
     } else {
-      wrapper.classList.toggle('active');
+      const isActive = wrapper.classList.toggle('active');
+      if (fabMenu) {
+        if (isActive) {
+          fabMenu.removeAttribute('aria-hidden');
+          fabMenu.removeAttribute('inert');
+        } else {
+          fabMenu.setAttribute('aria-hidden', 'true');
+          fabMenu.setAttribute('inert', '');
+        }
+      }
       if (greeting) greeting.classList.remove('show');
     }
   };
@@ -491,9 +503,16 @@ const getIconPath = (iconClass) => {
   window.openAssistant = function() {
     const wrapper = document.getElementById('super-fab-wrapper');
     const chatWindow = document.getElementById('chatWindow');
+    const fabMenu = document.getElementById('fabMenu');
     if (wrapper) wrapper.classList.remove('active');
-    if (chatWindow) chatWindow.classList.add('open');
-    // focus scroll
+    if (fabMenu) { fabMenu.setAttribute('aria-hidden', 'true'); fabMenu.setAttribute('inert', ''); }
+    if (chatWindow) {
+      chatWindow.classList.add('open');
+      chatWindow.removeAttribute('aria-hidden');
+      chatWindow.removeAttribute('inert');
+      const closeBtn = document.getElementById('closeChatBtn');
+      if (closeBtn) setTimeout(function(){ closeBtn.focus(); }, 100);
+    }
     const chatBody = document.getElementById('chatBody');
     if (chatBody) chatBody.scrollTop = chatBody.scrollHeight;
   };
@@ -501,8 +520,15 @@ const getIconPath = (iconClass) => {
   window.toggleChatWindow = function(shouldOpen) {
     const chatWindow = document.getElementById('chatWindow');
     if (!chatWindow) return;
-    if (shouldOpen) chatWindow.classList.add('open');
-    else chatWindow.classList.remove('open');
+    if (shouldOpen) {
+      chatWindow.classList.add('open');
+      chatWindow.removeAttribute('aria-hidden');
+      chatWindow.removeAttribute('inert');
+    } else {
+      chatWindow.classList.remove('open');
+      chatWindow.setAttribute('aria-hidden', 'true');
+      chatWindow.setAttribute('inert', '');
+    }
   };
 
   window.closeGreeting = function() {
