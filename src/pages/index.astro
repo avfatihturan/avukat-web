@@ -64,6 +64,28 @@ const workAreas = Array.isArray(workAreasData) ? workAreasData : (workAreasData[
     </div>
   </section>
 
+  <section class="page-section">
+    <div class="container">
+      <h2 class="section-heading">Nasıl Çalışıyoruz?</h2>
+      <div class="surec-grid">
+        <div class="surec-adim">
+          <div class="surec-no">01</div>
+          <h3 class="surec-baslik">Olay Analizi</h3>
+          <p class="surec-aciklama">Hukuki durumunuzu dinler, belgeleri inceler ve güçlü ile zayıf yönleri net biçimde ortaya koyarız.</p>
+        </div>
+        <div class="surec-adim">
+          <div class="surec-no">02</div>
+          <h3 class="surec-baslik">Strateji ve Planlama</h3>
+          <p class="surec-aciklama">Size özgü bir hukuki strateji geliştiririz. Olası sonuçları, riskleri ve alternatifleri şeffaf biçimde paylaşırız.</p>
+        </div>
+        <div class="surec-adim">
+          <div class="surec-no">03</div>
+          <h3 class="surec-baslik">Şeffaf Süreç Takibi</h3>
+          <p class="surec-aciklama">Davanızın her aşamasında bilgilendirilirsiniz. Sürecin neresinde olduğunuzu her zaman bilirsiniz.</p>
+        </div>
+      </div>
+    </div>
+  </section>
   <section class="page-section bg-light">
     <div class="container">
       <h2 class="section-heading">Güncel Yayınlar</h2>
@@ -123,5 +145,41 @@ const workAreas = Array.isArray(workAreasData) ? workAreasData : (workAreasData[
   @media (max-width: 640px) {
     .trust-band-inner { flex-direction: column; gap: 4px; text-align: center; }
     .trust-sep { display: none; }
+  }
+  .surec-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+  }
+  .surec-adim {
+    padding: 2rem;
+    border: 1px solid var(--color-border);
+    border-radius: 12px;
+    background: var(--card-bg);
+    position: relative;
+  }
+  .surec-no {
+    font-size: 3rem;
+    font-weight: 800;
+    color: var(--brand-accent);
+    opacity: 0.25;
+    line-height: 1;
+    margin-bottom: 1rem;
+    font-variant-numeric: tabular-nums;
+  }
+  .surec-baslik {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--brand-primary);
+    margin-bottom: 0.75rem;
+  }
+  html.dark .surec-baslik { color: var(--color-text); }
+  .surec-aciklama {
+    color: var(--color-text-secondary);
+    line-height: 1.7;
+    font-size: 0.95rem;
+  }
+  @media (max-width: 768px) {
+    .surec-grid { grid-template-columns: 1fr; gap: 1.25rem; }
   }
 </style>
