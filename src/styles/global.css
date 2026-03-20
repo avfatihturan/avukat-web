@@ -462,3 +462,12 @@ html.dark .calc-row:last-child { background: var(--brand-accent); color: #000; }
 
 /* Footer kontrast */
 html.dark footer { background-color: #0a0a0a; }
+/* ========================================
+   FOCUS-VISIBLE
+   ======================================== */
+*:focus { outline: none; }
+*:focus-visible {
+  outline: 2px solid var(--brand-accent);
+  outline-offset: 3px;
+  border-radius: 8px;
+}
