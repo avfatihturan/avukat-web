@@ -152,7 +152,6 @@ html.dark {
 * { box-sizing: border-box; margin: 0; padding: 0; }
 
 /* iOS / mobil overscroll & pull-to-refresh azaltma */
-html { overscroll-behavior-y: none; }
 
 html, body {
     width: 100%;
