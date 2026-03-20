@@ -199,7 +199,7 @@ main {
     padding: 0 24px;
 }
 
-section { padding: 60px 0; width: 100%; }
+section { padding: 120px 0; width: 100%; }
 
 a { text-decoration: none; color: inherit; transition: color 0.2s ease; }
 ul { list-style: none; }
@@ -435,7 +435,7 @@ html.dark .calc-row:last-child { background: var(--brand-accent); color: #000; }
 @media (max-width: 768px) {
     .grid-3 { grid-template-columns: 1fr; gap: 20px; }
     .footer-row { display: flex; flex-direction: column; gap: 40px; }
-    section { padding: 40px 0; }
+    section { padding: 64px 0; }
     h2.section-heading { font-size: 1.8rem; margin-bottom: 30px; }
     .container { padding: 0 16px; }
     .bottom-box { padding: 2rem; }
