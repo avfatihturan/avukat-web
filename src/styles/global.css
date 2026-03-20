@@ -241,7 +241,7 @@ h2.section-heading::after {
     font-size: 0.9rem;
     border: none;
     cursor: pointer;
-    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
     margin-top: 20px;
 }
 .btn:hover { background-color: #fff; transform: translateY(-2px); box-shadow: 0 4px 15px rgba(197, 160, 89, 0.4); }
@@ -258,7 +258,7 @@ h2.section-heading::after {
     text-transform: uppercase;
     font-size: 0.85rem;
     margin-top: 30px;
-    transition: all 0.3s ease;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 .btn-outline-main:hover { background-color: var(--brand-primary); color: #fff; }
 html.dark .btn-outline-main { border-color: var(--brand-accent); color: var(--brand-accent); }
@@ -306,7 +306,7 @@ html.dark .hero.hero-sm h1 { color: var(--color-text); }
     border: 1px solid var(--color-border);
     border-radius: 16px;
     box-shadow: var(--shadow-sm);
-    transition: all 0.3s ease;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
     display: block;
     height: 100%;
     color: inherit;
@@ -333,7 +333,7 @@ html.dark .card h3 { color: var(--color-text); }
     flex-direction: column;
     align-items: center;
     gap: 2rem;
-    transition: all 0.3s ease;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
     box-shadow: var(--shadow-sm);
 }
 .bottom-box:hover { transform: translateY(-4px); box-shadow: var(--shadow-hover); border-color: var(--brand-accent); }
@@ -341,7 +341,7 @@ html.dark .card h3 { color: var(--color-text); }
 .box-title { font-size: 1.5rem; font-weight: 700; color: var(--brand-primary); margin-bottom: 0.5rem; }
 html.dark .box-title { color: var(--color-text); }
 .box-desc { color: var(--color-text-secondary); line-height: 1.7; max-width: 750px; margin: 0; font-size: 1.05rem; }
-.btn-custom { display: inline-block; background-color: var(--brand-primary); color: white; padding: 12px 28px; border-radius: 8px; font-weight: 600; white-space: nowrap; transition: 0.2s; }
+.btn-custom { display: inline-block; background-color: var(--brand-primary); color: white; padding: 12px 28px; border-radius: 8px; font-weight: 600; white-space: nowrap; }
 html.dark .btn-custom { background-color: var(--brand-accent); color: #000; }
 
 /* ========================================
@@ -357,7 +357,7 @@ form input, form textarea, form select {
     color: var(--color-text);
     font-family: inherit;
     font-size: 1rem;
-    transition: all 0.2s ease;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
 }
 form input:focus, form textarea:focus, form select:focus { outline: none; border-color: var(--brand-accent); box-shadow: 0 0 0 4px rgba(197, 160, 89, 0.1); background: var(--card-bg); }
 form button { width: 100%; }
@@ -392,7 +392,7 @@ html.dark .cookie-table th { background-color: #262626; color: var(--brand-accen
 .cookie-table tr:hover { background-color: var(--input-bg); }
 
 .tab-nav { display: flex; justify-content: center; gap: 30px; margin-bottom: 40px; border-bottom: 1px solid var(--color-border); }
-.tab-btn { background: none; border: none; font-family: 'Montserrat', sans-serif; font-size: 1.1rem; font-weight: 600; color: var(--color-text-secondary); padding: 15px 20px; cursor: pointer; position: relative; transition: 0.2s; text-transform: uppercase; letter-spacing: 1px; }
+.tab-btn { background: none; border: none; font-family: 'Montserrat', sans-serif; font-size: 1.1rem; font-weight: 600; color: var(--color-text-secondary); padding: 15px 20px; cursor: pointer; position: relative; transition: color 0.2s ease; text-transform: uppercase; letter-spacing: 1px; }
 .tab-btn:hover { color: var(--brand-accent); }
 .tab-btn.active { color: var(--color-text); }
 .tab-btn.active::after { content: ''; position: absolute; bottom: -1px; left: 0; width: 100%; height: 3px; background-color: var(--brand-accent); }
