@@ -1,0 +1,90 @@
+---
+import specialDaysData from '../content/data/special-days.json';
+const days = JSON.stringify(specialDaysData);
+---
+
+<div id="special-day-banner" style="display:none" role="banner"></div>
+
+<script is:inline define:vars={{ days }}>
+  (function() {
+    const specialDays = JSON.parse(days);
+
+    const now = new Date();
+    const year = now.getFullYear();
+    const month = String(now.getMonth() + 1).padStart(2, '0');
+    const day = String(now.getDate()).padStart(2, '0');
+    const todayFull = year + '-' + month + '-' + day;
+    const todayShort = day + '-' + month;
+
+    function getNthSunday(y, m, n) {
+      let count = 0;
+      for (let d = 1; d <= 31; d++) {
+        const date = new Date(y, m - 1, d);
+        if (date.getMonth() !== m - 1) break;
+        if (date.getDay() === 0) {
+          count++;
+          if (count === n) return String(d).padStart(2,'0') + '-' + String(m).padStart(2,'0');
+        }
+      }
+      return '';
+    }
+
+    const allDays = [
+      ...specialDays,
+      { date: getNthSunday(year, 5, 2), type: 'kutlama', label: 'Anneler Günü', message: "Anneler Günü'nde tüm anneleri sevgi ve saygıyla selamlıyorum. Sevdiklerinizle sağlıklı ve huzurlu günler dilerim. Av. Fatih Turan" },
+      { date: getNthSunday(year, 6, 3), type: 'kutlama', label: 'Babalar Günü', message: "Babalar Günü'nde tüm babaları sevgi ve saygıyla selamlıyorum. Sevdiklerinizle sağlıklı ve huzurlu günler dilerim. Av. Fatih Turan" },
+    ];
+
+    const activeDay = allDays.find(function(d) {
+      return d.date === todayFull || d.date === todayShort;
+    });
+
+    if (!activeDay) return;
+
+    const banner = document.getElementById('special-day-banner');
+    if (!banner) return;
+
+    const storageKey = 'banner-closed-' + activeDay.date;
+    if (localStorage.getItem(storageKey)) return;
+
+    banner.dataset.day = activeDay.date;
+    banner.className = 'special-banner ' + activeDay.type;
+    banner.innerHTML =
+      '<span class="banner-message">' + activeDay.message + '</span>' +
+      '<button class="banner-close" aria-label="Bildirimi kapat" onclick="(function(btn){' +
+        'var b=document.getElementById(\'special-day-banner\');' +
+        'if(!b)return;' +
+        'localStorage.setItem(\'banner-closed-\'+b.dataset.day,\'1\');' +
+        'b.style.display=\'none\';' +
+      '})(this)">✕</button>';
+    banner.style.display = 'flex';
+  })();
+</script>
+
+<style>
+  .special-banner {
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    width: 100%;
+    padding: 10px 20px;
+    font-size: 0.88rem;
+    font-weight: 600;
+    text-align: center;
+    position: relative;
+    z-index: 1100;
+  }
+  .special-banner.kutlama { background-color: var(--brand-primary); color: #fff; }
+  .special-banner.anma { background-color: #1a1a1a; color: #ccc; }
+  .special-banner.dini { background-color: #2d5a27; color: #e8f5e2; }
+  .banner-message { flex: 1; max-width: 900px; }
+  .banner-close {
+    background: none; border: none; color: inherit;
+    font-size: 1rem; cursor: pointer; opacity: 0.7;
+    padding: 0 4px; line-height: 1; flex-shrink: 0;
+  }
+  .banner-close:hover { opacity: 1; }
+  @media (max-width: 640px) {
+    .special-banner { font-size: 0.8rem; padding: 8px 14px; }
+  }
+</style>

@@ -2,6 +2,7 @@
 import '../styles/global.css';
 import { ViewTransitions } from 'astro:transitions';
 import Header from '../components/Header.astro';
+import SpecialDayBanner from '../components/SpecialDayBanner.astro';
 import Footer from '../components/Footer.astro';
 import ChatWidget from '../components/ChatWidget.astro';
 
@@ -150,6 +151,7 @@ const finalImageUrl = new URL(image, siteUrl).href;
   </head>
   <body>
     <div class="site-wrapper">
+      <SpecialDayBanner />
       <Header currentPage={currentPage} />
       
       <main class="site-main">

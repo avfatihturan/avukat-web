@@ -1,0 +1,23 @@
+[
+  { "date": "01-01", "type": "kutlama", "label": "Yılbaşı", "message": "Yeni yılın sevdiklerinizle sağlıklı, huzurlu ve bereketli geçmesini dilerim." },
+  { "date": "12-03", "type": "anma", "label": "İstiklâl Marşı'nın Kabulü", "message": "İstiklâl Marşı'nın Kabulü ve Mehmet Akif Ersoy'u Anma Günü'nde aziz şairi saygıyla anıyoruz." },
+  { "date": "18-03", "type": "anma", "label": "Çanakkale Zaferi", "message": "Çanakkale Zaferi'nin yıl dönümünde şehitlerimizi ve gazilerimizi saygıyla anıyoruz." },
+  { "date": "08-03", "type": "kutlama", "label": "Dünya Kadınlar Günü", "message": "8 Mart Dünya Kadınlar Günü'nde tüm kadınları sevgi ve saygıyla selamlıyorum." },
+  { "date": "23-04", "type": "kutlama", "label": "23 Nisan Ulusal Egemenlik ve Çocuk Bayramı", "message": "23 Nisan Ulusal Egemenlik ve Çocuk Bayramı kutlu olsun. Sevdiklerinizle sağlıklı ve huzurlu günler dilerim." },
+  { "date": "05-04", "type": "kutlama", "label": "Avukatlar Günü", "message": "5 Nisan Avukatlar Günü'nde meslek kardeşlerime saygı ve dayanışma duygularımı iletiyorum." },
+  { "date": "19-05", "type": "kutlama", "label": "19 Mayıs Atatürk'ü Anma, Gençlik ve Spor Bayramı", "message": "19 Mayıs Atatürk'ü Anma, Gençlik ve Spor Bayramı kutlu olsun. Sevdiklerinizle sağlıklı ve huzurlu günler dilerim." },
+  { "date": "01-07", "type": "kutlama", "label": "Denizcilik ve Kabotaj Bayramı", "message": "1 Temmuz Denizcilik ve Kabotaj Bayramı kutlu olsun." },
+  { "date": "15-07", "type": "anma", "label": "Demokrasi ve Millî Birlik Günü", "message": "15 Temmuz Demokrasi ve Millî Birlik Günü'nde şehitlerimizi saygıyla anıyor, demokrasimize olan bağlılığımızı bir kez daha vurguluyoruz." },
+  { "date": "30-08", "type": "kutlama", "label": "Zafer Bayramı", "message": "30 Ağustos Zafer Bayramı kutlu olsun. Sevdiklerinizle sağlıklı ve huzurlu günler dilerim." },
+  { "date": "29-10", "type": "kutlama", "label": "Cumhuriyet Bayramı", "message": "29 Ekim Cumhuriyet Bayramı kutlu olsun. Sevdiklerinizle sağlıklı ve huzurlu günler dilerim." },
+  { "date": "10-11", "type": "anma", "label": "Atatürk'ü Anma Günü", "message": "10 Kasım'da Cumhuriyetimizin kurucusu Mustafa Kemal Atatürk'ü saygı, minnet ve özlemle anıyoruz." },
+
+  { "date": "2026-03-16", "type": "dini", "label": "Kadir Gecesi", "message": "Kadir Gecesi'nin milletimize ve tüm insanlığa hayır getirmesini dilerim. Av. Fatih Turan" },
+  { "date": "2026-03-20", "type": "dini", "label": "Ramazan Bayramı", "message": "Ramazan Bayramı'nız mübarek olsun. Sevdiklerinizle sağlıklı ve huzurlu günler dilerim. Av. Fatih Turan" },
+  { "date": "2026-03-21", "type": "dini", "label": "Ramazan Bayramı", "message": "Ramazan Bayramı'nız mübarek olsun. Sevdiklerinizle sağlıklı ve huzurlu günler dilerim. Av. Fatih Turan" },
+  { "date": "2026-03-22", "type": "dini", "label": "Ramazan Bayramı", "message": "Ramazan Bayramı'nız mübarek olsun. Sevdiklerinizle sağlıklı ve huzurlu günler dilerim. Av. Fatih Turan" },
+  { "date": "2026-05-27", "type": "dini", "label": "Kurban Bayramı", "message": "Kurban Bayramı'nız mübarek olsun. Sevdiklerinizle sağlıklı ve huzurlu günler dilerim. Av. Fatih Turan" },
+  { "date": "2026-05-28", "type": "dini", "label": "Kurban Bayramı", "message": "Kurban Bayramı'nız mübarek olsun. Sevdiklerinizle sağlıklı ve huzurlu günler dilerim. Av. Fatih Turan" },
+  { "date": "2026-05-29", "type": "dini", "label": "Kurban Bayramı", "message": "Kurban Bayramı'nız mübarek olsun. Sevdiklerinizle sağlıklı ve huzurlu günler dilerim. Av. Fatih Turan" },
+  { "date": "2026-05-30", "type": "dini", "label": "Kurban Bayramı", "message": "Kurban Bayramı'nız mübarek olsun. Sevdiklerinizle sağlıklı ve huzurlu günler dilerim. Av. Fatih Turan" }
+]
