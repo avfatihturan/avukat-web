@@ -33,6 +33,15 @@ const workAreas = Array.isArray(workAreasData) ? workAreasData : (workAreasData[
     altText="Stratejik Hukuk. Güvenilir Temsil."
   />
 
+  <div class="trust-band">
+    <div class="container trust-band-inner">
+      <span>Ankara Barosu Sicil No: 46839</span>
+      <span class="trust-sep">·</span>
+      <span>Görüşmeler randevu ile planlanmaktadır</span>
+      <span class="trust-sep">·</span>
+      <span>Sitedeki içerikler yalnızca bilgilendirme amaçlıdır</span>
+    </div>
+  </div>
   <section class="page-section">
     <div class="container">
       <h2 class="section-heading">Çalışma Alanları</h2>
@@ -94,5 +103,25 @@ const workAreas = Array.isArray(workAreasData) ? workAreasData : (workAreasData[
   @media (min-width: 1024px) {
     .grid-layout { grid-template-columns: repeat(3, 1fr); }
     .grid-3 { grid-template-columns: repeat(3, 1fr); }
+  }
+  .trust-band {
+    background-color: var(--color-bg-secondary);
+    border-bottom: 1px solid var(--color-border);
+    padding: 12px 0;
+  }
+  .trust-band-inner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 8px 16px;
+    font-size: 0.8rem;
+    color: var(--color-text-secondary);
+    letter-spacing: 0.02em;
+  }
+  .trust-sep { opacity: 0.4; }
+  @media (max-width: 640px) {
+    .trust-band-inner { flex-direction: column; gap: 4px; text-align: center; }
+    .trust-sep { display: none; }
   }
 </style>
