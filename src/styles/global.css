@@ -237,7 +237,7 @@ h2.section-heading::after {
     padding: 14px 32px;
     font-weight: 700;
     text-transform: uppercase;
-    border-radius: 99px;
+    border-radius: 8px;
     font-size: 0.9rem;
     border: none;
     cursor: pointer;
@@ -253,7 +253,7 @@ h2.section-heading::after {
     padding: 14px 32px;
     border: 1px solid var(--brand-primary);
     color: var(--brand-primary);
-    border-radius: 99px;
+    border-radius: 8px;
     font-weight: 600;
     text-transform: uppercase;
     font-size: 0.85rem;
