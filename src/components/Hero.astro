@@ -34,10 +34,12 @@ const computedAlt = altText ? altText : cleanText(title);
   <div class="hero-bg-wrapper">
     <img
       src={image}
+      srcset={image === "/images/banner-home.webp" ? "/images/banner-home-800.webp 800w, /images/banner-home.webp 1440w" : undefined}
+      sizes={image === "/images/banner-home.webp" ? "100vw" : undefined}
       alt={computedAlt}
       class="hero-img"
-      width="2560"
-      height="1440"
+      width="1440"
+      height="638"
       loading={isLarge ? "eager" : "lazy"}
       fetchpriority={isLarge ? "high" : "auto"}
     />
