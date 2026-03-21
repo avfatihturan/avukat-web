@@ -377,7 +377,7 @@ html.dark .footer-col h4 { color: var(--color-text); }
 .footer-col ul li { margin-bottom: 12px; }
 .footer-col a { color: var(--color-text-secondary); transition: color 0.2s; font-size: 0.95rem; }
 .footer-col a:hover { color: var(--brand-accent); }
-.footer-bottom { text-align: center; margin-top: 30px; font-size: 0.85rem; color: var(--color-text-secondary); opacity: 0.8; }
+.footer-bottom { text-align: center; margin-top: 30px; font-size: 0.85rem; color: #8a8a90; }
 
 /* ========================================
    7. EXTRAS
