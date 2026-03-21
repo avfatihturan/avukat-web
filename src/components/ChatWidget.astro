@@ -61,7 +61,7 @@ const getIconPath = (iconClass) => {
 ---
 
 <div id="super-fab-wrapper" class="super-fab-wrapper">
-  <div id="fabGreeting" class="fab-greeting">
+  <div id="fabGreeting" class="fab-greeting" inert aria-hidden="true">
     {greeting}
     <button class="greeting-close" onclick="closeGreeting()" aria-label="Bildirimi Kapat">&times;</button>
   </div>
@@ -496,7 +496,7 @@ const getIconPath = (iconClass) => {
           fabMenu.setAttribute('inert', '');
         }
       }
-      if (greeting) greeting.classList.remove('show');
+      if (greeting) { greeting.classList.remove('show'); greeting.setAttribute('inert', ''); greeting.setAttribute('aria-hidden', 'true'); }
     }
   };
 
@@ -533,7 +533,7 @@ const getIconPath = (iconClass) => {
 
   window.closeGreeting = function() {
     const greeting = document.getElementById('fabGreeting');
-    if (greeting) greeting.classList.remove('show');
+    if (greeting) { greeting.classList.remove('show'); greeting.setAttribute('inert', ''); greeting.setAttribute('aria-hidden', 'true'); }
   };
 
   function scrollToBottom() {
@@ -598,10 +598,10 @@ const getIconPath = (iconClass) => {
     const greeting = document.getElementById('fabGreeting');
     if (greeting && !localStorage.getItem('fabGreetingShown')) {
       setTimeout(() => {
-        greeting.classList.add('show');
+        greeting.removeAttribute('inert'); greeting.removeAttribute('aria-hidden'); greeting.classList.add('show');
         localStorage.setItem('fabGreetingShown', 'true');
       }, 3000);
-      setTimeout(() => greeting.classList.remove('show'), 13000);
+      setTimeout(() => { greeting.classList.remove('show'); greeting.setAttribute('inert', ''); greeting.setAttribute('aria-hidden', 'true'); }, 13000);
     }
   });
 </script>
