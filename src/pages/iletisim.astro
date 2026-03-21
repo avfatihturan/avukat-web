@@ -71,6 +71,12 @@ const icons = {
           Hukuki danışmanlık talepleriniz için aşağıdaki formu doldurabilirsiniz.
           Müsaitlik durumuna göre size en kısa sürede geri dönüş yapılacaktır.
         </p>
+        <p class="form-transfer-note">
+          Bu form aracılığıyla iletilen kişisel verileriniz, form altyapısı hizmeti olarak kullanılan
+          <a href="https://formspree.io/legal/privacy" target="_blank" rel="noopener noreferrer">Formspree</a>
+          (ABD) üzerinden tarafıma iletilmektedir. Formspree bir veri işleyen olarak bu verileri
+          yalnızca iletim amacıyla işlemekte olup üçüncü taraflara satmamaktadır.
+        </p>
 
         <div class="form-meta">
           <span class="required-note"><span class="req">*</span> Zorunlu alan</span>
@@ -211,9 +217,16 @@ const icons = {
   @media (max-width: 600px) { .form-wrapper { padding: 22px; } }
 
   .form-intro{
-    margin-bottom: 18px;
+    margin-bottom: 12px;
     color: var(--color-text-secondary);
   }
+  .form-transfer-note {
+    margin-bottom: 18px;
+    font-size: 0.82rem;
+    color: var(--color-text-secondary);
+    line-height: 1.55;
+  }
+  .form-transfer-note a { color: var(--brand-accent); text-decoration: underline; }
 
   .form-meta{
     display:flex;
