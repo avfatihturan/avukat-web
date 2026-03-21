@@ -44,11 +44,7 @@ Avukatlık hizmetleri kapsamındaki veriler; sözleşmenin kurulması ve ifası 
 
 Kişisel verileriniz; yasal yükümlülüklerin ifası amacıyla mahkemeler, savcılıklar, icra daireleri, UYAP ve ilgili kamu kurum ve kuruluşlarıyla; zorunlu hâllerde tevkil avukatları ve mali müşavirlerle paylaşılabilmektedir.
 
-### 3.2 Yurt Dışı Aktarım — Formspree
 
-İnternet sitesindeki randevu formu, **Formspree Inc.** (ABD) altyapısı üzerinden çalışmaktadır. Form aracılığıyla ilettiğiniz veriler Formspree sunucularına iletilmekte; Formspree bu verileri yalnızca iletim amacıyla işlemekte ve üçüncü taraflara satmamaktadır. Formspree'nin gizlilik politikasına [buradan](https://formspree.io/legal/privacy) ulaşabilirsiniz.
-
-Bu aktarım; KVKK m.9 kapsamında **açık rızanıza** dayanılarak gerçekleştirilmektedir. Randevu formundaki ilgili onay kutucuğunu işaretleyerek bu aktarıma açık rıza vermiş olursunuz.
 
 ## 4. Kişisel Verilerin Saklanma Süresi
 
