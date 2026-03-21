@@ -11,7 +11,8 @@ interface Props {
   description: string;
   image?: string; 
   currentPage?: string;
-  canonicalUrl?: string; 
+  canonicalUrl?: string;
+  heroPreload?: string;
 }
 
 const { 
@@ -19,7 +20,8 @@ const {
   description, 
   image = "/images/og-image.webp", 
   currentPage,
-  canonicalUrl 
+  canonicalUrl,
+  heroPreload
 } = Astro.props;
 
 const siteUrl = import.meta.env.SITE || "https://fatihturan.av.tr";
@@ -139,7 +141,10 @@ const finalImageUrl = new URL(image, siteUrl).href;
     ]
   }
   </script>
-  <link rel="preload" href="/fonts/montserrat-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin />
+    {heroPreload && (
+      <link rel="preload" as="image" href={heroPreload} fetchpriority="high" />
+    )}
+    <link rel="preload" href="/fonts/montserrat-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin />
     <link rel="preload" href="/fonts/montserrat-latin-ext-400-normal.woff2" as="font" type="font/woff2" crossorigin />
     <link rel="preload" href="/fonts/montserrat-latin-700-normal.woff2" as="font" type="font/woff2" crossorigin />
     <link rel="preload" href="/fonts/montserrat-latin-ext-700-normal.woff2" as="font" type="font/woff2" crossorigin />
