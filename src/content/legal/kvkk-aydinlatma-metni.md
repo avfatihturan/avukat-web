@@ -6,34 +6,57 @@ slug: "kvkk-aydinlatma-metni"
 
 # Kişisel Verilerin İşlenmesine İlişkin Aydınlatma Metni
 
-Ankara Barosu'na kayıtlı 46839 sicil numaralı Avukat Fatih Turan olarak; kişisel verilerinizin güvenliğine, mahremiyetine, 6698 sayılı Kişisel Verilerin Korunması Kanunu ("KVKK") ve Avrupa Genel Veri Koruma Tüzüğü ("GDPR") kapsamındaki haklarınıza azami hassasiyet göstermekteyim.
+**Veri Sorumlusu:** Av. Fatih Turan  
+**Adres:** Mareşal Çakmak Mahallesi Yavuz Sokak No: 90/6 Sincan/Ankara  
+**E-posta:** av.fatihturan@outlook.com  
+**İnternet Sitesi:** https://www.fatihturan.av.tr  
+**Baro:** Ankara Barosu — Sicil No: 46839
 
-Bu aydınlatma metni, 6698 sayılı Kişisel Verilerin Korunması Kanunu'nun 10. maddesi ve Aydınlatma Yükümlülüğünün Yerine Getirilmesinde Uyulacak Usul ve Esaslar Hakkında Tebliğ kapsamında, veri sorumlusu sıfatıyla Av. Fatih Turan tarafından hazırlanmıştır.
+Bu aydınlatma metni, 6698 sayılı Kişisel Verilerin Korunması Kanunu'nun ("KVKK") 10. maddesi ve Aydınlatma Yükümlülüğünün Yerine Getirilmesinde Uyulacak Usul ve Esaslar Hakkında Tebliğ kapsamında hazırlanmıştır.
 
-## 1. İşlenen Kişisel Verileriniz ve Özel Nitelikli Kişisel Veriler
+## 1. İşlenen Kişisel Veriler
 
-Hukuki danışmanlık ve dava takip süreçleri kapsamında; kimlik bilgileriniz, iletişim bilgileriniz, finansal verileriniz ve hukuki işlem bilgilerinize ek olarak, somut olayın niteliğine göre özel nitelikli kişisel verileriniz de işlenebilmektedir.
+### 1.1 İnternet Sitesi Randevu Formu
 
-Kişilerin ırkı, etnik kökeni, siyasi düşüncesi, felsefi inancı, dini, mezhebi veya diğer inançları, kılık ve kıyafeti, dernek, vakıf ya da sendika üyeliği, sağlığı, cinsel hayatı, ceza mahkûmiyeti ve güvenlik tedbirleriyle ilgili verileri ile biyometrik ve genetik verileri özel nitelikli kişisel veriler arasında yer alır.
+fatihturan.av.tr adresindeki randevu talep formu aracılığıyla yalnızca aşağıdaki veriler toplanmaktadır:
+
+- Ad ve soyad
+- Telefon numarası
+- E-posta adresi
+- Tercih edilen görüşme tarihleri
+- Hukuki sorun özeti
+
+Bu veriler; randevu talebinin değerlendirilmesi ve tarafınızla iletişime geçilmesi amacıyla işlenmektedir.
+
+### 1.2 Avukatlık ve Hukuki Danışmanlık Hizmetleri
+
+Avukatlık sözleşmesi kurulması ve vekâlet görevinin ifası sürecinde; kimlik bilgileri, iletişim bilgileri, finansal bilgiler ve hukuki işlem bilgileri ile somut uyuşmazlığın niteliğine göre özel nitelikli kişisel veriler işlenebilmektedir. Bu süreçte işlenen veriler ayrıca düzenlenen Müvekkil Aydınlatma Metni kapsamında ele alınmaktadır.
 
 ## 2. Kişisel Verilerin İşlenme Amaçları ve Hukuki Sebepleri
 
-KVKK m.5 sistematiği uyarınca açık rıza, yalnızca alternatif hukuka uygunluk sebeplerinden biridir; hangi şart gerçekten uygunsa ona dayanılır. Bu kapsamda kişisel verileriniz aşağıdaki hukuki sebeplere dayanılarak işlenmektedir:
+Randevu formu verileri; KVKK m.5/2-c uyarınca **sözleşme kurulmadan önce ilgili kişinin talebi üzerine gerekli adımların atılması** ve KVKK m.5/2-f uyarınca **veri sorumlusunun meşru menfaati** hukuki sebeplerine dayanılarak işlenmektedir.
 
-- Bir sözleşmenin kurulması veya ifasıyla doğrudan ilgili olması (avukatlık sözleşmesi ve vekâlet ilişkisinin kurulması),
-- Veri sorumlusunun hukuki yükümlülüğünü yerine getirebilmesi için zorunlu olması (baro, vergi ve mahkeme bildirimleri),
-- Bir hakkın tesisi, kullanılması veya korunması için veri işlemenin zorunlu olması (dava açılması ve savunma hakkının kullanılması),
-- Veri sorumlusunun meşru menfaatleri için veri işlemenin zorunlu olması.
+Avukatlık hizmetleri kapsamındaki veriler; sözleşmenin kurulması ve ifası (m.5/2-c), hukuki yükümlülüklerin yerine getirilmesi (m.5/2-ç) ve bir hakkın tesisi, kullanılması veya korunması (m.5/2-e) sebeplerine dayanılarak işlenmektedir.
 
-Özel nitelikli kişisel verileriniz; fiilî imkânsızlık hâlinde hayat veya beden bütünlüğünün korunması, bir hakkın tesisi, kullanılması veya korunması için zorunluluk ve sır saklama yükümlülüğü altındaki kişilerce veri işlenmesi hukuka uygunluk nedenlerine dayanılarak, Kişisel Verileri Koruma Kurulu tarafından belirlenen yeterli teknik ve idari önlemler alınarak işlenmektedir.
+## 3. Kişisel Verilerin Aktarımı
 
-## 3. Kişisel Verilerin Yurt İçi ve Yurt Dışına Aktarımı
+### 3.1 Yurt İçi Aktarım
 
-Kişisel verileriniz; savunma hakkının tesisi ve yasal yükümlülüklerin ifası amacıyla yetkili kamu kurum ve kuruluşlarına (mahkemeler, savcılıklar, icra daireleri, UYAP, noterler) ve zorunlu hâllerde işbirliği yapılan bağımsız denetçiler, mali müşavirler ile tevkil avukatlarına aktarılabilmektedir.
+Kişisel verileriniz; yasal yükümlülüklerin ifası amacıyla mahkemeler, savcılıklar, icra daireleri, UYAP ve ilgili kamu kurum ve kuruluşlarıyla; zorunlu hâllerde tevkil avukatları ve mali müşavirlerle paylaşılabilmektedir.
 
-Veriler, kural olarak ilgili kişinin açık rızası olmaksızın yurt dışına aktarılamaz. Ancak KVKK m.9 ve GDPR m.45-49 hükümleri uyarınca yeterli koruma düzeyinin bulunması hâlinde aktarım mümkündür. E-posta ve bulut bilişim altyapı hizmetlerinin yurt dışı sunucu kaynaklı olması durumunda verileriniz mevzuata uygun güvenceler çerçevesinde yurt dışına aktarılmış sayılabilmektedir.
+### 3.2 Yurt Dışı Aktarım — Formspree
 
-## 4. Veri Öznesi Olarak Haklarınız (KVKK Madde 11)
+İnternet sitesindeki randevu formu, **Formspree Inc.** (ABD) altyapısı üzerinden çalışmaktadır. Form aracılığıyla ilettiğiniz veriler Formspree sunucularına iletilmekte; Formspree bu verileri yalnızca iletim amacıyla işlemekte ve üçüncü taraflara satmamaktadır. Formspree'nin gizlilik politikasına [buradan](https://formspree.io/legal/privacy) ulaşabilirsiniz.
+
+Bu aktarım; KVKK m.9 kapsamında **açık rızanıza** dayanılarak gerçekleştirilmektedir. Formu göndermekle bu aktarıma rıza vermiş sayılırsınız.
+
+## 4. Kişisel Verilerin Saklanma Süresi
+
+Randevu formu verileri; randevu görüşmesinin gerçekleşmesinin ardından veya talebinizin sonuçlanmasından itibaren en geç **6 ay** içinde silinmektedir.
+
+Avukatlık hizmetleri kapsamında işlenen veriler; 1136 sayılı Avukatlık Kanunu m.39 uyarınca vekâlet görevinin sona ermesinden itibaren **3 yıl**, olası hukuki uyuşmazlıklarda ispat hakkının kullanılması amacıyla **5 yıl** saklanmaktadır.
+
+## 5. Haklarınız (KVKK Madde 11)
 
 İlgili kişi olarak aşağıdaki haklara sahipsiniz:
 
@@ -42,14 +65,13 @@ Veriler, kural olarak ilgili kişinin açık rızası olmaksızın yurt dışın
 - İşlenme amacını ve amacına uygun kullanılıp kullanılmadığını öğrenme,
 - Yurt içinde veya yurt dışında aktarıldığı üçüncü kişileri bilme,
 - Eksik veya yanlış işlenmiş olması hâlinde düzeltilmesini isteme,
-- Münhasıran otomatik sistemler vasıtasıyla aleyhinize bir sonucun ortaya çıkmasına itiraz etme,
 - Kanuna aykırı işlenmesi sebebiyle uğradığınız zararın giderilmesini talep etme.
 
-## 5. Başvuru Usulü ve İletişim
+## 6. Başvuru Usulü
 
 Taleplerinizi aşağıdaki yöntemlerden biriyle iletebilirsiniz:
 
-- **Yazılı Başvuru:** Islak imzalı dilekçenizi kimliğinizi tevsik edici belgelerle birlikte ofis adresimize (Ankara) bizzat elden teslim edebilir veya noter kanalıyla gönderebilirsiniz.
+- **Yazılı Başvuru:** Islak imzalı dilekçenizi kimliğinizi tevsik edici belgelerle birlikte Mareşal Çakmak Mahallesi Yavuz Sokak No: 90/6 Sincan/Ankara adresine bizzat elden teslim edebilir veya noter kanalıyla gönderebilirsiniz.
 - **E-Posta:** av.fatihturan@outlook.com
 
-Tarafımca alınan talep, ücretsiz olarak ya da işlemin ayrıca bir maliyet gerektirmesi hâlinde Kişisel Verileri Koruma Kurulu tarafından belirlenen tarifeye göre alınacak ücret mukabilinde en geç otuz gün içinde sonuçlandırılacaktır.
+Talebiniz, ücretsiz olarak ya da işlemin ayrıca bir maliyet gerektirmesi hâlinde Kişisel Verileri Koruma Kurulu tarafından belirlenen tarifeye göre alınacak ücret mukabilinde en geç **otuz gün** içinde sonuçlandırılacaktır.
