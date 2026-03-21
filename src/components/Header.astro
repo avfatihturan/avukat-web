@@ -292,8 +292,6 @@ const { currentPage } = Astro.props;
   initTheme();
 
   // ViewTransitions: sayfa geçişlerinde yeniden başlat
-  document.addEventListener('astro:after-swap', initHeader);
-  document.addEventListener('astro:after-swap', initTheme);
   document.addEventListener('astro:page-load', initHeader);
   document.addEventListener('astro:page-load', initTheme);
 
