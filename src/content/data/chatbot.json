@@ -14,7 +14,7 @@
       "key": "randevu",
       "label": "Randevu Almak İstiyorum",
       "userText": "Randevu almak istiyorum.",
-      "botResponse": "Randevu talebinizi <a href='/iletisim'>buraya tıklayarak</a> iletebilirsiniz.",
+      "botResponse": "Telefon, WhatsApp veya e-posta ile ulaşabilirsiniz. İletişim bilgileri için <a href='/iletisim'>buraya tıklayın</a>.",
       "icon": "fa-calendar"
     },
     {
@@ -28,7 +28,7 @@
       "key": "ucret",
       "label": "Danışmanlık Ücreti",
       "userText": "Danışmanlık ücretli mi?",
-      "botResponse": "Evet, Avukatlık Kanunu gereği danışmanlık hizmetleri ücrete tabidir. Kısa bir değerlendirme için <a href='/iletisim'>randevu talebi oluşturabilirsiniz.</a>",
+      "botResponse": "Evet, Avukatlık Kanunu gereği danışmanlık hizmetleri ücrete tabidir. Görüşme talebinizi telefon veya WhatsApp ile iletebilirsiniz. <a href='/iletisim'>İletişim bilgileri →</a>",
       "icon": "fa-coins"
     },
     {
