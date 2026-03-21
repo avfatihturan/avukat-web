@@ -1,5 +1,5 @@
 {
-  "photo": "/images/hakkimda.webp",
+  "photo": "/images/hakkimda-optimized.webp",
   "photoAlt": "Av. Fatih Turan - Ankara Barosu Avukatı",
   "paragraphs": [
     "Deniz Harp Okulu’ndan mezun olduğumda, strateji ve kriz yönetimi benim için yalnızca teorik kavramlar değil, bir çalışma biçimiydi. Sahil Güvenlik Komutanlığı’nda subay olarak edindiğim disiplinli ve analitik yaklaşımı, bugün avukatlık pratiğimin merkezine yerleştiriyorum.",
@@ -11,6 +11,6 @@
   "signature": {
     "name": "Av. Fatih Turan",
     "bar": "Ankara Barosu - 46839",
-    "barUrl": "https://www.ankarabarosu.org.tr/siteler/AnkaraBarosu/temsil/baro-card.aspx?sicil=46839"
+    "barUrl": "https://www.ankarabarosu.org.tr/avukat/46839"
   }
 }
