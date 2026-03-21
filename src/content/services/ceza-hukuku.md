@@ -25,7 +25,7 @@ Ceza muhakemesi süreci teknik detaylarla doludur. Sizi nelerin beklediğini bil
 
 ### Ankara'da Ceza Avukatlığı
 
-Ceza hukuku pratiği, mevzuat bilgisi kadar yerel adliye dinamiklerine hakimiyeti de gerektirir. Ankara Sıhhiye Adliyesi ve Batı Adliyesi'ndeki tecrübemizle, soruşturmanın her aşamasında müvekkillerimizin yanındayız.
+Ceza hukuku pratiği, mevzuat bilgisi kadar yerel adliye dinamiklerine hakimiyeti de gerektirir. Ankara Sıhhiye Adliyesi ve Batı Adliyesi nezdinde, soruşturmanın her aşamasında müvekkillerimizin yanındayız.
 
 ---
 **İlgili Diğer Alanlar:**
