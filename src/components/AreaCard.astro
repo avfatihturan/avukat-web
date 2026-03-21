@@ -83,7 +83,8 @@ const svgContent = getSvg(id, icon);
   .area-card {
     background: var(--card-bg);
     border: none;
-    border-top: 4px solid var(--brand-accent);
+    border-left: 4px solid var(--brand-accent);
+    border-top: none;
     border-radius: 16px;
     padding: 30px;
     display: flex;
@@ -141,7 +142,8 @@ const svgContent = getSvg(id, icon);
     margin: 0;
     line-height: 1.7;
     font-size: 0.95rem;
-    min-height: 105px;
+    flex: 1;
+    min-height: unset;
   }
 
   .card-footer {
