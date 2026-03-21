@@ -115,7 +115,7 @@
     --color-border-soft: #e5e5e5;
 
     /* Mobilde menü arkası görünmesin diye opaklık arttırıldı (0.98) */
-    --header-bg: rgba(255, 255, 255, 0.98);
+    --header-bg: rgba(255, 255, 255, 1);
     --card-bg: #ffffff;
     --input-bg: #f5f5f7;
     --input-border: #d2d2d7;
@@ -136,7 +136,7 @@ html.dark {
     --color-border: #333333;
     --color-border-soft: #262626;
 
-    --header-bg: rgba(18, 18, 18, 0.98);
+    --header-bg: rgba(18, 18, 18, 1);
     --card-bg: #1c1c1e;
     --input-bg: #1c1c1e;
     --input-border: #333333;
