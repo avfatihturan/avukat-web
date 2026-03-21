@@ -10,12 +10,13 @@ interface Props {
   heroAlt: string;
   tag: string;
   pubDate: Date;
+  updatedDate?: Date;
   author: string;
   headings: { depth: number; slug: string; text: string }[];
   slug: string;
 }
 
-const { title, description, heroImage, heroAlt, tag, pubDate, author, headings, slug } = Astro.props as Props;
+const { title, description, heroImage, heroAlt, tag, pubDate, updatedDate, author, headings, slug } = Astro.props as Props;
 
 const heroImageUrl = typeof heroImage === 'string' ? heroImage : heroImage.src;
 
@@ -30,7 +31,7 @@ const articleSchema = JSON.stringify({
   "description": description,
   "image": `https://fatihturan.av.tr${heroImageUrl}`,
   "datePublished": pubDate.toISOString(),
-  "dateModified": pubDate.toISOString(),
+  "dateModified": (updatedDate ?? pubDate).toISOString(),
   "author": {
     "@type": "Person",
     "@id": "https://fatihturan.av.tr/#person",

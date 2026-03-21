@@ -11,6 +11,7 @@ const articles = defineCollection({
     tag: z.string().optional(),
     author: z.string().optional(),
     draft: z.boolean().default(false),
+    updatedDate: z.coerce.date().optional(),
   }),
 });
 
@@ -26,6 +27,7 @@ const services = defineCollection({
     // YENİ: Bu hizmet hangi makale etiketini çeksin?
     relatedTag: z.string().optional(), 
     draft: z.boolean().default(false),
+    updatedDate: z.coerce.date().optional(),
   }),
 });
 
@@ -36,6 +38,7 @@ const legal = defineCollection({
     description: z.string().optional(),
     pubDate: z.coerce.date().optional(),
     draft: z.boolean().default(false),
+    updatedDate: z.coerce.date().optional(),
   }),
 });
 
