@@ -48,17 +48,17 @@ const photoAlt = aboutData?.photoAlt ?? 'Av. Fatih Turan';
               loading="eager"
               decoding="async"
             />
+            {signature?.barUrl && (
+              <div class="baro-badge">
+                <a href={signature.barUrl} target="_blank" rel="noopener noreferrer">
+                  Ankara Barosu Sicil No: {signature?.bar?.replace('Ankara Barosu - ', '')}
+                </a>
+              </div>
+            )}
           </div>
         )}
         <div class="about-text">
           <h2 class="section-heading">Disiplin. Strateji. Hukuk.</h2>
-          {signature?.barUrl && (
-            <div class="baro-badge">
-              <a href={signature.barUrl} target="_blank" rel="noopener noreferrer">
-                Ankara Barosu Sicil No: {signature?.bar?.replace('Ankara Barosu - ', '')}
-              </a>
-            </div>
-          )}
           <div class="about-content">
             {paragraphs.map((paragraph: string) => (
               <p set:html={paragraph} />
@@ -91,7 +91,7 @@ const photoAlt = aboutData?.photoAlt ?? 'Av. Fatih Turan';
   .about-content { font-size: 1.15rem; text-align: justify; line-height: 1.8; color: var(--color-text); }
   .about-content p { margin-bottom: 1.5em; }
   .about-signature { margin-top: 40px; padding-top: 20px; border-top: 2px solid var(--brand-accent); width: fit-content; }
-  .baro-badge { margin-bottom: 32px; }
+  .about-photo-wrap .baro-badge { margin-top: 16px; margin-bottom: 0; text-align: center; }
   .baro-badge a { display: inline-flex; align-items: center; gap: 8px; font-size: 0.85rem; color: var(--brand-primary); border: 1px solid var(--brand-accent); padding: 6px 14px; border-radius: 20px; font-weight: 600; text-decoration: none; }
   :global(html.dark) .baro-badge a { color: var(--color-text); }
   .section-heading { margin-bottom: 16px; font-weight: 700; color: var(--brand-primary); }

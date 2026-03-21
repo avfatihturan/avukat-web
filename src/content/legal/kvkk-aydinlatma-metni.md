@@ -18,7 +18,7 @@ Bu aydınlatma metni, 6698 sayılı Kişisel Verilerin Korunması Kanunu'nun ("K
 
 ### 1.1 İnternet Sitesi Randevu Formu
 
-fatihturan.av.tr adresindeki randevu talep formu aracılığıyla yalnızca aşağıdaki veriler toplanmaktadır:
+fatihturan.av.tr adresine telefon, WhatsApp veya e-posta yoluyla ulaşan kişilere ait yalnızca aşağıdaki veriler işlenebilmektedir:
 
 - Ad ve soyad
 - Telefon numarası
