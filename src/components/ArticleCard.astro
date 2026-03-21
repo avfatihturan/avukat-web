@@ -8,6 +8,7 @@ interface Props {
 }
 
 const { title, description, href, image, tag } = Astro.props;
+const src400 = image.replace(/(\.webp)$/, "-400$1");
 ---
 
 <article class="blog-card">
@@ -15,6 +16,8 @@ const { title, description, href, image, tag } = Astro.props;
     <div class="blog-card__image-wrapper">
       <img
         src={image}
+        srcset={`${src400} 400w, ${image} 800w`}
+        sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 400px"
         alt={title}
         loading="lazy"
         width="400"
