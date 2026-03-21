@@ -9,7 +9,8 @@ import ChatWidget from '../components/ChatWidget.astro';
 interface Props {
   title: string;
   description: string;
-  image?: string; 
+  image?: string;
+  ogType?: string; 
   currentPage?: string;
   canonicalUrl?: string;
   heroPreload?: string;
@@ -21,7 +22,8 @@ const {
   image = "/images/og-image.webp", 
   currentPage,
   canonicalUrl,
-  heroPreload
+  heroPreload,
+  ogType = "website"
 } = Astro.props;
 
 const siteUrl = import.meta.env.SITE || "https://fatihturan.av.tr";
@@ -41,7 +43,7 @@ const finalImageUrl = new URL(image, siteUrl).href;
     <meta name="author" content="Av. Fatih Turan" />
     <link rel="canonical" href={finalCanonicalUrl} />
 
-    <meta property="og:type" content="website" />
+    <meta property="og:type" content={ogType} />
     <meta property="og:url" content={finalCanonicalUrl} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
