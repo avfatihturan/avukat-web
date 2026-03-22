@@ -49,14 +49,21 @@ const days = JSON.stringify(specialDaysData);
 
     banner.dataset.day = activeDay.date;
     banner.className = 'special-banner ' + activeDay.type;
-    banner.innerHTML =
-      '<span class="banner-message">' + activeDay.message + '</span>' +
-      '<button class="banner-close" aria-label="Bildirimi kapat" onclick="(function(btn){' +
-        'var b=document.getElementById(\'special-day-banner\');' +
-        'if(!b)return;' +
-        'localStorage.setItem(\'banner-closed-\'+b.dataset.day,\'1\');' +
-        'b.style.display=\'none\';' +
-      '})(this)">✕</button>';
+    var msg = document.createElement('span');
+    msg.className = 'banner-message';
+    msg.textContent = activeDay.message;
+    var btn = document.createElement('button');
+    btn.className = 'banner-close';
+    btn.setAttribute('aria-label', 'Bildirimi kapat');
+    btn.textContent = '✕';
+    btn.addEventListener('click', function() {
+      var b = document.getElementById('special-day-banner');
+      if (!b) return;
+      localStorage.setItem('banner-closed-' + b.dataset.day, '1');
+      b.style.display = 'none';
+    });
+    banner.appendChild(msg);
+    banner.appendChild(btn);
     banner.style.display = 'flex';
   })();
 </script>
