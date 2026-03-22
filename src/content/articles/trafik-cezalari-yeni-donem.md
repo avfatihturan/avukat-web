@@ -7,6 +7,15 @@ heroAlt: "Karayolları Trafik Kanunu güncel düzenlemeleri ve trafik idari para
 tag: "CEZA HUKUKU"
 author: "Av. Fatih Turan"
 draft: false
+faqs:
+  - q: "Trafik cezasına itiraz süresi ne kadardır?"
+    a: "Trafik idari para cezasının tebliğinden itibaren 15 gün içinde yetkili Sulh Ceza Hakimliği'ne itiraz edilebilir. Bu süre hak düşürücü nitelikte olup kaçırılması halinde itiraz hakkı ortadan kalkar."
+  - q: "Trafik cezasını erken ödersem indirim var mı?"
+    a: "Tebliğden itibaren 15 gün içinde ödeme yapılması halinde ceza miktarından yüzde yirmi beş oranında indirim uygulanır. İndirimli ödeme, itiraz hakkını ortadan kaldırmaz."
+  - q: "Ehliyetim geri alınırsa ne yapabilirim?"
+    a: "Sürücü belgesinin geçici olarak geri alınması işlemine karşı idari itiraz veya yargı yoluna başvurulabilir. Belgenin iadesi için kanuni sürenin dolması, idari para cezasının ödenmesi ve varsa psikoteknik değerlendirme gibi ek şartların yerine getirilmesi zorunludur."
+  - q: "Alkol ölçümünü reddedersem ne olur?"
+    a: "Kolluk kuvvetlerince yapılan alkol veya uyuşturucu madde ölçümünü reddetmek, 2918 sayılı Kanun kapsamında 150.000 TL idari para cezası ve sürücü belgesinin 5 yıl süreyle geri alınması yaptırımını doğurmaktadır."
 ---
 
 # Trafik Cezalarında Yeni Dönem: 2026 Değişiklikleri Neler Getiriyor?

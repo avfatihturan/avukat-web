@@ -12,6 +12,7 @@ const articles = defineCollection({
     author: z.string().optional(),
     draft: z.boolean().default(false),
     updatedDate: z.coerce.date().optional(),
+    faqs: z.array(z.object({ q: z.string(), a: z.string() })).optional(),
   }),
 });
 
@@ -28,6 +29,7 @@ const services = defineCollection({
     relatedTag: z.string().optional(), 
     draft: z.boolean().default(false),
     updatedDate: z.coerce.date().optional(),
+    faqs: z.array(z.object({ q: z.string(), a: z.string() })).optional(),
   }),
 });
 
@@ -39,6 +41,7 @@ const legal = defineCollection({
     pubDate: z.coerce.date().optional(),
     draft: z.boolean().default(false),
     updatedDate: z.coerce.date().optional(),
+    faqs: z.array(z.object({ q: z.string(), a: z.string() })).optional(),
   }),
 });
 
