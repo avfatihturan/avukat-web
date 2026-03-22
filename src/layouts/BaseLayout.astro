@@ -119,11 +119,34 @@ const finalImageUrl = new URL(image, siteUrl).href;
         "url": "https://fatihturan.av.tr",
         "telephone": "+905326100805",
         "email": "av.fatihturan@outlook.com",
-        "provider": { "@id": "https://fatihturan.av.tr/#person" },
         "image": "https://fatihturan.av.tr/images/logo.webp",
-        "areaServed": { "@type": "City", "name": "Ankara", "sameAs": "https://www.wikidata.org/wiki/Q3640" },
-        "serviceType": ["Ceza Hukuku", "İş Hukuku", "Kira Hukuku", "Şirketler Hukuku", "Uluslararası Hukuk"],
-        "priceRange": "Avukatlık Asgari Ücret Tarifesi"
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Ankara",
+          "addressCountry": "TR"
+        },
+        "geo": {
+          "@type": "GeoCoordinates",
+          "latitude": 39.9334,
+          "longitude": 32.8597
+        },
+        "areaServed": {
+          "@type": "City",
+          "name": "Ankara",
+          "sameAs": "https://www.wikidata.org/wiki/Q3640"
+        },
+        "priceRange": "Avukatlık Asgari Ücret Tarifesi",
+        "hasOfferCatalog": {
+          "@type": "OfferCatalog",
+          "name": "Hukuki Hizmetler",
+          "itemListElement": [
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Ceza Hukuku" } },
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "İş Hukuku" } },
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Kira ve Konut Hukuku" } },
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Şirketler Hukuku" } },
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Uluslararası Hukuk" } }
+          ]
+        }
       },
       {
         "@type": "LocalBusiness",
