@@ -1,0 +1,68 @@
+---
+interface BreadcrumbItem {
+  label: string;
+  href?: string;
+}
+interface Props {
+  items: BreadcrumbItem[];
+}
+const { items } = Astro.props;
+const siteUrl = "https://fatihturan.av.tr";
+const schemaItems = items.map((item, index) => ({
+  "@type": "ListItem",
+  "position": index + 1,
+  "name": item.label,
+  ...(item.href ? { "item": `${siteUrl}${item.href}` } : {})
+}));
+---
+<nav aria-label="Breadcrumb" class="breadcrumb-nav">
+  <ol class="breadcrumb-list">
+    {items.map((item, index) => (
+      <li class="breadcrumb-item">
+        {item.href ? (
+          <a href={item.href} class="breadcrumb-link">{item.label}</a>
+        ) : (
+          <span aria-current="page" class="breadcrumb-current">{item.label}</span>
+        )}
+        {index < items.length - 1 && (
+          <span class="breadcrumb-sep" aria-hidden="true">›</span>
+        )}
+      </li>
+    ))}
+  </ol>
+</nav>
+<script type="application/ld+json" set:html={JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": schemaItems
+})} />
+<style>
+  .breadcrumb-nav {
+    padding: 12px 0 0;
+    margin-bottom: 8px;
+  }
+  .breadcrumb-list {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 4px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    font-size: 0.82rem;
+    color: var(--color-text-secondary);
+  }
+  .breadcrumb-item {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+  }
+  .breadcrumb-link {
+    color: var(--color-text-secondary);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .breadcrumb-link:hover { color: var(--brand-primary); }
+  .breadcrumb-current { color: var(--color-text-secondary); }
+  .breadcrumb-sep { color: var(--color-text-secondary); opacity: 0.5; }
+</style>

@@ -1,5 +1,6 @@
 ---
 import BaseLayout from './BaseLayout.astro';
+import Breadcrumb from '../components/Breadcrumb.astro';
 import TableOfContents from '../components/TableOfContents.astro';
 import type { ImageMetadata } from 'astro';
 
@@ -69,6 +70,11 @@ const articleSchema = JSON.stringify({
 
   <section class="bg-light">
     <div class="container article-container">
+      <Breadcrumb items={[
+        { label: "Ana Sayfa", href: "/" },
+        { label: "Yayınlar", href: "/yayinlar" },
+        { label: title }
+      ]} />
       <span class="article-tag">{tag}</span>
       <h1 class="article-title">{title}</h1>
 

@@ -2,6 +2,7 @@
 import { getCollection, render } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import ArticleCard from '../../components/ArticleCard.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
 import Hero from '../../components/Hero.astro';
 
 // 1. URL'leri Oluştur
@@ -62,6 +63,11 @@ const currentIcon = iconMap[iconKey] || iconMap['gavel'];
   />
 
   <div class="container main-wrapper">
+    <Breadcrumb items={[
+      { label: "Ana Sayfa", href: "/" },
+      { label: "Çalışma Alanları", href: "/calisma-alanlari" },
+      { label: service.data.title }
+    ]} />
     <div class="row">
       <main class="content-col">
         <article class="service-content">
