@@ -205,11 +205,13 @@ const { currentPage } = Astro.props;
 
 <script>
   function initHeader() {
-    const menuBtn = document.getElementById('menuToggle');
+    const menuBtnOrig = document.getElementById('menuToggle');
     const nav = document.getElementById('mainNav');
     const backdrop = document.getElementById('menuBackdrop');
 
-    if (!nav || !menuBtn) return;
+    if (!nav || !menuBtnOrig) return;
+    const menuBtn = menuBtnOrig.cloneNode(true) as Element;
+    menuBtnOrig.parentNode?.replaceChild(menuBtn, menuBtnOrig);
 
     let scrollY = 0;
 
