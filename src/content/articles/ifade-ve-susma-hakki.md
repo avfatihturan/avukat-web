@@ -56,6 +56,8 @@ Yargıtay yerleşik içtihatlarında, susma hakkının kullanılmasının asla s
 * **Hakların Hatırlatılması:** Susma hakkı ve diğer yasal hakların hatırlatılması, ifade alma işleminin başlangıcında derhal yerine getirilmesi gereken bir yükümlülüktür.
 * **Dava Açma ve Zamanaşımı:** İfadenin alınmasından sonra davanın ne kadar sürede açılacağı suçun niteliğine ve delil durumuna göre değişmekle birlikte; dava zamanaşımı süreleri Türk Ceza Kanunu m.66 uyarınca suçun türüne göre 8 yıldan başlayarak farklılık göstermektedir.
 
+Somut suç tiplerinde ifade stratejisi farklılaşabilir; örneğin [bilişim yoluyla dolandırıcılık ve hesap kullandırma](/yayinlar/bilisim-dolandiricilik-tck158) dosyalarında kast değerlendirmesi, [hakaret suçu](/yayinlar/whatsapp-hakaret-delil) dosyalarında ise delil tespiti öne çıkmaktadır. Genel bilgi için [ceza hukuku](/calisma-alanlari/ceza-hukuku) sayfası incelenebilir.
+
 ## 5. Neden Profesyonel Hukuki Destek Önemlidir?
 
 Ceza muhakemesi, oldukça teknik ve usul kurallarının sıkı uygulandığı bir süreçtir. İfade sırasında kullanılan tek bir cümle veya susma hakkının hangi aşamada kullanılacağı kararı, yargılamanın tüm seyrini değiştirebilmektedir. Profesyonel hukuki destek; yasak sorgu yöntemlerinin (baskı, yorma, aldatma vb.) engellenmesi, lehine olan delillerin toplanmasının istenmesi ve ifade tutanağının hukuka uygunluğunun denetlenmesi açısından hayati önem arz etmektedir. Savunmanın stratejik bir temele oturtulması, telafisi imkansız hak kayıplarını ve hürriyeti kısıtlayıcı tedbirlerin risklerini minimize etmektedir.

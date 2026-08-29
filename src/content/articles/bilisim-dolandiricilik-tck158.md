@@ -78,6 +78,8 @@ durumlarında indirim hükümleri uygulanabilmektedir.
 
 Ancak etkin pişmanlık hükümlerinin uygulanması **otomatik değildir**. Zararın giderilme şekli, zamanı, kapsamı ve failin suçtaki konumu birlikte değerlendirilmekte; nihai olarak **mahkemenin takdir yetkisi** çerçevesinde karar verilmektedir. Kısmi ödemelerde ise mağdurun açık rızası aranır.
 
+Soruşturma aşamasında ifade verirken susma hakkının doğru kullanımı [emniyet ve savcılıkta susma hakkı](/yayinlar/ifade-ve-susma-hakki) yazısında, dijital delillerin ispat değeri ise [dijital ortamda hakaret ve ekran görüntüsünün delil niteliği](/yayinlar/whatsapp-hakaret-delil) yazısında ele alınmaktadır. Genel çerçeve için [ceza hukuku](/calisma-alanlari/ceza-hukuku) alanı incelenebilir.
+
 ## 6. Hukuki Sürecin Yönetiminin Önemi
 
 Bilişim sistemleri aracılığıyla işlenen dolandırıcılık suçları; banka kayıtları, dijital veriler ve iletişim trafiğinin teknik analizini gerektirmektedir. Suç vasfının doğru belirlenmemesi veya kast değerlendirmesinin eksik yapılması, telafisi güç hak kayıplarına yol açabilmektedir.

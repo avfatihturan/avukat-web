@@ -45,6 +45,8 @@ Konut ve çatılı işyeri kiralarında kiraya veren, on yıllık uzama süresi 
 
 **Dikkat:** 10 yıllık süre, sözleşme tarihinden değil, sözleşme süresinin bitiminden itibaren başlar.
 
+Tahliyenin yanı sıra, uzayan kira ilişkilerinde bedelin güncellenmesi de gündeme gelebilir; bu süreç [kira tespit davası](/yayinlar/kira-tespit-davasi) yazısında, sözleşme imzası sırasında dayatılan tarihsiz taahhütlerin riskleri ise [kira sözleşmesindeki görünmez tehlikeler](/yayinlar/kira-sozlesmesi-imza-dikkat) yazısında ele alınmıştır. Konunun genel çerçevesi için [kira hukuku](/calisma-alanlari/kira-hukuku) alanı incelenebilir.
+
 <div class="calc-container">
     <div class="calc-header">
         <i class="fa-solid fa-scale-balanced"></i>

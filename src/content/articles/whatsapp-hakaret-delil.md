@@ -63,6 +63,8 @@ Hakaret suçunun takibi ve cezalandırılması belirli sürelere tabidir:
 * **Dava Zamanaşımı:** Suçun işlendiği tarihten itibaren **8 yıl** geçmekle dava zamanaşımı süresi dolar.
 * **Uzlaşma:** Kamu görevlisine hakaret dışındaki hakaret suçları, soruşturma aşamasında öncelikle uzlaştırma prosedürüne tabidir.
 
+Dijital delillerin toplanması ve ifade süreci, ceza yargılamasının diğer aşamalarıyla bağlantılıdır; [emniyet ve savcılıkta susma hakkı](/yayinlar/ifade-ve-susma-hakki) ve [bilişim yoluyla dolandırıcılık](/yayinlar/bilisim-dolandiricilik-tck158) yazıları bu kapsamda değerlendirilebilir. Ayrıntılar için [ceza hukuku](/calisma-alanlari/ceza-hukuku) alanına bakılabilir.
+
 ## 6. Neden Profesyonel Hukuki Destek Önemlidir?
 Hakaret davalarında; "haksız tahrik" hükümlerinin uygulanması (TCK m.129), sözlerin "ağır eleştiri" kapsamında kalıp kalmadığının değerlendirilmesi ve dijital delillerin hukuka uygun toplanması teknik bilgi gerektirir. Hatalı delil tespiti veya süresi kaçırılan şikayetler, hak kayıplarına yol açabilmektedir. Sürecin, güncel Yargıtay kriterlerine hakim bir hukuki destekle yürütülmesi, sonucun sıhhati açısından önem arz eder.
 

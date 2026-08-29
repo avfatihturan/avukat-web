@@ -75,6 +75,8 @@ Yargıtay yerleşik içtihatlarında, işverenin "yönetim hakkı" ile işçinin
 * **Haklı Nedenle Fesih Süresi (6 İş Günü):** İşverenin, işçinin ahlak ve iyi niyet kurallarına aykırı davranışını (m. 25/II) öğrendiği tarihten itibaren **6 iş günü** içinde fesih hakkını kullanması gerekmektedir. Bu süre hak düşürücü niteliktedir.
 * **Kıdem ve İhbar Tazminatı Zamanaşımı:** İş sözleşmesinin sona ermesinden doğan kıdem tazminatı, ihbar tazminatı, yıllık izin ücreti ve ücret alacaklarında zamanaşımı süresi **5 yıl** olarak uygulanmaktadır (12.10.2017 sonrası fesihler için).
 
+Usule aykırı fesihler, çoğu zaman işçinin açtığı [işe iade davası](/yayinlar/ise-iade-davasi) ile sonuçlanmaktadır. Konunun bütünü için [iş hukuku](/calisma-alanlari/is-hukuku) alanı incelenebilir.
+
 ## 5. Neden Profesyonel Hukuki Destek Önemlidir?
 
 İş hukuku, şekil şartlarının ağır bastığı ve ispat yükünün büyük oranda işverende olduğu bir alandır. Bir tutanağın eksik tutulması, savunma yazısındaki bir usulsüzlük veya fesih bildirimindeki bir belirsizlik, davanın kaybedilmesine ve yüklü tazminat ödemelerine yol açabilmektedir. Özellikle "geçersiz fesih" sonucunda ortaya çıkan işe başlatmama tazminatı ve boşta geçen süre ücreti, işletmeler için öngörülemeyen maliyetler oluşturabilir. Sürecin, fesih kararı alınmadan önce hukuki zeminde planlanması, risklerin minimize edilmesini ve sürecin yasal mevzuata uygun yürütülmesini sağlamaktadır.

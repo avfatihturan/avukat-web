@@ -63,6 +63,8 @@ Kira sözleşmesi ile aynı anda imzalatılan ancak "tarih kısmı boş" bırak�
 
 **Uygulamadaki Risk:** Yargıtay, tahliye taahhüdünün kira sözleşmesinden **sonraki** bir tarihte verilmesini şart koşar. Ancak boş kağıda imza atılması durumunda, kiracının "beyaza imza" attığı ve sonucuna katlanması gerektiği yönünde kararlar mevcuttur. Bu nedenle, sözleşme anında tarihiz hiçbir belgeye imza atılmamalıdır.
 
+Sözleşme sonrasında ortaya çıkan uyuşmazlıklarda; kira bedelinin güncellenmesi [kira tespit davası](/yayinlar/kira-tespit-davasi), taahhüde veya ihtiyaca dayalı tahliye ise [ev sahibinin tahliye şartları](/yayinlar/ev-sahibi-tahliye-sartlari-2025) süreçleriyle yakından ilişkilidir. Konunun bütünü için [kira hukuku](/calisma-alanlari/kira-hukuku) alanı incelenebilir.
+
 ## Neden Profesyonel Sözleşme İncelemesi?
 
 "Dürüstlük Kuralı" (TMK m.2) gereği hakların kötüye kullanılması yasak olsa da, yazılı delil başlangıcı sayılan kira sözleşmelerindeki hatalı maddeler, yargılama sürecini yıllarca uzatabilmektedir. Önleyici hukuk kapsamında, sözleşmenin bir uzman tarafından incelenmesi ve "özel şartlar" bölümünün kiracıyı koruyacak şekilde düzenlenmesi, gelecekteki olası davaların önüne geçilmesini sağlar.

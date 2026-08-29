@@ -74,6 +74,8 @@ Karar kesinleştikten sonra, işçi **10 iş günü içinde** işverene başvura
 ## 5. İhbar ve Kıdem Tazminatının Mahsubu
 İşe iade davası sonucunda işçinin işe başlatılmaması durumunda, fesih tarihi "işe başlatmama tarihi" olarak kabul edilir. Eğer işe iade davası öncesinde işverence kıdem ve ihbar tazminatı ödenmişse, bu ödemeler işe başlatmama tarihindeki güncel ücret üzerinden hesaplanan yeni tazminattan mahsup edilir. Yargıtay 9. Hukuk Dairesi (E. 2023/18298) kararına göre; daha önce ihbar tazminatı peşin ödenmişse, işe başlatmama halinde tekrar ihbar tazminatı ödenmesi gerekmeyebilir.
 
+Feshin geçerliliği, çoğu zaman işveren tarafındaki usul hatalarıyla yakından ilişkilidir; bu hatalar [işverenler için fesih hataları](/yayinlar/isveren-fesih-hatalari) yazısında ele alınmaktadır. Konunun genel çerçevesi için [iş hukuku](/calisma-alanlari/is-hukuku) alanı incelenebilir.
+
 ## 6. Neden Profesyonel Hukuki Destek Önemlidir?
 İşe iade davaları; arabuluculuk aşamasında taraf teşkili (alt işveren-üst işveren), performans kriterlerinin ispatı ve işe başvuru sürelerinin (10 gün) takibi gibi teknik detaylar barındırır. Özellikle "geçerli neden" ile "haklı neden" ayrımının doğru yapılması, işsizlik maaşı hakkının kazanılmasında belirleyici olmaktadır. Sürecin usul hukukuna hakim bir destekle yürütülmesi, hak kayıplarının önlenmesi açısından önem arz eder.
 

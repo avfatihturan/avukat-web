@@ -43,6 +43,8 @@ Yargıtay uygulamalarına göre, bir kira tespit davasının dinlenebilmesi içi
 * **5 Yıllık Sürenin Dolması:** Sözleşme tarihinden itibaren 5 yıl geçmedikçe, kira bedeli rayiçlere (emsallere) göre belirlenemez; sadece TÜFE endeksine göre artış yapılabilir.
 * **Zorunlu Arabuluculuk:** 1 Eylül 2023 tarihi itibariyle, kira tespit davası açılmadan önce arabuluculuk yoluna başvurulması **dava şartı** haline getirilmiştir. Arabuluculuk süreci tamamlanmadan açılan davalar usulden reddedilmektedir.
 
+Kira ilişkisinin sona erdirilmesine yönelik tahliye sebepleri [ev sahibinin kiracıyı hangi şartlarda tahliye edebileceği](/yayinlar/ev-sahibi-tahliye-sartlari-2025) yazısında, sözleşme aşamasındaki riskler ise [kira sözleşmesinde imza öncesi dikkat edilecek maddeler](/yayinlar/kira-sozlesmesi-imza-dikkat) yazısında incelenmektedir. Ayrıntılı bilgi için [kira hukuku](/calisma-alanlari/kira-hukuku) sayfası değerlendirilebilir.
+
 ## 3. İhtarname Süresi ve Kararın Etkisi (Kritik Usul)
 Kira tespit davasının "her zaman" açılması mümkündür; ancak davanın açıldığı tarih, belirlenecek yeni kiranın hangi dönemden itibaren geçerli olacağını belirler (TBK m. 345).
 

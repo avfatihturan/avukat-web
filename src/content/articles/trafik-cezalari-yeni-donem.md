@@ -45,6 +45,8 @@ Yargıtay yerleşik içtihatlarında, idari yaptırım kararlarının hukuka uyg
 * **İndirimli Ödeme:** Cezanın tebliğinden itibaren 15 gün içinde ödenmesi durumunda ceza miktarından **%25 oranında indirim** uygulanır. İndirimden faydalanarak ödeme yapılması, karara karşı hukuki itiraz hakkını ortadan kaldırmaz.
 * **Ehliyet ve Araç İadesi:** Geçici olarak geri alınan sürücü belgesinin veya trafikten men edilen aracın iadesi için, kanuni sürenin dolmasının yanı sıra idari para cezasının tamamen ödenmesi ve kanunun aradığı (psikoteknik değerlendirme vb.) ek şartların sağlanması zorunludur.
 
+İdari yaptırımların yanı sıra bazı sürücülük fiilleri adli ceza boyutu da kazanabilir; böyle durumlarda ifade sürecine ilişkin [emniyet ve savcılıkta susma hakkı](/yayinlar/ifade-ve-susma-hakki) yazısı yol gösterici olabilir. Genel çerçeve için [ceza hukuku](/calisma-alanlari/ceza-hukuku) alanı incelenebilir.
+
 ## 5. Neden Profesyonel Hukuki Destek Önemlidir?
 
 Yeni yasal düzenlemelerle birlikte trafik cezaları ciddi maddi boyutlara ulaşmış ve doğrudan ehliyet iptaline, mesleki faaliyetlerin kısıtlanmasına ve ceza yargılamasına konu olabilen ağır yaptırımlarla donatılmıştır. Haksız uygulanan cezaların iptali, usule aykırı ölçümlerin hukuken çürütülmesi ve idari yaptırımların yargısal denetimi teknik usul bilgisi gerektirir. İtiraz süreçlerinin somut delillere ve güncel içtihatlara dayandırılarak yürütülmesi, hak kaybını önlemek ve telafisi güç yaptırımlardan korunmak açısından kritik öneme sahiptir.
