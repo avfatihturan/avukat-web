@@ -8,6 +8,17 @@ heroAlt: "İş hukuku dosya incelemesi yapan bir avukatın masası, temsili gör
 tag: "İŞ HUKUKU"
 author: "Av. Fatih Turan"
 draft: false
+faqs:
+  - q: "Savunma alınmadan yapılan fesih geçerli midir?"
+    a: "Hayır. İşçinin davranışı veya verimi gerekçesiyle yapılan belirsiz süreli fesihlerde İş Kanunu m.19 uyarınca savunma alınması zorunludur; savunma alınmadan yapılan fesih, gerekçe haklı olsa dahi usulden geçersiz sayılır."
+  - q: "Fesih bildirimi yazılı olmak zorunda mı?"
+    a: "Evet. İş güvencesi kapsamındaki işçiler yönünden fesih bildiriminin yazılı yapılması ve gerekçenin açık ve kesin şekilde belirtilmesi zorunludur; soyut gerekçelerle yapılan fesih geçersiz hale gelir."
+  - q: "İşveren fesih sebebini sonradan değiştirebilir mi?"
+    a: "Hayır. İşveren, fesih bildiriminde dayandığı gerekçeyle bağlıdır. Fesih anında bildirilmeyen bir husus, yargılama aşamasında ek gerekçe olarak ileri sürülemez."
+  - q: "Haklı nedenle fesih için süre ne kadardır?"
+    a: "İşveren, işçinin ahlak ve iyi niyet kurallarına aykırı davranışını öğrendiği tarihten itibaren 6 iş günü içinde fesih hakkını kullanmalıdır. Bu süre hak düşürücüdür."
+  - q: "Feshin son çare olması ilkesi ne anlama gelir?"
+    a: "İşverenin feshe başvurmadan önce uyarma, görev yeri değiştirme, eğitim verme veya daha hafif bir disiplin cezası gibi yolları tüketmesi beklenir. Bu yollar denenmeden yapılan fesih, ölçülülük ilkesine aykırı kabul edilir."
 ---
 
 # İşverenler İçin Fesih Hataları: Tazminatı Katlayan 5 Yanlış

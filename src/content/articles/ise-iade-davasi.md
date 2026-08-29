@@ -8,6 +8,17 @@ heroAlt: "İş mahkemesi ve işe iade süreci illüstrasyonu"
 tag: "İŞ HUKUKU"
 author: "Av. Fatih Turan"
 draft: false
+faqs:
+  - q: "İşe iade davası açmanın şartları nelerdir?"
+    a: "İş veya Basın İş Kanunu kapsamında çalışmak, işyerinde en az 30 işçi bulunması, işçinin en az 6 aylık kıdeminin olması, belirsiz süreli sözleşme ve işveren vekili olmamak şartlarının birlikte gerçekleşmesi gerekir."
+  - q: "İşe iade davasında arabuluculuk zorunlu mu?"
+    a: "Evet. Fesih bildiriminin tebliğinden itibaren 1 ay içinde arabulucuya başvurulmalıdır. Anlaşma sağlanamazsa son tutanağın düzenlendiği tarihten itibaren 2 hafta içinde iş mahkemesinde dava açılır."
+  - q: "Performans düşüklüğü geçerli fesih nedeni midir?"
+    a: "Yargıtay bunu sıkı şartlara bağlar: objektif performans kriterlerinin önceden belirlenip işçiye tebliğ edilmiş olması, düşüklüğün süreklilik göstermesi ve işçiye performansını artırması için eğitim verilmesi gerekir. Bu şartlar sağlanmadan yapılan fesih geçersiz sayılabilir."
+  - q: "İşe iade kararından sonra işçi ne kadar sürede başvurmalı?"
+    a: "Karar kesinleştikten sonra işçi 10 iş günü içinde işverene başvurarak işe başlamak istediğini bildirmek zorundadır; bu süre kaçırılırsa fesih geçerli hale gelir ve işe iadeye bağlı tazminat hakları kaybedilir."
+  - q: "İşe başlatmama tazminatı ne kadardır?"
+    a: "İşçinin kıdemine göre en az 4, en çok 8 aylık ücreti tutarındadır. Ayrıca boşta geçen sürenin en çok 4 aya kadarki kısmı için ücret ve diğer haklar ödenir."
 ---
 
 # İşe İade Davası: Şartları, Süreç ve Emsal Yargıtay Kararları

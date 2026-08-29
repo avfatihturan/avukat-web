@@ -8,6 +8,17 @@ heroAlt: "Adliye koridorunda bekleyen bir kişi ve hukuk sembolleri."
 tag: "CEZA HUKUKU"
 author: "Av. Fatih Turan"
 draft: false
+faqs:
+  - q: "Susma hakkı kimlik sorularını da kapsar mı?"
+    a: "Hayır. Susma hakkı yalnızca suç isnadına ilişkin soruları kapsar. Şüpheli, CMK 147/1-a uyarınca kimliğine ilişkin soruları doğru cevaplamakla yükümlüdür; aksi durum Kabahatler Kanunu m.40 kapsamında sorumluluk doğurabilir."
+  - q: "Susma hakkını kullanmak suçu kabul anlamına gelir mi?"
+    a: "Hayır. Yargıtay yerleşik içtihatlarında susma hakkının kullanılmasının sanık aleyhine delil veya suçu kabul olarak yorumlanamayacağını, sırf bu nedenle takdiri indirimin uygulanmamasının dürüst yargılanma hakkına aykırı olduğunu vurgulamaktadır."
+  - q: "Avukat olmadan kollukta verilen ifade geçerli mi?"
+    a: "CMK 148/4 uyarınca, müdafi hazır bulunmaksızın kollukça alınan ifadeler, hakim veya mahkeme huzurunda doğrulanmadıkça hükme esas alınamaz."
+  - q: "İfade öncesi yasal haklar hatırlatılmazsa ne olur?"
+    a: "Susma hakkı dahil yasal hakların hatırlatılmaması, ifadenin yasak usulle alındığı anlamına gelir ve elde edilen beyanlar hukuka aykırı delil statüsüne girer."
+  - q: "Gözaltı süresi ne kadardır?"
+    a: "Yakalanan kişinin ifadesinin alınması için gereken süre, yol süresi hariç 24 saati geçemez; toplu suçlarda bu süre savcılık kararıyla uzatılabilir."
 ---
 
 # İfadeye Çağrıldınız: Emniyet ve Savcılıkta Susma Hakkı Ne Zaman Kullanılmalı?

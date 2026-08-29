@@ -8,6 +8,15 @@ heroAlt: "Kira sözleşmesi inceleyen avukat ve büyüteç simgesi"
 tag: "KİRA HUKUKU"
 author: "Av. Fatih Turan"
 draft: false
+faqs:
+  - q: "Tarihsiz tahliye taahhüdü geçerli mi?"
+    a: "Tahliye taahhüdünün kira sözleşmesinden sonraki bir tarihte verilmesi gerekir. Tarih kısmı boş bırakılan taahhütler risklidir; beyaza imza atıldığında kiracının bunun sonuçlarına katlanması gerektiği yönünde kararlar bulunduğundan, sözleşme anında tarihsiz belgeye imza atılmamalıdır."
+  - q: "Depozito ev sahibinin hesabına yatırılırsa ne olur?"
+    a: "TBK m.342 uyarınca güvence bedeli, kiracı ve kiraya veren adına açılacak ortak bir vadeli tasarruf hesabına yatırılmalıdır. Doğrudan ev sahibine elden veya şahsi hesabına ödenmesi halinde, kira bitiminde iadesi ev sahibinin inisiyatifine kalır ve keyfi kesinti riski doğar."
+  - q: "Sözleşmede TÜFE üstü artış oranı yazarsa geçerli mi?"
+    a: "Hayır. Kira artışında yasal üst sınır TÜFE'nin 12 aylık ortalamasıdır ve bu sınır emredicidir. Sözleşmede daha yüksek bir oran yazsa dahi üst sınırı aşan kısım hüküm ifade etmez."
+  - q: "Demirbaşlar eksiksiz teslim alındı maddesini imzalamak riskli mi?"
+    a: "Evet. Kiralananın eksiksiz ve mükemmel teslim alındığına dair imza atılmışsa, çıkışta tespit edilen hasarların kiracı tarafından yapıldığı kabul edilebilir. Teslim anındaki kusurların sözleşmenin özel şartlar bölümüne yazılması ve fotoğraflanması gerekir."
 ---
 
 # Kira Sözleşmesinde "Görünmez" Tehlikeler: İmza Atmadan Önce Kontrol Edilmesi Gereken 4 Kritik Madde

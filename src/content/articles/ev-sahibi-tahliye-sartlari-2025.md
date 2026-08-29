@@ -8,6 +8,17 @@ heroAlt: "Kira hukuku tahliye davası ve ihtarname süreci"
 tag: "KİRA HUKUKU"
 author: "Av. Fatih Turan"
 draft: false
+faqs:
+  - q: "Ev sahibi ihtiyaç nedeniyle hangi durumlarda tahliye davası açabilir?"
+    a: "Kiraya veren; kendisinin, eşinin, altsoyunun, üstsoyunun veya bakmakla yükümlü olduğu kişilerin konut ya da işyeri ihtiyacı için dava açabilir. Yargıtay, ihtiyacın gerçek, samimi ve zorunlu olmasını arar; geçici veya henüz doğmamış ihtiyaçlar tahliye sebebi sayılmaz."
+  - q: "10 yıllık uzama süresi ne zaman başlar?"
+    a: "On yıllık süre sözleşme tarihinden değil, sözleşme süresinin bitiminden itibaren başlar. Bu sürenin dolmasından sonra kiraya veren sebep göstermeksizin, her uzama yılının bitiminden en az üç ay önce ihtar çekerek sözleşmeyi feshedebilir."
+  - q: "Kira sözleşmesiyle aynı gün alınan tahliye taahhüdü geçerli mi?"
+    a: "Tahliye taahhüdünün kiralananın tesliminden sonra verilmesi gerekir. Sözleşme ile aynı tarihte veya öncesinde alındığı ispatlanan taahhütler, kiracının iradesinin baskı altında olduğu kabul edilerek geçersiz sayılır."
+  - q: "İki haklı ihtar nedeniyle tahliye için şartlar nelerdir?"
+    a: "Bir kira yılı içinde farklı aylara ait kira bedelleri için iki kez haklı yazılı ihtar çekilmiş olmalı ve dava, kira yılının bitiminden itibaren bir ay içinde açılmalıdır."
+  - q: "Tahliye edilen taşınmaz üç yıl içinde başkasına kiralanabilir mi?"
+    a: "İhtiyaç veya yeniden inşa sebebiyle yapılan tahliyelerde kiraya veren, haklı bir sebep olmadıkça taşınmazı üç yıl geçmeden eski kiracısından başkasına kiralayamaz; aksi halde son kira yılında ödenen bir yıllık bedelden az olmamak üzere tazminat ödemekle yükümlü tutulabilir."
 ---
 
 # Ev Sahibi Kiracıyı Hangi Şartlarda Tahliye Edebilir?

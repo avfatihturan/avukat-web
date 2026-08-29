@@ -8,6 +8,15 @@ heroAlt: "Uluslararası hukuk, egemenlik ve yargı yetkisi kavramlarını temsil
 tag: "ULUSLARARASI HUKUK"
 author: "Av. Fatih Turan"
 draft: false
+faqs:
+  - q: "Devlet başkanı olmak Uluslararası Ceza Mahkemesi önünde dokunulmazlık sağlar mı?"
+    a: "Hayır. Roma Statüsü'nün 27. maddesi, sanığın devlet başkanı veya hükümet üyesi olmasının cezai sorumluluğu ortadan kaldırmayacağını ve yargılamaya engel bir dokunulmazlık zırhı teşkil etmeyeceğini düzenler."
+  - q: "UCM, Statü'ye taraf olmayan bir devletin liderini yargılayabilir mi?"
+    a: "Suçların işlendiği iddia edilen toprakların Roma Statüsü'ne taraf olması halinde, ilgili devlet taraf olmasa dahi mahkeme, suçun işlendiği yer (locus delicti) esasına dayanarak yargı yetkisi kurabilir."
+  - q: "Tamamlayıcılık (complementarity) ilkesi nedir?"
+    a: "UCM'nin yargı yetkisi tamamlayıcıdır; mahkeme yalnızca ulusal yargı sistemlerinin görevini yapamadığı veya yapmaktan kaçındığı durumlarda devreye girer."
+  - q: "Uluslararası yakalama kararları neden çoğu zaman icra edilemiyor?"
+    a: "Kararların icrası, hukuki geçerlilikten çok devletlerin iş birliği yükümlülüğüne ve siyasi iradesine bağlıdır. Ömer El-Beşir örneğinde görüldüğü gibi taraf devletler siyasi maliyetler nedeniyle tutuklama yükümlülüğünü ihlal edebilmektedir."
 ---
 
 # Uluslararası Hukukta Egemenlik ve Yargı Yetkisi: Maduro ve Netanyahu Vakaları

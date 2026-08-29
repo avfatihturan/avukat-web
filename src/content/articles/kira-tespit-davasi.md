@@ -8,6 +8,17 @@ heroAlt: "Kira bedelinin tespiti davası süreç şeması"
 tag: "KİRA HUKUKU"
 author: "Av. Fatih Turan"
 draft: false
+faqs:
+  - q: "Kira tespit davası ne zaman açılabilir?"
+    a: "Kira ilişkisi devam ettiği sürece her zaman açılabilir; hak düşürücü süre veya zamanaşımı yoktur. Ancak belirlenecek yeni kiranın hangi dönemden geçerli olacağı, dava veya ihtar tarihine göre değişir."
+  - q: "5 yıl kuralı kira tespitinde ne anlama gelir?"
+    a: "Sözleşme tarihinden itibaren 5 yıl geçmedikçe kira bedeli emsal rayiçlere göre belirlenemez, yalnızca TÜFE endeksine göre artış yapılabilir. 5 yıl dolduktan sonra hakim; TÜFE, kiralananın durumu ve emsal bedelleri gözeterek hakkaniyete uygun belirleme yapar."
+  - q: "Kira tespit davasında ihtarname zorunlu mu?"
+    a: "Belirlenen yeni bedelin dönem başından geçerli olması için, yeni kira döneminden en geç 30 gün önce dava açılmış veya kiracıya yazılı ihtar yapılmış olmalıdır. Bu süre kaçırılırsa yeni bedel bir sonraki kira yılından itibaren geçerli olur. Sözleşmede artış maddesi varsa ihtar şartı aranmaz."
+  - q: "Kira tespit davasında hakkaniyet indirimi nedir?"
+    a: "Yargıtay, bilirkişinin belirlediği rayiç bedelden, kiracının eski kiracı olması gözetilerek genellikle %10-%20 aralığında bir indirim yapılmasını arar. Bu indirim yapılmadan doğrudan rayiç bedele hükmedilmesi bozma sebebidir."
+  - q: "Kira tespit kararı kesinleşmeden icraya konulabilir mi?"
+    a: "Hayır. Kira tespit ilamları inşai nitelikte olduğundan kesinleşmeden icra edilemez; istinaf veya temyiz süreci bitmeden belirlenen yeni bedel için icra takibi başlatılamaz."
 ---
 
 # Kira Tespit Davası: Şartları, 5 Yıl Kuralı ve Emsal Yargıtay Kararları

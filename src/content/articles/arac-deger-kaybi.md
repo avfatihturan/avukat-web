@@ -8,6 +8,17 @@ heroAlt: "Hasarlı araç ve sigorta tahkim süreci görseli"
 tag: "SİGORTA HUKUKU"
 author: "Av. Fatih Turan"
 draft: false
+faqs:
+  - q: "Tek taraflı kazada araç değer kaybı alınır mı?"
+    a: "Hayır. Trafik sigortasından değer kaybı talep edebilmek için kazanın çift taraflı olması gerekir; duvara çarpma gibi tek taraflı kazalarda zorunlu trafik sigortasından değer kaybı istenemez."
+  - q: "Araç değer kaybı için kilometre sınırı var mı?"
+    a: "Trafik Sigortası Genel Şartları'nda yapılan değişiklikle 165.000 km sınırı kaldırılmıştır. Artık kilometresi ne olursa olsun, şartları taşıyan her araç için başvuru yapılabilir."
+  - q: "Değer kaybı başvurusunda 15 gün kuralı nedir?"
+    a: "Tahkim veya mahkeme yoluna gitmeden önce kusurlu tarafın trafik sigortacısına yazılı başvuru yapılması zorunlu dava şartıdır. Sigorta şirketinin 15 gün içinde cevap vermemesi, talebi reddetmesi veya eksik ödeme yapması halinde uyuşmazlık doğar ve tahkim yolu açılır."
+  - q: "Araç değer kaybında zamanaşımı süresi ne kadardır?"
+    a: "Talep, zararın ve failin öğrenildiği tarihten itibaren 2 yıl, her halde kaza tarihinden itibaren 10 yıl içinde zamanaşımına uğrar."
+  - q: "Pert olan araç için değer kaybı istenebilir mi?"
+    a: "Hayır. Araç pert total (ağır hasarlı) işlemine tabi tutulmuşsa değer kaybı talep edilemez."
 ---
 
 # Araç Değer Kaybı: Sigorta Tahkim Komisyonu Başvuru Şartları ve Hesaplama

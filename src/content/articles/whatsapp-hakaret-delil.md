@@ -8,6 +8,17 @@ heroAlt: "Dijital ortamda hakaret suçu ve hukuki süreç"
 tag: "CEZA HUKUKU"
 author: "Av. Fatih Turan"
 draft: false
+faqs:
+  - q: "Ekran görüntüsü tek başına hakaret suçunda delil olur mu?"
+    a: "Tek başına yeterli görülmeyebilir. Yargıtay 4. Ceza Dairesi'nin 2023/264 sayılı kararında; mesajların yalnızca ekran görüntüsü olarak sunulması, asıllarının bulunmaması ve tespit tutanağının olmaması halinde delilin yetersiz kalabileceğine işaret edilmiştir. E-tespit, adli bilişim incelemesi veya tanık beyanı daha güvenilir yöntemlerdir."
+  - q: "Beddua hakaret sayılır mı?"
+    a: "Hayır. Allah belanı versin gibi dilek ve temenni içeren beddualar, Yargıtay tarafından hakaret suçu kapsamında değerlendirilmemektedir."
+  - q: "Kaba ve nezaket dışı sözler hakaret suçu oluşturur mu?"
+    a: "Terbiyesiz, saygısız, yalancı gibi rahatsız edici ve kaba hitap niteliğindeki sözler, Yargıtay içtihatlarında hakaret suçuna vücut vermeyen nezaket dışı ifadeler olarak değerlendirilmektedir."
+  - q: "Hakaret suçunda şikayet süresi ne kadardır?"
+    a: "Kamu görevlisine hakaret hariç, hakaret suçu şikayete bağlıdır; fiilin ve failin öğrenilmesinden itibaren 6 ay içinde şikayet hakkı kullanılmalıdır. Dava zamanaşımı ise suçun işlendiği tarihten itibaren 8 yıldır."
+  - q: "Şirkete (tüzel kişiye) hakaret suçu işlenebilir mi?"
+    a: "Hayır. Hakaret suçunun mağduru ancak gerçek kişiler olabilir; şirket, dernek, vakıf gibi tüzel kişiler aleyhine hakaret suçu işlenemeyeceği Yargıtay uygulamasında kabul edilmektedir."
 ---
 
 # Hakaret Suçu, Şartları ve Yargıtay Kararları (TCK m.125)

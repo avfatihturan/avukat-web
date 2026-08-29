@@ -8,6 +8,15 @@ heroAlt: "Dijital bankacılık, ceza hukuku ve hesap güvenliği simgeleri"
 tag: "CEZA HUKUKU"
 author: "Av. Fatih Turan"
 draft: false
+faqs:
+  - q: "Banka hesabımı kullandırdım, cezası ne olur?"
+    a: "Sorumluluk otomatik değildir; fiile katılım düzeyi, elde edilen menfaat ve kast birlikte değerlendirilir. Kişinin suçun icrası üzerinde hakimiyeti yoksa TCK 39 kapsamında yardım eden sayılabilir ve indirim hükümleri gündeme gelebilir; aktif rol alınmışsa TCK 37 kapsamında müşterek fail sorumluluğu doğabilir."
+  - q: "Hangi durumda TCK 157 basit dolandırıcılık sayılır?"
+    a: "Banka yalnızca paranın transferine imkan sağlayan bir ödeme kanalı olarak kullanılmış, mağdurun aldatılmasında aktif rol üstlenmemişse, eylem TCK 158 nitelikli hal yerine TCK 157 basit dolandırıcılık kapsamında değerlendirilebilir. Yargıtay 11. Ceza Dairesi'nin 2024/7470 sayılı kararı bu yöndedir."
+  - q: "Etkin pişmanlık ceza indirimi sağlar mı?"
+    a: "Zararın soruşturma aşamasında tamamen veya kovuşturmada hükümden önce giderilmesi halinde TCK 168 kapsamında indirim uygulanabilir. Ancak uygulama otomatik değildir; zararın giderilme şekli ve failin konumu mahkemenin takdirindedir, kısmi ödemelerde mağdurun rızası aranır."
+  - q: "Hesabını kullandıran kişi fail mi yardım eden mi sayılır?"
+    a: "Suçun planlanmasına katılan, mağdurla temas kuran veya menfaat paylaşımında aktif rol alan kişi müşterek fail (TCK 37); yalnızca IBAN veya hesabını kullandırarak fiili kolaylaştıran ve icra üzerinde hakimiyeti bulunmayan kişi yardım eden (TCK 39) olarak değerlendirilir."
 ---
 
 # Bilişim Sistemleri Aracılığıyla Dolandırıcılık (TCK 158) ve Hesap Kullandırma: Güncel Yargıtay İçtihatları
