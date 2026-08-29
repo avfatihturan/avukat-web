@@ -9,7 +9,7 @@ import Hero from '../../components/Hero.astro';
 export async function getStaticPaths() {
   const services = await getCollection('services');
   return services.map(service => ({
-    params: { slug: service.slug },
+    params: { slug: service.id.replace(/\.md$/, '') },
     props: { service, services },
   }));
 }
@@ -19,7 +19,7 @@ const { Content } = await render(service);
 
 // 2. Diğer Hizmetleri Filtrele
 const otherServices = services
-  .filter(s => s.slug !== service.slug)
+  .filter(s => s.id !== service.id)
   .sort((a, b) => (a.data.order || 99) - (b.data.order || 99));
 
 // 3. İlgili Makaleleri Bul
@@ -88,7 +88,7 @@ const currentIcon = iconMap[iconKey] || iconMap['gavel'];
                 <ArticleCard 
                   title={article.data.title}
                   description={article.data.description}
-                  href={`/yayinlar/${article.slug}`}
+                  href={`/yayinlar/${article.id.replace(/\.md$/, '')}`}
                   image={article.data.heroImage || '/images/banner-blog.webp'}
                   tag={article.data.tag || 'Hukuk'}
                 />
@@ -104,7 +104,7 @@ const currentIcon = iconMap[iconKey] || iconMap['gavel'];
           <ul class="service-list">
             {otherServices.map(s => (
               <li>
-                <a href={`/calisma-alanlari/${s.slug}`}>
+                <a href={`/calisma-alanlari/${s.id.replace(/\.md$/, '')}`}>
                   <span class="arrow">→</span>
                   {s.data.title.replace('Ankara ', '')}
                 </a>
