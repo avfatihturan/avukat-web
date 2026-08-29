@@ -2,6 +2,7 @@
 title: "Ev Sahibi Kiracıyı Hangi Şartlarda Tahliye Edebilir?"
 description: "İhtiyaç nedeniyle tahliye, 10 yıl uzama süresi ve tahliye taahhütnamesinin güncel yargı uygulamalarındaki geçerlilik şartları."
 pubDate: 2025-12-21
+updatedDate: 2026-08-30
 heroImage: "/images/ev-sahibi-tahliye-rehberi.webp"
 heroAlt: "Kira hukuku tahliye davası ve ihtarname süreci"
 tag: "KİRA HUKUKU"

@@ -2,6 +2,7 @@
 title: "İfadeye Çağrıldınız: Emniyet ve Savcılıkta Susma Hakkı Ne Zaman Kullanılmalı?"
 description: "Emniyet ve savcılık ifadelerinde susma hakkının hukuki niteliği, CMK 147 kapsamındaki şüpheli hakları ve Yargıtay'ın susma hakkına yaklaşımı hakkında detaylı rehber."
 pubDate: 2026-01-04
+updatedDate: 2026-08-30
 heroImage: "/images/ifadeye-cagrilmak-susma-hakki.webp"
 heroAlt: "Adliye koridorunda bekleyen bir kişi ve hukuk sembolleri."
 tag: "CEZA HUKUKU"

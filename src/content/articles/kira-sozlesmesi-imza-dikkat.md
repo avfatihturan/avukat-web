@@ -2,6 +2,7 @@
 title: "Kira Sözleşmesinde 'Görünmez' Tehlikeler: İmza Atmadan Önce Kontrol Edilmesi Gereken 4 Kritik Madde"
 description: "Kira sözleşmelerinde sıkça karşılaşılan depozito, artış oranı ve tahliye taahhüdü tuzakları ile Yargıtay'ın 'kötü niyet' ve 'teslim tutanağı' konusundaki yaklaşımı."
 pubDate: "2026-01-25"
+updatedDate: 2026-08-30
 heroImage: "/images/kira-sozlesmesi-imza-dikkat.webp"
 heroAlt: "Kira sözleşmesi inceleyen avukat ve büyüteç simgesi"
 tag: "KİRA HUKUKU"

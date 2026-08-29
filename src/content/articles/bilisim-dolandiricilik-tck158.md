@@ -2,6 +2,7 @@
 title: "Bilişim Sistemleri Aracılığıyla Dolandırıcılık (TCK 158) ve Hesap Kullandırma: Güncel Yargıtay İçtihatları"
 description: "TCK 158/1-f kapsamında banka hesabının kullandırılması, Yargıtay 11. CD 2024/7470 kararı ışığında 'ödeme aracı' ayrımı, olası kast ve etkin pişmanlık."
 pubDate: "2026-01-25"
+updatedDate: 2026-08-30
 heroImage: "/images/bilisim-dolandiricilik-banka-hesabi-tck158.webp"
 heroAlt: "Dijital bankacılık, ceza hukuku ve hesap güvenliği simgeleri"
 tag: "CEZA HUKUKU"

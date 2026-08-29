@@ -2,6 +2,7 @@
 title: "Uluslararası Hukukta Egemenlik ve Yargı Yetkisi: Maduro ve Netanyahu Vakaları"
 description: "Uluslararası Ceza Mahkemesi'nin yetki sınırları, liderlerin dokunulmazlığı ve yargı kararlarının icra kabiliyeti Maduro ve Netanyahu dosyaları üzerinden analiz edilmektedir."
 pubDate: 2026-01-05
+updatedDate: 2026-08-30
 heroImage: "/images/uluslararasi-hukuk-yargi-yetkisi.webp"
 heroAlt: "Uluslararası hukuk, egemenlik ve yargı yetkisi kavramlarını temsil eden görsel"
 tag: "ULUSLARARASI HUKUK"

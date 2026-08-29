@@ -2,6 +2,7 @@
 title: "Hakaret Suçu, Şartları ve Yargıtay Kararları (TCK m.125)"
 description: "Hakaret suçu nedir? Sosyal medyada hakaret, ekran görüntüsünün delil değeri, kaba söz ayrımı ve Yargıtay kararlarına göre ceza indirimi halleri."
 pubDate: 2026-01-03
+updatedDate: 2026-08-30
 heroImage: "/images/dijital-delil-guvenilirlik-piramidi.webp"
 heroAlt: "Dijital ortamda hakaret suçu ve hukuki süreç"
 tag: "CEZA HUKUKU"

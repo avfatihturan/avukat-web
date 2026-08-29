@@ -2,6 +2,7 @@
 title: "Trafik Cezalarında Yeni Dönem: 2026 Değişiklikleri Neler Getiriyor?"
 description: "TBMM'de kabul edilen Karayolları Trafik Kanunu değişiklikleri ile ehliyetsiz sürüş, kırmızı ışık ihlali ve saldırgan sürücü yaptırımlarını inceleyen hukuki rehber."
 pubDate: "2026-03-22"
+updatedDate: 2026-08-30
 heroImage: "/images/trafik-cezalari-yeni-donem.webp"
 heroAlt: "Karayolları Trafik Kanunu güncel düzenlemeleri ve trafik idari para cezalarına itiraz süreçlerini temsil eden hukuki görsel"
 tag: "CEZA HUKUKU"

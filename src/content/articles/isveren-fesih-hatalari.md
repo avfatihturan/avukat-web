@@ -2,6 +2,7 @@
 title: "İşverenler İçin Fesih Hataları: Tazminatı Katlayan 5 Yanlış"
 description: "İş sözleşmesinin feshinde sıkça yapılan usul hataları, savunma alma zorunluluğu, yazılı bildirim şartı ve feshin son çare olması ilkesi üzerine Yargıtay kararları ışığında hukuki inceleme."
 pubDate: 2026-01-25
+updatedDate: 2026-08-30
 heroImage: "/images/isveren-fesih-hatalari.webp"
 heroAlt: "İş hukuku dosya incelemesi yapan bir avukatın masası, temsili görsel"
 tag: "İŞ HUKUKU"
