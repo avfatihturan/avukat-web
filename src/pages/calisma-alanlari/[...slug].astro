@@ -4,6 +4,9 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import ArticleCard from '../../components/ArticleCard.astro';
 import Breadcrumb from '../../components/Breadcrumb.astro';
 import Hero from '../../components/Hero.astro';
+import siteData from '../../content/data/site.json';
+
+const { contact } = siteData;
 
 // 1. URL'leri Oluştur
 export async function getStaticPaths() {
@@ -115,8 +118,8 @@ const currentIcon = iconMap[iconKey] || iconMap['gavel'];
 
         <div class="sidebar-widget contact-widget">
           <h3>Hızlı İletişim</h3>
-          <p>Ofis: +90 532 610 08 05</p>
-          <p>E-posta: <a href="mailto:av.fatihturan@outlook.com">av.fatihturan@outlook.com</a></p>
+          <p>Ofis: {contact.phone}</p>
+          <p>E-posta: <a href={`mailto:${contact.email}`}>{contact.email}</a></p>
           <p class="location"><span aria-label="Konum" role="img">📍</span> Ankara, Türkiye</p>
         </div>
       </aside>
