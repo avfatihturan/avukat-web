@@ -28,4 +28,4 @@ Ofisimiz, Ankara'daki iş mahkemelerinde görülen uyuşmazlıklarda hem işçi 
 
 ---
 **İlgili Diğer Alanlar:**
-Gayrimenkul ve kira uyuşmazlıklarınız için [Kira Hukuku](/calisma-alanlari/kira-hukuku) sayfamıza göz atabilir veya [Anasayfaya](/index) dönebilirsiniz.
+Gayrimenkul ve kira uyuşmazlıklarınız için [Kira Hukuku](/calisma-alanlari/kira-hukuku) sayfamıza göz atabilir veya [Anasayfaya](/) dönebilirsiniz.

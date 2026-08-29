@@ -29,4 +29,4 @@ Ceza hukuku pratiği, mevzuat bilgisi kadar yerel adliye dinamiklerine hakimiyet
 
 ---
 **İlgili Diğer Alanlar:**
-İş hayatındaki uyuşmazlıklar bazen cezai boyut kazanabilir. [İş Hukuku](/calisma-alanlari/is-hukuku) sayfamızı inceleyebilirsiniz veya [Anasayfaya](/index) dönebilirsiniz.
+İş hayatındaki uyuşmazlıklar bazen cezai boyut kazanabilir. [İş Hukuku](/calisma-alanlari/is-hukuku) sayfamızı inceleyebilirsiniz veya [Anasayfaya](/) dönebilirsiniz.
