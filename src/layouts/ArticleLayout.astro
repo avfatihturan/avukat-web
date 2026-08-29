@@ -115,20 +115,21 @@ const faqSchema = faqs && faqs.length > 0 ? JSON.stringify({
 
       <div class="article-content">
         <slot />
-  {faqs && faqs.length > 0 && (
-    <section class="faq-section">
-      <h2 class="faq-title">Sıkça Sorulan Sorular</h2>
-      <dl class="faq-list">
-        {faqs.map(f => (
-          <div class="faq-item">
-            <dt class="faq-question">{f.q}</dt>
-            <dd class="faq-answer">{f.a}</dd>
-          </div>
-        ))}
-      </dl>
-    </section>
-  )}
       </div>
+
+      {faqs && faqs.length > 0 && (
+        <section class="faq-section">
+          <h2 class="faq-title">Sıkça Sorulan Sorular</h2>
+          <dl class="faq-list">
+            {faqs.map(f => (
+              <div class="faq-item">
+                <dt class="faq-question">{f.q}</dt>
+                <dd class="faq-answer">{f.a}</dd>
+              </div>
+            ))}
+          </dl>
+        </section>
+      )}
 
       <footer class="author-signature">
         <p><strong>{author}</strong></p>
