@@ -34,7 +34,9 @@ Sözleşmelere yazılan "%50 artış yapılır" veya "ÜFE oranında artış yap
 > **Mevzuat Analizi (7161 Sayılı Kanun Değişikliği):**
 > Doç. Dr. Mehmet Akçaal’ın çalışmasında da belirtildiği üzere; 01.01.2019 tarihinden itibaren kira artış oranlarında üst sınır **Tüketici Fiyat Endeksi'dir (TÜFE - 12 Aylık Ortalaması).** Sözleşmede daha yüksek bir oran (örneğin ÜFE veya sabit %70) yazsa bile, kanuni üst sınır olan TÜFE geçerlidir.
 
-**Uyarı:** Sözleşmede "artış oranı kararlaştırılmamıştır" denilse dahi, hakim tarafından hakkaniyete göre (TÜFE sınırını geçmemek kaydıyla) artış belirlenir. Ancak "TÜFE + 5 Puan" gibi kanuna aykırı maddelerin sözleşmede yer alması geçersizdir.
+**%25 Geçici Konut Sınırının Yaşam Döngüsü:** Konut kiralarında uygulanan %25'lik geçici üst sınır, 7409 sayılı Kanun ile TBK Geçici Madde 1 kapsamında 11 Haziran 2022 tarihinde yürürlüğe girmiş; 7456 sayılı Kanun ile uygulama süresi 1 Temmuz 2024 tarihine kadar uzatılmıştır. Kanun koyucu süreyi yenilemediğinden, bu geçici sınır 1 Temmuz 2024 itibarıyla sona ermiştir. Söz konusu sınır yalnızca konut kiralarına uygulanmış; çatılı işyeri kiralarında bu dönemde de TBK m. 344 kapsamındaki genel kural (TÜFE 12 aylık ortalaması) yürürlükte kalmıştır. 2026 yılı itibarıyla konut ve işyeri kiraları aynı üst sınıra, yani TÜFE 12 aylık ortalamasına tabidir.
+
+**Uyarı:** Sözleşmede "artış oranı kararlaştırılmamıştır" denilse dahi, hakim tarafından hakkaniyete göre (TÜFE sınırını geçmemek kaydıyla) artış belirlenir. Ancak "TÜFE + 5 Puan" gibi kanuna aykırı maddelerin sözleşmede yer alması geçersizdir. Bu üst sınır emredici niteliktedir; sözleşmede TÜFE üstü bir oran kararlaştırılmış olsa dahi, üst sınırı aşan kısım hüküm ifade etmez.
 
 ## 3. Demirbaş Listesi Tuzağı: "Eksiksiz Teslim Aldım"
 
