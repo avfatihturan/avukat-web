@@ -23,9 +23,11 @@ const { Content, headings } = await render(article);
   heroAlt={article.data.heroAlt ?? article.data.title ?? 'Blog Görseli'}
   tag={article.data.tag ?? 'Hukuk'}
   pubDate={article.data.pubDate}
+  updatedDate={article.data.updatedDate}
   author={article.data.author ?? 'Av. Fatih Turan'}
   headings={headings}
-  slug={article.id.replace(/.md$/, "")} 
+  slug={article.id.replace(/.md$/, "")}
+  faqs={article.data.faqs}
 >
   <Content />
 </ArticleLayout>
