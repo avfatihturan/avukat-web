@@ -89,27 +89,15 @@ const faqSchema = faqs && faqs.length > 0 ? JSON.stringify({
       <span class="article-tag">{tag}</span>
       <h1 class="article-title">{title}</h1>
 
-      {typeof heroImage === 'string' ? (
-        <img
-          src={heroImage}
-          alt={heroAlt}
-          class="article-hero-img"
-          loading="eager"
-          decoding="async"
-          width={HERO_WIDTH}
-          height={HERO_HEIGHT}
-        />
-      ) : (
-        <img
-          src={heroImage.src}
-          alt={heroAlt}
-          class="article-hero-img"
-          loading="eager"
-          decoding="async"
-          width={HERO_WIDTH}
-          height={HERO_HEIGHT}
-        />
-      )}
+      <img
+        src={heroImageUrl}
+        alt={heroAlt}
+        class="article-hero-img"
+        loading="eager"
+        decoding="async"
+        width={HERO_WIDTH}
+        height={HERO_HEIGHT}
+      />
 
       <TableOfContents headings={headings} />
 
