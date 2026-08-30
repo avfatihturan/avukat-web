@@ -1,53 +1,46 @@
 ---
-title: "Ankara Şirketler Hukuku ve Ticari Danışmanlık"
-description: "Şirket kuruluşu, hisse devri, birleşme ve devralma, ticari sözleşmeler ile ortaklık uyuşmazlıklarında; kurumsal yapının hukuki altyapısını güçlendiren önleyici danışmanlık ve dava takibi."
+title: "Şirketler Hukuku ve Ticari Uyuşmazlıklar"
+description: "Şirket kuruluşu, ortaklık ilişkileri, yöneticilerin sorumluluğu ve ticari sözleşmelerden doğan uyuşmazlıklara ilişkin hukuki bilgilendirme."
 heroImage: "/images/services/sirketler-hukuku-hero.webp"
-heroAlt: "Şirketler hukuku, ticaret ve kurumsal danışmanlık temsili görseli"
-icon: "city"
+heroAlt: "Şirketler hukuku ve ticari sözleşmeleri simgeleyen minimal çalışma masası görseli"
+icon: "gear"
 order: 4
 relatedTag: "ŞİRKETLER HUKUKU"
 draft: false
 ---
 
-## Kurumsal Yapının Hukuki Zemini
+## Şirketler Hukukunun Kapsamı
 
-Şirketler hukuku, ticari işletmelerin kuruluşundan sona ermesine kadar geçen tüm yaşam döngüsünü düzenleyen; 6102 sayılı Türk Ticaret Kanunu (TTK) ve ilgili mevzuat çerçevesinde şekillenen bir alandır. Bir işletmenin sürdürülebilirliği yalnızca ticari başarıya değil, aynı zamanda sağlam bir hukuki altyapıya bağlıdır. Ankara merkezli çalışmada; şirket kuruluşundan ortaklık ilişkilerinin düzenlenmesine, ticari sözleşmelerden uyuşmazlık çözümüne kadar geniş bir yelpazede önleyici hukuk yaklaşımı esas alınmaktadır.
-
-Ticari hayatın hızlı temposu içinde alınan kararlar, çoğu zaman uzun vadeli hukuki sonuçlar doğurur. Bir ana sözleşme hükmünün, ortaklık payı devrinin veya ticari sözleşmedeki bir maddenin hatalı düzenlenmesi; ilerleyen dönemde telafisi güç maliyetlere yol açabilmektedir. Bu nedenle şirketler hukuku, yalnızca uyuşmazlık çıktıktan sonra başvurulan bir alan değil; işletmenin kuruluş aşamasından itibaren gözetilmesi gereken sürekli bir hukuki denetim sürecidir.
+Şirketler hukuku, ticari hayatın kurulmasından sona ermesine kadar geçen sürecin tüm aşamalarını düzenleyen, 6102 sayılı Türk Ticaret Kanunu (TTK) merkezli bir hukuk dalıdır. Şirketin türünün belirlenmesi, kuruluş işlemleri, ortaklar arasındaki ilişkiler, yönetim organının işleyişi ve şirketin feshi gibi konular, hem ticari hem de teknik hukuki değerlendirme gerektirir. Bu alandaki uyuşmazlıkların önemli bir bölümü, kuruluş veya sözleşme aşamasında atlanan ayrıntılardan kaynaklanır.
 
 ### Kimler İçin Uygun?
 
-Şirketler hukuku danışmanlığı, ölçeğe bakılmaksızın ticari faaliyet yürüten her yapı için önem taşır:
-
-* Yeni kurulacak anonim veya limited şirketler ile aile şirketleri,
-* Ortaklık yapısını yeniden düzenlemek, hisse devri veya sermaye artırımı planlayan işletmeler,
-* Birleşme, devralma veya tür değiştirme sürecindeki şirketler,
-* Tedarik, distribütörlük, franchise veya hizmet alımı gibi ticari sözleşmeler imzalayan taraflar,
-* Ortaklar arasında uyuşmazlık yaşayan ya da genel kurul ve yönetim kurulu kararlarına itiraz eden pay sahipleri.
+Şirketler hukuku kapsamındaki hukuki destek; yeni bir şirket kurmayı planlayan girişimcileri, mevcut bir şirkette pay sahibi olan ortakları, yönetim kurulu üyeleri ile müdürleri ve ticari faaliyeti sırasında sözleşmesel bir uyuşmazlıkla karşılaşan tacirleri ilgilendirir. Bir ortağın şirketten çıkarılması, kâr payı dağıtımına ilişkin anlaşmazlık, genel kurul kararlarının iptali veya yöneticilerin sorumluluğunun gündeme geldiği durumlarda, sürecin ticaret hukuku usulüne uygun yürütülmesi önem taşır.
 
 ### Süreç Nasıl İşler?
 
-Kurumsal hukuki süreçler, uyuşmazlık doğmadan önce planlandığında en etkili sonucu verir:
+Ticari uyuşmazlıklarda süreç, uyuşmazlığın niteliğine göre farklılık gösterir.
 
-1.  **Hukuki Durum Analizi:** Şirketin ana sözleşmesi, ortaklık yapısı ve mevcut ticari ilişkileri incelenerek bir risk haritası çıkarılır.
-2.  **Yapılandırma ve Sözleşme:** Kuruluş, hisse devri veya birleşme işlemleri; ana sözleşme, pay defteri ve genel kurul/yönetim kurulu kararları düzeyinde hukuka uygun biçimde yapılandırılır.
-3.  **Uyuşmazlık Yönetimi:** Ortaklık uyuşmazlıkları, ticari alacak davaları veya kararların iptali süreçlerinde; öncelikle sulh ve arabuluculuk yolları, gerektiğinde asliye ticaret mahkemeleri nezdinde dava takibi değerlendirilir.
+**Dava öncesi aşama.** Ticari davaların önemli bir bölümünde, dava açılmadan önce arabuluculuğa başvurulması dava şartıdır. Ticari alacaklara ilişkin uyuşmazlıklarda bu zorunluluk, sürecin ilk adımını oluşturur.
+
+**Yargılama aşaması.** Şirketler hukukundan doğan uyuşmazlıklar, kural olarak Asliye Ticaret Mahkemelerinde görülür. Genel kurul kararlarının iptali gibi bazı davalar, kanunda öngörülen kısa hak düşürücü sürelere tabidir.
+
+**Kanun yolları aşaması.** İlk derece mahkemesinin kararına karşı istinaf ve koşulları varsa temyiz yoluna başvurulabilir. Ticari davalarda kararların kesinleşmesi ve icra edilebilirliği, uyuşmazlığın türüne göre değişir.
 
 ### Sık Karşılaşılan Uyuşmazlıklar
 
-Uygulamada en çok karşılaşılan başlıklar şunlardır:
+Uygulamada en çok karşılaşılan konu başlıkları şu şekilde sıralanabilir:
 
-* Ortaklar arası anlaşmazlıklar ve pay sahipliği haklarının ihlali,
-* Genel kurul ve yönetim kurulu kararlarının iptali talepleri,
-* Hisse devri ve pay devri sözleşmelerinden doğan ihtilaflar,
-* Ticari sözleşmelerin ihlali ve ticari alacakların tahsili,
-* Haksız rekabet ve şirketler topluluğu ilişkilerinden kaynaklanan uyuşmazlıklar,
-* Şirketin haklı nedenle feshi ve tasfiye süreçleri.
+* **Şirket kuruluşu ve tür seçimi:** Limited ve anonim şirket arasındaki farkların, sermaye yapısının ve esas sözleşme hükümlerinin kuruluş aşamasında doğru belirlenmesi.
+* **Ortaklık uyuşmazlıkları:** Ortağın şirketten çıkması veya çıkarılması, pay devri, ortaklar arasındaki anlaşmazlıklar ve azınlık haklarının kullanımı.
+* **Yöneticilerin sorumluluğu:** Anonim şirkette yönetim kurulu üyelerinin, limited şirkette müdürlerin şirkete, ortaklara ve alacaklılara karşı hukuki ve cezai sorumluluğu.
+* **Genel kurul kararları:** Genel kurul kararlarının iptali veya butlanının tespiti davaları ve bunlara ilişkin süreler.
+* **Ticari sözleşmeler:** Sözleşmenin kurulması, ifası ve sona ermesinden doğan uyuşmazlıklar ile sözleşmelerdeki risk dağıtan maddelerin değerlendirilmesi.
 
-### Ankara'da Ticari Danışmanlık
+### Önleyici Yaklaşımın Önemi
 
-Ticari uyuşmazlıklar, Ankara'daki asliye ticaret mahkemeleri ve ilgili icra daireleri nezdinde yürütülmektedir. Kurumsal süreçlerde, ticaret sicil müdürlüğü işlemlerinden dava aşamasına kadar yerel adliye dinamiklerine hakim bir yaklaşım, süreç güvenliğini artırmaktadır.
+Şirketler hukukunda uyuşmazlıkların bir kısmı, esas sözleşmenin veya ticari sözleşmelerin baştan dikkatli düzenlenmesiyle önlenebilir niteliktedir. Kuruluş aşamasında belirlenen pay devri koşulları, oy hakları ve kâr dağıtım esasları, ileride ortaya çıkabilecek anlaşmazlıkların çerçevesini belirler. Bu nedenle şirketler hukuku, yalnızca uyuşmazlık çıktıktan sonra değil, ticari ilişki kurulurken de hukuki değerlendirme yapılmasını gerektiren bir alandır.
 
----
-**İlgili Diğer Alanlar:**
-Ticari faaliyet yürüten işletmelerin çalışan ilişkileri çoğu zaman [İş Hukuku](/calisma-alanlari/is-hukuku) ile kesişir. Kurumsal kira ilişkileri için [Kira Hukuku](/calisma-alanlari/kira-hukuku) sayfası incelenebilir veya [Anasayfaya](/) dönülebilir.
+Ceza boyutu bulunan ticari uyuşmazlıklar bakımından [ceza hukuku](/calisma-alanlari/ceza-hukuku) alanındaki bilgilendirme içerikleri de incelenebilir. Diğer çalışma alanları için [ana sayfa](/) üzerinden ilgili bölümlere ulaşılabilir.
+
+> Bu içerik, 1136 sayılı Avukatlık Kanunu ve Türkiye Barolar Birliği Reklam Yasağı Yönetmeliği çerçevesinde yalnızca bilgilendirme amacıyla hazırlanmıştır. Hukuki tavsiye niteliği taşımaz. Her somut olay kendine özgü özellikler taşıdığından, hak kaybına uğramamak için hukuki destek alınması önerilir.
