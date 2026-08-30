@@ -7,7 +7,7 @@ heroImage: "/images/tahliye-taahhudu.webp"
 heroAlt: "Kira sözleşmesi, anahtar ve tahliye taahhüdü sürecini simgeleyen temsili görsel"
 tag: "KİRA HUKUKU"
 author: "Av. Fatih Turan"
-draft: true
+draft: false
 faqs:
   - q: "Tahliye taahhüdü ne zaman geçerlidir?"
     a: "Tahliye taahhüdünün geçerli olması için yazılı olması, kiralananın kiracıya tesliminden sonra (kiracılık devam ederken) verilmiş olması ve boşaltma tarihinin belirli olması gerekir. Türk Borçlar Kanunu m.352/1 bu şartları düzenler."
