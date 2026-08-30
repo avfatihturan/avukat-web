@@ -1,0 +1,25 @@
+name: Günlük yeniden dağıtım (ileri tarihli yayın)
+
+# Astro statik bir site üretir; ileri tarihli (pubDate'i gelecekte olan)
+# makalelerin tarihi geldiğinde otomatik yayınlanması için sitenin her gün
+# yeniden build edilip dağıtılması gerekir. Bu workflow, Vercel Deploy Hook'unu
+# günde bir kez tetikleyerek bunu sağlar.
+
+on:
+  schedule:
+    # Her gün 03:00 UTC = 06:00 Türkiye saati
+    - cron: '0 3 * * *'
+  workflow_dispatch: {}   # Gerektiğinde elle de tetiklenebilir
+
+jobs:
+  redeploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Vercel deploy hook tetikle
+        run: |
+          if [ -z "${{ secrets.VERCEL_DEPLOY_HOOK_URL }}" ]; then
+            echo "HATA: VERCEL_DEPLOY_HOOK_URL secret tanımlı değil." >&2
+            exit 1
+          fi
+          curl -fsSL -X POST "${{ secrets.VERCEL_DEPLOY_HOOK_URL }}"
+          echo "Deploy hook tetiklendi."
