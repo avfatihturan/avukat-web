@@ -3,6 +3,7 @@ import { getCollection, getEntry } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Hero from '../../components/Hero.astro';
 import ArticleCard from '../../components/ArticleCard.astro';
+import { isPublished } from '../../utils/posts';
 
 const siteEntry = await getEntry('site', 'main');
 
@@ -11,7 +12,7 @@ if (!siteEntry) {
 }
 
 const { name } = siteEntry.data;
-const allArticles = await getCollection('articles', ({ data }) => !data.draft);
+const allArticles = await getCollection('articles', isPublished);
 const sortedArticles = allArticles.sort(
   (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
 );

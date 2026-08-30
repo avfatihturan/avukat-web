@@ -5,6 +5,7 @@ import ArticleCard from '../../components/ArticleCard.astro';
 import Breadcrumb from '../../components/Breadcrumb.astro';
 import Hero from '../../components/Hero.astro';
 import siteData from '../../content/data/site.json';
+import { isPublished } from '../../utils/posts';
 
 const { contact } = siteData;
 
@@ -31,7 +32,7 @@ const relatedArticles = allArticles
   .filter(article => {
     const articleTag = (article.data.tag || "").toLowerCase().trim();
     const serviceTag = (service.data.relatedTag || "").toLowerCase().trim();
-    return !article.data.draft && serviceTag && articleTag === serviceTag;
+    return isPublished(article) && serviceTag && articleTag === serviceTag;
   })
   .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
   .slice(0, 3);

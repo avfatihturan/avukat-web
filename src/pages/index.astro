@@ -4,12 +4,13 @@ import Hero from '../components/Hero.astro';
 import AreaCard from '../components/AreaCard.astro';
 import ArticleCard from '../components/ArticleCard.astro';
 import { getCollection } from 'astro:content';
+import { isPublished } from '../utils/posts';
 
 import siteData from '../content/data/site.json';
 import workAreasData from '../content/data/work-areas.json';
 
 // MAKALELERİ ÇEK
-const allArticles = await getCollection('articles', ({ data }) => !data.draft);
+const allArticles = await getCollection('articles', isPublished);
 const latestArticles = allArticles
   .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
   .slice(0, 3);
