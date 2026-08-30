@@ -1,8 +1,8 @@
 ---
-title: "Ankara Ceza Avukatı ve Ağır Ceza Davaları"
-description: "Soruşturma, kovuşturma, ağır ceza ve asliye ceza süreçlerinde; gözaltı, tutuklama ve itiraz aşamalarında profesyonel hukuki savunma."
+title: "Ceza Hukuku ve Ağır Ceza Yargılaması"
+description: "Soruşturma, kovuşturma, ağır ceza ve asliye ceza süreçleri; gözaltı, tutuklama ve itiraz aşamaları hakkında Ankara Barosu'na kayıtlı avukat tarafından hazırlanan hukuki bilgilendirme."
 heroImage: "/images/services/ceza-hukuku-hero.webp"
-heroAlt: "Ankara Adliyesi ve ceza hukuku temsili görseli"
+heroAlt: "Ceza hukuku ve ağır ceza yargılamasını simgeleyen temsili görsel"
 icon: "gavel"  
 order: 1
 relatedTag: "CEZA HUKUKU"
@@ -13,7 +13,7 @@ draft: false
 
 Ceza yargılaması, kişi özgürlüğünü ve itibarını doğrudan tehdit eden en hassas hukuk dalıdır. Bir soruşturma veya dava sürecinde atılacak her adım, sadece davanın sonucunu değil, kişinin geleceğini de belirler.
 
-Ankara merkezli ofisimizde; **Ağır Ceza Mahkemeleri**, **Asliye Ceza Mahkemeleri** ve **Sulh Ceza Hakimlikleri** nezdinde görülen davalarda, müvekkillerimizin anayasal haklarını "masumiyet karinesi" temelinde savunuyoruz.
+**Ağır Ceza Mahkemeleri**, **Asliye Ceza Mahkemeleri** ve **Sulh Ceza Hakimlikleri** nezdinde görülen davalarda savunma, anayasal haklar ve "masumiyet karinesi" ilkesi temelinde yürütülür.
 
 ### Süreç Nasıl İşler?
 
@@ -21,11 +21,11 @@ Ceza muhakemesi süreci teknik detaylarla doludur. Sizi nelerin beklediğini bil
 
 1.  **Soruşturma Aşaması (Emniyet ve Savcılık):** İfade alma, gözaltı ve tutuklama tedbirlerine karşı anında hukuki müdahale.
 2.  **Kovuşturma Aşaması (Mahkeme):** İddianamenin kabulüyle başlayan yargılama sürecinde, çapraz sorgu ve delil tartışması teknikleriyle etkin savunma.
-3.  **Kanun Yolları (İstinaf ve Yargıtay):** Yerel mahkeme kararlarına karşı Ankara Bölge Adliye Mahkemesi ve Yargıtay nezdinde itiraz süreçleri.
+3.  **Kanun Yolları (İstinaf ve Yargıtay):** Yerel mahkeme kararlarına karşı Bölge Adliye Mahkemesi ve Yargıtay nezdinde itiraz süreçleri.
 
-### Ankara'da Ceza Avukatlığı
+### Yerel Adli Süreçler
 
-Ceza hukuku pratiği, mevzuat bilgisi kadar yerel adliye dinamiklerine hakimiyeti de gerektirir. Ankara Sıhhiye Adliyesi ve Batı Adliyesi nezdinde, soruşturmanın her aşamasında müvekkillerimizin yanındayız.
+Ceza hukuku pratiği, mevzuat bilgisi kadar yerel adliye dinamiklerine hakimiyeti de gerektirir. Soruşturmanın her aşamasında, yetkili ve görevli adli merciler nezdinde sürecin usulüne uygun takibi önem taşır.
 
 ---
 **İlgili Diğer Alanlar:**
