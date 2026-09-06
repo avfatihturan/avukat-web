@@ -2,24 +2,42 @@ name: Günlük yeniden dağıtım (ileri tarihli yayın)
 
 # Astro statik bir site üretir; ileri tarihli (pubDate'i gelecekte olan)
 # makalelerin tarihi geldiğinde otomatik yayınlanması için sitenin her gün
-# yeniden build edilip dağıtılması gerekir. Bu workflow, Vercel Deploy Hook'unu
-# günde bir kez tetikleyerek bunu sağlar.
+# yeniden build edilip dağıtılması gerekir.
+#
+# Yöntem: Dış bir kimlik bilgisi (Vercel Deploy Hook / token) gerektirmemek
+# için, bu workflow her gün küçük bir "yayın damgası" commit'i atıp main'e
+# push eder. Vercel'in GitHub entegrasyonu, production dalına gelen her push'ta
+# otomatik yeniden dağıtım yaptığından, tarihi gelmiş makaleler böylece
+# kendiliğinden yayınlanır. Push'u GitHub'ın yerleşik GITHUB_TOKEN'ı yapar.
 
 on:
   schedule:
     # Her gün 03:00 UTC = 06:00 Türkiye saati
     - cron: '0 3 * * *'
-  workflow_dispatch: {}   # Gerektiğinde elle de tetiklenebilir
+  workflow_dispatch: {}   # Actions sekmesinden elle de tetiklenebilir
+
+# GITHUB_TOKEN'a push (yazma) izni verir.
+permissions:
+  contents: write
+
+# Aynı anda tek çalışma; üst üste binmeyi önler.
+concurrency:
+  group: scheduled-rebuild
+  cancel-in-progress: false
 
 jobs:
   redeploy:
     runs-on: ubuntu-latest
     steps:
-      - name: Vercel deploy hook tetikle
+      - name: Repoyu al
+        uses: actions/checkout@v4
+
+      - name: Yayın damgasını güncelle ve push et (Vercel dağıtımını tetikler)
         run: |
-          if [ -z "${{ secrets.VERCEL_DEPLOY_HOOK_URL }}" ]; then
-            echo "HATA: VERCEL_DEPLOY_HOOK_URL secret tanımlı değil." >&2
-            exit 1
-          fi
-          curl -fsSL -X POST "${{ secrets.VERCEL_DEPLOY_HOOK_URL }}"
-          echo "Deploy hook tetiklendi."
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          mkdir -p .github
+          date -u +"%Y-%m-%dT%H:%M:%SZ" > .github/last-scheduled-rebuild.txt
+          git add .github/last-scheduled-rebuild.txt
+          git commit -m "otomatik: günlük yeniden dağıtım damgası" || { echo "Değişiklik yok, atlanıyor."; exit 0; }
+          git push
