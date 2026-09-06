@@ -1,8 +1,8 @@
 ---
 title: "Tahliye Taahhüdü ile Tahliye: Geçerlilik Şartları ve Yargıtay Kararları (TBK m.352)"
 description: "Tahliye taahhüdü ne zaman geçerli? Teslimden sonra verilme şartı, aynı gün ve tarihsiz taahhütler, bir aylık icra/dava süresi Yargıtay kararlarıyla açıklanıyor."
-pubDate: 2026-09-07
-updatedDate: 2026-09-07
+pubDate: 2026-09-06
+updatedDate: 2026-09-06
 heroImage: "/images/tahliye-taahhudu.webp"
 heroAlt: "Kira sözleşmesi, anahtar ve tahliye taahhüdü sürecini simgeleyen temsili görsel"
 tag: "KİRA HUKUKU"

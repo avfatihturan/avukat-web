@@ -61,7 +61,7 @@ Matbu sözleşmelerde yer alan "Boya badanası yeni, kombisi çalışır vaziyet
 
 Kira sözleşmesi ile aynı anda imzalatılan ancak "tarih kısmı boş" bırakılan tahliye taahhütnameleri, kiracılar için en büyük hukuki risktir. Ev sahibi, ilerleyen dönemde bu tarihi dilediği gibi doldurarak tahliye süreci başlatabilmektedir.
 
-**Uygulamadaki Risk:** Yargıtay, tahliye taahhüdünün kira sözleşmesinden **sonraki** bir tarihte verilmesini şart koşar. Ancak boş kağıda imza atılması durumunda, kiracının "beyaza imza" attığı ve sonucuna katlanması gerektiği yönünde kararlar mevcuttur. Bu nedenle, sözleşme anında tarihiz hiçbir belgeye imza atılmamalıdır.
+**Uygulamadaki Risk:** Yargıtay, tahliye taahhüdünün kira sözleşmesinden **sonraki** bir tarihte verilmesini şart koşar. Ancak boş kağıda imza atılması durumunda, kiracının "beyaza imza" attığı ve sonucuna katlanması gerektiği yönünde kararlar mevcuttur. Bu nedenle, sözleşme anında tarihiz hiçbir belgeye imza atılmamalıdır. Tahliye taahhüdünün geçerlilik şartları, tarihsiz taahhütlerin durumu ve bir aylık icra/dava süresi [tahliye taahhüdü ile tahliye](/yayinlar/tahliye-taahhudu) yazısında ayrıntılı olarak ele alınmaktadır.
 
 Sözleşme sonrasında ortaya çıkan uyuşmazlıklarda; kira bedelinin güncellenmesi [kira tespit davası](/yayinlar/kira-tespit-davasi), taahhüde veya ihtiyaca dayalı tahliye ise [ev sahibinin tahliye şartları](/yayinlar/ev-sahibi-tahliye-sartlari-2025) süreçleriyle yakından ilişkilidir. Konunun bütünü için [kira hukuku](/calisma-alanlari/kira-hukuku) alanı incelenebilir.
 
