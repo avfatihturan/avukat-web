@@ -2,7 +2,7 @@
 title: "Araç Değer Kaybı: Sigorta Tahkim Komisyonu Başvuru Şartları ve Hesaplama"
 description: "Araç değer kaybı nedir, nasıl alınır? Sigorta Tahkim Komisyonu başvuru süreci, 15 gün kuralı ve Yargıtay kararlarına göre hesaplama yöntemleri."
 pubDate: 2026-01-03
-updatedDate: 2026-08-30
+updatedDate: 2026-09-12
 heroImage: "/images/tahkim-yeni.webp"
 heroAlt: "Hasarlı araç ve sigorta tahkim süreci görseli"
 tag: "SİGORTA HUKUKU"
@@ -22,6 +22,9 @@ faqs:
 ---
 
 # Araç Değer Kaybı: Sigorta Tahkim Komisyonu Başvuru Şartları ve Hesaplama
+
+> **Kısa Özet (AnswerBox):**
+> Araç değer kaybı, trafik kazasında onarılsa dahi TRAMER kaydı nedeniyle ikinci el piyasasında oluşan maddi düşüştür ve kusurlu tarafın zorunlu trafik sigortasından talep edilir. Çift taraflı kaza ile az veya kusursuzluk şartı aranır; kilometre sınırı kaldırılmıştır. Sigorta şirketine yazılı başvurudan sonra 15 gün içinde sonuç alınamazsa Sigorta Tahkim Komisyonu yolu açılır.
 
 Trafik kazası sonrası onarılan araçlarda, mekanik ve kaporta düzeltilse dahi TRAMER kayıtlarına işlenen hasar nedeniyle ikinci el piyasasında oluşan maddi düşüşe **"Araç Değer Kaybı"** denir. Yargıtay 17. Hukuk Dairesi'nin yerleşik içtihatlarına göre bu kayıp, "doğrudan zarar" niteliğindedir ve sigorta şirketleri tarafından tazmin edilmelidir.
 

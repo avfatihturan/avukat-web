@@ -2,7 +2,7 @@
 title: "Ev Sahibi Kiracıyı Hangi Şartlarda Tahliye Edebilir?"
 description: "İhtiyaç nedeniyle tahliye, 10 yıl uzama süresi ve tahliye taahhütnamesinin güncel yargı uygulamalarındaki geçerlilik şartları."
 pubDate: 2025-12-21
-updatedDate: 2026-08-30
+updatedDate: 2026-09-12
 heroImage: "/images/ev-sahibi-tahliye-rehberi.webp"
 heroAlt: "Kira hukuku tahliye davası ve ihtarname süreci"
 tag: "KİRA HUKUKU"
@@ -22,6 +22,9 @@ faqs:
 ---
 
 # Ev Sahibi Kiracıyı Hangi Şartlarda Tahliye Edebilir?
+
+> **Kısa Özet (AnswerBox):**
+> Ev sahibi kiracıyı ancak kanunda sayılan sınırlı sebeplerle tahliye edebilir: gerçek ve samimi konut/işyeri ihtiyacı, on yıllık uzama süresinin dolması, geçerli tahliye taahhüdü, bir kira yılında iki haklı yazılı ihtar veya yeni malikin ihtiyacı. Her sebep kendine özgü ihtar ve dava sürelerine tabidir; usul veya süre hatası, davanın reddine ve kira ilişkisinin uzamasına yol açar.
 
 Kira hukuku, uygulamada en sık karşılaşılan ve aynı zamanda en fazla yanlış yorumlanan alanlardan biridir. 2025 yılı itibarıyla Türk Borçlar Kanunu (TBK) ve güncel yargı içtihatları çerçevesinde, bir mülk sahibinin kiracısını tahliye edebilmesi için kanunda sayılan sınırlı sayıdaki sebeplerden birinin varlığı şarttır.
 

@@ -2,7 +2,7 @@
 title: "İşe İade Davası: Şartları, Süreç ve Emsal Yargıtay Kararları"
 description: "İşe iade davası nedir? 30 işçi ve 6 ay kıdem şartı, zorunlu arabuluculuk süreci, işe başlatmama tazminatı hesabı ve performans nedenli fesihlerde Yargıtay kriterleri."
 pubDate: 2026-01-03
-updatedDate: 2026-08-30
+updatedDate: 2026-09-12
 heroImage: "/images/is-hukuku-hero.webp"
 heroAlt: "İş mahkemesi ve işe iade süreci illüstrasyonu"
 tag: "İŞ HUKUKU"
@@ -22,6 +22,9 @@ faqs:
 ---
 
 # İşe İade Davası: Şartları, Süreç ve Emsal Yargıtay Kararları
+
+> **Kısa Özet (AnswerBox):**
+> İşe iade davası, iş güvencesi kapsamındaki işçinin geçersiz feshe karşı işine dönmesini sağlar. Şartları birlikte aranır: işyerinde en az 30 işçi, en az 6 aylık kıdem, belirsiz süreli sözleşme ve işveren vekili olmamak. Fesihten itibaren 1 ay içinde arabulucuya, anlaşma sağlanamazsa 2 hafta içinde dava açılır; işe başlatmama tazminatı 4-8 aylık ücret tutarındadır.
 
 İş hukukunda "iş güvencesi" kavramının en önemli mekanizması olan işe iade davası; işverenin geçerli bir sebep göstermeden veya usulüne uygun olmayan bir gerekçeyle iş sözleşmesini feshetmesi durumunda, işçinin işine geri dönmesini veya tazminat haklarını almasını sağlayan hukuki bir yoldur.
 

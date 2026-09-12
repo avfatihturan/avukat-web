@@ -2,7 +2,7 @@
 title: "Uluslararası Hukukta Egemenlik ve Yargı Yetkisi: Maduro ve Netanyahu Vakaları"
 description: "Uluslararası Ceza Mahkemesi'nin yetki sınırları, liderlerin dokunulmazlığı ve yargı kararlarının icra kabiliyeti Maduro ve Netanyahu dosyaları üzerinden analiz edilmektedir."
 pubDate: 2026-01-05
-updatedDate: 2026-08-30
+updatedDate: 2026-09-12
 heroImage: "/images/uluslararasi-hukuk-yargi-yetkisi.webp"
 heroAlt: "Uluslararası hukuk, egemenlik ve yargı yetkisi kavramlarını temsil eden görsel"
 tag: "ULUSLARARASI HUKUK"
@@ -20,6 +20,9 @@ faqs:
 ---
 
 # Uluslararası Hukukta Egemenlik ve Yargı Yetkisi: Maduro ve Netanyahu Vakaları
+
+> **Kısa Özet (AnswerBox):**
+> Uluslararası Ceza Mahkemesi, devlet başkanı veya hükümet üyesi sıfatının sağladığı dokunulmazlığı tanımaz (Roma Statüsü m.27) ve ulusal yargının işlemediği hallerde tamamlayıcılık ilkesiyle devreye girer. Yargı yetkisi, failin ya da suçun işlendiği toprakların Statü'ye taraf olmasına dayanır. Yakalama kararlarının icrası ise hukuki geçerlilikten çok devletlerin siyasi iş birliğine bağlı kalmaktadır.
 
 Uluslararası hukuk sisteminde bir "üst otorite" ve küresel bir kolluk gücünün eksikliği, sistemin normatif varlığına dair meşruiyet tartışmalarını beraberinde getirmektedir. Ancak 1474 tarihli Peter von Hagenbach yargılamasından Nürnberg ve Tokyo mahkemelerine uzanan tarihsel süreç, devlet egemenliğinin bireysel cezai sorumluluğu perdeleyemeyeceği ilkesini uluslararası ceza hukukuna yerleştirmiştir. Günümüzde Uluslararası Ceza Mahkemesi (UCM); Nicolás Maduro ve Binyamin Netanyahu hakkındaki dosyalarla, hukukun siyasi güce karşı denetim kabiliyetini test etmektedir.
 

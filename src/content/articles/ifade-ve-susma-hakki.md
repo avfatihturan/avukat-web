@@ -2,7 +2,7 @@
 title: "İfadeye Çağrıldınız: Emniyet ve Savcılıkta Susma Hakkı Ne Zaman Kullanılmalı?"
 description: "Emniyet ve savcılık ifadelerinde susma hakkının hukuki niteliği, CMK 147 kapsamındaki şüpheli hakları ve Yargıtay'ın susma hakkına yaklaşımı hakkında detaylı rehber."
 pubDate: 2026-01-04
-updatedDate: 2026-08-30
+updatedDate: 2026-09-12
 heroImage: "/images/ifadeye-cagrilmak-susma-hakki.webp"
 heroAlt: "Adliye koridorunda bekleyen bir kişi ve hukuk sembolleri."
 tag: "CEZA HUKUKU"
@@ -22,6 +22,9 @@ faqs:
 ---
 
 # İfadeye Çağrıldınız: Emniyet ve Savcılıkta Susma Hakkı Ne Zaman Kullanılmalı?
+
+> **Kısa Özet (AnswerBox):**
+> Susma hakkı, şüphelinin kendisini suçlayıcı beyanda bulunmaya zorlanamamasıdır (Anayasa m.38, CMK m.147). Yalnızca suç isnadına ilişkin soruları kapsar; kimliğe ilişkin sorular doğru cevaplanmak zorundadır. Yargıtay'a göre susma hakkının kullanılması sanık aleyhine delil sayılamaz. Müdafi hazır olmadan kollukça alınan ifade, hâkim veya mahkeme önünde doğrulanmadıkça hükme esas alınamaz.
 
 Ceza muhakemesi sürecinin en kritik aşamalarından birini teşkil eden ifade verme işlemi, şüphelinin üzerine atılı suçlama hakkındaki ilk beyanlarını ve savunma stratejisinin temelini oluşturmaktadır. 5271 sayılı Ceza Muhakemesi Kanunu (CMK) m.147 uyarınca, ifade alma veya sorgu öncesinde şüpheliye yasal haklarının hatırlatılması bir zorunluluktur ve bu hakların başında, kişinin kendisini suçlayıcı beyanda bulunmama özgürlüğünü koruyan "susma hakkı" gelmektedir.
 

@@ -2,7 +2,7 @@
 title: "Hakaret Suçu, Şartları ve Yargıtay Kararları (TCK m.125)"
 description: "Hakaret suçu nedir? Sosyal medyada hakaret, ekran görüntüsünün delil değeri, kaba söz ayrımı ve Yargıtay kararlarına göre ceza indirimi halleri."
 pubDate: 2026-01-03
-updatedDate: 2026-08-30
+updatedDate: 2026-09-12
 heroImage: "/images/dijital-delil-guvenilirlik-piramidi.webp"
 heroAlt: "Dijital ortamda hakaret suçu ve hukuki süreç"
 tag: "CEZA HUKUKU"
@@ -22,6 +22,9 @@ faqs:
 ---
 
 # Hakaret Suçu, Şartları ve Yargıtay Kararları (TCK m.125)
+
+> **Kısa Özet (AnswerBox):**
+> Hakaret suçu (TCK m.125), bir kişiye somut fiil isnat etmek veya sövmek suretiyle onur, şeref ve saygınlığını rencide etmektir. Yargıtay'a göre kaba/nezaket dışı sözler ile beddualar hakaret sayılmaz. Sosyal medyada ekran görüntüsü tek başına çoğu zaman yetersiz kalır; e-tespit, adli bilişim incelemesi veya tanık gerekir. Şikâyet süresi, fiil ve failin öğrenilmesinden itibaren 6 aydır.
 
 Hakaret suçu; bir kimsenin onur, şeref ve saygınlığını rencide edebilecek nitelikte somut bir fiil veya olgu isnat etmek ya da sövmek suretiyle işlenen, Türk Ceza Kanunu’nun 125. maddesinde düzenlenen, şerefe karşı işlenen suçlar kapsamındaki bir fiildir.
 

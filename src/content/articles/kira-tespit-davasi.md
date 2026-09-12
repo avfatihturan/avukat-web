@@ -2,7 +2,7 @@
 title: "Kira Tespit Davası: Şartları, 5 Yıl Kuralı ve Emsal Yargıtay Kararları"
 description: "Kira tespit davası nedir? 5 yıllık süre, hakkaniyet indirimi, ıslah yasağı ve arabuluculuk şartı. Yargıtay kararları ışığında kira bedeli belirleme rehberi."
 pubDate: 2026-01-03
-updatedDate: 2026-08-30
+updatedDate: 2026-09-12
 heroImage: "/images/kira-tespit-hero.webp"
 heroAlt: "Kira bedelinin tespiti davası süreç şeması"
 tag: "KİRA HUKUKU"
@@ -22,6 +22,9 @@ faqs:
 ---
 
 # Kira Tespit Davası: Şartları, 5 Yıl Kuralı ve Emsal Yargıtay Kararları
+
+> **Kısa Özet (AnswerBox):**
+> Kira tespit davası, kira bedelinin emsal rayiç ve hakkaniyete göre hâkim tarafından yeniden belirlenmesidir. Sözleşmenin beşinci yılı dolmadan yalnızca TÜFE üst sınırı uygulanır; beş yıldan sonra rayiç bedel değerlendirilir ve eski kiracı lehine hakkaniyet indirimi yapılır. Yeni bedelin dönem başından geçerli olması için 30 gün önce dava veya ihtar gerekir; arabuluculuk dava şartıdır.
 
 Kira sözleşmelerinde taraflar arasındaki en büyük uyuşmazlık konularından biri, değişen ekonomik koşullar karşısında kira bedelinin yeniden belirlenmesidir. Özellikle enflasyon oranlarındaki değişim ve rayiç bedellerdeki artış, **Kira Tespit Davası** (Kira Bedelinin Belirlenmesi Davası) kurumunu hukuki gündemin merkezine taşımıştır.
 
