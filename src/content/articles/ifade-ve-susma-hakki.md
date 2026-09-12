@@ -2,7 +2,7 @@
 title: "İfadeye Çağrıldınız: Emniyet ve Savcılıkta Susma Hakkı Ne Zaman Kullanılmalı?"
 description: "Emniyet ve savcılık ifadelerinde susma hakkının hukuki niteliği, CMK 147 kapsamındaki şüpheli hakları ve Yargıtay'ın susma hakkına yaklaşımı hakkında detaylı rehber."
 pubDate: 2026-01-04
-updatedDate: 2026-09-12
+updatedDate: 2026-09-13
 heroImage: "/images/ifadeye-cagrilmak-susma-hakki.webp"
 heroAlt: "Adliye koridorunda bekleyen bir kişi ve hukuk sembolleri."
 tag: "CEZA HUKUKU"
@@ -59,7 +59,7 @@ Yargıtay yerleşik içtihatlarında, susma hakkının kullanılmasının asla s
 * **Hakların Hatırlatılması:** Susma hakkı ve diğer yasal hakların hatırlatılması, ifade alma işleminin başlangıcında derhal yerine getirilmesi gereken bir yükümlülüktür.
 * **Dava Açma ve Zamanaşımı:** İfadenin alınmasından sonra davanın ne kadar sürede açılacağı suçun niteliğine ve delil durumuna göre değişmekle birlikte; dava zamanaşımı süreleri Türk Ceza Kanunu m.66 uyarınca suçun türüne göre 8 yıldan başlayarak farklılık göstermektedir.
 
-Somut suç tiplerinde ifade stratejisi farklılaşabilir; örneğin [bilişim yoluyla dolandırıcılık ve hesap kullandırma](/yayinlar/bilisim-dolandiricilik-tck158) dosyalarında kast değerlendirmesi, [hakaret suçu](/yayinlar/whatsapp-hakaret-delil) dosyalarında ise delil tespiti öne çıkmaktadır. Genel bilgi için [ceza hukuku](/calisma-alanlari/ceza-hukuku) sayfası incelenebilir.
+İfade çoğu zaman gözaltı sürecinin bir parçası olarak alınır; gözaltı süreleri, hakların hatırlatılması ve müdafi güvencesi için [gözaltı süreci: süreler, haklar ve sınırlar](/yayinlar/gozalti-sureci) yazısı incelenebilir. Somut suç tiplerinde ifade stratejisi farklılaşabilir; örneğin [bilişim yoluyla dolandırıcılık ve hesap kullandırma](/yayinlar/bilisim-dolandiricilik-tck158) dosyalarında kast değerlendirmesi, [hakaret suçu](/yayinlar/whatsapp-hakaret-delil) dosyalarında ise delil tespiti öne çıkmaktadır. Genel bilgi için [ceza hukuku](/calisma-alanlari/ceza-hukuku) sayfası incelenebilir.
 
 ## 5. Neden Profesyonel Hukuki Destek Önemlidir?
 

@@ -2,7 +2,7 @@
 title: "Bilişim Sistemleri Aracılığıyla Dolandırıcılık (TCK 158) ve Hesap Kullandırma: Güncel Yargıtay İçtihatları"
 description: "TCK 158/1-f kapsamında banka hesabının kullandırılması, Yargıtay 11. CD 2024/7470 kararı ışığında 'ödeme aracı' ayrımı, olası kast ve etkin pişmanlık."
 pubDate: "2026-01-25"
-updatedDate: 2026-08-30
+updatedDate: 2026-09-13
 heroImage: "/images/bilisim-dolandiricilik-banka-hesabi-tck158.webp"
 heroAlt: "Dijital bankacılık, ceza hukuku ve hesap güvenliği simgeleri"
 tag: "CEZA HUKUKU"
@@ -78,7 +78,7 @@ durumlarında indirim hükümleri uygulanabilmektedir.
 
 Ancak etkin pişmanlık hükümlerinin uygulanması **otomatik değildir**. Zararın giderilme şekli, zamanı, kapsamı ve failin suçtaki konumu birlikte değerlendirilmekte; nihai olarak **mahkemenin takdir yetkisi** çerçevesinde karar verilmektedir. Kısmi ödemelerde ise mağdurun açık rızası aranır.
 
-Soruşturma aşamasında ifade verirken susma hakkının doğru kullanımı [emniyet ve savcılıkta susma hakkı](/yayinlar/ifade-ve-susma-hakki) yazısında, dijital delillerin ispat değeri ise [dijital ortamda hakaret ve ekran görüntüsünün delil niteliği](/yayinlar/whatsapp-hakaret-delil) yazısında ele alınmaktadır. Genel çerçeve için [ceza hukuku](/calisma-alanlari/ceza-hukuku) alanı incelenebilir.
+Soruşturma aşamasında ifade verirken susma hakkının doğru kullanımı [emniyet ve savcılıkta susma hakkı](/yayinlar/ifade-ve-susma-hakki) yazısında, gözaltına alınma hâlinde süreler ve haklar [gözaltı süreci](/yayinlar/gozalti-sureci) yazısında, dijital delillerin ispat değeri ise [dijital ortamda hakaret ve ekran görüntüsünün delil niteliği](/yayinlar/whatsapp-hakaret-delil) yazısında ele alınmaktadır. Genel çerçeve için [ceza hukuku](/calisma-alanlari/ceza-hukuku) alanı incelenebilir.
 
 ## 6. Hukuki Sürecin Yönetiminin Önemi
 
